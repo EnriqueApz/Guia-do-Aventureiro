@@ -13,9 +13,12 @@ import { Section } from '../parts/Section';
 import { BeginnerNote } from '../parts/BeginnerNote';
 import { StepHeader } from '../parts/StepHeader';
 import type { StepProps } from '../WizardPage';
+import { allowed, homebrewBlocked } from '@/model/table';
+import { useTable } from '@/state/table';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 
 export default function SpeciesStep({ wizard }: StepProps) {
+  const tableRules = useTable((st) => st.rules);
   const { character, edit } = wizard;
   const species = content.species.find((s) => s.id === character.speciesId);
   const lineage = species?.lineages.find((l) => l.id === character.lineageId);
@@ -37,6 +40,8 @@ export default function SpeciesStep({ wizard }: StepProps) {
         {content.species.map((s) => (
           <OptionCard
             key={s.id}
+            disabled={!allowed(tableRules?.species, s.id) || homebrewBlocked(tableRules, s)}
+            disabledReason="Não liberado pela mesa."
             selected={s.id === character.speciesId}
             onSelect={() => edit((c) => selectSpecies(c, s.id, content))}
             title={s.name}
@@ -58,7 +63,7 @@ export default function SpeciesStep({ wizard }: StepProps) {
             disabled
             title={s.name}
             subtitle={s.ref}
-            disabledReason="Incompleto: fora do SRD. Dá para preencher em “Conteúdo próprio” (em breve)."
+            disabledReason="Incompleto: fora do SRD. Complete em “Conteúdo próprio”."
             icon={<Monogram name={s.name} />}
           />
         ))}

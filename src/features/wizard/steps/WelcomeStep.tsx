@@ -6,6 +6,7 @@ import { GlossaryTerm } from '../parts/GlossaryTerm';
 import { OptionCard } from '../parts/OptionCard';
 import { StepHeader } from '../parts/StepHeader';
 import type { StepProps } from '../WizardPage';
+import { useTable } from '@/state/table';
 
 const PIECES = [
   {
@@ -31,6 +32,8 @@ const PIECES = [
 ];
 
 export default function WelcomeStep({ wizard, goTo }: StepProps) {
+  const tableRules = useTable((st) => st.rules);
+  const fixedLevel = !!tableRules?.level;
   const { character, edit } = wizard;
   const levelId = useId();
   const nameId = useId();
@@ -88,7 +91,7 @@ export default function WelcomeStep({ wizard, goTo }: StepProps) {
               variant="secundario"
               size="icone"
               aria-label="Diminuir nível"
-              disabled={character.level <= 1}
+              disabled={fixedLevel || character.level <= 1}
               onClick={() => edit((c) => setLevel(c, c.level - 1))}
             >
               <Minus aria-hidden className="size-5" />
@@ -100,6 +103,7 @@ export default function WelcomeStep({ wizard, goTo }: StepProps) {
               min={1}
               max={20}
               value={character.level}
+              readOnly={fixedLevel}
               onChange={(e) => edit((c) => setLevel(c, Number(e.target.value) || 1))}
               className="num h-11 w-20 rounded-lg border border-line-strong bg-bg text-center text-xl font-semibold"
             />
@@ -107,12 +111,18 @@ export default function WelcomeStep({ wizard, goTo }: StepProps) {
               variant="secundario"
               size="icone"
               aria-label="Aumentar nível"
-              disabled={character.level >= 20}
+              disabled={fixedLevel || character.level >= 20}
               onClick={() => edit((c) => setLevel(c, c.level + 1))}
             >
               <Plus aria-hidden className="size-5" />
             </Button>
           </div>
+          {fixedLevel && (
+            <p className="mt-2 text-sm font-semibold text-gold">
+              A mesa{tableRules?.name ? ` “${tableRules.name}”` : ''} começa no nível{' '}
+              {tableRules?.level}.
+            </p>
+          )}
           {character.level >= 5 && (
             <p
               role="note"

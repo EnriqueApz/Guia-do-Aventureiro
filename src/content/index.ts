@@ -29,6 +29,7 @@ import subclasses from './srd/subclasses.json';
 import weaponProperties from './srd/weapon-properties.json';
 import glossary from './glossary.json';
 import stubs from './stubs/stubs.json';
+import { loadHomebrew, mergeContent } from './homebrew';
 import type { ContentBundle } from './schema';
 
 /**
@@ -67,4 +68,11 @@ export const rawContent = {
   stubs,
 };
 
-export const content = rawContent as unknown as ContentBundle;
+/** Só o SRD (sem o conteúdo próprio do grupo). */
+export const srdContent = rawContent as unknown as ContentBundle;
+
+/** Conteúdo próprio lido ao abrir o site (mudanças valem depois de recarregar). */
+export const homebrewAtLoad = loadHomebrew();
+
+/** Conteúdo usado pelo site: SRD + conteúdo próprio salvo neste navegador. */
+export const content = mergeContent(srdContent, homebrewAtLoad);

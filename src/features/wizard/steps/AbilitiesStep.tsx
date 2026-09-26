@@ -33,6 +33,7 @@ import { GlossaryTerm } from '../parts/GlossaryTerm';
 import { Section } from '../parts/Section';
 import { StepHeader } from '../parts/StepHeader';
 import type { StepProps } from '../WizardPage';
+import { useTable } from '@/state/table';
 
 const METHODS: { value: AbilityMethod; label: string }[] = [
   { value: 'padrao', label: 'Array padrão' },
@@ -53,6 +54,7 @@ const METHOD_HELP: Record<AbilityMethod, string> = {
 };
 
 export default function AbilitiesStep({ wizard }: StepProps) {
+  const tableRules = useTable((st) => st.rules);
   const { character, sheet, edit } = wizard;
   const { method, base } = character.abilities;
   const classDef = content.classes.find((c) => c.id === character.classId);
@@ -77,7 +79,7 @@ export default function AbilitiesStep({ wizard }: StepProps) {
 
       <Segmented
         legend="Como gerar os valores"
-        options={METHODS}
+        options={METHODS.filter((m) => tableRules?.abilityMethods.includes(m.value) ?? true)}
         value={method}
         onChange={(m) => edit((c) => setAbilityMethod(c, m, content))}
       />

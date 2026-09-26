@@ -6,8 +6,9 @@ linguagem simples, e uma ficha que se monta sozinha enquanto você escolhe.
 
 Site estático, sem servidor: os personagens ficam salvos no navegador de cada um.
 
-> **Status:** fase 6 de 8 (assistente completo com a ficha ao vivo, apoio ao novato,
-> ficha com modo jogo e rolador de dados, e vários personagens com exportar/importar). Veja o
+> **Status:** fase 7 de 8 (assistente completo, apoio ao novato, modo jogo, impressão
+> em A4, link de ficha só leitura, modo mesa, guia rápido, conteúdo próprio e app
+> instalável que funciona offline). Veja o
 > plano em [`docs/PLANO.md`](docs/PLANO.md), as decisões em
 > [`docs/DECISIONS.md`](docs/DECISIONS.md) e o guia do conteúdo em
 > [`docs/CONTEUDO.md`](docs/CONTEUDO.md).

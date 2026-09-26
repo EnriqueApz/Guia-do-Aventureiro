@@ -3,6 +3,32 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-26 · Compartilhar, imprimir, mesa, conteúdo próprio e PWA
+
+**Contexto:** sem servidor, tudo o que sai do aparelho precisa ir em arquivo ou no
+próprio link.
+**Decisão:**
+
+- **Links** (`/ver#d=...` e `/mesa#m=...`) levam o JSON comprimido com lz-string no
+  `#hash`, que não chega a servidor nenhum; ao abrir, tudo é validado com Zod. O
+  link de ficha não leva o estado de jogo.
+- **Impressão**: `/ficha/:id/imprimir` monta a ficha em A4 (números; magias;
+  história e equipamento) com CSS de impressão sempre claro e margens de 12 mm. O
+  guia rápido também imprime (duas folhas). Conferido gerando PDF no Chromium.
+- **Mesa**: as regras (nível, opções liberadas, métodos de atributos e de PV,
+  conteúdo próprio) ficam em `guia:mesa`. O assistente bloqueia o que não foi
+  liberado e a validação aponta o que ficou fora (`src/model/table.ts`).
+- **Conteúdo próprio**: formulários para espécies, subclasses e antecedentes (só
+  texto, mais visão no escuro, perícias e atributos), salvos em `guia:conteudo` e
+  mesclados sobre o SRD ao abrir o site; por isso as mudanças valem depois de
+  "Aplicar mudanças" (recarrega). Completar um stub = criar a opção com o mesmo id.
+  Pacotes JSON passam pelo mesmo `content:check`, e ids do SRD são recusados.
+- **PWA**: vite-plugin-pwa com precache de tudo (inclusive o conteúdo com as
+  magias), manifesto em pt-BR e ícones gerados do favicon.
+  **Consequências:** o primeiro acesso baixa ~1,9 MB para o cache; depois o site
+  funciona offline. Safari não pôde ser testado aqui: a impressão foi conferida no
+  Chromium.
+
 ## 2026-09-26 · Modo jogo, rolador e vários personagens
 
 **Contexto:** na mesa, a ficha precisa acompanhar o que acontece (PV, espaços,

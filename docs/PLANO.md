@@ -1,6 +1,6 @@
 # Guia do Aventureiro — Plano de projeto
 
-> Status: **aprovado com ajustes** (veja abaixo). Fases 1 a 6 concluídas; próxima: fase 7.
+> Status: **aprovado com ajustes** (veja abaixo). Fases 1 a 7 concluídas; próxima: fase 8.
 
 ## 0. Decisões aprovadas
 
