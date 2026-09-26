@@ -4,6 +4,7 @@ import { pointBuySpent } from '@/rules/abilities';
 import { makeCharacter, thorin } from '@/test/characters';
 import {
   abilityPriority,
+  applySuggestion,
   applyBeginnerKit,
   applyClassSuggestion,
   assignScore,
@@ -223,5 +224,21 @@ describe('kit para iniciantes', () => {
   it('sem classe ou sem kit, nada muda', () => {
     const c = makeCharacter({});
     expect(applyBeginnerKit(c, content)).toBe(c);
+  });
+});
+
+describe('Me guie', () => {
+  it('aplica espécie, classe e antecedente de uma vez', () => {
+    const c = applySuggestion(
+      makeCharacter({}),
+      { speciesId: 'dwarf', classId: 'fighter', backgroundId: 'soldier' },
+      content,
+    );
+    expect(c).toMatchObject({
+      speciesId: 'dwarf',
+      classId: 'fighter',
+      backgroundId: 'soldier',
+      size: 'Médio',
+    });
   });
 });

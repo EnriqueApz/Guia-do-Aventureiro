@@ -33,6 +33,8 @@ const STEP_COMPONENTS: Record<string, ComponentType<StepProps>> = {
   detalhes: lazy(() => import('./steps/DetailsStep')),
   revisao: lazy(() => import('./steps/ReviewStep')),
 };
+/** Questionário "Me guie": uma tela fora da sequência das 9 etapas. */
+const GuidedStep = lazy(() => import('./steps/GuidedStep'));
 
 const DONE_TEXT: Record<string, string> = {
   especie: 'Espécie escolhida. Tudo certo por aqui!',
@@ -60,7 +62,8 @@ export default function WizardPage() {
   // Lembra a etapa para o "continuar de onde parei" e leva o foco para o topo da etapa.
   useEffect(() => {
     if (!character || !etapa) return;
-    if (character.wizardStep !== etapa) edit((c) => ({ ...c, wizardStep: etapa }));
+    if (STEPS.some((s) => s.id === etapa) && character.wizardStep !== etapa)
+      edit((c) => ({ ...c, wizardStep: etapa }));
     headingRef.current?.focus({ preventScroll: true });
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,7 +83,8 @@ export default function WizardPage() {
     );
   }
 
-  if (!etapa || !STEPS.some((s) => s.id === etapa)) {
+  const guided = etapa === 'me-guie';
+  if (!guided && (!etapa || !STEPS.some((s) => s.id === etapa))) {
     const resume = stepAt(stepIndex(character.wizardStep)).id;
     return <Navigate to={`/criar/${id}/${resume}`} replace />;
   }
@@ -91,6 +95,18 @@ export default function WizardPage() {
     edit((c) => (c.wizardStep === stepId ? c : { ...c, wizardStep: stepId }));
     void navigate(`/criar/${id}/${stepId}`);
   };
+  if (guided) {
+    return (
+      <MotionConfig reducedMotion={reduceMotion ? 'always' : 'user'}>
+        <div ref={headingRef} tabIndex={-1} className="outline-none">
+          <Suspense fallback={<StepLoading />}>
+            <GuidedStep stepId="me-guie" wizard={loaded} goTo={goTo} />
+          </Suspense>
+        </div>
+      </MotionConfig>
+    );
+  }
+
   const prev = STEPS[current - 1];
   const next = STEPS[current + 1];
   const stepIssues = step.issueStep ? issues.filter((i) => i.step === step.issueStep) : [];

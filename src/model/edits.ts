@@ -460,3 +460,17 @@ export function setName(c: Character, name: string): Character {
 export function setDetails(c: Character, patch: Partial<Character['details']>): Character {
   return { ...c, details: { ...c.details, ...patch } };
 }
+
+// ------------------------------------------------------------------ Me guie
+
+/** Aplica uma sugestão do "Me guie": espécie, classe e antecedente de uma vez. */
+export function applySuggestion(
+  c: Character,
+  s: { speciesId: string; classId: string; backgroundId: string },
+  content: ContentBundle,
+): Character {
+  let next = selectSpecies(c, s.speciesId, content);
+  next = selectClass(next, s.classId, content);
+  next = selectBackground(next, s.backgroundId, content);
+  return next;
+}

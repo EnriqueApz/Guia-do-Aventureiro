@@ -403,5 +403,119 @@
     "aliases": ["components", "V, S, M"],
     "short": "O que a magia exige para ser lançada: V (falar em voz alta), S (gestos com uma mão livre) e M (um material; um foco de conjuração substitui o material que não tem custo nem é consumido).",
     "seeAlso": ["magia"]
+  },
+  {
+    "id": "atacar",
+    "term": "Atacar",
+    "aliases": ["attack", "ação atacar"],
+    "short": "A ação de fazer um ataque com arma ou desarmado (ou mais de um, se você tiver Ataque Extra).",
+    "long": "Cada ataque é uma jogada de ataque: role o d20, some o bônus e compare com a CA do alvo. Se acertar, role o dano.",
+    "seeAlso": ["jogada-de-ataque", "acao"]
+  },
+  {
+    "id": "disparada",
+    "term": "Disparada",
+    "aliases": ["dash", "correr"],
+    "short": "Você corre: ganha movimento extra igual ao seu Deslocamento neste turno.",
+    "seeAlso": ["deslocamento", "acao"]
+  },
+  {
+    "id": "desengajar",
+    "term": "Desengajar",
+    "aliases": ["disengage"],
+    "short": "Seu movimento não provoca Ataques de Oportunidade até o fim do turno.",
+    "seeAlso": ["ataque-de-oportunidade", "acao"]
+  },
+  {
+    "id": "esquivar",
+    "term": "Esquivar",
+    "aliases": ["dodge"],
+    "short": "Até seu próximo turno, ataques contra você têm Desvantagem e você tem Vantagem em salvaguardas de Destreza.",
+    "long": "O efeito acaba se você ficar Incapacitado ou com Deslocamento 0.",
+    "seeAlso": ["desvantagem", "acao"]
+  },
+  {
+    "id": "ajudar",
+    "term": "Ajudar",
+    "aliases": ["help"],
+    "short": "Você ajuda um aliado: ele ganha Vantagem no próximo teste ou ataque em que você colaborou.",
+    "seeAlso": ["vantagem", "acao"]
+  },
+  {
+    "id": "esconder",
+    "term": "Esconder",
+    "aliases": ["hide", "se esconder"],
+    "short": "Você tenta sumir de vista com um teste de Destreza (Furtividade) enquanto está fora da visão dos inimigos.",
+    "seeAlso": ["pericia", "acao"]
+  },
+  {
+    "id": "influenciar",
+    "term": "Influenciar",
+    "aliases": ["influence"],
+    "short": "Você tenta convencer, enganar ou intimidar alguém com um teste de Carisma (ou Sabedoria para lidar com animais).",
+    "seeAlso": ["teste-de-atributo", "acao"]
+  },
+  {
+    "id": "acao-magia",
+    "term": "Magia (ação)",
+    "aliases": ["magic action", "ação magia"],
+    "short": "A ação usada para lançar uma magia de 1 ação ou ativar um item ou poder mágico.",
+    "seeAlso": ["magia", "acao"]
+  },
+  {
+    "id": "preparar",
+    "term": "Preparar",
+    "aliases": ["ready"],
+    "short": "Você deixa algo pronto para fazer quando um gatilho acontecer (ex.: atacar quem abrir a porta), usando a Reação.",
+    "seeAlso": ["reacao", "acao"]
+  },
+  {
+    "id": "procurar",
+    "term": "Procurar",
+    "aliases": ["search"],
+    "short": "Você procura algo com um teste de Sabedoria (Percepção, Intuição, Medicina ou Sobrevivência).",
+    "seeAlso": ["pericia", "acao"]
+  },
+  {
+    "id": "estudar",
+    "term": "Estudar",
+    "aliases": ["study"],
+    "short": "Você examina algo ou puxa da memória com um teste de Inteligência (Arcanismo, História, Investigação, Natureza ou Religião).",
+    "seeAlso": ["pericia", "acao"]
+  },
+  {
+    "id": "usar",
+    "term": "Usar",
+    "aliases": ["utilize"],
+    "short": "Você mexe num objeto que exige uma ação: abrir uma fechadura, beber uma poção, acender uma lanterna.",
+    "seeAlso": ["acao"]
+  },
+  {
+    "id": "cobertura",
+    "term": "Cobertura",
+    "aliases": ["cover", "meia cobertura", "cobertura de três quartos"],
+    "short": "Obstáculos protegem você: Meia Cobertura dá +2 na CA, Três Quartos dá +5, e Total impede que te mirem.",
+    "seeAlso": ["ca"]
+  },
+  {
+    "id": "iluminacao",
+    "term": "Luz Plena e Penumbra",
+    "aliases": ["bright light", "dim light", "penumbra", "luz plena", "escuridão"],
+    "short": "Na Luz Plena todo mundo enxerga normal; na Penumbra fica difícil perceber detalhes; na Escuridão, sem Visão no Escuro, você fica Cego.",
+    "seeAlso": ["visao-no-escuro", "obscurecido"]
+  },
+  {
+    "id": "obscurecido",
+    "term": "Obscurecido",
+    "aliases": ["obscured", "levemente obscurecido", "totalmente obscurecido"],
+    "short": "Neblina, folhagem ou pouca luz: levemente obscurecido atrapalha a Percepção; totalmente obscurecido funciona como estar Cego.",
+    "seeAlso": ["iluminacao"]
+  },
+  {
+    "id": "foco-de-conjuracao",
+    "term": "Foco de Conjuração",
+    "aliases": ["spellcasting focus", "foco arcano", "símbolo sagrado"],
+    "short": "Um objeto (cajado, orbe, símbolo sagrado...) que substitui os componentes materiais sem custo das suas magias.",
+    "seeAlso": ["componentes", "magia"]
   }
 ]

@@ -1,5 +1,5 @@
-import { Compass, Minus, Plus, Sparkles } from 'lucide-react';
-import { useId, useState } from 'react';
+import { Compass, Minus, Plus, Sparkles, TriangleAlert } from 'lucide-react';
+import { useId } from 'react';
 import { Button } from '@/components/ui/Button';
 import { setLevel } from '@/model/edits';
 import { GlossaryTerm } from '../parts/GlossaryTerm';
@@ -34,7 +34,6 @@ export default function WelcomeStep({ wizard, goTo }: StepProps) {
   const { character, edit } = wizard;
   const levelId = useId();
   const nameId = useId();
-  const [guided, setGuided] = useState(false);
 
   return (
     <div className="space-y-8">
@@ -114,6 +113,19 @@ export default function WelcomeStep({ wizard, goTo }: StepProps) {
               <Plus aria-hidden className="size-5" />
             </Button>
           </div>
+          {character.level >= 5 && (
+            <p
+              role="note"
+              className="mt-3 flex gap-2 rounded-lg border border-gold/50 bg-gold-soft/15 p-3 text-sm"
+            >
+              <TriangleAlert aria-hidden className="size-5 shrink-0 text-gold" />
+              <span>
+                Começar no nível {character.level} traz muitas escolhas de uma vez (talentos,
+                magias, subclasse). Tudo bem se a mesa combinou assim; se é a sua primeira ficha, o
+                nível 1 é o mais tranquilo para aprender.
+              </span>
+            </p>
+          )}
         </div>
       </section>
 
@@ -130,26 +142,13 @@ export default function WelcomeStep({ wizard, goTo }: StepProps) {
             icon={<Compass className="size-5" />}
           />
           <OptionCard
-            selected={guided}
-            onSelect={() => setGuided(true)}
+            selected={false}
+            onSelect={() => goTo('me-guie')}
             title="Me guie"
             subtitle="Responda algumas perguntas e receba três sugestões com o porquê."
             icon={<Sparkles className="size-5" />}
           />
         </div>
-        {guided && (
-          <div role="status" className="rounded-lg border border-gold-soft/60 bg-gold-soft/10 p-4">
-            <p>
-              O questionário “Me guie” chega numa próxima atualização. Enquanto isso, uma boa
-              receita para a primeira aventura: <strong>Humano ou Anão</strong> com{' '}
-              <strong>Guerreiro</strong> ou <strong>Bárbaro</strong>. Tudo marcado com o selo verde
-              é tranquilo de jogar.
-            </p>
-            <Button className="mt-3" onClick={() => goTo('especie')}>
-              Começar pela espécie
-            </Button>
-          </div>
-        )}
       </section>
     </div>
   );

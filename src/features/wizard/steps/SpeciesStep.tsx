@@ -10,6 +10,7 @@ import { FeatureList } from '../parts/FeatureList';
 import { Monogram } from '../parts/Icons';
 import { OptionCard } from '../parts/OptionCard';
 import { Section } from '../parts/Section';
+import { BeginnerNote } from '../parts/BeginnerNote';
 import { StepHeader } from '../parts/StepHeader';
 import type { StepProps } from '../WizardPage';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
@@ -75,7 +76,7 @@ export default function SpeciesStep({ wizard }: StepProps) {
               {species.creatureType} · {species.sizeNote} · Deslocamento{' '}
               {formatMeters(species.speed)}
             </p>
-            <p className="mt-3 rounded-lg bg-sunken/70 p-3 text-sm">{species.beginner.note}</p>
+            <BeginnerNote beginner={species.beginner} kind="especie" id={species.id} />
           </div>
 
           {species.sizes.length > 1 && (

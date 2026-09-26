@@ -9,6 +9,7 @@ import { ClassIcon } from '../parts/Icons';
 import { OptionCard } from '../parts/OptionCard';
 import { FeatureChoices } from '../parts/FeatureChoices';
 import { Section } from '../parts/Section';
+import { BeginnerNote } from '../parts/BeginnerNote';
 import { StepHeader } from '../parts/StepHeader';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
@@ -95,9 +96,7 @@ export default function SubclassStep({ wizard, goTo }: StepProps) {
           <div>
             <h2 className="text-3xl font-semibold">{shown.name}</h2>
             <p className="mt-2">{shown.description}</p>
-            {shown.beginner && (
-              <p className="mt-3 rounded-lg bg-sunken/70 p-3 text-sm">{shown.beginner.note}</p>
-            )}
+            {shown.beginner && <BeginnerNote beginner={shown.beginner} kind="subclasse" />}
           </div>
           <Section title="Características por nível">
             <FeatureList features={shown.features} level={character.level} />

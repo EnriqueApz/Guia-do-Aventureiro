@@ -17,6 +17,7 @@ import { GlossaryTerm } from '../parts/GlossaryTerm';
 import { ClassIcon } from '../parts/Icons';
 import { OptionCard } from '../parts/OptionCard';
 import { Fact, Section } from '../parts/Section';
+import { BeginnerNote } from '../parts/BeginnerNote';
 import { StepHeader } from '../parts/StepHeader';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
@@ -78,7 +79,7 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
               <ClassIcon id={cls.id} className="size-7 text-gold" /> {cls.name}
             </h2>
             <p className="mt-2">{cls.description}</p>
-            <p className="mt-3 rounded-lg bg-sunken/70 p-3 text-sm">{cls.beginner.note}</p>
+            <BeginnerNote beginner={cls.beginner} kind="classe" id={cls.id} />
           </div>
 
           <Section title="Como isso funciona na mesa?">
