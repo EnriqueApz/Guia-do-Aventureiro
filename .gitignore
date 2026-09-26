@@ -146,3 +146,7 @@ vite.config.ts.timestamp-*
 playwright-report/
 test-results/
 blob-report/
+
+# Dados do SRD baixados e rascunhos de importação
+.cache/
+content-drafts/

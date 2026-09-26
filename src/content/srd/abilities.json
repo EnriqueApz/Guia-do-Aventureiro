@@ -1,0 +1,38 @@
+[
+  {
+    "id": "for",
+    "name": "Força",
+    "abbr": "FOR",
+    "plain": "Músculos e potência física: levantar, empurrar, escalar e golpear com armas pesadas."
+  },
+  {
+    "id": "des",
+    "name": "Destreza",
+    "abbr": "DES",
+    "plain": "Agilidade, reflexos e equilíbrio: esquivar, se esconder e atacar com arcos ou armas leves."
+  },
+  {
+    "id": "con",
+    "name": "Constituição",
+    "abbr": "CON",
+    "plain": "Saúde e resistência: define quantos Pontos de Vida você tem e ajuda a manter a Concentração."
+  },
+  {
+    "id": "int",
+    "name": "Inteligência",
+    "abbr": "INT",
+    "plain": "Raciocínio e memória: lembrar de conhecimentos, investigar pistas e, para magos, lançar magias."
+  },
+  {
+    "id": "sab",
+    "name": "Sabedoria",
+    "abbr": "SAB",
+    "plain": "Percepção e intuição: notar perigos, ler pessoas e, para clérigos e druidas, lançar magias."
+  },
+  {
+    "id": "car",
+    "name": "Carisma",
+    "abbr": "CAR",
+    "plain": "Presença e força de personalidade: convencer, enganar, intimidar e, para bardos, bruxos, feiticeiros e paladinos, lançar magias."
+  }
+]

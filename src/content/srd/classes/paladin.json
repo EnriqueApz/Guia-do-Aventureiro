@@ -1,0 +1,291 @@
+{
+  "id": "paladin",
+  "name": "Paladino",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Guerreiro sagrado de armadura pesada, que cura com as mãos e castiga com magia divina.",
+  "description": "Paladinos fazem um juramento sagrado que lhes dá poder divino. Vestem armadura pesada, protegem os aliados com sua aura, curam com um toque e transformam golpes de espada em castigos radiantes.",
+  "roles": ["combatente", "defensor", "curandeiro"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Tanque resistente e com cura, mas mistura ataques, magias e vários recursos."
+  },
+  "primaryAbilities": ["for", "car"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "for": 15,
+    "car": 14,
+    "con": 13,
+    "sab": 12,
+    "int": 10,
+    "des": 8
+  },
+  "recommendedWhy": "Força para lutar de armadura pesada; Carisma para as magias e para a aura que protege o grupo.",
+  "hitDie": 10,
+  "saves": ["sab", "car"],
+  "armor": ["leve", "media", "pesada", "escudo"],
+  "weapons": ["simples", "marciais"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": ["atletismo", "intuicao", "intimidacao", "medicina", "persuasao", "religiao"]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "chain-mail",
+          "qty": 1
+        },
+        {
+          "id": "shield",
+          "qty": 1
+        },
+        {
+          "id": "longsword",
+          "qty": 1
+        },
+        {
+          "id": "javelin",
+          "qty": 6
+        },
+        {
+          "id": "amulet",
+          "qty": 1
+        },
+        {
+          "id": "priests-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 9,
+      "note": "O símbolo sagrado pode ter outra forma (amuleto, emblema ou relicário)."
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 150
+    }
+  ],
+  "spellcasting": {
+    "ability": "car",
+    "progression": "meia",
+    "cantrips": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "prepared": [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15],
+    "slots": [
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0]
+    ],
+    "ritual": false,
+    "focus": "Símbolo Sagrado",
+    "swap": "descanso-longo",
+    "explainer": "Paladinos têm poucas magias, mas úteis: bênçãos, proteções e castigos. Você tem espaços de magia (como cargas que voltam no Descanso Longo) e uma lista de magias preparadas que dá para trocar aos poucos. Sua magia usa Carisma."
+  },
+  "columns": [
+    {
+      "id": "canalizar-divindade",
+      "label": "Canalizar Divindade",
+      "values": [0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+    }
+  ],
+  "features": [
+    {
+      "id": "paladin-lay-on-hands",
+      "level": 1,
+      "name": "Cura pelas Mãos",
+      "action": "acao-bonus",
+      "text": "Seu toque abençoado cura ferimentos. Você tem uma reserva de poder de cura que se renova quando termina um Descanso Longo. Com ela, pode restaurar um total de Pontos de Vida igual a cinco vezes o seu nível de Paladino.\nComo Ação Bônus, você toca uma criatura (que pode ser você) e usa a reserva para restaurar Pontos de Vida dela, até o total que ainda restar.\nVocê também pode gastar 5 pontos da reserva para remover a condição Envenenado da criatura; esses pontos não restauram Pontos de Vida.",
+      "plain": "Uma reserva de cura (5 × nível) que você distribui com um toque, como quiser.",
+      "uses": {
+        "max": {
+          "kind": "nivel",
+          "multiplier": 5
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "paladin-spellcasting",
+      "level": 1,
+      "name": "Conjuração",
+      "text": "Você aprendeu a lançar magias por meio de orações e meditação.\n**Espaços de Magia.** A tabela do Paladino mostra quantos espaços de magia você tem para lançar magias de 1º círculo ou mais. Você recupera todos ao terminar um Descanso Longo.\n**Magias Preparadas.** Você prepara a lista de magias que pode lançar. Para começar, escolha duas magias de 1º círculo de Paladino; Heroísmo e Destruição Lancinante são as recomendadas. O número de magias da lista cresce com seu nível, como mostra a coluna Magias Preparadas; sempre que ele aumentar, escolha mais magias de Paladino de círculos para os quais tenha espaços. Magias que outra característica deixa sempre preparadas não contam nesse limite.\n**Trocar Magias Preparadas.** Ao terminar um Descanso Longo, você pode trocar uma magia da lista por outra magia de Paladino para a qual tenha espaços.\n**Atributo de Conjuração.** Carisma.\n**Foco de Conjuração.** Você pode usar um Símbolo Sagrado como foco de conjuração.",
+      "plain": "Você lança magias com Carisma, usando espaços que voltam no Descanso Longo."
+    },
+    {
+      "id": "paladin-weapon-mastery",
+      "level": 1,
+      "name": "Maestria em Armas",
+      "text": "Seu treino com armas permite usar as propriedades de maestria de dois tipos de armas em que você tenha proficiência, como Espadas Longas e Azagaias.\nAo terminar um Descanso Longo, você pode trocar os tipos de armas escolhidos.",
+      "plain": "Escolha duas armas: com elas, você ativa efeitos extras.",
+      "choices": [
+        {
+          "id": "weapon-mastery",
+          "kind": "maestria",
+          "label": "Armas com maestria",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "paladin-fighting-style",
+      "level": 2,
+      "name": "Estilo de Luta",
+      "text": "Você ganha um talento de Estilo de Luta à sua escolha. Em vez disso, pode escolher a opção abaixo.\n**Guerreiro Abençoado.** Você aprende dois truques de Clérigo à sua escolha; Orientação e Chama Sagrada são os recomendados. Eles contam como magias de Paladino para você, e Carisma é o atributo de conjuração deles. Sempre que ganhar um nível de Paladino, você pode trocar um desses truques por outro truque de Clérigo.",
+      "plain": "Escolha um estilo de luta ou aprenda dois truques de clérigo.",
+      "choices": [
+        {
+          "id": "fighting-style",
+          "kind": "talento",
+          "label": "Estilo de Luta (ou Guerreiro Abençoado)",
+          "count": 1,
+          "featCategory": "estilo-de-luta"
+        }
+      ]
+    },
+    {
+      "id": "paladin-paladins-smite",
+      "level": 2,
+      "name": "Castigo do Paladino",
+      "text": "Você sempre tem a magia Castigo Divino preparada. Além disso, pode lançá-la sem gastar espaço de magia, mas precisa terminar um Descanso Longo antes de lançá-la assim de novo.",
+      "plain": "Uma vez por dia, um Castigo Divino de graça: dano radiante extra num golpe.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      },
+      "effects": [
+        {
+          "type": "magia",
+          "spell": "divine-smite",
+          "level": 2,
+          "freeCast": true
+        }
+      ]
+    },
+    {
+      "id": "paladin-channel-divinity",
+      "level": 3,
+      "name": "Canalizar Divindade",
+      "text": "Você pode canalizar energia divina diretamente dos Planos Exteriores para criar efeitos mágicos. Você começa com um efeito, Sentido Divino. Outras características de Paladino dão mais opções; a cada uso, você escolhe qual efeito criar.\nVocê pode usar Canalizar Divindade desta classe duas vezes. Recupera um uso ao terminar um Descanso Curto e todos ao terminar um Descanso Longo. Ganha mais um uso no nível 11 de Paladino. Se um efeito pedir salvaguarda, a CD é a CD de magia desta classe.\n**Sentido Divino.** Como Ação Bônus, você abre sua percepção para detectar Celestiais, Ínferos e Mortos-Vivos. Pelos próximos 10 minutos, ou até ficar Incapacitado, você sabe a localização e o tipo de qualquer criatura desses tipos a até 18 metros. No mesmo raio, também detecta lugares ou objetos consagrados ou profanados.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "canalizar-divindade"
+        },
+        "recharge": "descanso-longo"
+      },
+      "plain": "Algumas vezes por descanso, use poderes divinos, como sentir mortos-vivos e ínferos por perto."
+    },
+    {
+      "id": "paladin-subclass",
+      "level": 3,
+      "name": "Subclasse de Paladino",
+      "text": "Você ganha uma subclasse de Paladino à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Paladino. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Paladino ou menor.",
+      "plain": "No nível 3, você faz seu Juramento Sagrado."
+    },
+    {
+      "id": "paladin-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Paladino 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "paladin-extra-attack",
+      "level": 5,
+      "name": "Ataque Extra",
+      "text": "Você pode atacar duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.",
+      "effects": [
+        {
+          "type": "ataques-extras",
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "id": "paladin-faithful-steed",
+      "level": 5,
+      "name": "Montaria Fiel",
+      "text": "Você pode pedir a ajuda de uma montaria de outro mundo. Você sempre tem a magia Convocar Montaria preparada.\nTambém pode lançá-la uma vez sem gastar espaço de magia e recupera esse uso ao terminar um Descanso Longo.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      },
+      "effects": [
+        {
+          "type": "magia",
+          "spell": "find-steed",
+          "level": 5,
+          "freeCast": true
+        }
+      ]
+    },
+    {
+      "id": "paladin-aura-of-protection",
+      "level": 6,
+      "name": "Aura de Proteção",
+      "text": "Você irradia uma aura protetora invisível numa Emanação de 3 metros a partir de você. A aura fica inativa enquanto você estiver Incapacitado.\nVocê e seus aliados na aura recebem um bônus nas salvaguardas igual ao seu modificador de Carisma (mínimo +1).\nSe houver outro Paladino presente, uma criatura só recebe o benefício de uma Aura de Proteção por vez, e escolhe qual."
+    },
+    {
+      "id": "paladin-abjure-foes",
+      "level": 9,
+      "name": "Repelir Inimigos",
+      "text": "Com a ação Magia, você pode gastar um uso de Canalizar Divindade desta classe para esmagar inimigos com assombro. Ao erguer seu Símbolo Sagrado ou sua arma, escolha um número de criaturas igual ao seu modificador de Carisma (mínimo uma) que consiga ver a até 18 metros. Cada uma precisa passar numa salvaguarda de Sabedoria ou fica Amedrontada por 1 minuto ou até sofrer dano. Assim Amedrontada, no seu turno ela só pode fazer uma destas coisas: se mover, realizar uma ação ou uma Ação Bônus."
+    },
+    {
+      "id": "paladin-aura-of-courage",
+      "level": 10,
+      "name": "Aura de Coragem",
+      "text": "Você e seus aliados têm Imunidade à condição Amedrontado enquanto estiverem na sua Aura de Proteção. Se um aliado Amedrontado entrar na aura, a condição não tem efeito sobre ele enquanto estiver lá."
+    },
+    {
+      "id": "paladin-radiant-strikes",
+      "level": 11,
+      "name": "Golpes Radiantes",
+      "text": "Seus golpes agora carregam poder sobrenatural. Quando você acerta um alvo com uma jogada de ataque usando arma corpo a corpo ou Ataque Desarmado, ele sofre 1d8 de dano Radiante extra."
+    },
+    {
+      "id": "paladin-restoring-touch",
+      "level": 14,
+      "name": "Toque Restaurador",
+      "text": "Ao usar a Cura pelas Mãos numa criatura, você também pode remover dela uma ou mais destas condições: Cego, Enfeitiçado, Surdo, Amedrontado, Paralisado ou Atordoado. Gaste 5 pontos da reserva de Cura pelas Mãos para cada condição removida; esses pontos não restauram Pontos de Vida."
+    },
+    {
+      "id": "paladin-aura-expansion",
+      "level": 18,
+      "name": "Expansão de Aura",
+      "text": "Sua Aura de Proteção agora é uma Emanação de 9 metros."
+    },
+    {
+      "id": "paladin-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Visão Verdadeira é a recomendada."
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Juramento Sagrado",
+  "typicalTurn": "Avance até o inimigo e use a ação Atacar com a espada longa. Se acertar, você pode gastar um espaço de magia para o Castigo Divino e causar muito dano radiante. Se um aliado estiver caindo, use a Ação Bônus para Cura pelas Mãos."
+}

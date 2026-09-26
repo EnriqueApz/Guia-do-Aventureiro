@@ -1,0 +1,204 @@
+[
+  {
+    "id": "acolyte",
+    "name": "Acólito",
+    "source": { "kind": "srd", "ref": "SRD 5.2" },
+    "summary": "Você serviu num templo, entre rituais, orações e textos sagrados.",
+    "description": "Você passou anos a serviço de um templo, dedicado a um deus, a um panteão ou a uma filosofia. Aprendeu a conduzir ritos, copiar textos sagrados e sentir um pouco da magia divina.",
+    "abilityOptions": ["int", "sab", "car"],
+    "originFeat": { "id": "magic-initiate", "note": "clerigo" },
+    "skills": ["intuicao", "religiao"],
+    "tool": "calligraphers-supplies",
+    "equipment": [
+      {
+        "id": "a",
+        "items": [
+          { "id": "calligraphers-supplies", "qty": 1 },
+          { "id": "book", "qty": 1 },
+          { "id": "amulet", "qty": 1 },
+          { "id": "parchment", "qty": 10 },
+          { "id": "robe", "qty": 1 }
+        ],
+        "gold": 8,
+        "note": "O livro é de orações; o símbolo sagrado pode ter outra forma."
+      },
+      { "id": "b", "items": [], "gold": 50 }
+    ],
+    "personality": {
+      "traits": [
+        "Cito passagens sagradas para qualquer situação, até as mais banais.",
+        "Sou paciente com todo mundo, menos com quem desrespeita a fé.",
+        "Vejo presságios em tudo: um corvo, uma vela que apaga, um trovão.",
+        "Sempre ofereço uma prece antes de comer, lutar ou dormir."
+      ],
+      "ideals": [
+        "Tradição: os ritos antigos existem por um motivo e devem ser preservados.",
+        "Caridade: ajudo quem precisa, sem perguntar o que ganho com isso.",
+        "Fé: confio que meu caminho é guiado por algo maior."
+      ],
+      "bonds": [
+        "Devo a vida ao sacerdote que me acolheu quando eu não tinha nada.",
+        "Procuro uma relíquia perdida do meu templo.",
+        "Meu templo foi destruído, e quero descobrir quem fez isso."
+      ],
+      "flaws": [
+        "Julgo com severidade quem não segue a minha fé.",
+        "Confio demais em quem diz compartilhar das minhas crenças.",
+        "Tenho dificuldade em mudar de ideia, mesmo diante de provas."
+      ]
+    }
+  },
+  {
+    "id": "criminal",
+    "name": "Criminoso",
+    "source": { "kind": "srd", "ref": "SRD 5.2" },
+    "summary": "Você sobreviveu nas sombras, com gazuas, lábia e mãos rápidas.",
+    "description": "Você ganhou a vida do lado errado da lei: bater carteiras, arrombar fechaduras ou contrabandear mercadorias. Conhece os becos, os contatos certos e a arte de não ser visto.",
+    "abilityOptions": ["des", "con", "int"],
+    "originFeat": { "id": "alert" },
+    "skills": ["prestidigitacao", "furtividade"],
+    "tool": "thieves-tools",
+    "equipment": [
+      {
+        "id": "a",
+        "items": [
+          { "id": "dagger", "qty": 2 },
+          { "id": "thieves-tools", "qty": 1 },
+          { "id": "crowbar", "qty": 1 },
+          { "id": "pouch", "qty": 2 },
+          { "id": "clothes-travelers", "qty": 1 }
+        ],
+        "gold": 16
+      },
+      { "id": "b", "items": [], "gold": 50 }
+    ],
+    "personality": {
+      "traits": [
+        "Sempre sei onde fica a saída mais próxima.",
+        "Conto uma história diferente cada vez que me perguntam de onde vim.",
+        "Não resisto a um objeto brilhante esquecido sobre a mesa.",
+        "Falo pouco e observo muito."
+      ],
+      "ideals": [
+        "Liberdade: correntes, leis e donos existem para ser quebrados.",
+        "Lealdade: quem é da minha turma, eu nunca entrego.",
+        "Recomeço: quero provar que posso ser mais do que o meu passado."
+      ],
+      "bonds": [
+        "Devo dinheiro a gente perigosa.",
+        "Um antigo parceiro me traiu, e eu não esqueci.",
+        "Mando parte de tudo que ganho para a família que deixei."
+      ],
+      "flaws": [
+        "Quando vejo uma oportunidade de lucro fácil, não penso duas vezes.",
+        "Não confio em ninguém, nem em quem já provou ser confiável.",
+        "Fujo ao primeiro sinal de que as coisas vão dar errado."
+      ]
+    }
+  },
+  {
+    "id": "sage",
+    "name": "Sábio",
+    "source": { "kind": "srd", "ref": "SRD 5.2" },
+    "summary": "Você passou a vida entre livros, bibliotecas e mestres eruditos.",
+    "description": "Você estudou por anos em bibliotecas, universidades ou com um mestre recluso. Aprendeu história, magia e a paciência de buscar respostas em textos antigos, e um pouco de magia arcana veio junto.",
+    "abilityOptions": ["con", "int", "sab"],
+    "originFeat": { "id": "magic-initiate", "note": "mago" },
+    "skills": ["arcanismo", "historia"],
+    "tool": "calligraphers-supplies",
+    "equipment": [
+      {
+        "id": "a",
+        "items": [
+          { "id": "quarterstaff", "qty": 1 },
+          { "id": "calligraphers-supplies", "qty": 1 },
+          { "id": "book", "qty": 1 },
+          { "id": "parchment", "qty": 8 },
+          { "id": "robe", "qty": 1 }
+        ],
+        "gold": 8,
+        "note": "O livro é de história."
+      },
+      { "id": "b", "items": [], "gold": 50 }
+    ],
+    "personality": {
+      "traits": [
+        "Uso palavras difíceis sem perceber e depois explico todas.",
+        "Anoto tudo o que vejo num caderno que nunca largo.",
+        "Fico tão absorto num problema que esqueço de comer.",
+        "Adoro corrigir os outros, com a melhor das intenções."
+      ],
+      "ideals": [
+        "Conhecimento: todo saber merece ser preservado e compartilhado.",
+        "Verdade: prefiro uma verdade incômoda a uma mentira confortável.",
+        "Curiosidade: há sempre mais uma pergunta a fazer."
+      ],
+      "bonds": [
+        "Busco um livro que dizem ter sido destruído há séculos.",
+        "Meu mestre desapareceu, deixando anotações pela metade.",
+        "A biblioteca onde estudei é o lugar que chamo de lar."
+      ],
+      "flaws": [
+        "Acho que sei mais do que todo mundo, e às vezes falo isso em voz alta.",
+        "Arrisco o grupo para conseguir uma informação rara.",
+        "Travo quando preciso agir sem ter lido sobre o assunto antes."
+      ]
+    }
+  },
+  {
+    "id": "soldier",
+    "name": "Soldado",
+    "source": { "kind": "srd", "ref": "SRD 5.2" },
+    "summary": "Você treinou e lutou num exército, e aprendeu a bater forte.",
+    "description": "Você serviu numa milícia, num exército ou numa companhia de mercenários. Conhece a disciplina da marcha, o peso de uma lança e o valor de quem luta ao seu lado.",
+    "abilityOptions": ["for", "des", "con"],
+    "originFeat": { "id": "savage-attacker" },
+    "skills": ["atletismo", "intimidacao"],
+    "tool": {
+      "id": "gaming-set",
+      "kind": "ferramenta",
+      "label": "Escolha um tipo de jogo",
+      "count": 1,
+      "from": ["dice", "dragonchess", "playing-cards", "three-dragon-ante"]
+    },
+    "equipment": [
+      {
+        "id": "a",
+        "items": [
+          { "id": "spear", "qty": 1 },
+          { "id": "shortbow", "qty": 1 },
+          { "id": "arrows", "qty": 1 },
+          { "id": "healers-kit", "qty": 1 },
+          { "id": "quiver", "qty": 1 },
+          { "id": "clothes-travelers", "qty": 1 }
+        ],
+        "gold": 14,
+        "note": "Inclui também o jogo escolhido na proficiência de ferramenta."
+      },
+      { "id": "b", "items": [], "gold": 50 }
+    ],
+    "personality": {
+      "traits": [
+        "Acordo antes de todos e confiro o equipamento duas vezes.",
+        "Conto histórias de guerra, sempre um pouco exageradas.",
+        "Encaro qualquer problema como uma batalha a ser planejada.",
+        "Faço piadas nos piores momentos para aliviar a tensão."
+      ],
+      "ideals": [
+        "Dever: cumpro minhas ordens e minha palavra.",
+        "Proteção: fico entre os fracos e o perigo.",
+        "Glória: quero que as canções lembrem meu nome."
+      ],
+      "bonds": [
+        "Carrego a insígnia de um companheiro que caiu em batalha.",
+        "Meu antigo comandante ainda pode me chamar de volta.",
+        "Jurei proteger a cidade onde nasci."
+      ],
+      "flaws": [
+        "Obedeço a quem parece ter autoridade, mesmo quando não deveria.",
+        "Tenho pesadelos com uma batalha que perdi.",
+        "Resolvo tudo na força antes de tentar conversar."
+      ]
+    }
+  }
+]

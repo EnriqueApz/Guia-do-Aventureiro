@@ -1,0 +1,286 @@
+{
+  "id": "druid",
+  "name": "Druida",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Guardião da natureza que lança magias primais e se transforma em animais.",
+  "description": "Druidas extraem poder da própria natureza. Controlam plantas, clima e elementos, curam aliados, conversam com animais e, com a Forma Selvagem, assumem o corpo de feras para explorar ou lutar.",
+  "roles": ["conjurador", "curandeiro", "suporte"],
+  "beginner": {
+    "rating": "avancado",
+    "note": "Muitas magias e as formas animais pedem consultar fichas de criaturas. Melhor para o segundo personagem."
+  },
+  "primaryAbilities": ["sab"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "sab": 15,
+    "con": 14,
+    "des": 13,
+    "int": 12,
+    "car": 10,
+    "for": 8
+  },
+  "recommendedWhy": "Sabedoria move suas magias; Constituição e Destreza mantêm você vivo com armadura leve.",
+  "hitDie": 8,
+  "saves": ["int", "sab"],
+  "armor": ["leve", "escudo"],
+  "weapons": ["simples"],
+  "tools": ["herbalism-kit"],
+  "skillChoice": {
+    "count": 2,
+    "from": [
+      "arcanismo",
+      "adestrar-animais",
+      "intuicao",
+      "medicina",
+      "natureza",
+      "percepcao",
+      "religiao",
+      "sobrevivencia"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "leather-armor",
+          "qty": 1
+        },
+        {
+          "id": "shield",
+          "qty": 1
+        },
+        {
+          "id": "sickle",
+          "qty": 1
+        },
+        {
+          "id": "quarterstaff",
+          "qty": 1
+        },
+        {
+          "id": "explorers-pack",
+          "qty": 1
+        },
+        {
+          "id": "herbalism-kit",
+          "qty": 1
+        }
+      ],
+      "gold": 9,
+      "note": "O bordão serve como foco druídico."
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 50
+    }
+  ],
+  "spellcasting": {
+    "ability": "sab",
+    "progression": "completa",
+    "cantrips": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    "prepared": [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22],
+    "slots": [
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 2, 1, 1]
+    ],
+    "ritual": true,
+    "focus": "Foco Druídico",
+    "swap": "descanso-longo",
+    "explainer": "Magias são como cargas: você tem espaços de magia que gasta para lançá-las e que voltam depois de um Descanso Longo. Truques são magias simples que você lança à vontade. A cada dia, você escolhe quais magias da lista do druida deixa preparadas. Sua magia usa Sabedoria."
+  },
+  "columns": [
+    {
+      "id": "forma-selvagem",
+      "label": "Forma Selvagem",
+      "values": [0, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+    }
+  ],
+  "features": [
+    {
+      "id": "druid-spellcasting",
+      "level": 1,
+      "name": "Conjuração",
+      "text": "Você aprendeu a lançar magias estudando as forças místicas da natureza.\n**Truques.** Você conhece dois truques da lista do Druida; Arte Druídica e Produzir Chama são os recomendados. Sempre que ganhar um nível de Druida, pode trocar um truque por outro da lista. Nos níveis 4 e 10, aprende mais um truque, como mostra a coluna Truques.\n**Espaços de Magia.** A tabela do Druida mostra quantos espaços você tem para magias de 1º círculo ou mais. Você recupera todos ao terminar um Descanso Longo.\n**Magias Preparadas.** Para começar, escolha quatro magias de 1º círculo da lista do Druida; Amizade Animal, Curar Ferimentos, Fogo das Fadas e Onda Trovejante são as recomendadas. O número cresce com seu nível, como mostra a coluna Magias Preparadas; os círculos precisam ser de espaços que você tem. Magias sempre preparadas por outra característica não contam nesse limite.\n**Trocar Magias Preparadas.** Ao terminar um Descanso Longo, você pode mudar toda a sua lista de magias preparadas.\n**Atributo de Conjuração.** Sabedoria.\n**Foco de Conjuração.** Você pode usar um Foco Druídico.",
+      "plain": "Você lança magias com Sabedoria. Truques são livres; as outras magias gastam espaços que voltam no Descanso Longo."
+    },
+    {
+      "id": "druid-druidic",
+      "level": 1,
+      "name": "Druídico",
+      "text": "Você conhece o Druídico, o idioma secreto dos druidas. Ao aprendê-lo, também desbloqueou a magia de se comunicar com animais: você sempre tem a magia Falar com Animais preparada.\nVocê pode usar o Druídico para deixar mensagens ocultas. Você e outros que conhecem o idioma as notam automaticamente. Os demais notam a presença da mensagem com um teste de Inteligência (Investigação) CD 15, mas não conseguem decifrá-la sem magia.",
+      "plain": "Você fala a língua secreta dos druidas e sempre pode falar com animais.",
+      "effects": [
+        {
+          "type": "proficiencia",
+          "category": "idioma",
+          "ids": ["druidic"]
+        },
+        {
+          "type": "magia",
+          "spell": "speak-with-animals",
+          "level": 1,
+          "freeCast": false
+        }
+      ]
+    },
+    {
+      "id": "druid-primal-order",
+      "level": 1,
+      "name": "Ordem Primal",
+      "text": "Você se dedicou a um destes papéis sagrados, à sua escolha.\n**Mago.** Você conhece um truque extra da lista do Druida. Além disso, sua ligação mística com a natureza lhe dá um bônus em testes de Inteligência (Arcanismo ou Natureza) igual ao seu modificador de Sabedoria (mínimo +1).\n**Guardião.** Treinado para a batalha, você ganha proficiência com armas Marciais e treino com armadura Média.",
+      "plain": "Escolha: saber mais magia (um truque extra) ou lutar melhor (armas marciais e armadura média).",
+      "choices": [
+        {
+          "id": "primal-order",
+          "kind": "opcao",
+          "label": "Ordem Primal",
+          "count": 1,
+          "options": [
+            {
+              "id": "magician",
+              "name": "Mago",
+              "text": "Um truque extra e bônus em Arcanismo e Natureza."
+            },
+            {
+              "id": "warden",
+              "name": "Guardião",
+              "text": "Proficiência com armas Marciais e armadura Média.",
+              "effects": [
+                {
+                  "type": "proficiencia",
+                  "category": "arma",
+                  "ids": ["marciais"]
+                },
+                {
+                  "type": "proficiencia",
+                  "category": "armadura",
+                  "ids": ["media"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "druid-wild-shape",
+      "level": 2,
+      "name": "Forma Selvagem",
+      "action": "acao-bonus",
+      "text": "O poder da natureza permite que você assuma a forma de um animal. Como Ação Bônus, você se transforma numa forma de Fera que aprendeu para esta característica. Você fica nessa forma por um número de horas igual à metade do seu nível de Druida, ou até usar a Forma Selvagem de novo, ficar Incapacitado ou morrer. Também pode sair da forma antes com uma Ação Bônus.\n**Número de Usos.** Você pode usar a Forma Selvagem duas vezes. Recupera um uso ao terminar um Descanso Curto e todos ao terminar um Descanso Longo. Ganha mais usos em certos níveis, como mostra a coluna Forma Selvagem.\n**Formas Conhecidas.** Você conhece quatro formas de Fera, escolhidas entre as de Nível de Desafio máximo 1/4 e sem Deslocamento de Voo. Rato, Cavalo de Montaria, Aranha e Lobo são as recomendadas. Ao terminar um Descanso Longo, você pode trocar uma forma conhecida por outra permitida. No nível 4, conhece seis formas até ND 1/2; no nível 8, oito formas até ND 1, e pode usar formas com Deslocamento de Voo.\n**Regras na Forma.** Você mantém sua personalidade, memórias e capacidade de falar.\n- **Pontos de Vida Temporários.** Ao assumir a forma, você ganha Pontos de Vida Temporários iguais ao seu nível de Druida.\n- **Estatísticas.** Suas estatísticas são substituídas pelas da Fera, mas você mantém seu tipo de criatura, Pontos de Vida, Dados de Vida, Inteligência, Sabedoria e Carisma, características de classe, idiomas e talentos, além das proficiências em perícias e salvaguardas (usando seu Bônus de Proficiência). Se o modificador da Fera for maior, use o dela.\n- **Sem Conjuração.** Você não lança magias, mas a transformação não interrompe sua Concentração nem atrapalha magias já lançadas.\n- **Objetos.** Sua capacidade de manusear objetos depende dos membros da forma. Você escolhe se o equipamento cai no chão, se funde à forma ou é vestido por ela (o Mestre decide se é prático). O equipamento fundido não tem efeito enquanto você estiver na forma.",
+      "plain": "Com a Ação Bônus, você vira um animal (lobo, aranha, cavalo...) e ganha vida temporária.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "forma-selvagem"
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "druid-wild-companion",
+      "level": 2,
+      "name": "Companheiro Selvagem",
+      "text": "Você pode invocar um espírito da natureza em forma de animal para ajudá-lo. Com a ação Magia, pode gastar um espaço de magia ou um uso de Forma Selvagem para lançar Encontrar Familiar sem componentes materiais.\nLançada assim, o familiar é uma Fada e desaparece quando você termina um Descanso Longo.",
+      "plain": "Gaste um espaço de magia ou uma Forma Selvagem para ganhar um familiar animal."
+    },
+    {
+      "id": "druid-subclass",
+      "level": 3,
+      "name": "Subclasse de Druida",
+      "text": "Você ganha uma subclasse de Druida à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Druida. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Druida ou menor.",
+      "plain": "No nível 3, você escolhe seu Círculo Druídico."
+    },
+    {
+      "id": "druid-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Druida 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "druid-wild-resurgence",
+      "level": 5,
+      "name": "Ressurgimento Selvagem",
+      "text": "Uma vez em cada um dos seus turnos, se não tiver usos de Forma Selvagem, você pode ganhar um gastando um espaço de magia (sem gastar ação).\nAlém disso, pode gastar um uso de Forma Selvagem (sem gastar ação) para ganhar um espaço de magia de 1º círculo, mas só pode fazer isso de novo após terminar um Descanso Longo."
+    },
+    {
+      "id": "druid-elemental-fury",
+      "level": 7,
+      "name": "Fúria Elemental",
+      "text": "O poder dos elementos flui por você. Escolha uma destas opções:\n**Conjuração Potente.** Some seu modificador de Sabedoria ao dano que causar com qualquer truque de Druida.\n**Golpe Primal.** Uma vez em cada um dos seus turnos, ao acertar uma criatura com uma jogada de ataque usando arma ou o ataque de uma forma de Fera, você pode causar 1d8 de dano extra de Frio, Fogo, Elétrico ou Trovejante (escolha ao acertar).",
+      "choices": [
+        {
+          "id": "elemental-fury",
+          "kind": "opcao",
+          "label": "Fúria Elemental",
+          "count": 1,
+          "options": [
+            {
+              "id": "potent-spellcasting",
+              "name": "Conjuração Potente",
+              "text": "Some Sabedoria ao dano dos truques."
+            },
+            {
+              "id": "primal-strike",
+              "name": "Golpe Primal",
+              "text": "1d8 de dano elemental extra uma vez por turno."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "druid-improved-elemental-fury",
+      "level": 15,
+      "name": "Fúria Elemental Aprimorada",
+      "text": "A opção escolhida em Fúria Elemental fica mais poderosa.\n**Conjuração Potente.** Quando você lança um truque de Druida com alcance de 3 metros ou mais, o alcance aumenta em 90 metros.\n**Golpe Primal.** O dano extra aumenta para 2d8."
+    },
+    {
+      "id": "druid-beast-spells",
+      "level": 18,
+      "name": "Magias Bestiais",
+      "text": "Usando a Forma Selvagem, você pode lançar magias na forma de Fera, exceto as que tenham componente material com custo especificado ou que consumam o componente material."
+    },
+    {
+      "id": "druid-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Viagem Dimensional é a recomendada."
+    },
+    {
+      "id": "druid-archdruid",
+      "level": 20,
+      "name": "Arquidruida",
+      "text": "A vitalidade da natureza floresce em você, com os benefícios a seguir.\n**Forma Selvagem Perene.** Sempre que rolar Iniciativa sem usos de Forma Selvagem, você recupera um uso.\n**Mago da Natureza.** Você pode converter usos de Forma Selvagem num espaço de magia (sem gastar ação). Escolha quantos usos não gastos converter num único espaço; cada uso vale 2 círculos. Por exemplo, dois usos geram um espaço de 4º círculo. Depois de usar este benefício, só pode usá-lo de novo após terminar um Descanso Longo.\n**Longevidade.** A magia primal faz você envelhecer mais devagar: a cada dez anos, seu corpo envelhece só um."
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Círculo Druídico",
+  "typicalTurn": "Lance Fogo das Fadas sobre os inimigos para que os aliados os acertem com Vantagem, ou Onda Trovejante se estiverem cercando você. Em outra situação, use a Ação Bônus para virar um lobo e lutar ao lado do grupo, ou para explorar como um rato."
+}

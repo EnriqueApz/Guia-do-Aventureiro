@@ -1,0 +1,3461 @@
+[
+  {
+    "id": "acid",
+    "name": "Ácido (frasco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Quando você realiza a ação Atacar, pode trocar um dos ataques por arremessar um frasco de Ácido. Escolha uma criatura ou objeto que você consiga ver a até 6 metros. O alvo precisa ser bem-sucedido numa salvaguarda de Destreza (CD 8 + seu modificador de Destreza + seu Bônus de Proficiência) ou sofre 2d6 de dano de Ácido."
+  },
+  {
+    "id": "dagger",
+    "name": "Adaga",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 1,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d4",
+      "damageType": "perfurante",
+      "range": [20, 60],
+      "properties": ["acuidade", "leve", "arremesso"],
+      "mastery": "talho"
+    }
+  },
+  {
+    "id": "holy-water",
+    "name": "Água Benta (frasco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Quando você realiza a ação Atacar, pode trocar um dos ataques por arremessar um frasco de Água Benta. Escolha uma criatura que você consiga ver a até 6 metros. O alvo precisa ser bem-sucedido numa salvaguarda de Destreza (CD 8 + seu modificador de Destreza + seu Bônus de Proficiência) ou sofre 2d8 de dano Radiante, se for um Ínfero ou um Morto-Vivo."
+  },
+  {
+    "id": "needles",
+    "name": "Agulhas de Zarabatana (50)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "municao",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1
+  },
+  {
+    "id": "halberd",
+    "name": "Alabarda",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 20,
+      "unit": "po"
+    },
+    "weight": 6,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d10",
+      "damageType": "cortante",
+      "properties": ["pesada", "alcance", "duas-maos"],
+      "mastery": "trespassar"
+    }
+  },
+  {
+    "id": "lute",
+    "name": "Alaúde",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 35,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "manacles",
+    "name": "Algemas",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 6,
+    "description": "Com a ação Usar, você algema uma criatura relutante Pequena ou Média a até 1,5 metro que esteja Agarrada, Incapacitada ou Impedida, se passar num teste de Destreza (Prestidigitação) CD 13. Algemada, a criatura tem Desvantagem em jogadas de ataque, e fica Impedida se as algemas estiverem presas a uma corrente ou gancho fixo. Escapar exige um teste de Destreza (Prestidigitação) CD 20 como ação; arrebentá-las, um teste de Força (Atletismo) CD 25 como ação. Vêm com chave; sem ela, dá para abrir com Ferramentas de Ladrão e um teste de Destreza (Prestidigitação) CD 15."
+  },
+  {
+    "id": "quiver",
+    "name": "Aljava",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Uma Aljava guarda até 20 flechas."
+  },
+  {
+    "id": "antitoxin",
+    "name": "Antitoxina (frasco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Como Ação Bônus, você pode beber um frasco de Antitoxina para ter Vantagem, por 1 hora, em salvaguardas para evitar ou encerrar a condição Envenenado."
+  },
+  {
+    "id": "signal-whistle",
+    "name": "Apito de Sinalização",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "pc"
+    },
+    "weight": 0,
+    "description": "Soprado com a ação Usar, faz um som que pode ser ouvido a até 180 metros."
+  },
+  {
+    "id": "three-dragon-ante",
+    "name": "Aposta dos Três Dragões",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "jogo",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 0,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "shortbow",
+    "name": "Arco Curto",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "distancia",
+      "damage": "1d6",
+      "damageType": "perfurante",
+      "range": [80, 320],
+      "properties": ["municao", "duas-maos"],
+      "mastery": "afligir",
+      "ammunition": "arrows"
+    }
+  },
+  {
+    "id": "longbow",
+    "name": "Arco Longo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "marcial",
+      "kind": "distancia",
+      "damage": "1d8",
+      "damageType": "perfurante",
+      "range": [150, 600],
+      "properties": ["municao", "pesada", "duas-maos"],
+      "mastery": "desacelerar",
+      "ammunition": "arrows"
+    }
+  },
+  {
+    "id": "ram-portable",
+    "name": "Aríete Portátil",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 4,
+      "unit": "po"
+    },
+    "weight": 35,
+    "description": "Serve para derrubar portas: você recebe +4 no teste de Força. Outra pessoa pode ajudar, dando Vantagem no teste."
+  },
+  {
+    "id": "hunting-trap",
+    "name": "Armadilha de Caça",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 25,
+    "description": "Com a ação Usar, você arma a Armadilha de Caça, um aro de aço dentado que se fecha quando alguém pisa na placa do meio. Ela fica presa por uma corrente pesada a algo fixo. Quem pisa na placa precisa ser bem-sucedido numa salvaguarda de Destreza CD 13 ou sofre 1d4 de dano Perfurante e fica com Deslocamento 0 até o início do próximo turno dele. Depois, até se soltar, só se move até onde a corrente deixa (cerca de 1 metro). Uma criatura pode usar sua ação para fazer um teste de Força (Atletismo) CD 13 e se soltar (ou soltar outra ao seu alcance); cada falha causa 1 de dano Perfurante na criatura presa."
+  },
+  {
+    "id": "padded-armor",
+    "name": "Armadura Acolchoada",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 8,
+    "armor": {
+      "type": "leve",
+      "base": 11,
+      "dexCap": null,
+      "stealthDisadvantage": true
+    }
+  },
+  {
+    "id": "leather-armor",
+    "name": "Armadura de Couro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 10,
+    "armor": {
+      "type": "leve",
+      "base": 11,
+      "dexCap": null,
+      "stealthDisadvantage": false
+    }
+  },
+  {
+    "id": "hide-armor",
+    "name": "Armadura de Peles",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 12,
+    "armor": {
+      "type": "leve",
+      "base": 12,
+      "dexCap": 2,
+      "stealthDisadvantage": false
+    }
+  },
+  {
+    "id": "plate-armor",
+    "name": "Armadura de Placas",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 1500,
+      "unit": "po"
+    },
+    "weight": 65,
+    "armor": {
+      "type": "pesada",
+      "base": 18,
+      "dexCap": 0,
+      "strength": 15,
+      "stealthDisadvantage": true
+    }
+  },
+  {
+    "id": "splint-armor",
+    "name": "Armadura de Talas",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 200,
+      "unit": "po"
+    },
+    "weight": 60,
+    "armor": {
+      "type": "pesada",
+      "base": 17,
+      "dexCap": 0,
+      "strength": 15,
+      "stealthDisadvantage": true
+    }
+  },
+  {
+    "id": "javelin",
+    "name": "Azagaia",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "perfurante",
+      "range": [30, 120],
+      "properties": ["arremesso"],
+      "mastery": "desacelerar"
+    }
+  },
+  {
+    "id": "bullets-firearm",
+    "name": "Balas de Arma de Fogo (10)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "municao",
+    "cost": {
+      "qty": 3,
+      "unit": "po"
+    },
+    "weight": 2
+  },
+  {
+    "id": "bullets-sling",
+    "name": "Balas de Funda (20)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "municao",
+    "cost": {
+      "qty": 4,
+      "unit": "pc"
+    },
+    "weight": 1.5
+  },
+  {
+    "id": "bucket",
+    "name": "Balde",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "pc"
+    },
+    "weight": 2,
+    "description": "Um Balde guarda até 12 litros."
+  },
+  {
+    "id": "playing-cards",
+    "name": "Baralho",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "jogo",
+    "cost": {
+      "qty": 5,
+      "unit": "pp"
+    },
+    "weight": 0,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "string",
+    "name": "Barbante",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "pp"
+    },
+    "weight": 0,
+    "description": "Um barbante de 3 metros. Dá para dar um nó com a ação Usar."
+  },
+  {
+    "id": "tent",
+    "name": "Barraca",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 20,
+    "description": "Acomoda até duas criaturas Pequenas ou Médias."
+  },
+  {
+    "id": "barrel",
+    "name": "Barril",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 70,
+    "description": "Um Barril guarda até 150 litros de líquido ou pouco mais de 100 litros de coisas secas."
+  },
+  {
+    "id": "chest",
+    "name": "Baú",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 20,
+    "description": "Um Baú guarda até cerca de 340 litros de coisas."
+  },
+  {
+    "id": "hand-crossbow",
+    "name": "Besta de Mão",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "marcial",
+      "kind": "distancia",
+      "damage": "1d6",
+      "damageType": "perfurante",
+      "range": [30, 120],
+      "properties": ["municao", "leve", "recarga"],
+      "mastery": "afligir",
+      "ammunition": "bolts"
+    }
+  },
+  {
+    "id": "light-crossbow",
+    "name": "Besta Leve",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 5,
+    "weapon": {
+      "group": "simples",
+      "kind": "distancia",
+      "damage": "1d8",
+      "damageType": "perfurante",
+      "range": [80, 320],
+      "properties": ["municao", "recarga", "duas-maos"],
+      "mastery": "desacelerar",
+      "ammunition": "bolts"
+    }
+  },
+  {
+    "id": "heavy-crossbow",
+    "name": "Besta Pesada",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 18,
+    "weapon": {
+      "group": "marcial",
+      "kind": "distancia",
+      "damage": "1d10",
+      "damageType": "perfurante",
+      "range": [100, 400],
+      "properties": ["municao", "pesada", "recarga", "duas-maos"],
+      "mastery": "empurrar",
+      "ammunition": "bolts"
+    }
+  },
+  {
+    "id": "pouch",
+    "name": "Bolsa",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "pp"
+    },
+    "weight": 1,
+    "description": "Uma Bolsa guarda até 3 kg de coisas."
+  },
+  {
+    "id": "component-pouch",
+    "name": "Bolsa de Componentes",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Uma bolsa à prova d'água, cheia de compartimentos com todos os componentes materiais gratuitos das suas magias. Pode ser usada no lugar desses componentes."
+  },
+  {
+    "id": "quarterstaff",
+    "name": "Bordão",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 2,
+      "unit": "pp"
+    },
+    "weight": 4,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "concussao",
+      "versatile": "1d8",
+      "properties": ["versatil"],
+      "mastery": "derrubar"
+    },
+    "focus": "arcano"
+  },
+  {
+    "id": "scale-mail",
+    "name": "Brunea",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 45,
+    "armor": {
+      "type": "media",
+      "base": 14,
+      "dexCap": 2,
+      "stealthDisadvantage": true
+    }
+  },
+  {
+    "id": "lock",
+    "name": "Cadeado",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Vem com chave. Sem a chave, uma criatura pode usar Ferramentas de Ladrão para abri-lo com um teste de Destreza (Prestidigitação) CD 15."
+  },
+  {
+    "id": "chain-shirt",
+    "name": "Camisão de Malha",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 14,
+    "armor": {
+      "type": "media",
+      "base": 13,
+      "dexCap": 2,
+      "stealthDisadvantage": false
+    }
+  },
+  {
+    "id": "ink-pen",
+    "name": "Caneta de Pena",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "pc"
+    },
+    "weight": 0,
+    "description": "Usada com Tinta para escrever ou desenhar."
+  },
+  {
+    "id": "waterskin",
+    "name": "Cantil",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "pp"
+    },
+    "weight": 5,
+    "description": "Guarda até 2 litros de água."
+  },
+  {
+    "id": "basket",
+    "name": "Cesto",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 2,
+    "description": "Um Cesto guarda até 20 kg de coisas."
+  },
+  {
+    "id": "shawm",
+    "name": "Charamela",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 1,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "whip",
+    "name": "Chicote",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 3,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d4",
+      "damageType": "cortante",
+      "properties": ["acuidade", "alcance"],
+      "mastery": "desacelerar"
+    }
+  },
+  {
+    "id": "scimitar",
+    "name": "Cimitarra",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 3,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "cortante",
+      "properties": ["acuidade", "leve"],
+      "mastery": "talho"
+    }
+  },
+  {
+    "id": "club",
+    "name": "Clava",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 1,
+      "unit": "pp"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d4",
+      "damageType": "concussao",
+      "properties": ["leve"],
+      "mastery": "desacelerar"
+    }
+  },
+  {
+    "id": "greatclub",
+    "name": "Clava Grande",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 2,
+      "unit": "pp"
+    },
+    "weight": 10,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "concussao",
+      "properties": ["duas-maos"],
+      "mastery": "empurrar"
+    }
+  },
+  {
+    "id": "blanket",
+    "name": "Cobertor",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 3,
+    "description": "Enrolado num cobertor, você tem Vantagem em salvaguardas contra frio extremo."
+  },
+  {
+    "id": "rope",
+    "name": "Corda",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 5,
+    "description": "Com a ação Usar, você dá um nó com a Corda se passar num teste de Destreza (Prestidigitação) CD 10. Ela arrebenta com um teste de Força (Atletismo) CD 20. Você só pode amarrar uma criatura relutante se ela estiver Agarrada, Incapacitada ou Impedida; com as pernas amarradas, ela fica Impedida até escapar, o que exige um teste de Destreza (Acrobacia) CD 15 como ação."
+  },
+  {
+    "id": "chain",
+    "name": "Corrente",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 6,
+    "description": "Com a ação Usar, você pode enrolar uma Corrente numa criatura relutante a até 1,5 metro que esteja Agarrada, Incapacitada ou Impedida, se passar num teste de Força (Atletismo) CD 13. Se as pernas da criatura forem amarradas, ela fica Impedida até escapar. Escapar exige um teste de Destreza (Acrobacia) CD 18 como ação; arrebentar a corrente exige um teste de Força (Atletismo) CD 20 como ação."
+  },
+  {
+    "id": "ring-mail",
+    "name": "Cota de Anéis",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 30,
+      "unit": "po"
+    },
+    "weight": 40,
+    "armor": {
+      "type": "pesada",
+      "base": 14,
+      "dexCap": 0,
+      "stealthDisadvantage": true
+    }
+  },
+  {
+    "id": "chain-mail",
+    "name": "Cota de Malha",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 75,
+      "unit": "po"
+    },
+    "weight": 55,
+    "armor": {
+      "type": "pesada",
+      "base": 16,
+      "dexCap": 0,
+      "strength": 13,
+      "stealthDisadvantage": true
+    }
+  },
+  {
+    "id": "studded-leather-armor",
+    "name": "Couro Batido",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 45,
+      "unit": "po"
+    },
+    "weight": 13,
+    "armor": {
+      "type": "leve",
+      "base": 12,
+      "dexCap": null,
+      "stealthDisadvantage": false
+    }
+  },
+  {
+    "id": "spikes-iron",
+    "name": "Cravos de Ferro (10)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 2,
+    "description": "Com a ação Usar e algo contundente (como um Martelo Leve), você crava um cravo em madeira, terra ou material parecido, para travar uma porta ou prender uma Corda ou Corrente."
+  },
+  {
+    "id": "dart",
+    "name": "Dardo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 0.25,
+    "weapon": {
+      "group": "simples",
+      "kind": "distancia",
+      "damage": "1d4",
+      "damageType": "perfurante",
+      "range": [20, 60],
+      "properties": ["acuidade", "arremesso"],
+      "mastery": "afligir"
+    }
+  },
+  {
+    "id": "ladder",
+    "name": "Escada",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "pp"
+    },
+    "weight": 25,
+    "description": "Uma Escada tem 3 metros de altura. Você precisa escalar para subir ou descer por ela."
+  },
+  {
+    "id": "shield",
+    "name": "Escudo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "escudo",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 6,
+    "shield": {
+      "bonus": 2
+    }
+  },
+  {
+    "id": "ball-bearings",
+    "name": "Esferas de Metal",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 2,
+    "description": "Com a ação Usar, você espalha as Esferas de Metal da bolsinha. Elas cobrem uma área plana de 3 por 3 metros a até 3 metros de você. Uma criatura que entra na área pela primeira vez num turno precisa ser bem-sucedida numa salvaguarda de Destreza CD 10 ou fica Caída. Recolher as esferas leva 10 minutos."
+  },
+  {
+    "id": "shortsword",
+    "name": "Espada Curta",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "perfurante",
+      "properties": ["acuidade", "leve"],
+      "mastery": "afligir"
+    }
+  },
+  {
+    "id": "greatsword",
+    "name": "Espada Grande",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 6,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "2d6",
+      "damageType": "cortante",
+      "properties": ["pesada", "duas-maos"],
+      "mastery": "raspar"
+    }
+  },
+  {
+    "id": "longsword",
+    "name": "Espada Longa",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 15,
+      "unit": "po"
+    },
+    "weight": 3,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "cortante",
+      "versatile": "1d10",
+      "properties": ["versatil"],
+      "mastery": "enfraquecer"
+    }
+  },
+  {
+    "id": "mirror",
+    "name": "Espelho",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 0.5,
+    "description": "Um espelho de aço de mão. Serve para se arrumar, espiar ao redor de esquinas e refletir luz como sinal."
+  },
+  {
+    "id": "case-map-or-scroll",
+    "name": "Estojo de Mapas ou Pergaminhos",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Guarda até 10 folhas de papel ou 5 de pergaminho."
+  },
+  {
+    "id": "case-crossbow-bolt",
+    "name": "Estojo de Virotes",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Um Estojo de Virotes guarda até 20 virotes."
+  },
+  {
+    "id": "caltrops",
+    "name": "Estrepes",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 2,
+    "description": "Com a ação Usar, você espalha os Estrepes do saquinho numa área de 1,5 por 1,5 metro a até 1,5 metro de você. Uma criatura que entra na área pela primeira vez num turno precisa ser bem-sucedida numa salvaguarda de Destreza CD 15 ou sofre 1 de dano Perfurante e fica com Deslocamento 0 até o início do próximo turno dela. Recolher os estrepes leva 10 minutos."
+  },
+  {
+    "id": "costume",
+    "name": "Fantasia",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 4,
+    "description": "Vestindo uma Fantasia, você tem Vantagem em testes de atributo para se passar pela pessoa ou tipo de pessoa que ela representa."
+  },
+  {
+    "id": "carpenters-tools",
+    "name": "Ferramentas de Carpinteiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 8,
+      "unit": "po"
+    },
+    "weight": 6,
+    "tool": {
+      "ability": "for"
+    }
+  },
+  {
+    "id": "cartographer-tools",
+    "name": "Ferramentas de Cartógrafo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 15,
+      "unit": "po"
+    },
+    "weight": 6,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "leatherworkers-tools",
+    "name": "Ferramentas de Coureiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "woodcarvers-tools",
+    "name": "Ferramentas de Entalhador",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "smiths-tools",
+    "name": "Ferramentas de Ferreiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 20,
+      "unit": "po"
+    },
+    "weight": 8,
+    "tool": {
+      "ability": "for"
+    }
+  },
+  {
+    "id": "tinkers-tools",
+    "name": "Ferramentas de Funileiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 10,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "jewelers-tools",
+    "name": "Ferramentas de Joalheiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "int"
+    }
+  },
+  {
+    "id": "thieves-tools",
+    "name": "Ferramentas de Ladrão",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 1,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "navigators-tools",
+    "name": "Ferramentas de Navegador",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "potters-tools",
+    "name": "Ferramentas de Oleiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 3,
+    "tool": {
+      "ability": "int"
+    }
+  },
+  {
+    "id": "masons-tools",
+    "name": "Ferramentas de Pedreiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 8,
+    "tool": {
+      "ability": "for"
+    }
+  },
+  {
+    "id": "cobblers-tools",
+    "name": "Ferramentas de Sapateiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "weavers-tools",
+    "name": "Ferramentas de Tecelão",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "glassblowers-tools",
+    "name": "Ferramentas de Vidreiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 30,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "int"
+    }
+  },
+  {
+    "id": "flute",
+    "name": "Flauta",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 1,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "pan-flute",
+    "name": "Flauta de Pã",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 12,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "arrows",
+    "name": "Flechas (20)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "municao",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1
+  },
+  {
+    "id": "rod",
+    "name": "Foco Arcano (bastão)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 2,
+    "focus": "arcano",
+    "description": "Um Foco Arcano é um objeto feito para canalizar magia arcana. Feiticeiros, bruxos e magos podem usá-lo como foco de conjuração."
+  },
+  {
+    "id": "staff",
+    "name": "Foco Arcano (cajado)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 4,
+    "focus": "arcano",
+    "description": "Um Foco Arcano é um objeto feito para canalizar magia arcana. Feiticeiros, bruxos e magos podem usá-lo como foco de conjuração. Também pode ser usado como Bordão."
+  },
+  {
+    "id": "crystal",
+    "name": "Foco Arcano (cristal)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 1,
+    "focus": "arcano",
+    "description": "Um Foco Arcano é um objeto feito para canalizar magia arcana. Feiticeiros, bruxos e magos podem usá-lo como foco de conjuração."
+  },
+  {
+    "id": "orb",
+    "name": "Foco Arcano (orbe)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 20,
+      "unit": "po"
+    },
+    "weight": 3,
+    "focus": "arcano",
+    "description": "Um Foco Arcano é um objeto feito para canalizar magia arcana. Feiticeiros, bruxos e magos podem usá-lo como foco de conjuração."
+  },
+  {
+    "id": "wand",
+    "name": "Foco Arcano (varinha)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 1,
+    "focus": "arcano",
+    "description": "Um Foco Arcano é um objeto feito para canalizar magia arcana. Feiticeiros, bruxos e magos podem usá-lo como foco de conjuração."
+  },
+  {
+    "id": "sprig-of-mistletoe",
+    "name": "Foco Druídico (ramo de visco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 0,
+    "focus": "druidico",
+    "description": "Um Foco Druídico é feito de materiais naturais para canalizar magia primal. Druidas e patrulheiros podem usá-lo como foco de conjuração."
+  },
+  {
+    "id": "yew-wand",
+    "name": "Foco Druídico (varinha de teixo)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 1,
+    "focus": "druidico",
+    "description": "Um Foco Druídico é feito de materiais naturais para canalizar magia primal. Druidas e patrulheiros podem usá-lo como foco de conjuração."
+  },
+  {
+    "id": "alchemists-fire",
+    "name": "Fogo de Alquimista (frasco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Quando você realiza a ação Atacar, pode trocar um dos ataques por arremessar um frasco de Fogo de Alquimista. Escolha uma criatura ou objeto que você consiga ver a até 6 metros. O alvo precisa ser bem-sucedido numa salvaguarda de Destreza (CD 8 + seu modificador de Destreza + seu Bônus de Proficiência) ou sofre 1d4 de dano de Fogo e começa a queimar."
+  },
+  {
+    "id": "sickle",
+    "name": "Foice Curta",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d4",
+      "damageType": "cortante",
+      "properties": ["leve"],
+      "mastery": "talho"
+    }
+  },
+  {
+    "id": "flask",
+    "name": "Frasco",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "pc"
+    },
+    "weight": 1,
+    "description": "Um Frasco guarda até meio litro."
+  },
+  {
+    "id": "vial",
+    "name": "Frasco Pequeno",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Guarda até 120 ml."
+  },
+  {
+    "id": "sling",
+    "name": "Funda",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 1,
+      "unit": "pp"
+    },
+    "weight": 0,
+    "weapon": {
+      "group": "simples",
+      "kind": "distancia",
+      "damage": "1d4",
+      "damageType": "perfurante",
+      "range": [30, 120],
+      "properties": ["municao"],
+      "mastery": "desacelerar",
+      "ammunition": "bullets-sling"
+    }
+  },
+  {
+    "id": "bagpipes",
+    "name": "Gaita de Foles",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 30,
+      "unit": "po"
+    },
+    "weight": 6,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "grappling-hook",
+    "name": "Gancho de Escalada",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 4,
+    "description": "Com a ação Usar, você arremessa o gancho num parapeito, beiral ou outro apoio a até 15 metros; ele se prende se você passar num teste de Destreza (Acrobacia) CD 13. Com uma Corda amarrada, dá para escalar."
+  },
+  {
+    "id": "bottle-glass",
+    "name": "Garrafa de Vidro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 2,
+    "description": "Uma Garrafa de Vidro guarda até 700 ml."
+  },
+  {
+    "id": "glaive",
+    "name": "Glaive",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 20,
+      "unit": "po"
+    },
+    "weight": 6,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d10",
+      "damageType": "cortante",
+      "properties": ["pesada", "alcance", "duas-maos"],
+      "mastery": "raspar"
+    }
+  },
+  {
+    "id": "spellbook",
+    "name": "Grimório",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 3,
+    "description": "Essencial para magos: um tomo encadernado em couro com 100 páginas em branco para registrar magias."
+  },
+  {
+    "id": "tinderbox",
+    "name": "Isqueiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "pp"
+    },
+    "weight": 1,
+    "description": "Uma caixinha com pederneira, fuzil e isca para fazer fogo. Acender uma Vela, Lamparina, Lanterna ou Tocha leva uma Ação Bônus; qualquer outro fogo leva 1 minuto."
+  },
+  {
+    "id": "jug",
+    "name": "Jarro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "pc"
+    },
+    "weight": 4,
+    "description": "Um Jarro guarda até 4 litros."
+  },
+  {
+    "id": "dice",
+    "name": "Jogo de Dados",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "jogo",
+    "cost": {
+      "qty": 1,
+      "unit": "pp"
+    },
+    "weight": 0,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "disguise-kit",
+    "name": "Kit de Disfarce",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 3,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "poisoners-kit",
+    "name": "Kit de Envenenador",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "int"
+    }
+  },
+  {
+    "id": "climbers-kit",
+    "name": "Kit de Escalada",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 8,
+    "description": "Inclui ponteiras para botas, luvas, grampos e arnês. Com a ação Usar, você se ancora: não cai mais de 7,5 metros do ponto de ancoragem e não se afasta mais de 7,5 metros dele sem soltar a âncora com uma Ação Bônus."
+  },
+  {
+    "id": "forgery-kit",
+    "name": "Kit de Falsificação",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 15,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "herbalism-kit",
+    "name": "Kit de Herbalismo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 3,
+    "tool": {
+      "ability": "int"
+    }
+  },
+  {
+    "id": "healers-kit",
+    "name": "Kit de Primeiros Socorros",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 3,
+    "description": "Tem dez usos. Com a ação Usar, você gasta um uso para estabilizar uma criatura Inconsciente com 0 Pontos de Vida, sem precisar fazer teste de Sabedoria (Medicina)."
+  },
+  {
+    "id": "lamp",
+    "name": "Lamparina",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "pp"
+    },
+    "weight": 1,
+    "description": "Uma Lamparina queima Óleo e ilumina: Luz Plena num raio de 4,5 metros e Penumbra por mais 9 metros."
+  },
+  {
+    "id": "spear",
+    "name": "Lança",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "perfurante",
+      "versatile": "1d8",
+      "range": [20, 60],
+      "properties": ["arremesso", "versatil"],
+      "mastery": "enfraquecer"
+    }
+  },
+  {
+    "id": "lance",
+    "name": "Lança de Montaria",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 6,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d10",
+      "damageType": "perfurante",
+      "properties": ["pesada", "alcance", "duas-maos"],
+      "mastery": "derrubar"
+    }
+  },
+  {
+    "id": "lantern-hooded",
+    "name": "Lanterna Coberta",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "description": "Queima Óleo e ilumina: Luz Plena num raio de 9 metros e Penumbra por mais 9 metros. Com uma Ação Bônus, você baixa a cobertura, deixando só Penumbra num raio de 1,5 metro, ou a levanta de novo."
+  },
+  {
+    "id": "lantern-bullseye",
+    "name": "Lanterna Focada",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 2,
+    "description": "Queima Óleo e ilumina: Luz Plena num Cone de 18 metros e Penumbra por mais 18 metros."
+  },
+  {
+    "id": "lyre",
+    "name": "Lira",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 30,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "book",
+    "name": "Livro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 5,
+    "description": "Um Livro traz ficção ou não ficção. Ao consultar um livro de não ficção confiável sobre um assunto, você recebe +5 em testes de Inteligência (Arcanismo, História, Natureza ou Religião) sobre esse assunto."
+  },
+  {
+    "id": "spyglass",
+    "name": "Luneta",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1000,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Objetos vistos pela Luneta parecem duas vezes maiores."
+  },
+  {
+    "id": "magnifying-glass",
+    "name": "Lupa",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 100,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Dá Vantagem em testes de atributo para avaliar ou examinar um objeto cheio de detalhes. Acender fogo com a Lupa exige luz forte como a do sol, material inflamável e cerca de 5 minutos."
+  },
+  {
+    "id": "mace",
+    "name": "Maça",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "concussao",
+      "properties": [],
+      "mastery": "enfraquecer"
+    }
+  },
+  {
+    "id": "morningstar",
+    "name": "Maça Estrela",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 15,
+      "unit": "po"
+    },
+    "weight": 4,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "perfurante",
+      "properties": [],
+      "mastery": "enfraquecer"
+    }
+  },
+  {
+    "id": "handaxe",
+    "name": "Machadinha",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "cortante",
+      "range": [20, 60],
+      "properties": ["leve", "arremesso"],
+      "mastery": "afligir"
+    }
+  },
+  {
+    "id": "battleaxe",
+    "name": "Machado de Batalha",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 4,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "cortante",
+      "versatile": "1d10",
+      "properties": ["versatil"],
+      "mastery": "derrubar"
+    }
+  },
+  {
+    "id": "greataxe",
+    "name": "Machado Grande",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 30,
+      "unit": "po"
+    },
+    "weight": 7,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d12",
+      "damageType": "cortante",
+      "properties": ["pesada", "duas-maos"],
+      "mastery": "trespassar"
+    }
+  },
+  {
+    "id": "maul",
+    "name": "Malho",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 10,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "2d6",
+      "damageType": "concussao",
+      "properties": ["pesada", "duas-maos"],
+      "mastery": "derrubar"
+    }
+  },
+  {
+    "id": "flail",
+    "name": "Mangual",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "concussao",
+      "properties": [],
+      "mastery": "enfraquecer"
+    }
+  },
+  {
+    "id": "map",
+    "name": "Mapa",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Consultando um Mapa confiável, você recebe +5 em testes de Sabedoria (Sobrevivência) para se orientar no lugar que ele mostra."
+  },
+  {
+    "id": "warhammer",
+    "name": "Martelo de Guerra",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 15,
+      "unit": "po"
+    },
+    "weight": 5,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "concussao",
+      "versatile": "1d10",
+      "properties": ["versatil"],
+      "mastery": "empurrar"
+    }
+  },
+  {
+    "id": "light-hammer",
+    "name": "Martelo Leve",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "simples",
+      "kind": "corpo-a-corpo",
+      "damage": "1d4",
+      "damageType": "concussao",
+      "range": [20, 60],
+      "properties": ["leve", "arremesso"],
+      "mastery": "talho"
+    }
+  },
+  {
+    "id": "half-plate-armor",
+    "name": "Meia-Armadura",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 750,
+      "unit": "po"
+    },
+    "weight": 40,
+    "armor": {
+      "type": "media",
+      "base": 15,
+      "dexCap": 2,
+      "stealthDisadvantage": true
+    }
+  },
+  {
+    "id": "backpack",
+    "name": "Mochila",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 5,
+    "description": "Uma Mochila guarda até 15 kg de coisas. Também serve como alforje."
+  },
+  {
+    "id": "musket",
+    "name": "Mosquete",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 500,
+      "unit": "po"
+    },
+    "weight": 10,
+    "weapon": {
+      "group": "marcial",
+      "kind": "distancia",
+      "damage": "1d12",
+      "damageType": "perfurante",
+      "range": [40, 120],
+      "properties": ["municao", "recarga", "duas-maos"],
+      "mastery": "desacelerar",
+      "ammunition": "bullets-firearm"
+    }
+  },
+  {
+    "id": "oil",
+    "name": "Óleo (frasco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "pp"
+    },
+    "weight": 1,
+    "description": "Você pode encharcar uma criatura, objeto ou área com Óleo, ou usá-lo como combustível.\n**Encharcar uma Criatura ou Objeto.** Quando você realiza a ação Atacar, pode trocar um dos ataques por arremessar um frasco de Óleo num alvo a até 6 metros. O alvo precisa ser bem-sucedido numa salvaguarda de Destreza (CD 8 + seu modificador de Destreza + seu Bônus de Proficiência) ou fica coberto de óleo. Se sofrer dano de Fogo antes de o óleo secar (1 minuto), sofre 5 de dano de Fogo extra.\n**Encharcar uma Área.** Com a ação Usar, você derrama o frasco num chão plano, cobrindo 1,5 por 1,5 metro a até 1,5 metro de você. Aceso, o óleo queima até o fim do turno 2 rodadas depois (12 segundos) e causa 5 de dano de Fogo a quem entrar na área ou terminar o turno nela, uma vez por turno.\n**Combustível.** Um frasco queima por 6 horas numa Lamparina ou Lanterna, que podem ser apagadas e reacendidas até completar esse tempo."
+  },
+  {
+    "id": "shovel",
+    "name": "Pá",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 5,
+    "description": "Trabalhando por 1 hora, você cava um buraco de 1,5 metro de lado em terra ou material parecido."
+  },
+  {
+    "id": "entertainers-pack",
+    "name": "Pacote de Artista",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "pacote",
+    "cost": {
+      "qty": 40,
+      "unit": "po"
+    },
+    "weight": 58.5,
+    "contents": [
+      {
+        "id": "backpack",
+        "qty": 1
+      },
+      {
+        "id": "bedroll",
+        "qty": 1
+      },
+      {
+        "id": "bell",
+        "qty": 1
+      },
+      {
+        "id": "lantern-bullseye",
+        "qty": 1
+      },
+      {
+        "id": "costume",
+        "qty": 3
+      },
+      {
+        "id": "mirror",
+        "qty": 1
+      },
+      {
+        "id": "oil",
+        "qty": 8
+      },
+      {
+        "id": "rations",
+        "qty": 9
+      },
+      {
+        "id": "tinderbox",
+        "qty": 1
+      },
+      {
+        "id": "waterskin",
+        "qty": 1
+      }
+    ],
+    "description": "Contém: Mochila, Saco de Dormir, Sino, Lanterna Focada, 3 Fantasias, Espelho, 8 frascos de Óleo, 9 dias de Rações, Isqueiro e Cantil."
+  },
+  {
+    "id": "burglars-pack",
+    "name": "Pacote de Assaltante",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "pacote",
+    "cost": {
+      "qty": 16,
+      "unit": "po"
+    },
+    "weight": 20,
+    "contents": [
+      {
+        "id": "backpack",
+        "qty": 1
+      },
+      {
+        "id": "ball-bearings",
+        "qty": 1
+      },
+      {
+        "id": "bell",
+        "qty": 1
+      },
+      {
+        "id": "candle",
+        "qty": 10
+      },
+      {
+        "id": "crowbar",
+        "qty": 1
+      },
+      {
+        "id": "lantern-hooded",
+        "qty": 1
+      },
+      {
+        "id": "flask",
+        "qty": 7
+      },
+      {
+        "id": "oil",
+        "qty": 7
+      },
+      {
+        "id": "rations",
+        "qty": 5
+      },
+      {
+        "id": "rope",
+        "qty": 1
+      },
+      {
+        "id": "tinderbox",
+        "qty": 1
+      },
+      {
+        "id": "waterskin",
+        "qty": 1
+      }
+    ],
+    "description": "Contém: Mochila, Esferas de Metal, Sino, 10 Velas, Pé de Cabra, Lanterna Coberta, 7 frascos de Óleo, 5 dias de Rações, Corda, Isqueiro e Cantil."
+  },
+  {
+    "id": "explorers-pack",
+    "name": "Pacote de Aventureiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "pacote",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 55,
+    "contents": [
+      {
+        "id": "backpack",
+        "qty": 1
+      },
+      {
+        "id": "bedroll",
+        "qty": 1
+      },
+      {
+        "id": "oil",
+        "qty": 2
+      },
+      {
+        "id": "rations",
+        "qty": 10
+      },
+      {
+        "id": "rope",
+        "qty": 1
+      },
+      {
+        "id": "tinderbox",
+        "qty": 1
+      },
+      {
+        "id": "torch",
+        "qty": 10
+      },
+      {
+        "id": "waterskin",
+        "qty": 1
+      }
+    ],
+    "description": "Contém: Mochila, Saco de Dormir, 2 frascos de Óleo, 10 dias de Rações, Corda, Isqueiro, 10 Tochas e Cantil."
+  },
+  {
+    "id": "diplomat-pack",
+    "name": "Pacote de Diplomata",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "pacote",
+    "cost": {
+      "qty": 39,
+      "unit": "po"
+    },
+    "weight": 20,
+    "contents": [
+      {
+        "id": "chest",
+        "qty": 1
+      },
+      {
+        "id": "clothes-fine",
+        "qty": 1
+      },
+      {
+        "id": "ink",
+        "qty": 1
+      },
+      {
+        "id": "ink-pen",
+        "qty": 5
+      },
+      {
+        "id": "lamp",
+        "qty": 1
+      },
+      {
+        "id": "case-map-or-scroll",
+        "qty": 2
+      },
+      {
+        "id": "flask",
+        "qty": 4
+      },
+      {
+        "id": "oil",
+        "qty": 4
+      },
+      {
+        "id": "paper",
+        "qty": 5
+      },
+      {
+        "id": "parchment",
+        "qty": 5
+      },
+      {
+        "id": "perfume",
+        "qty": 1
+      },
+      {
+        "id": "tinderbox",
+        "qty": 1
+      }
+    ],
+    "description": "Contém: Baú, Roupas Finas, Tinta, 5 Canetas, Lamparina, 2 Estojos de Mapas ou Pergaminhos, 4 frascos de Óleo, 5 folhas de Papel, 5 folhas de Pergaminho, Perfume e Isqueiro."
+  },
+  {
+    "id": "scholars-pack",
+    "name": "Pacote de Estudioso",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "pacote",
+    "cost": {
+      "qty": 40,
+      "unit": "po"
+    },
+    "weight": 22,
+    "contents": [
+      {
+        "id": "backpack",
+        "qty": 1
+      },
+      {
+        "id": "blanket",
+        "qty": 1
+      },
+      {
+        "id": "book",
+        "qty": 1
+      },
+      {
+        "id": "ink",
+        "qty": 1
+      },
+      {
+        "id": "ink-pen",
+        "qty": 1
+      },
+      {
+        "id": "lamp",
+        "qty": 1
+      },
+      {
+        "id": "oil",
+        "qty": 10
+      },
+      {
+        "id": "parchment",
+        "qty": 10
+      },
+      {
+        "id": "tinderbox",
+        "qty": 1
+      }
+    ],
+    "description": "Contém: Mochila, Cobertor, Livro, Tinta, Caneta de Pena, Lamparina, 10 frascos de Óleo, 10 folhas de Pergaminho e Isqueiro."
+  },
+  {
+    "id": "dungeoneer-pack",
+    "name": "Pacote de Explorador de Masmorras",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "pacote",
+    "cost": {
+      "qty": 12,
+      "unit": "po"
+    },
+    "weight": 55,
+    "contents": [
+      {
+        "id": "backpack",
+        "qty": 1
+      },
+      {
+        "id": "caltrops",
+        "qty": 10
+      },
+      {
+        "id": "crowbar",
+        "qty": 1
+      },
+      {
+        "id": "flask",
+        "qty": 2
+      },
+      {
+        "id": "oil",
+        "qty": 2
+      },
+      {
+        "id": "rations",
+        "qty": 10
+      },
+      {
+        "id": "rope",
+        "qty": 1
+      },
+      {
+        "id": "tinderbox",
+        "qty": 1
+      },
+      {
+        "id": "torch",
+        "qty": 10
+      },
+      {
+        "id": "waterskin",
+        "qty": 1
+      }
+    ],
+    "description": "Contém: Mochila, Estrepes, Pé de Cabra, 2 frascos de Óleo, 10 dias de Rações, Corda, Isqueiro, 10 Tochas e Cantil."
+  },
+  {
+    "id": "priests-pack",
+    "name": "Pacote de Sacerdote",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "pacote",
+    "cost": {
+      "qty": 33,
+      "unit": "po"
+    },
+    "weight": 29,
+    "contents": [
+      {
+        "id": "backpack",
+        "qty": 1
+      },
+      {
+        "id": "blanket",
+        "qty": 1
+      },
+      {
+        "id": "holy-water",
+        "qty": 1
+      },
+      {
+        "id": "lamp",
+        "qty": 1
+      },
+      {
+        "id": "rations",
+        "qty": 7
+      },
+      {
+        "id": "robe",
+        "qty": 1
+      },
+      {
+        "id": "tinderbox",
+        "qty": 1
+      }
+    ],
+    "description": "Contém: Mochila, Cobertor, Água Benta, Lamparina, 7 dias de Rações, Túnica e Isqueiro."
+  },
+  {
+    "id": "pot-iron",
+    "name": "Panela de Ferro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 10,
+    "description": "Guarda até 4 litros."
+  },
+  {
+    "id": "paper",
+    "name": "Papel (folha)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "pp"
+    },
+    "weight": 0,
+    "description": "Uma folha cabe cerca de 250 palavras escritas à mão."
+  },
+  {
+    "id": "crowbar",
+    "name": "Pé de Cabra",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 5,
+    "description": "Usar um Pé de Cabra dá Vantagem em testes de Força em que a alavanca ajude."
+  },
+  {
+    "id": "breastplate",
+    "name": "Peitoral",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "armadura",
+    "cost": {
+      "qty": 400,
+      "unit": "po"
+    },
+    "weight": 20,
+    "armor": {
+      "type": "media",
+      "base": 14,
+      "dexCap": 2,
+      "stealthDisadvantage": false
+    }
+  },
+  {
+    "id": "perfume",
+    "name": "Perfume",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Por 1 hora depois de se perfumar, você tem Vantagem em testes de Carisma (Persuasão) para influenciar um Humanoide Indiferente a até 1,5 metro de você."
+  },
+  {
+    "id": "parchment",
+    "name": "Pergaminho (folha)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 3,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Uma folha cabe cerca de 250 palavras escritas à mão."
+  },
+  {
+    "id": "spell-scroll-level-1",
+    "name": "Pergaminho de Magia (1º círculo)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Um item mágico com as palavras de uma magia de 1º círculo, escolhida por quem o criou. Se a magia estiver na lista da sua classe, você pode ler o pergaminho e lançá-la no tempo normal, sem componentes materiais. Se pedir salvaguarda ou jogada de ataque, a CD é 13 e o bônus de ataque é +5. O pergaminho se desfaz depois do uso."
+  },
+  {
+    "id": "spell-scroll-cantrip",
+    "name": "Pergaminho de Magia (truque)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 30,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Um item mágico com as palavras de um truque, escolhido por quem o criou. Se a magia estiver na lista da sua classe, você pode ler o pergaminho e lançá-la no tempo normal, sem componentes materiais. Se pedir salvaguarda ou jogada de ataque, a CD é 13 e o bônus de ataque é +5. O pergaminho se desfaz depois do uso."
+  },
+  {
+    "id": "war-pick",
+    "name": "Picareta de Guerra",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "perfurante",
+      "versatile": "1d10",
+      "properties": ["versatil"],
+      "mastery": "enfraquecer"
+    }
+  },
+  {
+    "id": "pike",
+    "name": "Pique",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 6,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d10",
+      "damageType": "perfurante",
+      "properties": ["pesada", "alcance", "duas-maos"],
+      "mastery": "empurrar"
+    }
+  },
+  {
+    "id": "pistol",
+    "name": "Pistola",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 250,
+      "unit": "po"
+    },
+    "weight": 3,
+    "weapon": {
+      "group": "marcial",
+      "kind": "distancia",
+      "damage": "1d10",
+      "damageType": "perfurante",
+      "range": [30, 90],
+      "properties": ["municao", "recarga"],
+      "mastery": "afligir",
+      "ammunition": "bullets-firearm"
+    }
+  },
+  {
+    "id": "potion-of-healing",
+    "name": "Poção de Cura",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 0.5,
+    "description": "Um item mágico. Como Ação Bônus, você bebe a poção ou a dá a uma criatura a até 1,5 metro. Quem bebe o líquido vermelho recupera 2d4 + 2 Pontos de Vida."
+  },
+  {
+    "id": "rations",
+    "name": "Rações (1 dia)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "pp"
+    },
+    "weight": 2,
+    "description": "Comida pronta para viagem: carne seca, frutas secas, biscoito duro e castanhas."
+  },
+  {
+    "id": "rapier",
+    "name": "Rapieira",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 2,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d8",
+      "damageType": "perfurante",
+      "properties": ["acuidade"],
+      "mastery": "afligir"
+    }
+  },
+  {
+    "id": "net",
+    "name": "Rede",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 3,
+    "description": "Quando você realiza a ação Atacar, pode trocar um dos ataques por arremessar uma Rede. Escolha uma criatura que você consiga ver a até 4,5 metros. O alvo precisa ser bem-sucedido numa salvaguarda de Destreza (CD 8 + seu modificador de Destreza + seu Bônus de Proficiência) ou fica Impedido até escapar. Criaturas Enormes ou maiores passam automaticamente. Para escapar, o alvo ou alguém a até 1,5 metro dele usa uma ação para fazer um teste de Força (Atletismo) CD 10. Destruir a Rede (CA 10; 5 PV; imune a dano de Concussão, Veneno e Psíquico) também liberta o alvo."
+  },
+  {
+    "id": "clothes-travelers",
+    "name": "Roupas de Viajante",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 4,
+    "description": "Roupas resistentes, feitas para viajar por ambientes variados."
+  },
+  {
+    "id": "clothes-fine",
+    "name": "Roupas Finas",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 15,
+      "unit": "po"
+    },
+    "weight": 3,
+    "description": "Feitas de tecidos caros e com detalhes bem trabalhados. Alguns eventos e lugares só admitem quem estiver vestido assim."
+  },
+  {
+    "id": "sack",
+    "name": "Saco",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "pc"
+    },
+    "weight": 1,
+    "description": "Um Saco guarda até 15 kg de coisas."
+  },
+  {
+    "id": "bedroll",
+    "name": "Saco de Dormir",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 2,
+      "unit": "po"
+    },
+    "weight": 25,
+    "description": "Um Saco de Dormir acomoda uma criatura Pequena ou Média. Dentro dele, você passa automaticamente em salvaguardas contra frio extremo."
+  },
+  {
+    "id": "dulcimer",
+    "name": "Saltério",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 25,
+      "unit": "po"
+    },
+    "weight": 10,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "amulet",
+    "name": "Símbolo Sagrado (amuleto)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 1,
+    "focus": "sagrado",
+    "description": "Um Símbolo Sagrado é enfeitado com joias ou pinturas para canalizar magia divina. Clérigos e paladinos podem usá-lo como foco de conjuração. O amuleto precisa ser segurado ou usado no corpo."
+  },
+  {
+    "id": "emblem",
+    "name": "Símbolo Sagrado (emblema)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 0,
+    "focus": "sagrado",
+    "description": "Um Símbolo Sagrado é enfeitado com joias ou pinturas para canalizar magia divina. Clérigos e paladinos podem usá-lo como foco de conjuração. O emblema fica pintado num escudo ou num tecido (como um tabardo ou estandarte)."
+  },
+  {
+    "id": "reliquary",
+    "name": "Símbolo Sagrado (relicário)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "foco",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 2,
+    "focus": "sagrado",
+    "description": "Um Símbolo Sagrado é enfeitado com joias ou pinturas para canalizar magia divina. Clérigos e paladinos podem usá-lo como foco de conjuração. O relicário precisa ser segurado."
+  },
+  {
+    "id": "bell",
+    "name": "Sino",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Tocado com a ação Usar, o Sino faz um som que pode ser ouvido a até 18 metros."
+  },
+  {
+    "id": "alchemists-supplies",
+    "name": "Suprimentos de Alquimista",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 50,
+      "unit": "po"
+    },
+    "weight": 8,
+    "tool": {
+      "ability": "int"
+    }
+  },
+  {
+    "id": "calligraphers-supplies",
+    "name": "Suprimentos de Calígrafo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "des"
+    }
+  },
+  {
+    "id": "brewers-supplies",
+    "name": "Suprimentos de Cervejeiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 20,
+      "unit": "po"
+    },
+    "weight": 9,
+    "tool": {
+      "ability": "int"
+    }
+  },
+  {
+    "id": "painters-supplies",
+    "name": "Suprimentos de Pintor",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 5,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "block-and-tackle",
+    "name": "Talha e Roldana",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 5,
+    "description": "Uma Talha e Roldana permite levantar até quatro vezes o peso que você normalmente conseguiria."
+  },
+  {
+    "id": "drum",
+    "name": "Tambor",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 6,
+      "unit": "po"
+    },
+    "weight": 3,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "ink",
+    "name": "Tinta (frasco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Um frasco pequeno, suficiente para escrever cerca de 500 páginas."
+  },
+  {
+    "id": "torch",
+    "name": "Tocha",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "pc"
+    },
+    "weight": 1,
+    "description": "Uma Tocha queima por 1 hora: Luz Plena num raio de 6 metros e Penumbra por mais 6 metros. Ao realizar a ação Atacar, você pode golpear com ela como uma arma corpo a corpo simples; se acertar, causa 1 de dano de Fogo."
+  },
+  {
+    "id": "trident",
+    "name": "Tridente",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 5,
+      "unit": "po"
+    },
+    "weight": 4,
+    "weapon": {
+      "group": "marcial",
+      "kind": "corpo-a-corpo",
+      "damage": "1d6",
+      "damageType": "perfurante",
+      "versatile": "1d8",
+      "range": [20, 60],
+      "properties": ["arremesso", "versatil"],
+      "mastery": "derrubar"
+    }
+  },
+  {
+    "id": "horn",
+    "name": "Trompa",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 3,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "robe",
+    "name": "Túnica",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1,
+    "description": "Uma Túnica tem significado profissional ou cerimonial. Alguns eventos e lugares só admitem quem usa túnicas com certas cores ou símbolos."
+  },
+  {
+    "id": "cooks-utensils",
+    "name": "Utensílios de Cozinheiro",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "ferramenta",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 8,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "pole",
+    "name": "Vara",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 5,
+      "unit": "pc"
+    },
+    "weight": 7,
+    "description": "Uma Vara de 3 metros. Serve para tocar algo a até 3 metros. Se precisar de um teste de Força (Atletismo) num salto, você pode usá-la como vara de salto e ter Vantagem."
+  },
+  {
+    "id": "candle",
+    "name": "Vela",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 1,
+      "unit": "pc"
+    },
+    "weight": 0,
+    "description": "Acesa, a Vela ilumina por 1 hora: Luz Plena num raio de 1,5 metro e Penumbra por mais 1,5 metro."
+  },
+  {
+    "id": "poison-basic",
+    "name": "Veneno Básico (frasco)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "equipamento",
+    "cost": {
+      "qty": 100,
+      "unit": "po"
+    },
+    "weight": 0,
+    "description": "Como Ação Bônus, você cobre uma arma ou até três munições com o veneno. Uma criatura que sofrer dano Perfurante ou Cortante da arma ou munição envenenada sofre 1d4 de dano de Veneno extra. O veneno dura 1 minuto ou até causar dano, o que vier primeiro."
+  },
+  {
+    "id": "viol",
+    "name": "Viola",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "instrumento",
+    "cost": {
+      "qty": 30,
+      "unit": "po"
+    },
+    "weight": 2,
+    "tool": {
+      "ability": "car"
+    }
+  },
+  {
+    "id": "bolts",
+    "name": "Virotes (20)",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "municao",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 1.5
+  },
+  {
+    "id": "dragonchess",
+    "name": "Xadrez Dracônico",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "jogo",
+    "cost": {
+      "qty": 1,
+      "unit": "po"
+    },
+    "weight": 0,
+    "tool": {
+      "ability": "sab"
+    }
+  },
+  {
+    "id": "blowgun",
+    "name": "Zarabatana",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "category": "arma",
+    "cost": {
+      "qty": 10,
+      "unit": "po"
+    },
+    "weight": 1,
+    "weapon": {
+      "group": "marcial",
+      "kind": "distancia",
+      "damage": "1",
+      "damageType": "perfurante",
+      "range": [25, 100],
+      "properties": ["municao", "recarga"],
+      "mastery": "afligir",
+      "ammunition": "needles"
+    }
+  }
+]

@@ -1,0 +1,15 @@
+[
+  { "id": "acido", "name": "Ácido" },
+  { "id": "concussao", "name": "Concussão" },
+  { "id": "cortante", "name": "Cortante" },
+  { "id": "eletrico", "name": "Elétrico" },
+  { "id": "energia", "name": "Energia" },
+  { "id": "fogo", "name": "Fogo" },
+  { "id": "frio", "name": "Frio" },
+  { "id": "necrotico", "name": "Necrótico" },
+  { "id": "perfurante", "name": "Perfurante" },
+  { "id": "psiquico", "name": "Psíquico" },
+  { "id": "radiante", "name": "Radiante" },
+  { "id": "trovejante", "name": "Trovejante" },
+  { "id": "veneno", "name": "Veneno" }
+]

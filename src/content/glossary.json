@@ -1,0 +1,400 @@
+[
+  {
+    "id": "acao",
+    "term": "Ação",
+    "aliases": ["action"],
+    "short": "O que você faz de principal no seu turno: atacar, lançar uma magia, correr, esconder-se...",
+    "long": "No seu turno você pode se mover e realizar uma ação. As ações mais comuns são Atacar, Magia, Disparada, Desengajar, Esquivar, Ajudar, Esconder, Procurar, Estudar, Influenciar, Usar e Preparar.",
+    "seeAlso": ["acao-bonus", "reacao", "turno"]
+  },
+  {
+    "id": "acao-bonus",
+    "term": "Ação Bônus",
+    "aliases": ["bonus action"],
+    "short": "Uma ação rápida extra que só existe quando uma regra diz que algo usa Ação Bônus.",
+    "long": "Você tem no máximo uma Ação Bônus por turno, e só pode usá-la se alguma característica, magia ou regra permitir. Exemplos: entrar em Fúria, Ação Astuta do ladino, Palavra Curativa.",
+    "seeAlso": ["acao", "reacao"]
+  },
+  {
+    "id": "reacao",
+    "term": "Reação",
+    "aliases": ["reaction"],
+    "short": "Uma resposta instantânea a algo que acontece, mesmo fora do seu turno. Uma por rodada.",
+    "long": "O exemplo mais comum é o Ataque de Oportunidade. Você recupera sua Reação no início do seu turno.",
+    "seeAlso": ["ataque-de-oportunidade", "acao"]
+  },
+  {
+    "id": "turno",
+    "term": "Turno e rodada",
+    "aliases": ["turno", "rodada", "round"],
+    "short": "No combate, cada um age no seu turno; uma rodada é quando todos agiram uma vez (cerca de 6 segundos).",
+    "seeAlso": ["iniciativa", "acao"]
+  },
+  {
+    "id": "iniciativa",
+    "term": "Iniciativa",
+    "aliases": ["initiative"],
+    "short": "Rolagem de d20 + Destreza no início do combate que define a ordem dos turnos.",
+    "seeAlso": ["turno"]
+  },
+  {
+    "id": "d20",
+    "term": "Teste de d20",
+    "aliases": ["d20 test", "d20"],
+    "short": "Qualquer rolagem de um dado de 20 lados para ver se você consegue algo: teste de atributo, ataque ou salvaguarda.",
+    "long": "Role o d20, some o modificador e os bônus, e compare com um número alvo (CD ou CA). Igual ou maior é sucesso.",
+    "seeAlso": ["teste-de-atributo", "jogada-de-ataque", "salvaguarda"]
+  },
+  {
+    "id": "teste-de-atributo",
+    "term": "Teste de atributo",
+    "aliases": ["ability check", "teste de perícia"],
+    "short": "d20 + modificador do atributo (+ proficiência, se a perícia for sua) contra uma CD que o Mestre define.",
+    "seeAlso": ["pericia", "cd", "d20"]
+  },
+  {
+    "id": "jogada-de-ataque",
+    "term": "Jogada de ataque",
+    "aliases": ["attack roll", "ataque"],
+    "short": "d20 + modificador + proficiência; se igualar ou passar a CA do alvo, você acerta.",
+    "seeAlso": ["ca", "acerto-critico"]
+  },
+  {
+    "id": "salvaguarda",
+    "term": "Salvaguarda",
+    "aliases": ["teste de resistência", "saving throw", "save"],
+    "short": "Um teste para resistir a um perigo, como veneno, uma explosão ou uma magia.",
+    "long": "Role d20 + modificador do atributo pedido (+ proficiência, se a salvaguarda for da sua classe) contra a CD do efeito. Cada classe é proficiente em duas salvaguardas.",
+    "seeAlso": ["cd", "proficiencia"]
+  },
+  {
+    "id": "cd",
+    "term": "CD (Classe de Dificuldade)",
+    "aliases": ["classe de dificuldade", "dc"],
+    "short": "O número que você precisa alcançar num teste ou salvaguarda. Fácil é 10, médio 15, difícil 20.",
+    "seeAlso": ["teste-de-atributo", "salvaguarda"]
+  },
+  {
+    "id": "ca",
+    "term": "CA (Classe de Armadura)",
+    "aliases": ["classe de armadura", "armor class", "ac"],
+    "short": "O número que um ataque precisa alcançar para acertar você. Quanto maior, melhor.",
+    "long": "Sem armadura, sua CA é 10 + modificador de Destreza. Armaduras, escudos e algumas características mudam esse cálculo.",
+    "seeAlso": ["jogada-de-ataque"]
+  },
+  {
+    "id": "pv",
+    "term": "Pontos de Vida (PV)",
+    "aliases": ["pv", "hit points", "hp", "vida"],
+    "short": "Quanto dano você aguenta. Em 0 PV, você cai inconsciente e começa a fazer salvaguardas contra a morte.",
+    "seeAlso": ["pv-temporarios", "salvaguarda-contra-a-morte", "dados-de-vida"]
+  },
+  {
+    "id": "pv-temporarios",
+    "term": "Pontos de Vida Temporários",
+    "aliases": ["pv temporários", "temporary hit points"],
+    "short": "Uma camada extra de vida que some primeiro quando você sofre dano. Não se somam entre si.",
+    "seeAlso": ["pv"]
+  },
+  {
+    "id": "dados-de-vida",
+    "term": "Dados de Vida",
+    "aliases": ["hit dice", "dado de vida"],
+    "short": "Dados que você gasta num Descanso Curto para recuperar PV. Você tem um por nível.",
+    "seeAlso": ["descanso-curto", "pv"]
+  },
+  {
+    "id": "descanso-curto",
+    "term": "Descanso Curto",
+    "aliases": ["short rest"],
+    "short": "Uma pausa de 1 hora. Dá para gastar Dados de Vida para se curar e recuperar algumas habilidades.",
+    "seeAlso": ["descanso-longo", "dados-de-vida"]
+  },
+  {
+    "id": "descanso-longo",
+    "term": "Descanso Longo",
+    "aliases": ["long rest"],
+    "short": "Uma noite de sono (8 horas). Recupera todos os PV, espaços de magia e a maioria das habilidades.",
+    "seeAlso": ["descanso-curto"]
+  },
+  {
+    "id": "salvaguarda-contra-a-morte",
+    "term": "Salvaguarda contra a morte",
+    "aliases": ["teste contra a morte", "death saving throw", "death save"],
+    "short": "Com 0 PV, role d20 a cada turno: 10+ é sucesso, 9- é falha. Três sucessos estabilizam; três falhas, morte.",
+    "long": "Tirar 20 faz você voltar com 1 PV. Tirar 1 conta como duas falhas. Qualquer cura te traz de volta.",
+    "seeAlso": ["pv", "inconsciente"]
+  },
+  {
+    "id": "vantagem",
+    "term": "Vantagem",
+    "aliases": ["advantage"],
+    "short": "Role dois d20 e fique com o maior resultado.",
+    "seeAlso": ["desvantagem", "d20"]
+  },
+  {
+    "id": "desvantagem",
+    "term": "Desvantagem",
+    "aliases": ["disadvantage"],
+    "short": "Role dois d20 e fique com o menor resultado.",
+    "long": "Se você tiver Vantagem e Desvantagem ao mesmo tempo, elas se cancelam e você rola um d20 só.",
+    "seeAlso": ["vantagem"]
+  },
+  {
+    "id": "proficiencia",
+    "term": "Proficiência",
+    "aliases": ["proficiency", "bônus de proficiência", "treinado"],
+    "short": "Você é treinado em algo e soma o Bônus de Proficiência (+2 no nível 1) nas rolagens com isso.",
+    "long": "O bônus é +2 nos níveis 1 a 4, +3 nos 5 a 8, +4 nos 9 a 12, +5 nos 13 a 16 e +6 nos 17 a 20.",
+    "seeAlso": ["especializacao", "pericia"]
+  },
+  {
+    "id": "especializacao",
+    "term": "Especialização",
+    "aliases": ["expertise"],
+    "short": "Numa perícia com Especialização, seu Bônus de Proficiência conta em dobro.",
+    "seeAlso": ["proficiencia", "pericia"]
+  },
+  {
+    "id": "pericia",
+    "term": "Perícia",
+    "aliases": ["skill"],
+    "short": "Uma área de conhecimento ou talento (Furtividade, Percepção, Persuasão...) ligada a um atributo.",
+    "seeAlso": ["teste-de-atributo", "proficiencia"]
+  },
+  {
+    "id": "atributo",
+    "term": "Atributos",
+    "aliases": ["ability scores", "valor de atributo"],
+    "short": "Seis números que descrevem seu personagem: Força, Destreza, Constituição, Inteligência, Sabedoria e Carisma.",
+    "long": "O valor (geralmente de 8 a 20) gera um modificador: 10 dá +0, 12 dá +1, 14 dá +2, 8 dá −1. É o modificador que você soma nas rolagens.",
+    "seeAlso": ["modificador"]
+  },
+  {
+    "id": "modificador",
+    "term": "Modificador de atributo",
+    "aliases": ["mod", "modifier"],
+    "short": "O número que você soma às rolagens: (valor − 10) ÷ 2, arredondado para baixo.",
+    "seeAlso": ["atributo"]
+  },
+  {
+    "id": "deslocamento",
+    "term": "Deslocamento",
+    "aliases": ["speed", "velocidade", "movimento"],
+    "short": "Quantos metros você pode andar no seu turno. A maioria dos personagens anda 9 metros.",
+    "seeAlso": ["terreno-dificil"]
+  },
+  {
+    "id": "terreno-dificil",
+    "term": "Terreno Difícil",
+    "aliases": ["difficult terrain"],
+    "short": "Chão ruim (lama, entulho, mato alto): cada metro custa o dobro de movimento.",
+    "seeAlso": ["deslocamento"]
+  },
+  {
+    "id": "ataque-de-oportunidade",
+    "term": "Ataque de Oportunidade",
+    "aliases": ["opportunity attack"],
+    "short": "Quando um inimigo sai do seu alcance, você pode usar sua Reação para atacá-lo uma vez.",
+    "long": "Quem usa a ação Desengajar não provoca Ataques de Oportunidade naquele turno.",
+    "seeAlso": ["reacao"]
+  },
+  {
+    "id": "acerto-critico",
+    "term": "Acerto Crítico",
+    "aliases": ["crítico", "critical hit", "20 natural"],
+    "short": "Tirar 20 no d20 de um ataque: acerta sempre e você rola os dados de dano da arma duas vezes.",
+    "seeAlso": ["jogada-de-ataque"]
+  },
+  {
+    "id": "resistencia",
+    "term": "Resistência",
+    "aliases": ["resistance"],
+    "short": "Você sofre só metade do dano daquele tipo.",
+    "seeAlso": ["imunidade", "vulnerabilidade"]
+  },
+  {
+    "id": "imunidade",
+    "term": "Imunidade",
+    "aliases": ["immunity"],
+    "short": "Você não sofre dano (ou não é afetado pela condição) daquele tipo.",
+    "seeAlso": ["resistencia"]
+  },
+  {
+    "id": "vulnerabilidade",
+    "term": "Vulnerabilidade",
+    "aliases": ["vulnerability"],
+    "short": "Você sofre o dobro do dano daquele tipo.",
+    "seeAlso": ["resistencia"]
+  },
+  {
+    "id": "magia",
+    "term": "Magia",
+    "aliases": ["spell", "feitiço"],
+    "short": "Um efeito mágico com regras próprias. Lançar uma magia de 1º círculo ou mais gasta um espaço de magia.",
+    "seeAlso": ["truque", "espaco-de-magia", "circulo"]
+  },
+  {
+    "id": "truque",
+    "term": "Truque",
+    "aliases": ["cantrip"],
+    "short": "Uma magia simples que você lança quantas vezes quiser, sem gastar espaço de magia.",
+    "seeAlso": ["magia"]
+  },
+  {
+    "id": "espaco-de-magia",
+    "term": "Espaço de magia",
+    "aliases": ["spell slot", "slot"],
+    "short": "Uma 'carga' de energia mágica que você gasta para lançar magias. Voltam no Descanso Longo.",
+    "long": "Cada espaço tem um círculo (1º a 9º). Você pode lançar uma magia usando um espaço do círculo dela ou maior; em círculo maior, muitas ficam mais fortes.",
+    "seeAlso": ["circulo", "magia"]
+  },
+  {
+    "id": "circulo",
+    "term": "Círculo de magia",
+    "aliases": ["nível da magia", "spell level"],
+    "short": "O 'nível' de poder de uma magia, do 1º ao 9º. Truques são de círculo 0.",
+    "seeAlso": ["espaco-de-magia"]
+  },
+  {
+    "id": "magias-preparadas",
+    "term": "Magias preparadas",
+    "aliases": ["prepared spells"],
+    "short": "As magias que você deixou prontas para usar. O número de magias preparadas depende da classe e do nível.",
+    "seeAlso": ["magia"]
+  },
+  {
+    "id": "concentracao",
+    "term": "Concentração",
+    "aliases": ["concentration"],
+    "short": "Algumas magias duram enquanto você mantém a concentração. Só uma por vez; sofrer dano pode quebrá-la.",
+    "long": "Ao sofrer dano, faça uma salvaguarda de Constituição (CD 10 ou metade do dano, o que for maior) para manter a magia.",
+    "seeAlso": ["magia", "salvaguarda"]
+  },
+  {
+    "id": "cd-de-magia",
+    "term": "CD de magia",
+    "aliases": ["spell save dc"],
+    "short": "A dificuldade para resistir às suas magias: 8 + seu atributo de conjuração + Bônus de Proficiência.",
+    "seeAlso": ["salvaguarda", "ataque-de-magia"]
+  },
+  {
+    "id": "ataque-de-magia",
+    "term": "Ataque de magia",
+    "aliases": ["spell attack"],
+    "short": "Bônus para acertar com magias: seu atributo de conjuração + Bônus de Proficiência.",
+    "seeAlso": ["cd-de-magia", "jogada-de-ataque"]
+  },
+  {
+    "id": "ritual",
+    "term": "Ritual",
+    "aliases": ["ritual"],
+    "short": "Algumas magias podem ser lançadas como ritual: levam 10 minutos a mais, mas não gastam espaço.",
+    "seeAlso": ["magia"]
+  },
+  {
+    "id": "inspiracao-heroica",
+    "term": "Inspiração Heroica",
+    "aliases": ["heroic inspiration", "inspiração"],
+    "short": "Um 'coringa': gaste para rolar de novo qualquer dado. O Mestre dá por boas ideias e boa interpretação.",
+    "seeAlso": ["d20"]
+  },
+  {
+    "id": "especie",
+    "term": "Espécie",
+    "aliases": ["raça", "species", "race"],
+    "short": "De que povo seu personagem é: humano, elfo, anão, halfling... Dá traços especiais, como visão no escuro.",
+    "seeAlso": ["classe", "antecedente"]
+  },
+  {
+    "id": "classe",
+    "term": "Classe",
+    "aliases": ["class"],
+    "short": "A 'profissão' de aventureiro do personagem: define o que ele faz melhor em combate e fora dele.",
+    "seeAlso": ["subclasse", "nivel"]
+  },
+  {
+    "id": "subclasse",
+    "term": "Subclasse",
+    "aliases": ["subclass", "arquétipo"],
+    "short": "Uma especialização da classe, escolhida no nível 3, que dá habilidades próprias.",
+    "seeAlso": ["classe"]
+  },
+  {
+    "id": "antecedente",
+    "term": "Antecedente",
+    "aliases": ["background"],
+    "short": "O que seu personagem fazia antes da aventura. Dá aumentos de atributo, duas perícias, uma ferramenta e um talento.",
+    "seeAlso": ["talento", "especie"]
+  },
+  {
+    "id": "talento",
+    "term": "Talento",
+    "aliases": ["feat"],
+    "short": "Uma habilidade especial extra. Você ganha um pelo antecedente e mais alguns ao subir de nível.",
+    "seeAlso": ["antecedente"]
+  },
+  {
+    "id": "nivel",
+    "term": "Nível",
+    "aliases": ["level"],
+    "short": "Mede a experiência do personagem, de 1 a 20. A cada nível você fica mais forte e ganha habilidades.",
+    "seeAlso": ["proficiencia"]
+  },
+  {
+    "id": "visao-no-escuro",
+    "term": "Visão no Escuro",
+    "aliases": ["darkvision"],
+    "short": "Você enxerga no escuro até certa distância, como se fosse penumbra, mas sem cores.",
+    "seeAlso": ["especie"]
+  },
+  {
+    "id": "maestria",
+    "term": "Maestria em Armas",
+    "aliases": ["weapon mastery", "maestria"],
+    "short": "Classes de combate ativam um efeito extra de certas armas, como derrubar ou empurrar o inimigo.",
+    "seeAlso": ["classe"]
+  },
+  {
+    "id": "sangrando",
+    "term": "Sangrando",
+    "aliases": ["bloodied"],
+    "short": "Uma criatura está Sangrando quando tem metade ou menos dos seus Pontos de Vida máximos.",
+    "seeAlso": ["pv"]
+  },
+  {
+    "id": "emanacao",
+    "term": "Emanação",
+    "aliases": ["emanation", "aura"],
+    "short": "Uma área que se estende a partir de você e se move com você, como a aura de um paladino.",
+    "seeAlso": []
+  },
+  {
+    "id": "inconsciente",
+    "term": "Inconsciente",
+    "aliases": ["unconscious", "desmaiado"],
+    "short": "Condição de quem caiu a 0 PV ou está dormindo: não age, não percebe nada e fica caído.",
+    "seeAlso": ["salvaguarda-contra-a-morte", "condicao"]
+  },
+  {
+    "id": "condicao",
+    "term": "Condição",
+    "aliases": ["condition", "status"],
+    "short": "Um estado que muda o que você pode fazer: Caído, Cego, Envenenado, Amedrontado...",
+    "seeAlso": ["inconsciente"]
+  },
+  {
+    "id": "mestre",
+    "term": "Mestre",
+    "aliases": ["dm", "gm", "mestre do jogo", "narrador"],
+    "short": "A pessoa que narra a história, interpreta os outros personagens e decide as regras na mesa.",
+    "seeAlso": []
+  },
+  {
+    "id": "alinhamento",
+    "term": "Alinhamento",
+    "aliases": ["alignment", "tendência"],
+    "short": "Uma bússola moral do personagem: Leal, Neutro ou Caótico, e Bom, Neutro ou Mau. É opcional.",
+    "seeAlso": []
+  }
+]

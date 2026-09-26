@@ -1,0 +1,249 @@
+{
+  "id": "cleric",
+  "name": "Clérigo",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Sacerdote com poder divino: cura, protege e bane mortos-vivos.",
+  "description": "Clérigos são intermediários entre o mundo mortal e os deuses. Com orações, curam feridos, abençoam aliados, protegem o grupo e castigam inimigos com luz radiante. Também sabem se virar numa luta com armadura e escudo.",
+  "roles": ["curandeiro", "conjurador", "suporte"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Muito útil ao grupo, mas é preciso escolher magias preparadas todo dia."
+  },
+  "primaryAbilities": ["sab"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "sab": 15,
+    "con": 14,
+    "for": 13,
+    "des": 12,
+    "car": 10,
+    "int": 8
+  },
+  "recommendedWhy": "Sabedoria define a força e a precisão das suas magias; Constituição mantém você de pé e concentrado.",
+  "hitDie": 8,
+  "saves": ["sab", "car"],
+  "armor": ["leve", "media", "escudo"],
+  "weapons": ["simples"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": ["historia", "intuicao", "medicina", "persuasao", "religiao"]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "chain-shirt",
+          "qty": 1
+        },
+        {
+          "id": "shield",
+          "qty": 1
+        },
+        {
+          "id": "mace",
+          "qty": 1
+        },
+        {
+          "id": "amulet",
+          "qty": 1
+        },
+        {
+          "id": "priests-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 7,
+      "note": "O símbolo sagrado pode ter outra forma (amuleto, emblema ou relicário)."
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 110
+    }
+  ],
+  "spellcasting": {
+    "ability": "sab",
+    "progression": "completa",
+    "cantrips": [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    "prepared": [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22],
+    "slots": [
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 2, 1, 1]
+    ],
+    "ritual": true,
+    "focus": "Símbolo Sagrado",
+    "swap": "descanso-longo",
+    "explainer": "Magias são como cargas: você tem espaços de magia que gasta para lançá-las e que voltam depois de um Descanso Longo. Truques são magias simples que você lança à vontade, sem gastar nada. A cada dia, você escolhe quais magias da lista do clérigo deixa preparadas (prontas para usar). Sua magia usa Sabedoria."
+  },
+  "columns": [
+    {
+      "id": "canalizar-divindade",
+      "label": "Canalizar Divindade",
+      "values": [0, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+    }
+  ],
+  "features": [
+    {
+      "id": "cleric-spellcasting",
+      "level": 1,
+      "name": "Conjuração",
+      "text": "Você aprendeu a lançar magias por meio de orações e meditação.\n**Truques.** Você conhece três truques da lista de magias do Clérigo; Orientação, Chama Sagrada e Taumaturgia são os recomendados. Sempre que ganhar um nível de Clérigo, pode trocar um truque por outro da lista. Nos níveis 4 e 10, aprende mais um truque, como mostra a coluna Truques.\n**Espaços de Magia.** A tabela do Clérigo mostra quantos espaços você tem para magias de 1º círculo ou mais. Você recupera todos ao terminar um Descanso Longo.\n**Magias Preparadas.** Para começar, escolha quatro magias de 1º círculo da lista do Clérigo; Bênção, Curar Ferimentos, Raio Guiador e Escudo da Fé são as recomendadas. O número de magias da lista cresce com seu nível, como mostra a coluna Magias Preparadas; os círculos escolhidos precisam ser de espaços que você tem. Magias sempre preparadas por outra característica não contam nesse limite.\n**Trocar Magias Preparadas.** Ao terminar um Descanso Longo, você pode mudar toda a sua lista de magias preparadas.\n**Atributo de Conjuração.** Sabedoria.\n**Foco de Conjuração.** Você pode usar um Símbolo Sagrado.",
+      "plain": "Você lança magias com Sabedoria. Truques são livres; as outras magias gastam espaços que voltam no Descanso Longo."
+    },
+    {
+      "id": "cleric-divine-order",
+      "level": 1,
+      "name": "Ordem Divina",
+      "text": "Você se dedicou a um destes papéis sagrados, à sua escolha.\n**Protetor.** Treinado para a batalha, você ganha proficiência com armas Marciais e treino com armadura Pesada.\n**Taumaturgo.** Você conhece um truque extra da lista do Clérigo. Além disso, sua ligação mística com o divino lhe dá um bônus em testes de Inteligência (Arcanismo ou Religião) igual ao seu modificador de Sabedoria (mínimo +1).",
+      "plain": "Escolha: lutar melhor (armas marciais e armadura pesada) ou saber mais magia (um truque extra).",
+      "choices": [
+        {
+          "id": "divine-order",
+          "kind": "opcao",
+          "label": "Ordem Divina",
+          "count": 1,
+          "options": [
+            {
+              "id": "protector",
+              "name": "Protetor",
+              "text": "Proficiência com armas Marciais e armadura Pesada.",
+              "effects": [
+                {
+                  "type": "proficiencia",
+                  "category": "arma",
+                  "ids": ["marciais"]
+                },
+                {
+                  "type": "proficiencia",
+                  "category": "armadura",
+                  "ids": ["pesada"]
+                }
+              ]
+            },
+            {
+              "id": "thaumaturge",
+              "name": "Taumaturgo",
+              "text": "Um truque extra e bônus em Arcanismo e Religião."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cleric-channel-divinity",
+      "level": 2,
+      "name": "Canalizar Divindade",
+      "text": "Você pode canalizar energia divina dos Planos Exteriores para criar efeitos mágicos. Começa com dois: Centelha Divina e Expulsar Mortos-Vivos. A cada uso, escolha qual criar. Ganha mais opções em níveis maiores.\nVocê pode usar Canalizar Divindade desta classe duas vezes. Recupera um uso ao terminar um Descanso Curto e todos ao terminar um Descanso Longo. Ganha mais usos em certos níveis, como mostra a coluna Canalizar Divindade. Se um efeito pedir salvaguarda, a CD é a CD de magia desta classe.\n**Centelha Divina.** Com a ação Magia, você aponta seu Símbolo Sagrado para outra criatura que consiga ver a até 9 metros. Role 1d8 e some seu modificador de Sabedoria. Você restaura Pontos de Vida da criatura iguais ao total, ou a força a fazer uma salvaguarda de Constituição: se falhar, sofre dano Necrótico ou Radiante (à sua escolha) igual ao total; se passar, sofre metade (arredondado para baixo). Você rola um d8 extra nos níveis 7 (2d8), 13 (3d8) e 18 (4d8).\n**Expulsar Mortos-Vivos.** Com a ação Magia, você ergue seu Símbolo Sagrado e repreende os Mortos-Vivos. Cada Morto-Vivo à sua escolha a até 9 metros faz uma salvaguarda de Sabedoria. Se falhar, fica Amedrontado e Incapacitado por 1 minuto, tentando se afastar o máximo possível de você nos turnos dele. O efeito termina antes se ele sofrer dano, se você ficar Incapacitado ou se você morrer.",
+      "plain": "Algumas vezes por descanso: cure ou fira alguém a distância, ou espante mortos-vivos.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "canalizar-divindade"
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "cleric-subclass",
+      "level": 3,
+      "name": "Subclasse de Clérigo",
+      "text": "Você ganha uma subclasse de Clérigo à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Clérigo. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Clérigo ou menor.",
+      "plain": "No nível 3, você escolhe seu Domínio Divino."
+    },
+    {
+      "id": "cleric-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Clérigo 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "cleric-sear-undead",
+      "level": 5,
+      "name": "Queimar Mortos-Vivos",
+      "text": "Sempre que usar Expulsar Mortos-Vivos, você pode rolar um número de d8 igual ao seu modificador de Sabedoria (mínimo 1d8) e somar os resultados. Cada Morto-Vivo que falhar na salvaguarda contra esse uso sofre dano Radiante igual ao total. Esse dano não encerra o efeito de expulsão."
+    },
+    {
+      "id": "cleric-blessed-strikes",
+      "level": 7,
+      "name": "Golpes Abençoados",
+      "text": "Poder divino o preenche na batalha. Você ganha uma destas opções, à sua escolha:\n**Golpe Divino.** Uma vez em cada um dos seus turnos, ao acertar uma criatura com uma jogada de ataque usando arma, você pode fazer o alvo sofrer 1d8 de dano Necrótico ou Radiante extra (à sua escolha).\n**Conjuração Potente.** Some seu modificador de Sabedoria ao dano que causar com qualquer truque de Clérigo.",
+      "choices": [
+        {
+          "id": "blessed-strikes",
+          "kind": "opcao",
+          "label": "Golpes Abençoados",
+          "count": 1,
+          "options": [
+            {
+              "id": "divine-strike",
+              "name": "Golpe Divino",
+              "text": "1d8 de dano extra uma vez por turno com arma."
+            },
+            {
+              "id": "potent-spellcasting",
+              "name": "Conjuração Potente",
+              "text": "Some Sabedoria ao dano dos truques."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cleric-divine-intervention",
+      "level": 10,
+      "name": "Intervenção Divina",
+      "text": "Você pode pedir que sua divindade ou panteão intervenha a seu favor. Com a ação Magia, escolha qualquer magia de Clérigo de 5º círculo ou menor que não exija Reação para ser lançada. Como parte da mesma ação, você a lança sem gastar espaço de magia nem precisar de componentes materiais. Só pode usar esta característica de novo após terminar um Descanso Longo.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "cleric-improved-blessed-strikes",
+      "level": 14,
+      "name": "Golpes Abençoados Aprimorados",
+      "text": "A opção escolhida em Golpes Abençoados fica mais poderosa.\n**Golpe Divino.** O dano extra aumenta para 2d8.\n**Conjuração Potente.** Quando você lança um truque de Clérigo e causa dano a uma criatura com ele, pode dar vitalidade a você ou a outra criatura a até 18 metros, concedendo Pontos de Vida Temporários iguais ao dobro do seu modificador de Sabedoria."
+    },
+    {
+      "id": "cleric-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva do Destino é a recomendada."
+    },
+    {
+      "id": "cleric-greater-divine-intervention",
+      "level": 20,
+      "name": "Intervenção Divina Maior",
+      "text": "Você pode pedir uma intervenção divina ainda mais poderosa. Ao usar a Intervenção Divina, pode escolher a magia Desejo. Se fizer isso, só poderá usar a Intervenção Divina de novo após terminar 2d4 Descansos Longos."
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Domínio Divino",
+  "typicalTurn": "Se um aliado estiver ferido, use a ação Magia para lançar Curar Ferimentos com um toque. Se não, lance Chama Sagrada (um truque, não gasta nada) num inimigo, ou abençoe o grupo com Bênção no começo da luta. Seu escudo e armadura permitem ficar perto da ação."
+}
