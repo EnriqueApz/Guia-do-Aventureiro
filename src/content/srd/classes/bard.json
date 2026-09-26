@@ -260,5 +260,15 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Colégio de Bardo",
-  "typicalTurn": "Use a Ação Bônus para dar Inspiração Bárdica ao guerreiro que vai atacar. Depois, use a ação Magia para lançar Zombaria Viciosa (um truque que causa dano psíquico e atrapalha o ataque do inimigo) ou Palavra Curativa num aliado caído."
+  "typicalTurn": "Use a Ação Bônus para dar Inspiração Bárdica ao guerreiro que vai atacar. Depois, use a ação Magia para lançar Zombaria Viciosa (um truque que causa dano psíquico e atrapalha o ataque do inimigo) ou Palavra Curativa num aliado caído.",
+  "beginnerKit": {
+    "skills": ["atuacao", "persuasao", "percepcao"],
+    "equipment": "a",
+    "cantrips": ["vicious-mockery", "light"],
+    "spells": ["healing-word", "dissonant-whispers", "faerie-fire", "heroism"],
+    "choices": {
+      "classe:ferramentas": ["lute", "flute", "drum"]
+    },
+    "why": "Zombaria Viciosa ataca de longe sem rolar ataque, Palavra Curativa levanta aliados caídos com uma Ação Bônus e Fogo das Fadas ajuda o grupo inteiro a acertar."
+  }
 }

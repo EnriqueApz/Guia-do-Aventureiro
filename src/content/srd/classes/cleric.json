@@ -245,5 +245,15 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Domínio Divino",
-  "typicalTurn": "Se um aliado estiver ferido, use a ação Magia para lançar Curar Ferimentos com um toque. Se não, lance Chama Sagrada (um truque, não gasta nada) num inimigo, ou abençoe o grupo com Bênção no começo da luta. Seu escudo e armadura permitem ficar perto da ação."
+  "typicalTurn": "Se um aliado estiver ferido, use a ação Magia para lançar Curar Ferimentos com um toque. Se não, lance Chama Sagrada (um truque, não gasta nada) num inimigo, ou abençoe o grupo com Bênção no começo da luta. Seu escudo e armadura permitem ficar perto da ação.",
+  "beginnerKit": {
+    "skills": ["medicina", "persuasao"],
+    "equipment": "a",
+    "cantrips": ["sacred-flame", "guidance", "thaumaturgy"],
+    "spells": ["bless", "cure-wounds", "guiding-bolt", "shield-of-faith"],
+    "choices": {
+      "classe:cleric-divine-order:divine-order": ["protector"]
+    },
+    "why": "Protetor dá armadura pesada e armas marciais, então você aguenta a linha de frente. Bênção e Curar Ferimentos são as magias que mais ajudam um grupo iniciante."
+  }
 }

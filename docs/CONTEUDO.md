@@ -61,7 +61,7 @@ talentos dos antecedentes, classes das subclasses, colunas das tabelas, magias
 citadas), tabelas de magia que não diminuem, sugestão de atributos usando o array
 padrão, glossário sem "veja também" quebrado nem sinônimos em conflito. Enquanto as
 magias não entram (fase 4), as referências a magias são checadas contra a lista de
-ids do SRD em `scripts/srd-spell-ids.json`.
+ids da coleção de magias (`src/content/srd/spells.json`).
 
 ## O que ainda não está aqui
 

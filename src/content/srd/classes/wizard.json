@@ -184,5 +184,15 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Tradição Arcana",
-  "typicalTurn": "Fique longe da linha de frente. Lance Raio de Gelo (um truque, não gasta nada) no inimigo mais perigoso. Se vários inimigos se juntarem, use um espaço de magia para Onda Trovejante ou Mísseis Mágicos. Se alguém te atacar, a magia Escudo (Reação) pode salvar sua vida."
+  "typicalTurn": "Fique longe da linha de frente. Lance Raio de Gelo (um truque, não gasta nada) no inimigo mais perigoso. Se vários inimigos se juntarem, use um espaço de magia para Onda Trovejante ou Mísseis Mágicos. Se alguém te atacar, a magia Escudo (Reação) pode salvar sua vida.",
+  "beginnerKit": {
+    "skills": ["arcanismo", "investigacao"],
+    "equipment": "a",
+    "cantrips": ["light", "mage-hand", "ray-of-frost"],
+    "spells": ["magic-missile", "shield", "mage-armor", "sleep"],
+    "choices": {
+      "classe:wizard-scholar:scholar": ["arcanismo"]
+    },
+    "why": "Armadura Arcana e Escudo compensam a falta de armadura; Mísseis Mágicos e Sono resolvem os primeiros combates. Os truques dão luz, uma mão mágica e um ataque de frio."
+  }
 }

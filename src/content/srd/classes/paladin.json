@@ -287,5 +287,14 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Juramento Sagrado",
-  "typicalTurn": "Avance até o inimigo e use a ação Atacar com a espada longa. Se acertar, você pode gastar um espaço de magia para o Castigo Divino e causar muito dano radiante. Se um aliado estiver caindo, use a Ação Bônus para Cura pelas Mãos."
+  "typicalTurn": "Avance até o inimigo e use a ação Atacar com a espada longa. Se acertar, você pode gastar um espaço de magia para o Castigo Divino e causar muito dano radiante. Se um aliado estiver caindo, use a Ação Bônus para Cura pelas Mãos.",
+  "beginnerKit": {
+    "skills": ["atletismo", "persuasao"],
+    "equipment": "a",
+    "spells": ["bless", "divine-smite"],
+    "choices": {
+      "classe:paladin-weapon-mastery:weapon-mastery": ["longsword", "javelin"]
+    },
+    "why": "Cota de malha e escudo dão CA alta. Destruição Divina causa muito dano num acerto e Bênção ajuda o grupo inteiro."
+  }
 }

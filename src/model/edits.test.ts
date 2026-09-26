@@ -78,14 +78,15 @@ describe('edições do assistente', () => {
       choices: { 'antecedente:ferramenta': ['dice'] },
       startingEquipment: { backgroundOption: 'a', classOption: 'b' },
     });
-    const next = selectBackground(c, 'sage');
+    const next = selectBackground(c, 'sage', content);
     expect(next).toMatchObject({
       backgroundId: 'sage',
       backgroundBonus: {},
-      choices: {},
+      // O Iniciado em Magia do Sábio já vem com a lista do Mago.
+      choices: { 'talento:magic-initiate:list': ['mago'] },
       startingEquipment: { classOption: 'b' },
     });
-    expect(selectBackground(next, 'sage')).toBe(next);
+    expect(selectBackground(next, 'sage', content)).toBe(next);
   });
 
   it('escolhas com limite', () => {

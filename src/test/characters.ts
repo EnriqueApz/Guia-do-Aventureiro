@@ -2,15 +2,40 @@
  * Personagens de referência para os testes do motor de regras.
  * Os números esperados foram calculados à mão (veja os comentários nos testes).
  */
+import { content } from '@/content';
 import { choiceKey, emptyCharacter, type Character } from '@/model/character';
+import { classSpells, spellBudget } from '@/rules/spells';
 
 export function makeCharacter(patch: Partial<Character>): Character {
   return { ...emptyCharacter('teste', '2026-01-01T00:00:00.000Z'), ...patch };
 }
 
+/**
+ * Preenche truques e magias preparadas até o limite do nível: primeiro as do kit
+ * para iniciantes da classe, depois as da lista em ordem.
+ */
+export function withSpells(c: Character): Character {
+  const budget = spellBudget(c, content);
+  const cls = content.classes.find((x) => x.id === c.classId);
+  if (!budget || !cls) return c;
+  const fill = (first: string[], pool: string[], n: number) =>
+    [...new Set([...first, ...pool])]
+      .filter((id) => !budget.alwaysPrepared.includes(id))
+      .slice(0, n);
+  const ids = (min: number, max: number) =>
+    classSpells(content, cls.id, min, max).map((s) => s.id);
+  return {
+    ...c,
+    spells: {
+      cantrips: fill(cls.beginnerKit?.cantrips ?? [], ids(0, 0), budget.cantrips),
+      prepared: fill(cls.beginnerKit?.spells ?? [], ids(1, budget.maxCircle), budget.prepared),
+    },
+  };
+}
+
 /** Anão Clérigo (Acólito), array padrão, +2 SAB +1 CAR. */
 export function thorin(level = 1): Character {
-  return makeCharacter({
+  return withSpells(makeCharacter({
     name: 'Thorin',
     level,
     speciesId: 'dwarf',
@@ -27,18 +52,23 @@ export function thorin(level = 1): Character {
       'classe:pericias': ['medicina', 'persuasao'],
       idiomas: ['dwarvish', 'giant'],
       [choiceKey('classe', 'cleric-divine-order', 'divine-order')]: ['protector'],
+      'talento:magic-initiate:list': ['clerigo'],
+      'talento:magic-initiate:ability': ['sab'],
+      'talento:magic-initiate:cantrips': ['guidance', 'spare-the-dying'],
+      'talento:magic-initiate:spell': ['bless'],
     },
+    startingEquipment: { classOption: 'a', backgroundOption: 'b' },
     inventory: [
       { id: 'chain-shirt', qty: 1, equipped: true },
       { id: 'shield', qty: 1, equipped: true },
       { id: 'mace', qty: 1 },
     ],
-  });
+  }));
 }
 
 /** Alta Elfa Maga (Sábia), array padrão, +2 INT +1 CON. */
 export function lira(level = 3): Character {
-  return makeCharacter({
+  return withSpells(makeCharacter({
     name: 'Lira',
     level,
     speciesId: 'elf',
@@ -54,12 +84,17 @@ export function lira(level = 3): Character {
       idiomas: ['elvish', 'draconic'],
       [choiceKey('especie', 'keen-senses', 'keen-senses')]: ['percepcao'],
       [choiceKey('classe', 'wizard-scholar', 'scholar')]: ['arcanismo'],
+      'talento:magic-initiate:list': ['mago'],
+      'talento:magic-initiate:ability': ['int'],
+      'talento:magic-initiate:cantrips': ['fire-bolt', 'minor-illusion'],
+      'talento:magic-initiate:spell': ['sleep'],
     },
+    startingEquipment: { classOption: 'a', backgroundOption: 'a' },
     inventory: [
       { id: 'quarterstaff', qty: 1 },
       { id: 'dagger', qty: 2 },
     ],
-  });
+  }));
 }
 
 /** Halfling Ladino (Criminoso), array padrão, +2 DES +1 CON; nível 4: +1 DES +1 CON. */
@@ -84,6 +119,7 @@ export function pip(level = 4): Character {
       [choiceKey('classe', 'rogue-weapon-mastery', 'weapon-mastery')]: ['shortsword', 'shortbow'],
       [choiceKey('classe', 'rogue-thieves-cant', 'language')]: ['elvish'],
     },
+    startingEquipment: { classOption: 'a', backgroundOption: 'a' },
     inventory: [
       { id: 'leather-armor', qty: 1, equipped: true },
       { id: 'shortsword', qty: 1 },
@@ -119,6 +155,7 @@ export function brom(level = 1): Character {
       [choiceKey('especie', 'versatile', 'versatile')]: ['skilled'],
       'talento:skilled:proficiencies': ['historia', 'sobrevivencia', 'thieves-tools'],
     },
+    startingEquipment: { classOption: 'a', backgroundOption: 'a' },
     inventory: [
       { id: 'chain-mail', qty: 1, equipped: true },
       { id: 'greatsword', qty: 1 },

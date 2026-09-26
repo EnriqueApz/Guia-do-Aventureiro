@@ -288,5 +288,15 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Arquétipo de Ladino",
-  "typicalTurn": "Fique perto de um aliado que esteja lutando com o inimigo, ou ataque de um lugar escondido. Faça um ataque com a espada curta ou o arco curto: se tiver Vantagem ou um aliado ao lado do alvo, some o Ataque Furtivo. Depois, use a Ação Astuta (Ação Bônus) para se esconder ou se afastar."
+  "typicalTurn": "Fique perto de um aliado que esteja lutando com o inimigo, ou ataque de um lugar escondido. Faça um ataque com a espada curta ou o arco curto: se tiver Vantagem ou um aliado ao lado do alvo, some o Ataque Furtivo. Depois, use a Ação Astuta (Ação Bônus) para se esconder ou se afastar.",
+  "beginnerKit": {
+    "skills": ["furtividade", "percepcao", "acrobacia", "enganacao"],
+    "equipment": "a",
+    "choices": {
+      "classe:rogue-expertise:expertise": ["furtividade", "percepcao"],
+      "classe:rogue-thieves-cant:language": ["goblin"],
+      "classe:rogue-weapon-mastery:weapon-mastery": ["shortsword", "shortbow"]
+    },
+    "why": "Especialização em Furtividade e Percepção faz você quase nunca ser pego nem surpreendido; o arco curto e a espada curta aproveitam o Ataque Furtivo."
+  }
 }

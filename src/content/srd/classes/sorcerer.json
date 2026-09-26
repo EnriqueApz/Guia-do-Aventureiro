@@ -188,5 +188,12 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Origem de Feitiçaria",
-  "typicalTurn": "Lance um truque de ataque, como Explosão Feiticeira ou Raio de Fogo, no inimigo mais perigoso. Em uma luta difícil, ative a Feitiçaria Inata com a Ação Bônus para ter Vantagem nos ataques mágicos, ou lance Mãos Flamejantes em vários inimigos de uma vez."
+  "typicalTurn": "Lance um truque de ataque, como Explosão Feiticeira ou Raio de Fogo, no inimigo mais perigoso. Em uma luta difícil, ative a Feitiçaria Inata com a Ação Bônus para ter Vantagem nos ataques mágicos, ou lance Mãos Flamejantes em vários inimigos de uma vez.",
+  "beginnerKit": {
+    "skills": ["persuasao", "arcanismo"],
+    "equipment": "a",
+    "cantrips": ["fire-bolt", "sorcerous-burst", "light", "prestidigitation"],
+    "spells": ["magic-missile", "shield"],
+    "why": "Raio de Fogo e Explosão Feiticeira são ataques confiáveis. Mísseis Mágicos nunca erram e Escudo salva você de golpes na hora certa."
+  }
 }

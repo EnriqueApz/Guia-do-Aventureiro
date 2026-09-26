@@ -70,7 +70,7 @@ export default function BackgroundStep({ wizard }: StepProps) {
           <OptionCard
             key={b.id}
             selected={b.id === character.backgroundId}
-            onSelect={() => edit((c) => selectBackground(c, b.id))}
+            onSelect={() => edit((c) => selectBackground(c, b.id, content))}
             title={b.name}
             subtitle={b.summary}
           >
