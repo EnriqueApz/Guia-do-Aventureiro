@@ -3,6 +3,24 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-26 · Apoio ao novato: glossário, "Me guie" e comparador
+
+**Contexto:** a fase 5 precisa ajudar quem nunca jogou a escolher sem ler o livro.
+**Decisão:** o glossário junta os termos de regra (`glossary.json`) com as
+condições, propriedades de arma e maestrias do SRD, com busca que ignora acentos e
+acha pelos nomes em inglês; todo termo sublinhado tem "Ver no glossário". Um teste
+varre o código e falha se algum `GlossaryTerm` apontar para um termo inexistente.
+O "Me guie" (`src/features/guided/suggest.ts`) é uma função pura: cinco perguntas
+geram três combinações de espécie, classe e antecedente, com o porquê. As
+afinidades entre respostas e opções são recomendações de estilo nossas, não
+regras; quem pede "o mínimo de regras" nunca recebe classe avançada, e o teste
+cobre todas as 960 combinações de respostas. O comparador guarda a escolha na URL
+(`/comparar?tipo=classes&a=fighter&b=wizard`) para poder ser compartilhado.
+Opções avançadas e nível inicial alto mostram um aviso de complexidade com uma
+alternativa mais simples, sem bloquear nada.
+**Consequências:** o "Me guie" é uma tela fora das 9 etapas (`/criar/:id/me-guie`)
+e não é salvo como última etapa.
+
 ## 2026-09-26 · Assistente completo: validação, kit e progressão até o nível 20
 
 **Contexto:** a fase 4 precisa impedir fichas ilegais sem travar quem está

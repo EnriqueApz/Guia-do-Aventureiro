@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Link } from 'react-router';
 import { Term } from '@/components/ui/Term';
 import glossary from '@/content/glossary.json';
 
@@ -9,7 +10,15 @@ export function GlossaryTerm({ id, children }: { id: string; children?: ReactNod
   const entry = byId.get(id);
   if (!entry) return <>{children}</>;
   return (
-    <Term term={entry.term} definition={entry.short}>
+    <Term
+      term={entry.term}
+      definition={entry.short}
+      more={
+        <Link to={`/glossario#${id}`} className="text-seal underline underline-offset-2">
+          Ver no glossário
+        </Link>
+      }
+    >
       {children ?? entry.term}
     </Term>
   );

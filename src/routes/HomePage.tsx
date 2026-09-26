@@ -1,4 +1,12 @@
-import { ArrowRight, BookOpen, Dices, ScrollText, Sparkles, Users } from 'lucide-react';
+import {
+  ArrowLeftRight,
+  ArrowRight,
+  BookOpen,
+  Dices,
+  ScrollText,
+  Sparkles,
+  Users,
+} from 'lucide-react';
 import { Link } from 'react-router';
 import { Ornament } from '@/components/art/Ornament';
 import { Button } from '@/components/ui/Button';
@@ -90,7 +98,7 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <section aria-labelledby="apoio" className="grid gap-4 md:grid-cols-3">
+      <section aria-labelledby="apoio" className="grid gap-4 md:grid-cols-2">
         <h2 id="apoio" className="sr-only">
           Material de apoio
         </h2>
@@ -105,6 +113,12 @@ export default function HomePage() {
           icon={<BookOpen aria-hidden className="size-6" />}
           title="Glossário"
           text="CA, salvaguarda, vantagem… cada termo explicado em uma linha."
+        />
+        <ShortcutCard
+          to="/comparar"
+          icon={<ArrowLeftRight aria-hidden className="size-6" />}
+          title="Comparador"
+          text="Em dúvida entre duas classes ou espécies? Veja lado a lado."
         />
         <ShortcutCard
           to="/mesa"

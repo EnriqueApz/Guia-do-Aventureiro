@@ -7,13 +7,15 @@ interface TermProps {
   definition: string;
   /** Nome do termo quando o texto exibido é uma variação ("CA" → "Classe de Armadura"). */
   term?: string;
+  /** Link opcional no rodapé do balão (ex.: "Ver no glossário"). */
+  more?: ReactNode;
 }
 
 /**
  * Termo do glossário: sublinhado pontilhado que abre uma explicação curta
  * ao tocar/clicar (funciona no celular, onde não existe hover) ou com Enter/Espaço.
  */
-export function Term({ children, definition, term }: TermProps) {
+export function Term({ children, definition, term, more }: TermProps) {
   return (
     <Popover.Root>
       <Popover.Trigger
@@ -31,6 +33,7 @@ export function Term({ children, definition, term }: TermProps) {
         >
           {term && <p className="font-display font-semibold">{term}</p>}
           <p>{definition}</p>
+          {more && <div className="mt-2 text-sm font-semibold">{more}</div>}
           <Popover.Arrow className="fill-line-strong" />
         </Popover.Content>
       </Popover.Portal>
