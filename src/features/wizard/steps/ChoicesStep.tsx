@@ -108,7 +108,7 @@ export default function ChoicesStep({ wizard, goTo }: StepProps) {
           <a
             key={s.id}
             href={`#${s.id}`}
-            className="min-h-9 rounded-full border border-line-strong px-3 py-1.5 text-sm font-semibold hover:border-gold"
+            className="min-h-11 rounded-full border border-line-strong px-3 py-1.5 text-sm font-semibold hover:border-gold"
           >
             {s.label}
           </a>
@@ -232,7 +232,7 @@ function Languages({ wizard }: { wizard: LoadedWizard }) {
         onToggle={(id) => edit((c) => toggleChoice(c, 'idiomas', id, 2))}
       />
       <details>
-        <summary className="min-h-9 cursor-pointer text-sm font-semibold text-gold">
+        <summary className="min-h-11 cursor-pointer text-sm font-semibold text-gold">
           Idiomas raros (só com permissão do Mestre)
         </summary>
         <div className="mt-2">

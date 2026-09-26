@@ -3,6 +3,33 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-26 · Polimento: acessibilidade, toque e pacote inicial
+
+**Contexto:** a fase 8 fecha a v1 com critérios verificáveis, não impressões.
+**Decisão:**
+
+- **axe** (`e2e/acessibilidade.spec.ts`) roda em todas as telas (incluindo as 9
+  etapas, ficha, modo jogo e impressão), no tema claro e no escuro com fonte maior;
+  qualquer violação séria ou crítica falha a CI. Correções: links com texto na cor
+  do texto e sublinhado vermelho (o vermelho puro não tinha contraste no escuro),
+  ficha de impressão sempre com cores de papel, item ativo do menu com marcador.
+- **Alvos de toque** (`e2e/toque.spec.ts`): botões, links, campos, resumos e
+  chips medem pelo menos 44 × 44 px. Exceções do WCAG: links no meio de uma frase
+  e os termos do glossário (balão), que têm no mínimo 24 × 24 px (WCAG 2.2 AA).
+  Marcadores pequenos (espaços de magia, salvaguardas contra a morte, caixas de
+  magia) ganharam área de toque de 44 px com o desenho menor por dentro. No
+  celular, a barra de etapas virou visual + um seletor de etapa.
+- **Fonte maior e movimento reduzido** valem no app inteiro (testado em todas as
+  telas): `MotionConfig` global no layout e CSS que zera animações e transições.
+- **Pacote inicial** medido por `npm run size` (manifesto do Vite, gzip), com
+  limite de 150 kB na CI: 123,6 kB. Para isso, a validação Zod da mesa saiu da
+  página inicial e o menu de ajustes (Radix Popover) carrega logo depois.
+- **Carregamento e erro**: barrinha no topo enquanto uma página carrega, tela de
+  espera no primeiro acesso e página de erro que distingue "versão nova do site"
+  e "sem internet" de um erro comum, sempre com "Recarregar" e "Voltar ao início".
+  **Consequências:** a CI ficou mais longa (~3 min de E2E), em troca de regressões
+  de acessibilidade e de tamanho aparecerem no PR.
+
 ## 2026-09-26 · Compartilhar, imprimir, mesa, conteúdo próprio e PWA
 
 **Contexto:** sem servidor, tudo o que sai do aparelho precisa ir em arquivo ou no

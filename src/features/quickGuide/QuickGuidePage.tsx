@@ -31,7 +31,7 @@ export default function QuickGuidePage() {
             <li key={s.id}>
               <a
                 href={`#${s.id}`}
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-line-strong px-3 text-sm font-semibold hover:border-gold"
+                className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-line-strong px-3 text-sm font-semibold hover:border-gold"
               >
                 <span className="num text-gold">{i + 1}</span> {s.title}
               </a>

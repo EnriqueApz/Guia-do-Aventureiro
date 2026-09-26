@@ -12,7 +12,7 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
-  md: 'min-h-11 px-4 text-[0.95rem]',
+  md: 'min-h-11 min-w-11 justify-center px-4 text-[0.95rem]',
   lg: 'min-h-13 px-6 text-lg',
   icone: 'size-11 justify-center',
 };

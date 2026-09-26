@@ -91,7 +91,7 @@ export default function GlossaryPage() {
               type="button"
               aria-pressed={kind === k}
               onClick={() => setKind(k)}
-              className="min-h-9 cursor-pointer rounded-full border border-line-strong px-3 text-sm font-semibold aria-pressed:border-seal aria-pressed:bg-seal aria-pressed:text-on-seal"
+              className="min-h-11 cursor-pointer rounded-full border border-line-strong px-3 text-sm font-semibold aria-pressed:border-seal aria-pressed:bg-seal aria-pressed:text-on-seal"
             >
               {k === 'todos' ? 'Tudo' : KIND_LABEL[k]}
             </button>
@@ -108,7 +108,7 @@ export default function GlossaryPage() {
             <a
               key={letter}
               href={`#letra-${letter}`}
-              className="flex size-10 items-center justify-center rounded-lg border border-line font-display font-semibold hover:border-gold"
+              className="flex size-11 items-center justify-center rounded-lg border border-line font-display font-semibold hover:border-gold"
             >
               {letter}
             </a>
@@ -175,7 +175,7 @@ function Entry({ item, highlighted }: { item: GlossaryItem; highlighted: boolean
       <p className="mt-1">{item.short}</p>
       {item.long && (
         <details className="mt-2" open={highlighted}>
-          <summary className="min-h-9 cursor-pointer text-sm font-semibold text-gold">
+          <summary className="min-h-11 cursor-pointer text-sm font-semibold text-gold">
             {item.kind === 'regra' ? 'Saiba mais' : 'Regra completa'}
           </summary>
           <RichText text={item.long} className="mt-1 text-sm text-ink-muted" />
@@ -189,7 +189,7 @@ function Entry({ item, highlighted }: { item: GlossaryItem; highlighted: boolean
               {i > 0 && ', '}
               <Link
                 to={`#${s.id}`}
-                className="font-semibold text-seal underline underline-offset-2"
+                className="font-semibold text-ink underline decoration-seal decoration-2 underline-offset-2"
               >
                 {s.term}
               </Link>

@@ -143,7 +143,7 @@ function SpellList({ title, help, spells, selected, max, onToggle, showCircles }
               type="button"
               aria-pressed={circle === c}
               onClick={() => setCircle(c)}
-              className="min-h-9 cursor-pointer rounded-full border border-line-strong px-3 text-sm font-semibold aria-pressed:border-seal aria-pressed:bg-seal aria-pressed:text-on-seal"
+              className="min-h-11 min-w-11 cursor-pointer rounded-full border border-line-strong px-3 text-sm font-semibold aria-pressed:border-seal aria-pressed:bg-seal aria-pressed:text-on-seal"
             >
               {c === null ? 'Todos' : `${c}º`}
             </button>
@@ -164,15 +164,22 @@ function SpellList({ title, help, spells, selected, max, onToggle, showCircles }
                 aria-label={`${s.name}, ${circleLabel(s.level)}`}
                 onClick={() => !blocked && onToggle(s.id)}
                 className={cn(
-                  'mt-1 flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md border-2',
-                  on ? 'border-seal bg-seal text-on-seal' : 'border-line-strong bg-bg',
+                  '-my-1 flex size-11 shrink-0 cursor-pointer items-center justify-center',
                   blocked && 'cursor-not-allowed opacity-40',
                 )}
               >
-                {on && <Check aria-hidden className="size-4" />}
+                <span
+                  aria-hidden
+                  className={cn(
+                    'flex size-7 items-center justify-center rounded-md border-2',
+                    on ? 'border-seal bg-seal text-on-seal' : 'border-line-strong bg-bg',
+                  )}
+                >
+                  {on && <Check className="size-4" />}
+                </span>
               </button>
               <details className="min-w-0 flex-1">
-                <summary className="flex min-h-9 cursor-pointer flex-wrap items-center gap-x-2 gap-y-0.5">
+                <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-x-2 gap-y-0.5">
                   <span className="font-semibold">{s.name}</span>
                   <span className="text-xs text-ink-muted">
                     {circleLabel(s.level)} · {SCHOOL_LABEL[s.school]}

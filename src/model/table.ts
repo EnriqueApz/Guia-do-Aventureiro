@@ -1,28 +1,28 @@
 /**
  * Código da mesa: as regras que o Mestre escolhe (nível, opções liberadas, métodos
- * de atributo e de PV). Vai comprimido no link `/mesa#m=...`.
+ * de atributo e de PV). Vai comprimido no link `/mesa#m=...`. Sem Zod aqui, para não
+ * pesar na página inicial.
  */
-import { z } from 'zod';
 import type { ContentBundle } from '@/content/schema';
 import type { Issue } from '@/rules/validate';
 import type { AbilityMethod, Character } from './character';
 
 export const ABILITY_METHODS = ['padrao', 'compra', 'rolagem', 'manual'] as const;
 
-export const TableRulesSchema = z.object({
-  v: z.literal(1),
-  name: z.string().max(80).optional(),
+/** Regras da mesa (o formato validado fica em `tableSchema.ts`, que usa Zod). */
+export interface TableRules {
+  v: 1;
+  name?: string | undefined;
   /** Nível inicial obrigatório; ausente = livre. */
-  level: z.number().int().min(1).max(20).optional(),
+  level?: number | undefined;
   /** Ids liberados; ausente = tudo liberado. */
-  species: z.array(z.string()).optional(),
-  classes: z.array(z.string()).optional(),
-  backgrounds: z.array(z.string()).optional(),
-  abilityMethods: z.array(z.enum(ABILITY_METHODS)).min(1),
-  hpMethod: z.enum(['media', 'rolagem', 'livre']),
-  allowHomebrew: z.boolean(),
-});
-export type TableRules = z.infer<typeof TableRulesSchema>;
+  species?: string[] | undefined;
+  classes?: string[] | undefined;
+  backgrounds?: string[] | undefined;
+  abilityMethods: (typeof ABILITY_METHODS)[number][];
+  hpMethod: 'media' | 'rolagem' | 'livre';
+  allowHomebrew: boolean;
+}
 
 export const DEFAULT_TABLE: TableRules = {
   v: 1,
@@ -37,11 +37,6 @@ export const METHOD_LABEL: Record<AbilityMethod, string> = {
   rolagem: 'Rolagem 4d6',
   manual: 'Valores digitados',
 };
-
-export function parseTable(data: unknown): TableRules | undefined {
-  const r = TableRulesSchema.safeParse(data);
-  return r.success ? r.data : undefined;
-}
 
 /** Conteúdo próprio bloqueado pela mesa? */
 export function homebrewBlocked(

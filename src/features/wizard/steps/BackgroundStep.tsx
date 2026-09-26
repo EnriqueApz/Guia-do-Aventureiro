@@ -136,7 +136,7 @@ export default function BackgroundStep({ wizard }: StepProps) {
                 {feat && <span className="block">{feat.plain}</span>}
                 {feat && (
                   <details className="mt-1">
-                    <summary className="min-h-9 cursor-pointer text-sm font-semibold text-gold">
+                    <summary className="min-h-11 cursor-pointer text-sm font-semibold text-gold">
                       Ver regra completa
                     </summary>
                     <RichText text={feat.text} className="mt-1 text-sm text-ink-muted" />

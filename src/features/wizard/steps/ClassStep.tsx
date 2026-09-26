@@ -158,7 +158,7 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
 
           {upcoming.length > 0 && (
             <details className="group rounded-lg border border-line p-4">
-              <summary className="flex min-h-9 cursor-pointer items-center gap-2 font-display text-lg font-semibold">
+              <summary className="flex min-h-11 cursor-pointer items-center gap-2 font-display text-lg font-semibold">
                 <Dices aria-hidden className="size-5 text-gold" /> Mais adiante ({upcoming.length}{' '}
                 características)
               </summary>
@@ -171,7 +171,7 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
               No nível {character.level} você já tem uma subclasse.{' '}
               <button
                 type="button"
-                className="cursor-pointer font-semibold text-seal underline"
+                className="cursor-pointer font-semibold text-ink underline decoration-seal decoration-2"
                 onClick={() => goTo('subclasse')}
               >
                 Escolher subclasse

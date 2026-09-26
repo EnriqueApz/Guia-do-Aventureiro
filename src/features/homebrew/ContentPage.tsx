@@ -226,7 +226,7 @@ export default function ContentPage() {
               className="rounded-card border border-line bg-surface p-4"
               open={type !== 'subclasse'}
             >
-              <summary className="min-h-9 cursor-pointer font-display text-lg font-semibold">
+              <summary className="min-h-11 cursor-pointer font-display text-lg font-semibold">
                 {type === 'especie'
                   ? 'Espécies'
                   : type === 'antecedente'

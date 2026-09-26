@@ -20,9 +20,14 @@ export function Switch({ label, hint, checked, onCheckedChange }: SwitchProps) {
         id={id}
         checked={checked}
         onCheckedChange={onCheckedChange}
-        className="relative h-7 w-12 shrink-0 cursor-pointer rounded-full border border-line-strong bg-sunken transition-colors data-[state=checked]:border-seal data-[state=checked]:bg-seal"
+        className="group relative flex h-11 w-14 shrink-0 cursor-pointer items-center justify-center rounded-full"
       >
-        <RadixSwitch.Thumb className="block size-5 translate-x-1 rounded-full bg-surface shadow transition-transform data-[state=checked]:translate-x-6" />
+        {/* O botão tem 44 px de altura; o trilho visível é menor. */}
+        <span
+          aria-hidden
+          className="absolute h-7 w-12 rounded-full border border-line-strong bg-sunken transition-colors group-data-[state=checked]:border-seal group-data-[state=checked]:bg-seal"
+        />
+        <RadixSwitch.Thumb className="relative block size-5 -translate-x-2.5 rounded-full bg-surface shadow transition-transform data-[state=checked]:translate-x-2.5" />
       </RadixSwitch.Root>
     </div>
   );

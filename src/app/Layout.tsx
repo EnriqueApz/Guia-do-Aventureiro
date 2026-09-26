@@ -1,10 +1,16 @@
-import { BookOpen, Home, ScrollText, Users } from 'lucide-react';
-import { Link, NavLink, Outlet, ScrollRestoration, useMatch } from 'react-router';
+import { lazy, Suspense } from 'react';
+import { BookOpen, Home, ScrollText, Settings2, Users } from 'lucide-react';
+import { MotionConfig } from 'motion/react';
+import { Link, NavLink, Outlet, ScrollRestoration, useMatch, useNavigation } from 'react-router';
 import { LogoMark } from '@/components/art/Logo';
 import { cn } from '@/lib/cn';
-import { SettingsMenu } from './SettingsMenu';
 import { TableBanner } from './TableBanner';
 import { useApplySettings } from './useApplySettings';
+
+// O menu de ajustes (Radix Popover) carrega logo depois da página, fora do pacote inicial.
+const SettingsMenu = lazy(() =>
+  import('./SettingsMenu').then((m) => ({ default: m.SettingsMenu })),
+);
 
 const nav = [
   { to: '/', label: 'Início', icon: Home, end: true },
@@ -14,12 +20,14 @@ const nav = [
 ];
 
 export function Layout() {
-  useApplySettings();
+  const { reducedMotion } = useApplySettings();
   // No assistente, a barra inferior dá lugar à navegação das etapas.
   const inWizard = useMatch('/criar/*') !== null;
+  // Enquanto a próxima página carrega (pedaço sob demanda), mostra uma barrinha no topo.
+  const loading = useNavigation().state === 'loading';
 
   return (
-    <>
+    <MotionConfig reducedMotion={reducedMotion ? 'always' : 'never'}>
       <a
         href="#conteudo"
         className="sr-only z-50 rounded-lg bg-surface px-4 py-2 focus:not-sr-only focus:fixed focus:top-3 focus:left-3 print:hidden"
@@ -29,7 +37,7 @@ export function Layout() {
 
       <header className="sticky top-0 z-30 border-b border-line bg-bg/85 backdrop-blur-md print:hidden">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-          <Link to="/" className="flex items-center gap-2.5 rounded-md">
+          <Link to="/" className="flex min-h-11 items-center gap-2.5 rounded-md">
             <LogoMark className="size-9 text-ink" />
             <span className="font-display text-lg leading-none font-semibold tracking-tight">
               Guia do
@@ -60,9 +68,27 @@ export function Layout() {
             </ul>
           </nav>
 
-          <SettingsMenu />
+          <Suspense
+            fallback={
+              <span className="flex size-11 items-center justify-center" aria-hidden>
+                <Settings2 className="size-5" />
+              </span>
+            }
+          >
+            <SettingsMenu />
+          </Suspense>
         </div>
       </header>
+      <div
+        aria-hidden
+        className={cn(
+          'pointer-events-none fixed inset-x-0 top-0 z-50 h-1 origin-left bg-seal transition-transform duration-500 print:hidden',
+          loading ? 'scale-x-75' : 'scale-x-0',
+        )}
+      />
+      <p role="status" className="sr-only">
+        {loading ? 'Carregando a página…' : ''}
+      </p>
       <TableBanner />
 
       <main
@@ -108,7 +134,9 @@ export function Layout() {
                 className={({ isActive }) =>
                   cn(
                     'flex min-h-16 flex-col items-center justify-center gap-1 text-xs font-semibold',
-                    isActive ? 'text-seal' : 'text-ink-muted',
+                    isActive
+                      ? 'relative text-ink before:absolute before:inset-x-6 before:top-0 before:h-1 before:rounded-b-full before:bg-seal'
+                      : 'text-ink-muted',
                   )
                 }
               >
@@ -121,6 +149,6 @@ export function Layout() {
       </nav>
 
       <ScrollRestoration />
-    </>
+    </MotionConfig>
   );
 }

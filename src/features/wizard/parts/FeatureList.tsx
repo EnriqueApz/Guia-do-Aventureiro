@@ -42,7 +42,7 @@ export function FeatureList({ features, level = 20, className }: FeatureListProp
               <>
                 <p className="mt-1">{f.plain}</p>
                 <details className="group mt-2">
-                  <summary className="flex min-h-9 cursor-pointer list-none items-center gap-1 text-sm font-semibold text-gold [&::-webkit-details-marker]:hidden">
+                  <summary className="flex min-h-11 cursor-pointer list-none items-center gap-1 text-sm font-semibold text-gold [&::-webkit-details-marker]:hidden">
                     <ChevronDown
                       aria-hidden
                       className="size-4 transition-transform group-open:rotate-180"
