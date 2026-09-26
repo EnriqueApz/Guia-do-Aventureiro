@@ -4,6 +4,7 @@ import { pointBuySpent } from '@/rules/abilities';
 import { makeCharacter, thorin } from '@/test/characters';
 import {
   abilityPriority,
+  setOverride,
   applySuggestion,
   applyBeginnerKit,
   applyClassSuggestion,
@@ -240,5 +241,16 @@ describe('Me guie', () => {
       backgroundId: 'soldier',
       size: 'Médio',
     });
+  });
+});
+
+describe('ajustes manuais', () => {
+  it('sobrescreve e volta ao automático', () => {
+    let c = setOverride(makeCharacter({}), 'ca', 17.4);
+    expect(c.overrides).toEqual({ ca: 17 });
+    c = setOverride(c, 'pvMax', 30);
+    c = setOverride(c, 'ca', undefined);
+    expect(c.overrides).toEqual({ pvMax: 30 });
+    expect(setOverride(c, 'pvMax', Number.NaN).overrides).toEqual({});
   });
 });

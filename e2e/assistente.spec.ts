@@ -52,6 +52,6 @@ test('o link do personagem retoma a última etapa aberta', async ({ page }) => {
   // Espera a etapa abrir (é ela que salva a última etapa visitada).
   await expect(page.getByRole('heading', { name: 'Escolha sua classe' })).toBeVisible();
   await page.goto('/personagens');
-  await page.getByRole('link', { name: /Personagem sem nome/ }).click();
+  await page.getByRole('link', { name: 'Editar Personagem sem nome' }).click();
   await expect(page).toHaveURL(/\/classe$/);
 });

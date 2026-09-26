@@ -474,3 +474,12 @@ export function applySuggestion(
   next = selectBackground(next, s.backgroundId, content);
   return next;
 }
+
+// ------------------------------------------------------------------ ajustes manuais
+
+/** Sobrescreve um número da ficha ("ca", "pvMax"...); `undefined` volta ao automático. */
+export function setOverride(c: Character, path: string, value: number | undefined): Character {
+  const rest = Object.fromEntries(Object.entries(c.overrides).filter(([k]) => k !== path));
+  if (value === undefined || !Number.isFinite(value)) return { ...c, overrides: rest };
+  return { ...c, overrides: { ...rest, [path]: Math.round(value) } };
+}

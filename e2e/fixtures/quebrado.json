@@ -1,0 +1,99 @@
+{
+  "app": "guia-do-aventureiro",
+  "version": 2,
+  "characters": [
+    {
+      "id": "x",
+      "schemaVersion": 2,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-09-25T12:00:00.000Z",
+      "name": "Brom",
+      "level": 99,
+      "backgroundBonus": {
+        "for": 2,
+        "con": 1
+      },
+      "abilities": {
+        "method": "padrao",
+        "base": {
+          "for": 15,
+          "des": 13,
+          "con": 14,
+          "int": 8,
+          "sab": 12,
+          "car": 10
+        }
+      },
+      "choices": {
+        "classe:pericias": ["acrobacia", "percepcao"],
+        "antecedente:ferramenta": ["dice"],
+        "idiomas": ["orc", "giant"],
+        "classe:fighter-fighting-style:fighting-style": ["defense"],
+        "classe:fighter-weapon-mastery:weapon-mastery": ["greatsword", "javelin", "longsword"],
+        "especie:skillful:skillful": ["furtividade"],
+        "especie:versatile:versatile": ["skilled"],
+        "talento:skilled:proficiencies": ["historia", "sobrevivencia", "thieves-tools"]
+      },
+      "feats": [],
+      "hp": {
+        "method": "media",
+        "rolls": {}
+      },
+      "startingEquipment": {
+        "classOption": "a",
+        "backgroundOption": "a"
+      },
+      "inventory": [
+        {
+          "id": "chain-mail",
+          "qty": 1,
+          "equipped": true
+        },
+        {
+          "id": "greatsword",
+          "qty": 1
+        }
+      ],
+      "coins": {
+        "pc": 0,
+        "pp": 0,
+        "pe": 0,
+        "po": 0,
+        "pl": 0
+      },
+      "spells": {
+        "cantrips": [],
+        "prepared": []
+      },
+      "details": {
+        "appearance": "",
+        "personality": {
+          "traits": "",
+          "ideals": "",
+          "bonds": "",
+          "flaws": ""
+        },
+        "backstory": ""
+      },
+      "overrides": {},
+      "play": {
+        "hpCurrent": null,
+        "hpTemp": 0,
+        "hitDiceUsed": 0,
+        "slotsUsed": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "resourcesUsed": {},
+        "conditions": [],
+        "exhaustion": 0,
+        "deathSaves": {
+          "successes": 0,
+          "failures": 0
+        },
+        "heroicInspiration": false
+      },
+      "speciesId": "human",
+      "size": "Médio",
+      "classId": "fighter",
+      "backgroundId": "soldier"
+    }
+  ]
+}
