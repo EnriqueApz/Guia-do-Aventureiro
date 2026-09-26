@@ -3,6 +3,21 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-26 · Assistente: etapas na URL e ficha sempre visível
+
+**Contexto:** o grupo vai criar personagens no celular, indo e voltando entre as
+etapas sem medo de perder nada.
+**Decisão:** cada etapa tem sua URL (`/criar/:id/:etapa`), então o botão voltar do
+navegador funciona e dá para compartilhar o link de uma etapa. Toda escolha é
+salva na hora; a última etapa aberta fica em `wizardStep` e o link do personagem
+retoma dali. Trocar espécie, classe ou antecedente limpa só as escolhas que
+dependiam deles (`src/model/edits.ts`). A ficha fica numa coluna fixa no desktop e
+numa gaveta no celular, aberta por uma barra inferior com voltar/avançar.
+Nada bloqueia o avanço: cada etapa mostra o que falta, em linguagem simples.
+**Consequências:** o pedaço do assistente pesa ~148 kB gzip (conteúdo do SRD + Motion),
+carregado só ao entrar nele; a página inicial continua em ~128 kB. Se crescer demais
+com as magias (fase 4), dividimos o conteúdo por tipo.
+
 ## 2026-09-26 · Motor de regras: ficha sempre derivada
 
 **Contexto:** a ficha tem dezenas de números que dependem uns dos outros, e o

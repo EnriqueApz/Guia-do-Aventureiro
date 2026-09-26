@@ -15,7 +15,7 @@ export const routes: RouteObject[] = [
     children: [
       { index: true, lazy: page(() => import('@/routes/HomePage')) },
       { path: 'personagens', lazy: page(() => import('@/routes/CharactersPage')) },
-      { path: 'criar/:id', lazy: page(() => import('@/routes/WizardPage')) },
+      { path: 'criar/:id/:etapa?', lazy: page(() => import('@/features/wizard/WizardPage')) },
       { path: 'glossario', lazy: page(() => import('@/routes/GlossaryPage')) },
       { path: 'guia-rapido', lazy: page(() => import('@/routes/QuickGuidePage')) },
       { path: 'comparar', lazy: page(() => import('@/routes/ComparePage')) },

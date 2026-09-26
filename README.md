@@ -6,7 +6,8 @@ linguagem simples, e uma ficha que se monta sozinha enquanto você escolhe.
 
 Site estático, sem servidor: os personagens ficam salvos no navegador de cada um.
 
-> **Status:** fase 2 de 8 (conteúdo do SRD 5.2 em pt-BR e motor de regras). Veja o
+> **Status:** fase 3 de 8 (assistente de criação: espécie, classe, subclasse e
+> antecedente, com a ficha ao vivo). Veja o
 > plano em [`docs/PLANO.md`](docs/PLANO.md), as decisões em
 > [`docs/DECISIONS.md`](docs/DECISIONS.md) e o guia do conteúdo em
 > [`docs/CONTEUDO.md`](docs/CONTEUDO.md).
@@ -54,7 +55,8 @@ src/
   content/       conteúdo de regras (SRD 5.2 em pt-BR), esquemas e validação
   model/         formato do personagem salvo
   rules/         motor de regras puro: atributos, PV, CA, perícias, magia, descansos
-  routes/        páginas (cada uma carregada sob demanda)
+  features/      telas com lógica própria (wizard/: assistente de criação e ficha ao vivo)
+  routes/        páginas simples (cada uma carregada sob demanda)
   state/         stores Zustand persistidas no localStorage
   styles/        tokens de cor, tipografia e temas
 e2e/             testes Playwright

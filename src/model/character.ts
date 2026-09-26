@@ -99,6 +99,9 @@ export interface Character {
   overrides: Record<string, number | string>;
 
   play: PlayState;
+
+  /** Última etapa aberta no assistente (para "continuar de onde parei"). */
+  wizardStep?: string;
 }
 
 export const CHARACTER_SCHEMA_VERSION = 2;

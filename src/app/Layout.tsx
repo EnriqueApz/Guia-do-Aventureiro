@@ -1,5 +1,5 @@
 import { BookOpen, Home, ScrollText, Users } from 'lucide-react';
-import { Link, NavLink, Outlet, ScrollRestoration } from 'react-router';
+import { Link, NavLink, Outlet, ScrollRestoration, useMatch } from 'react-router';
 import { LogoMark } from '@/components/art/Logo';
 import { cn } from '@/lib/cn';
 import { SettingsMenu } from './SettingsMenu';
@@ -14,6 +14,8 @@ const nav = [
 
 export function Layout() {
   useApplySettings();
+  // No assistente, a barra inferior dá lugar à navegação das etapas.
+  const inWizard = useMatch('/criar/*') !== null;
 
   return (
     <>
@@ -92,6 +94,7 @@ export function Layout() {
       {/* Navegação inferior no celular: ao alcance do polegar. */}
       <nav
         aria-label="Principal"
+        hidden={inWizard}
         className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden"
       >
         <ul className="grid grid-cols-4">

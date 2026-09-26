@@ -11,7 +11,7 @@ import { Switch } from '@/components/ui/Switch';
 import { Term } from '@/components/ui/Term';
 import { usePageTitle } from '@/app/usePageTitle';
 import { PageHeader } from './PageHeader';
-import { WIZARD_STEPS } from './wizardSteps';
+import { STEPS as WIZARD_STEPS } from '@/features/wizard/steps';
 
 const swatches = [
   ['bg', 'Fundo'],
