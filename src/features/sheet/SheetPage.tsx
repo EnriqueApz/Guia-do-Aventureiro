@@ -1,4 +1,4 @@
-import { Dices, Download, Pencil, ScrollText, Swords } from 'lucide-react';
+import { Dices, Download, Pencil, Printer, ScrollText, Share2, Swords } from 'lucide-react';
 import { MotionConfig } from 'motion/react';
 import { useId, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router';
@@ -17,6 +17,7 @@ import { useWizard } from '@/features/wizard/useWizard';
 import { useSettings } from '@/state/settings';
 import { DiceRoller } from './DiceRoller';
 import { PlayPanel } from './PlayPanel';
+import { ShareLink } from './ShareLink';
 import { SheetDetails } from './SheetDetails';
 
 type Mode = 'ficha' | 'jogo';
@@ -27,6 +28,7 @@ export default function SheetPage() {
   const { character, sheet, issues, edit } = useWizard(id);
   const reduceMotion = useSettings((s) => s.reduceMotion);
   const [rollerOpen, setRollerOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
   usePageTitle(character ? character.name || 'Personagem sem nome' : 'Personagem não encontrado');
   const mode: Mode = params.get('modo') === 'jogo' ? 'jogo' : 'ficha';
 
@@ -75,6 +77,12 @@ export default function SheetPage() {
           <Button variant="secundario" onClick={() => setRollerOpen(true)}>
             <Dices aria-hidden className="size-4" /> Rolador de dados
           </Button>
+          <Link to={`/ficha/${character.id}/imprimir`} className={buttonClasses('secundario')}>
+            <Printer aria-hidden className="size-4" /> Imprimir / PDF
+          </Link>
+          <Button variant="secundario" onClick={() => setShareOpen(true)}>
+            <Share2 aria-hidden className="size-4" /> Compartilhar
+          </Button>
         </div>
       </header>
 
@@ -110,6 +118,15 @@ export default function SheetPage() {
           <Overrides character={character} sheet={sheet} edit={edit} />
         </div>
       )}
+
+      <Drawer
+        open={shareOpen}
+        onOpenChange={setShareOpen}
+        title="Compartilhar ficha"
+        description="Quem abrir o link vê a ficha só para ler e pode salvar uma cópia."
+      >
+        <ShareLink character={character} />
+      </Drawer>
 
       <Drawer
         open={rollerOpen}

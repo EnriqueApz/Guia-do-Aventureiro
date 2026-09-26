@@ -27,6 +27,7 @@ import { spellName } from '../spellLabels';
 import { StepHeader } from '../parts/StepHeader';
 import type { LoadedWizard } from '../useWizard';
 import type { StepProps } from '../WizardPage';
+import { useTable } from '@/state/table';
 
 export default function ChoicesStep({ wizard, goTo }: StepProps) {
   const { character, sheet, edit } = wizard;
@@ -360,6 +361,8 @@ function HitPoints({ wizard, classDef }: { wizard: LoadedWizard; classDef: Class
   const die = classDef.hitDie;
   const [rolling, setRolling] = useState(0);
   const levels = Array.from({ length: character.level - 1 }, (_, i) => i + 2);
+  const tableHp = useTable((st) => st.rules?.hpMethod);
+  const fixedHp = tableHp && tableHp !== 'livre' ? tableHp : undefined;
   const rollAll = () => {
     setRolling((n) => n + 1);
     edit((c) => levels.reduce((acc, l) => setHpRoll(acc, l, rollDie(die)), c));
@@ -372,12 +375,17 @@ function HitPoints({ wizard, classDef }: { wizard: LoadedWizard; classDef: Class
         <GlossaryTerm id="pv">PV</GlossaryTerm> máximos agora:{' '}
         <strong className="num">{sheet.hp.max}</strong>.
       </p>
+      {fixedHp && (
+        <p className="text-sm font-semibold text-gold">
+          A mesa combinou PV {fixedHp === 'media' ? 'pela média' : 'rolados'} a cada nível.
+        </p>
+      )}
       <Segmented
         legend="Pontos de Vida por nível"
         options={[
-          { value: 'media', label: `Média (${fixedHitDieValue(die)})` },
-          { value: 'rolagem', label: `Rolar d${die}` },
-        ]}
+          { value: 'media' as const, label: `Média (${fixedHitDieValue(die)})` },
+          { value: 'rolagem' as const, label: `Rolar d${die}` },
+        ].filter((o) => !fixedHp || o.value === fixedHp)}
         value={character.hp.method}
         onChange={(m) => edit((c) => setHpMethod(c, m))}
       />

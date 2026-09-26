@@ -179,3 +179,46 @@
     font-variant-numeric: lining-nums tabular-nums;
   }
 }
+
+/*
+ * Impressão: sempre claro, fundo branco, sem sombras nem textura, A4 com margens
+ * pequenas. Quebras de página controladas por `break-before-page`/`break-inside-avoid`.
+ */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+  :root,
+  :root[data-theme='escuro'] {
+    color-scheme: light;
+    --c-bg: #ffffff;
+    --c-surface: #ffffff;
+    --c-sunken: #f3efe6;
+    --c-ink: #1a140e;
+    --c-ink-muted: #4a3c2d;
+    --c-line: #bfb198;
+    --c-line-strong: #8f7d5c;
+    --c-gold: #6b4f12;
+    --c-gold-soft: #b8923f;
+    --c-seal: #7e281c;
+    --c-on-seal: #ffffff;
+    --c-forest: #2f5629;
+    --c-sky: #264d70;
+    --c-danger: #8a2014;
+    --shadow-card: none;
+    --paper-grain: 0;
+  }
+  html,
+  body {
+    background: #fff !important;
+    font-size: 10pt;
+  }
+  body::before,
+  body::after {
+    display: none !important;
+  }
+  a[href]::after {
+    content: none;
+  }
+}

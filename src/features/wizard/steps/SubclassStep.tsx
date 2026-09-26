@@ -13,8 +13,11 @@ import { BeginnerNote } from '../parts/BeginnerNote';
 import { StepHeader } from '../parts/StepHeader';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
+import { homebrewBlocked } from '@/model/table';
+import { useTable } from '@/state/table';
 
 export default function SubclassStep({ wizard, goTo }: StepProps) {
+  const tableRules = useTable((st) => st.rules);
   const { character, edit } = wizard;
   const cls = content.classes.find((c) => c.id === character.classId);
   const canChoose = character.level >= 3;
@@ -62,6 +65,8 @@ export default function SubclassStep({ wizard, goTo }: StepProps) {
         {options.map((s) => (
           <OptionCard
             key={s.id}
+            disabled={homebrewBlocked(tableRules, s)}
+            disabledReason="A mesa não permite conteúdo próprio."
             selected={s.id === shownId}
             onSelect={() => (canChoose ? edit((c) => selectSubclass(c, s.id)) : setPreview(s.id))}
             title={s.name}
@@ -83,7 +88,7 @@ export default function SubclassStep({ wizard, goTo }: StepProps) {
             disabled
             title={s.name}
             subtitle={s.ref}
-            disabledReason="Incompleto: fora do SRD. Dá para preencher em “Conteúdo próprio” (em breve)."
+            disabledReason="Incompleto: fora do SRD. Complete em “Conteúdo próprio”."
           />
         ))}
       </div>

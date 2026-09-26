@@ -9,8 +9,11 @@ import { QUESTIONS, suggest, type Answers } from '@/features/guided/suggest';
 import { OptionCard } from '../parts/OptionCard';
 import { StepHeader } from '../parts/StepHeader';
 import type { StepProps } from '../WizardPage';
+import { allowed } from '@/model/table';
+import { useTable } from '@/state/table';
 
 export default function GuidedStep({ wizard, goTo }: StepProps) {
+  const tableRules = useTable((st) => st.rules);
   const { edit } = wizard;
   const [answers, setAnswers] = useState<Partial<Answers>>({});
   const [index, setIndex] = useState(0);
@@ -24,7 +27,16 @@ export default function GuidedStep({ wizard, goTo }: StepProps) {
   };
 
   if (done) {
-    const suggestions = suggest(answers as Answers, content);
+    // Com mesa ativa, só sugere o que o Mestre liberou.
+    const pool = tableRules
+      ? {
+          ...content,
+          species: content.species.filter((x) => allowed(tableRules.species, x.id)),
+          classes: content.classes.filter((x) => allowed(tableRules.classes, x.id)),
+          backgrounds: content.backgrounds.filter((x) => allowed(tableRules.backgrounds, x.id)),
+        }
+      : content;
+    const suggestions = suggest(answers as Answers, pool);
     return (
       <div className="space-y-6">
         <StepHeader eyebrow="Me guie" title="Três sugestões para você">

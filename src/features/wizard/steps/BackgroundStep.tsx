@@ -17,6 +17,8 @@ import { Fact, Section } from '../parts/Section';
 import { StepHeader } from '../parts/StepHeader';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
+import { allowed, homebrewBlocked } from '@/model/table';
+import { useTable } from '@/state/table';
 
 type PersonalityField = keyof Character['details']['personality'];
 
@@ -48,6 +50,7 @@ const FIELDS: {
 ];
 
 export default function BackgroundStep({ wizard }: StepProps) {
+  const tableRules = useTable((st) => st.rules);
   const { character, edit } = wizard;
   const bg = content.backgrounds.find((b) => b.id === character.backgroundId);
   const detailRef = useRef<HTMLDivElement>(null);
@@ -69,6 +72,8 @@ export default function BackgroundStep({ wizard }: StepProps) {
         {content.backgrounds.map((b) => (
           <OptionCard
             key={b.id}
+            disabled={!allowed(tableRules?.backgrounds, b.id) || homebrewBlocked(tableRules, b)}
+            disabledReason="Não liberado pela mesa."
             selected={b.id === character.backgroundId}
             onSelect={() => edit((c) => selectBackground(c, b.id, content))}
             title={b.name}
@@ -91,7 +96,7 @@ export default function BackgroundStep({ wizard }: StepProps) {
             disabled
             title={s.name}
             subtitle={s.ref}
-            disabledReason="Incompleto: fora do SRD."
+            disabledReason="Incompleto: fora do SRD. Complete em “Conteúdo próprio”."
           />
         ))}
       </div>

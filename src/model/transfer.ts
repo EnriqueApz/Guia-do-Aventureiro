@@ -256,3 +256,20 @@ export function parseImport(text: string, existingIds: Set<string> = new Set()):
   });
   return { characters, errors, renamed };
 }
+
+/**
+ * Personagem vindo de um link compartilhado: valida e devolve pronto para exibir,
+ * ou uma mensagem dizendo por que o link não funciona.
+ */
+export function parseSharedCharacter(data: unknown): { character?: Character; error?: string } {
+  if (data === undefined) return { error: 'O link está incompleto ou foi cortado.' };
+  const parsed = CharacterSchema.safeParse(data);
+  if (!parsed.success)
+    return {
+      error: `O link não traz um personagem válido (${parsed.error.issues
+        .slice(0, 2)
+        .map(describeIssue)
+        .join('; ')}).`,
+    };
+  return { character: parsed.data as Character };
+}

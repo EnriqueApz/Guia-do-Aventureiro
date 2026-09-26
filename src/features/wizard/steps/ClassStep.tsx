@@ -21,8 +21,11 @@ import { BeginnerNote } from '../parts/BeginnerNote';
 import { StepHeader } from '../parts/StepHeader';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
+import { allowed, homebrewBlocked } from '@/model/table';
+import { useTable } from '@/state/table';
 
 export default function ClassStep({ wizard, goTo }: StepProps) {
+  const tableRules = useTable((st) => st.rules);
   const { character, edit } = wizard;
   const cls = content.classes.find((c) => c.id === character.classId);
   const detailRef = useRef<HTMLDivElement>(null);
@@ -50,6 +53,8 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
         {content.classes.map((c) => (
           <OptionCard
             key={c.id}
+            disabled={!allowed(tableRules?.classes, c.id) || homebrewBlocked(tableRules, c)}
+            disabledReason="Não liberado pela mesa."
             selected={c.id === character.classId}
             onSelect={() => edit((ch) => selectClass(ch, c.id, content))}
             title={c.name}
