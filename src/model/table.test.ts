@@ -1,14 +1,8 @@
 import { content } from '@/content';
 import { decodeShare, encodeShare } from '@/lib/share';
 import { brom, makeCharacter, thorin } from '@/test/characters';
-import {
-  allowed,
-  applyTableDefaults,
-  DEFAULT_TABLE,
-  homebrewBlocked,
-  parseTable,
-  tableIssues,
-} from './table';
+import { allowed, applyTableDefaults, DEFAULT_TABLE, homebrewBlocked, tableIssues } from './table';
+import { parseTable } from './tableSchema';
 
 const rules = {
   ...DEFAULT_TABLE,

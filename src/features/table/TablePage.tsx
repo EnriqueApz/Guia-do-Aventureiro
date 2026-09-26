@@ -8,13 +8,8 @@ import { Card } from '@/components/ui/Card';
 import { Segmented } from '@/components/ui/Segmented';
 import { Switch } from '@/components/ui/Switch';
 import { decodeShare, encodeShare, hashParam, siteUrl } from '@/lib/share';
-import {
-  ABILITY_METHODS,
-  DEFAULT_TABLE,
-  METHOD_LABEL,
-  parseTable,
-  type TableRules,
-} from '@/model/table';
+import { parseTable } from '@/model/tableSchema';
+import { ABILITY_METHODS, DEFAULT_TABLE, METHOD_LABEL, type TableRules } from '@/model/table';
 import { PageHeader } from '@/routes/PageHeader';
 import { useTable } from '@/state/table';
 

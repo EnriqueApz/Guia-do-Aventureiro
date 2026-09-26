@@ -53,6 +53,8 @@ export default defineConfig({
           }),
         ]),
   ],
+  // O manifesto permite medir o bundle inicial (npm run size).
+  build: { manifest: true },
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },

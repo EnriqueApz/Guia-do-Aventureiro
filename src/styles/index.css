@@ -222,3 +222,15 @@
     content: none;
   }
 }
+
+/* A ficha para impressão é sempre papel claro, mesmo com o tema "luz de vela" na tela. */
+.print-sheet {
+  --c-ink: #1a140e;
+  --c-ink-muted: #4a3c2d;
+  --c-line: #bfb198;
+  --c-line-strong: #8f7d5c;
+  --c-gold: #6b4f12;
+  --c-surface: #ffffff;
+  color: var(--c-ink);
+  background: #fff;
+}

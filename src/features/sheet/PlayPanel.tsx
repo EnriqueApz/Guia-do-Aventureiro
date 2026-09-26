@@ -252,7 +252,7 @@ function RollBox({
         type="button"
         onClick={onRoll}
         aria-label={`Rolar ${name} (${formatBonus(bonus)})`}
-        className="num inline-flex min-h-9 cursor-pointer items-center gap-1 rounded-md px-2 text-2xl font-semibold hover:bg-sunken"
+        className="num inline-flex min-h-11 cursor-pointer items-center gap-1 rounded-md px-2 text-2xl font-semibold hover:bg-sunken"
       >
         {formatBonus(bonus)} <Dices aria-hidden className="size-4 text-gold" />
       </button>
@@ -476,15 +476,20 @@ function DeathTrack({
           aria-label={`${label}: ${n}`}
           aria-pressed={value >= n}
           onClick={() => onChange(value >= n ? n - 1 : n)}
-          className={cn(
-            'size-8 cursor-pointer rounded-full border-2',
-            value >= n
-              ? danger
-                ? 'border-danger bg-danger'
-                : 'border-forest bg-forest'
-              : 'border-line-strong',
-          )}
-        />
+          className="flex size-11 cursor-pointer items-center justify-center rounded-full"
+        >
+          <span
+            aria-hidden
+            className={cn(
+              'size-8 rounded-full border-2',
+              value >= n
+                ? danger
+                  ? 'border-danger bg-danger'
+                  : 'border-forest bg-forest'
+                : 'border-line-strong',
+            )}
+          />
+        </button>
       ))}
     </div>
   );
@@ -507,7 +512,7 @@ function Pips({
       <span className="num text-sm text-ink-muted">
         {total - used} de {total}
       </span>
-      <div className="flex gap-1">
+      <div className="flex flex-wrap">
         {Array.from({ length: total }, (_, i) => {
           const spent = i < used;
           return (
@@ -517,11 +522,16 @@ function Pips({
               aria-label={`${label}: ${spent ? 'recuperar' : 'gastar'} um`}
               aria-pressed={spent}
               onClick={() => onChange(spent ? used - 1 : used + 1)}
-              className={cn(
-                'size-7 cursor-pointer rounded-md border-2',
-                spent ? 'border-line-strong bg-sunken' : 'border-seal bg-seal/80',
-              )}
-            />
+              className="flex size-11 cursor-pointer items-center justify-center rounded-md"
+            >
+              <span
+                aria-hidden
+                className={cn(
+                  'size-7 rounded-md border-2',
+                  spent ? 'border-line-strong bg-sunken' : 'border-seal bg-seal/80',
+                )}
+              />
+            </button>
           );
         })}
       </div>
@@ -614,7 +624,7 @@ function Conditions({
               type="button"
               aria-pressed={play.conditions.includes(c.id)}
               onClick={() => setPlay((p) => toggleCondition(p, c.id))}
-              className="min-h-9 cursor-pointer rounded-full border border-line-strong px-3 text-sm font-semibold aria-pressed:border-danger aria-pressed:bg-danger aria-pressed:text-on-seal"
+              className="min-h-11 cursor-pointer rounded-full border border-line-strong px-3 text-sm font-semibold aria-pressed:border-danger aria-pressed:bg-danger aria-pressed:text-on-seal"
             >
               {c.name}
             </button>

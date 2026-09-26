@@ -65,7 +65,7 @@ export function SheetDetails({ character, sheet }: { character: Character; sheet
               {spells.map((s) => (
                 <li key={s.id}>
                   <details>
-                    <summary className="min-h-9 cursor-pointer">
+                    <summary className="min-h-11 cursor-pointer">
                       <span className="font-semibold">{s.name}</span>{' '}
                       <span className="text-xs text-ink-muted">{circleLabel(s.level)}</span>
                     </summary>
@@ -101,7 +101,7 @@ export function SheetDetails({ character, sheet }: { character: Character; sheet
             {sheet.features.map((f) => (
               <li key={`${f.source}:${f.id}`}>
                 <details>
-                  <summary className="min-h-9 cursor-pointer">
+                  <summary className="min-h-11 cursor-pointer">
                     <span className="font-semibold">{f.name}</span>{' '}
                     <span className="text-xs text-ink-muted">
                       {f.sourceName}
@@ -117,7 +117,7 @@ export function SheetDetails({ character, sheet }: { character: Character; sheet
             {sheet.feats.map((f) => (
               <li key={`talento:${f.feat.id}:${f.source}`}>
                 <details>
-                  <summary className="min-h-9 cursor-pointer">
+                  <summary className="min-h-11 cursor-pointer">
                     <span className="font-semibold">{f.feat.name}</span>{' '}
                     <span className="text-xs text-ink-muted">Talento · {f.source}</span>
                   </summary>

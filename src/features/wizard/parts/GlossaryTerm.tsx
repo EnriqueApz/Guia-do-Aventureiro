@@ -14,7 +14,10 @@ export function GlossaryTerm({ id, children }: { id: string; children?: ReactNod
       term={entry.term}
       definition={entry.short}
       more={
-        <Link to={`/glossario#${id}`} className="text-seal underline underline-offset-2">
+        <Link
+          to={`/glossario#${id}`}
+          className="text-ink underline decoration-seal decoration-2 underline-offset-2"
+        >
           Ver no glossário
         </Link>
       }

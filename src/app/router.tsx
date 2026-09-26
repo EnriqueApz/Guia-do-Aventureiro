@@ -1,6 +1,7 @@
 import { createBrowserRouter, type RouteObject } from 'react-router';
 import { Layout } from './Layout';
 import { RouteError } from '@/routes/RouteError';
+import { PageLoading } from './PageLoading';
 
 /** Cada página vira um pedaço separado do bundle (carregado sob demanda). */
 const page = (loader: () => Promise<{ default: React.ComponentType }>) => async () => ({
@@ -12,6 +13,7 @@ export const routes: RouteObject[] = [
     path: '/',
     Component: Layout,
     ErrorBoundary: RouteError,
+    HydrateFallback: PageLoading,
     children: [
       { index: true, lazy: page(() => import('@/routes/HomePage')) },
       { path: 'personagens', lazy: page(() => import('@/routes/CharactersPage')) },

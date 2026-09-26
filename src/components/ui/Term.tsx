@@ -19,7 +19,7 @@ export function Term({ children, definition, term, more }: TermProps) {
   return (
     <Popover.Root>
       <Popover.Trigger
-        className="cursor-help rounded-sm underline decoration-gold-soft decoration-dotted decoration-2 underline-offset-4 hover:decoration-gold"
+        className="inline-block min-h-6 min-w-6 cursor-help rounded-sm underline decoration-gold-soft decoration-dotted decoration-2 underline-offset-4 hover:decoration-gold"
         aria-label={`${term ?? (typeof children === 'string' ? children : '')}: ver explicação`}
       >
         {children}

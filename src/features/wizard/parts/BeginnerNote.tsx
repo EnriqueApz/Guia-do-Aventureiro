@@ -58,7 +58,7 @@ function CompareLink({ to }: { to: string }) {
   return (
     <Link
       to={to}
-      className="inline-flex min-h-9 items-center gap-1.5 text-sm font-semibold text-seal underline underline-offset-2"
+      className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-ink underline decoration-seal decoration-2 underline-offset-2"
     >
       <ArrowLeftRight aria-hidden className="size-4" /> Comparar com outra opção
     </Link>
