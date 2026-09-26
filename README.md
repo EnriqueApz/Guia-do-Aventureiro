@@ -6,8 +6,10 @@ linguagem simples, e uma ficha que se monta sozinha enquanto você escolhe.
 
 Site estático, sem servidor: os personagens ficam salvos no navegador de cada um.
 
-> **Status:** fase 1 de 8 (fundação). Veja o plano em [`docs/PLANO.md`](docs/PLANO.md)
-> e as decisões em [`docs/DECISIONS.md`](docs/DECISIONS.md).
+> **Status:** fase 2 de 8 (conteúdo do SRD 5.2 em pt-BR e motor de regras). Veja o
+> plano em [`docs/PLANO.md`](docs/PLANO.md), as decisões em
+> [`docs/DECISIONS.md`](docs/DECISIONS.md) e o guia do conteúdo em
+> [`docs/CONTEUDO.md`](docs/CONTEUDO.md).
 
 ## Rodando localmente
 
@@ -49,11 +51,15 @@ src/
   app/           casca do app: rotas, layout, ajustes (tema, fonte, movimento)
   components/ui  design system (Button, Card, Badge, Term, Drawer, ...)
   components/art SVGs (emblema, ornamentos; depois espécies e classes)
+  content/       conteúdo de regras (SRD 5.2 em pt-BR), esquemas e validação
+  model/         formato do personagem salvo
+  rules/         motor de regras puro: atributos, PV, CA, perícias, magia, descansos
   routes/        páginas (cada uma carregada sob demanda)
   state/         stores Zustand persistidas no localStorage
   styles/        tokens de cor, tipografia e temas
 e2e/             testes Playwright
-docs/            plano, decisões
+scripts/         importação e validação do conteúdo
+docs/            plano, decisões, conteúdo, terminologia
 ```
 
 A vitrine do design system fica em `/design` (não aparece no menu).

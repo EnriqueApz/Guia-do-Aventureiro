@@ -1,0 +1,292 @@
+{
+  "id": "rogue",
+  "name": "Ladino",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Especialista furtivo e habilidoso, que acerta pontos fracos com o Ataque Furtivo.",
+  "description": "Ladinos confiam na astúcia, na agilidade e em muitas perícias. Abrem fechaduras, desarmam armadilhas, enganam guardas e, no combate, aproveitam qualquer distração do inimigo para causar um dano enorme com um único golpe preciso.",
+  "roles": ["especialista", "combatente"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Um ataque por turno, mas é preciso se posicionar bem para ativar o Ataque Furtivo."
+  },
+  "primaryAbilities": ["des"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "des": 15,
+    "con": 14,
+    "sab": 13,
+    "int": 12,
+    "car": 10,
+    "for": 8
+  },
+  "recommendedWhy": "Destreza é tudo para o ladino: acerto, dano, CA e as perícias furtivas. Constituição ajuda a sobreviver.",
+  "hitDie": 8,
+  "saves": ["des", "int"],
+  "armor": ["leve"],
+  "weapons": ["simples", "marciais:acuidade|leve"],
+  "tools": ["thieves-tools"],
+  "skillChoice": {
+    "count": 4,
+    "from": [
+      "acrobacia",
+      "atletismo",
+      "enganacao",
+      "intuicao",
+      "intimidacao",
+      "investigacao",
+      "percepcao",
+      "atuacao",
+      "persuasao",
+      "prestidigitacao",
+      "furtividade"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "leather-armor",
+          "qty": 1
+        },
+        {
+          "id": "dagger",
+          "qty": 2
+        },
+        {
+          "id": "shortsword",
+          "qty": 1
+        },
+        {
+          "id": "shortbow",
+          "qty": 1
+        },
+        {
+          "id": "arrows",
+          "qty": 1
+        },
+        {
+          "id": "quiver",
+          "qty": 1
+        },
+        {
+          "id": "thieves-tools",
+          "qty": 1
+        },
+        {
+          "id": "burglars-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 8
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 100
+    }
+  ],
+  "columns": [
+    {
+      "id": "ataque-furtivo",
+      "label": "Ataque Furtivo",
+      "values": [
+        "1d6",
+        "1d6",
+        "2d6",
+        "2d6",
+        "3d6",
+        "3d6",
+        "4d6",
+        "4d6",
+        "5d6",
+        "5d6",
+        "6d6",
+        "6d6",
+        "7d6",
+        "7d6",
+        "8d6",
+        "8d6",
+        "9d6",
+        "9d6",
+        "10d6",
+        "10d6"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "rogue-expertise",
+      "level": 1,
+      "name": "Especialização",
+      "text": "Você ganha Especialização em duas perícias em que tenha proficiência, à sua escolha. Prestidigitação e Furtividade são as recomendadas, se você tiver proficiência nelas.\nNo nível 6 de Ladino, você ganha Especialização em mais duas perícias em que tenha proficiência.",
+      "plain": "Em duas perícias, seu bônus de proficiência conta em dobro.",
+      "choices": [
+        {
+          "id": "expertise",
+          "kind": "especializacao",
+          "label": "Especialização em perícias",
+          "count": {
+            "kind": "por-nivel",
+            "values": [2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+          }
+        }
+      ]
+    },
+    {
+      "id": "rogue-sneak-attack",
+      "level": 1,
+      "name": "Ataque Furtivo",
+      "text": "Você sabe golpear com sutileza e aproveitar a distração do inimigo. Uma vez por turno, você pode causar 1d6 de dano extra a uma criatura que acertar com uma jogada de ataque, se tiver Vantagem na jogada e o ataque usar uma arma com Acuidade ou à Distância. O dano extra é do mesmo tipo do da arma.\nVocê não precisa de Vantagem se pelo menos um aliado estiver a até 1,5 metro do alvo, esse aliado não estiver Incapacitado e você não tiver Desvantagem na jogada.\nO dano extra aumenta com seu nível de Ladino, como mostra a coluna Ataque Furtivo.",
+      "plain": "Uma vez por turno, se tiver Vantagem ou um aliado colado no alvo, some vários d6 de dano."
+    },
+    {
+      "id": "rogue-thieves-cant",
+      "level": 1,
+      "name": "Gíria dos Ladrões",
+      "text": "Você aprendeu idiomas nas comunidades onde exerceu suas habilidades. Você conhece a Gíria dos Ladrões e mais um idioma à sua escolha.",
+      "plain": "Você fala a língua secreta dos ladrões e mais um idioma.",
+      "effects": [
+        {
+          "type": "proficiencia",
+          "category": "idioma",
+          "ids": ["thieves-cant"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "language",
+          "kind": "idioma",
+          "label": "Um idioma extra",
+          "count": 1,
+          "from": "qualquer"
+        }
+      ]
+    },
+    {
+      "id": "rogue-weapon-mastery",
+      "level": 1,
+      "name": "Maestria em Armas",
+      "text": "Seu treino com armas permite usar as propriedades de maestria de dois tipos de armas em que você tenha proficiência, como Adagas e Arcos Curtos.\nAo terminar um Descanso Longo, você pode trocar os tipos de armas escolhidos. Por exemplo, pode passar a usar a maestria de Cimitarras e Espadas Curtas.",
+      "plain": "Escolha duas armas: com elas, você ativa efeitos extras.",
+      "choices": [
+        {
+          "id": "weapon-mastery",
+          "kind": "maestria",
+          "label": "Armas com maestria",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "rogue-cunning-action",
+      "level": 2,
+      "name": "Ação Astuta",
+      "action": "acao-bonus",
+      "text": "Seu raciocínio rápido e sua agilidade permitem agir depressa. No seu turno, você pode realizar uma destas ações como Ação Bônus: Disparada, Desengajar ou Esconder.",
+      "plain": "Com a Ação Bônus, você corre, se afasta com segurança ou se esconde."
+    },
+    {
+      "id": "rogue-subclass",
+      "level": 3,
+      "name": "Subclasse de Ladino",
+      "text": "Você ganha uma subclasse de Ladino à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Ladino. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Ladino ou menor.",
+      "plain": "No nível 3, você escolhe seu Arquétipo de Ladino."
+    },
+    {
+      "id": "rogue-steady-aim",
+      "level": 3,
+      "name": "Mira Firme",
+      "action": "acao-bonus",
+      "text": "Como Ação Bônus, você se dá Vantagem na próxima jogada de ataque no turno atual. Só pode usar esta característica se não tiver se movido no turno, e depois de usá-la seu Deslocamento fica 0 até o fim do turno.",
+      "plain": "Se ficar parado, ganhe Vantagem no ataque (e ative o Ataque Furtivo)."
+    },
+    {
+      "id": "rogue-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Ladino 8, 10, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 10, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "rogue-cunning-strike",
+      "level": 5,
+      "name": "Golpe Astuto",
+      "text": "Você desenvolveu formas astutas de usar o Ataque Furtivo. Ao causar dano de Ataque Furtivo, você pode adicionar um dos efeitos de Golpe Astuto abaixo.\nCada efeito tem um custo em dados: o número de dados do Ataque Furtivo que você abre mão para adicioná-lo. Remova os dados antes de rolar; o efeito acontece logo depois do dano. Se um efeito pedir salvaguarda, a CD é 8 + seu modificador de Destreza + seu Bônus de Proficiência.\n**Veneno (custo: 1d6).** O alvo faz uma salvaguarda de Constituição. Se falhar, fica Envenenado por 1 minuto, repetindo a salvaguarda no fim de cada turno dele para encerrar o efeito. Você precisa ter um Kit de Envenenador consigo.\n**Rasteira (custo: 1d6).** Se o alvo for Grande ou menor, precisa passar numa salvaguarda de Destreza ou fica Caído.\n**Recuar (custo: 1d6).** Logo depois do ataque, você se move até metade do seu Deslocamento sem provocar Ataques de Oportunidade."
+    },
+    {
+      "id": "rogue-uncanny-dodge",
+      "level": 5,
+      "name": "Esquiva Sobrenatural",
+      "action": "reacao",
+      "text": "Quando um atacante que você consegue ver o acerta com uma jogada de ataque, você pode usar uma Reação para reduzir à metade o dano desse ataque (arredondado para baixo)."
+    },
+    {
+      "id": "rogue-evasion",
+      "level": 7,
+      "name": "Evasão",
+      "text": "Você escapa com agilidade de certos perigos. Quando for alvo de um efeito que permite uma salvaguarda de Destreza para sofrer só metade do dano, você não sofre dano se passar e sofre só metade se falhar. Não pode usar esta característica se estiver Incapacitado."
+    },
+    {
+      "id": "rogue-reliable-talent",
+      "level": 7,
+      "name": "Talento Confiável",
+      "text": "Sempre que fizer um teste de atributo usando uma perícia ou ferramenta em que tenha proficiência, você pode tratar um resultado de 9 ou menos no d20 como 10."
+    },
+    {
+      "id": "rogue-improved-cunning-strike",
+      "level": 11,
+      "name": "Golpe Astuto Aprimorado",
+      "text": "Você pode usar até dois efeitos de Golpe Astuto ao causar dano de Ataque Furtivo, pagando o custo de cada um."
+    },
+    {
+      "id": "rogue-devious-strikes",
+      "level": 14,
+      "name": "Golpes Ardilosos",
+      "text": "Você praticou novas formas ardilosas de usar o Ataque Furtivo. Os efeitos a seguir passam a fazer parte das opções de Golpe Astuto:\n**Atordoar (custo: 2d6).** O alvo precisa passar numa salvaguarda de Constituição ou, no próximo turno dele, só pode fazer uma destas coisas: se mover, ou realizar uma ação, ou uma Ação Bônus.\n**Nocautear (custo: 6d6).** O alvo precisa passar numa salvaguarda de Constituição ou fica Inconsciente por 1 minuto ou até sofrer dano. Ele repete a salvaguarda no fim de cada turno dele para encerrar o efeito.\n**Ofuscar (custo: 3d6).** O alvo precisa passar numa salvaguarda de Destreza ou fica Cego até o fim do próximo turno dele."
+    },
+    {
+      "id": "rogue-slippery-mind",
+      "level": 15,
+      "name": "Mente Escorregadia",
+      "text": "Sua mente astuta é extremamente difícil de controlar. Você ganha proficiência em salvaguardas de Sabedoria e de Carisma.",
+      "effects": [
+        {
+          "type": "proficiencia",
+          "category": "salvaguarda",
+          "ids": ["sab", "car"]
+        }
+      ]
+    },
+    {
+      "id": "rogue-elusive",
+      "level": 18,
+      "name": "Evasivo",
+      "text": "Você é tão esquivo que os atacantes raramente levam vantagem sobre você. Nenhuma jogada de ataque tem Vantagem contra você, a menos que você esteja Incapacitado."
+    },
+    {
+      "id": "rogue-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva do Espírito da Noite é a recomendada."
+    },
+    {
+      "id": "rogue-stroke-of-luck",
+      "level": 20,
+      "name": "Golpe de Sorte",
+      "text": "Você tem um talento incrível para ter sucesso quando precisa. Se falhar num Teste de d20, pode transformar o resultado num 20.\nDepois de usar esta característica, só pode usá-la de novo após terminar um Descanso Curto ou Longo.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-curto"
+      }
+    }
+  ],
+  "featLevels": [4, 8, 10, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Arquétipo de Ladino",
+  "typicalTurn": "Fique perto de um aliado que esteja lutando com o inimigo, ou ataque de um lugar escondido. Faça um ataque com a espada curta ou o arco curto: se tiver Vantagem ou um aliado ao lado do alvo, some o Ataque Furtivo. Depois, use a Ação Astuta (Ação Bônus) para se esconder ou se afastar."
+}

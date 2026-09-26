@@ -1,0 +1,51 @@
+[
+  { "id": "common", "name": "Comum", "rarity": "padrao", "origin": "Sigil" },
+  {
+    "id": "common-sign-language",
+    "name": "Língua de Sinais Comum",
+    "rarity": "padrao",
+    "origin": "Sigil"
+  },
+  { "id": "draconic", "name": "Dracônico", "rarity": "padrao", "origin": "Dragões" },
+  { "id": "dwarvish", "name": "Anão", "rarity": "padrao", "origin": "Anões" },
+  { "id": "elvish", "name": "Élfico", "rarity": "padrao", "origin": "Elfos" },
+  { "id": "giant", "name": "Gigante", "rarity": "padrao", "origin": "Gigantes" },
+  { "id": "gnomish", "name": "Gnômico", "rarity": "padrao", "origin": "Gnomos" },
+  { "id": "goblin", "name": "Goblin", "rarity": "padrao", "origin": "Goblinoides" },
+  { "id": "halfling", "name": "Halfling", "rarity": "padrao", "origin": "Halflings" },
+  { "id": "orc", "name": "Orc", "rarity": "padrao", "origin": "Orcs" },
+  { "id": "abyssal", "name": "Abissal", "rarity": "raro", "origin": "Demônios do Abismo" },
+  { "id": "celestial", "name": "Celestial", "rarity": "raro", "origin": "Celestiais" },
+  {
+    "id": "deep-speech",
+    "name": "Dialeto Subterrâneo",
+    "rarity": "raro",
+    "origin": "Aboletes e observadores"
+  },
+  {
+    "id": "druidic",
+    "name": "Druídico",
+    "rarity": "raro",
+    "origin": "Círculos druídicos (só druidas aprendem)"
+  },
+  { "id": "infernal", "name": "Infernal", "rarity": "raro", "origin": "Diabos dos Nove Infernos" },
+  {
+    "id": "primordial",
+    "name": "Primordial",
+    "rarity": "raro",
+    "origin": "Elementais. Inclui os dialetos Aquan, Auran, Ignan e Terran, que se entendem entre si."
+  },
+  { "id": "sylvan", "name": "Silvestre", "rarity": "raro", "origin": "Seres feéricos" },
+  {
+    "id": "thieves-cant",
+    "name": "Gíria dos Ladrões",
+    "rarity": "raro",
+    "origin": "Guildas de ladrões (só ladinos aprendem)"
+  },
+  {
+    "id": "undercommon",
+    "name": "Subcomum",
+    "rarity": "raro",
+    "origin": "Comerciantes do Subterrâneo"
+  }
+]

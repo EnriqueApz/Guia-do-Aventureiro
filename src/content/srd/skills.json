@@ -1,0 +1,110 @@
+[
+  {
+    "id": "acrobacia",
+    "name": "Acrobacia",
+    "ability": "des",
+    "plain": "Manter o equilíbrio numa situação difícil ou fazer uma manobra acrobática."
+  },
+  {
+    "id": "adestrar-animais",
+    "name": "Adestrar Animais",
+    "ability": "sab",
+    "plain": "Acalmar ou treinar um animal, ou fazê-lo se comportar de certo jeito."
+  },
+  {
+    "id": "arcanismo",
+    "name": "Arcanismo",
+    "ability": "int",
+    "plain": "Lembrar de conhecimentos sobre magias, itens mágicos e planos de existência."
+  },
+  {
+    "id": "atletismo",
+    "name": "Atletismo",
+    "ability": "for",
+    "plain": "Saltar mais longe que o normal, nadar em águas agitadas ou quebrar algo."
+  },
+  {
+    "id": "atuacao",
+    "name": "Atuação",
+    "ability": "car",
+    "plain": "Atuar, contar uma história, tocar música ou dançar."
+  },
+  {
+    "id": "enganacao",
+    "name": "Enganação",
+    "ability": "car",
+    "plain": "Contar uma mentira convincente ou usar um disfarce de forma convincente."
+  },
+  {
+    "id": "furtividade",
+    "name": "Furtividade",
+    "ability": "des",
+    "plain": "Passar despercebido, andando em silêncio e se escondendo atrás das coisas."
+  },
+  {
+    "id": "historia",
+    "name": "História",
+    "ability": "int",
+    "plain": "Lembrar de conhecimentos sobre eventos históricos, pessoas, nações e culturas."
+  },
+  {
+    "id": "intimidacao",
+    "name": "Intimidação",
+    "ability": "car",
+    "plain": "Impressionar ou ameaçar alguém para que faça o que você quer."
+  },
+  {
+    "id": "intuicao",
+    "name": "Intuição",
+    "ability": "sab",
+    "plain": "Perceber o humor e as intenções de uma pessoa."
+  },
+  {
+    "id": "investigacao",
+    "name": "Investigação",
+    "ability": "int",
+    "plain": "Achar informações obscuras em livros ou deduzir como algo funciona."
+  },
+  {
+    "id": "medicina",
+    "name": "Medicina",
+    "ability": "sab",
+    "plain": "Diagnosticar uma doença ou descobrir o que matou alguém recentemente."
+  },
+  {
+    "id": "natureza",
+    "name": "Natureza",
+    "ability": "int",
+    "plain": "Lembrar de conhecimentos sobre terrenos, plantas, animais e clima."
+  },
+  {
+    "id": "percepcao",
+    "name": "Percepção",
+    "ability": "sab",
+    "plain": "Usando os sentidos, notar algo que passaria despercebido."
+  },
+  {
+    "id": "persuasao",
+    "name": "Persuasão",
+    "ability": "car",
+    "plain": "Convencer alguém de algo de forma honesta e cortês."
+  },
+  {
+    "id": "prestidigitacao",
+    "name": "Prestidigitação",
+    "ability": "des",
+    "plain": "Bater uma carteira, esconder um objeto pequeno na mão ou fazer um truque de mãos."
+  },
+  {
+    "id": "religiao",
+    "name": "Religião",
+    "ability": "int",
+    "plain": "Lembrar de conhecimentos sobre deuses, rituais religiosos e símbolos sagrados."
+  },
+  {
+    "id": "sobrevivencia",
+    "name": "Sobrevivência",
+    "ability": "sab",
+    "plain": "Seguir rastros, conseguir comida, achar uma trilha ou evitar perigos naturais."
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "trespassar",
+    "name": "Trespassar",
+    "text": "Se você acertar uma criatura com uma jogada de ataque corpo a corpo com esta arma, pode fazer uma jogada de ataque corpo a corpo com ela contra uma segunda criatura a até 1,5 metro da primeira que também esteja ao seu alcance. Se acertar, a segunda criatura sofre o dano da arma, mas você não soma seu modificador de atributo a esse dano, a menos que ele seja negativo. Você só pode fazer esse ataque extra uma vez por turno.",
+    "plain": "Ao acertar, você pode atacar também um segundo inimigo colado no primeiro."
+  },
+  {
+    "id": "raspar",
+    "name": "Raspar",
+    "text": "Se sua jogada de ataque com esta arma errar uma criatura, você pode causar a ela dano igual ao modificador de atributo que usou na jogada de ataque. Esse dano é do mesmo tipo do da arma, e só aumenta se o modificador de atributo aumentar.",
+    "plain": "Mesmo errando, você causa um pouco de dano (igual ao seu modificador)."
+  },
+  {
+    "id": "talho",
+    "name": "Talho",
+    "text": "Quando você faz o ataque extra da propriedade Leve, pode fazê-lo como parte da ação Atacar em vez de usar a Ação Bônus. Você só pode fazer esse ataque extra uma vez por turno.",
+    "plain": "O ataque com a segunda arma leve não gasta sua Ação Bônus."
+  },
+  {
+    "id": "empurrar",
+    "name": "Empurrar",
+    "text": "Se você acertar uma criatura com esta arma, pode empurrá-la até 3 metros para longe de você em linha reta, se ela for Grande ou menor.",
+    "plain": "Ao acertar, você empurra o inimigo 3 metros para trás."
+  },
+  {
+    "id": "enfraquecer",
+    "name": "Enfraquecer",
+    "text": "Se você acertar uma criatura com esta arma, ela tem Desvantagem na próxima jogada de ataque que fizer antes do início do seu próximo turno.",
+    "plain": "Ao acertar, o próximo ataque do inimigo sai com Desvantagem."
+  },
+  {
+    "id": "desacelerar",
+    "name": "Desacelerar",
+    "text": "Se você acertar uma criatura com esta arma e causar dano a ela, pode reduzir o Deslocamento dela em 3 metros até o início do seu próximo turno. Se a criatura for atingida mais de uma vez por armas com esta propriedade, a redução não passa de 3 metros.",
+    "plain": "Ao causar dano, o inimigo anda 3 metros a menos no próximo turno."
+  },
+  {
+    "id": "derrubar",
+    "name": "Derrubar",
+    "text": "Se você acertar uma criatura com esta arma, pode forçá-la a fazer uma salvaguarda de Constituição (CD igual a 8 + o modificador de atributo usado na jogada de ataque + seu Bônus de Proficiência). Se falhar, a criatura fica Caída.",
+    "plain": "Ao acertar, o inimigo pode cair no chão."
+  },
+  {
+    "id": "afligir",
+    "name": "Afligir",
+    "text": "Se você acertar uma criatura com esta arma e causar dano a ela, você tem Vantagem na sua próxima jogada de ataque contra essa criatura antes do fim do seu próximo turno.",
+    "plain": "Ao causar dano, seu próximo ataque contra o mesmo alvo tem Vantagem."
+  }
+]

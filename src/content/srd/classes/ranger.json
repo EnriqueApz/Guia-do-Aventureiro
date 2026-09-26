@@ -1,0 +1,329 @@
+{
+  "id": "ranger",
+  "name": "Patrulheiro",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Caçador e explorador das terras selvagens, com arco, magia da natureza e a Marca do Caçador.",
+  "description": "Patrulheiros vigiam as fronteiras entre a civilização e o mundo selvagem. Rastreiam presas, guiam o grupo por terrenos perigosos e combinam armas com uma magia primal voltada à caça, marcando o alvo para causar dano extra.",
+  "roles": ["combatente", "especialista"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Combate simples com arco, mas soma magias e a Marca do Caçador para administrar."
+  },
+  "primaryAbilities": ["des", "sab"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "des": 15,
+    "sab": 14,
+    "con": 13,
+    "for": 12,
+    "int": 10,
+    "car": 8
+  },
+  "recommendedWhy": "Destreza para o arco e para a CA; Sabedoria para as magias e perícias de exploração.",
+  "hitDie": 10,
+  "saves": ["for", "des"],
+  "armor": ["leve", "media", "escudo"],
+  "weapons": ["simples", "marciais"],
+  "tools": [],
+  "skillChoice": {
+    "count": 3,
+    "from": [
+      "adestrar-animais",
+      "atletismo",
+      "intuicao",
+      "investigacao",
+      "natureza",
+      "percepcao",
+      "furtividade",
+      "sobrevivencia"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "studded-leather-armor",
+          "qty": 1
+        },
+        {
+          "id": "scimitar",
+          "qty": 1
+        },
+        {
+          "id": "shortsword",
+          "qty": 1
+        },
+        {
+          "id": "longbow",
+          "qty": 1
+        },
+        {
+          "id": "arrows",
+          "qty": 1
+        },
+        {
+          "id": "quiver",
+          "qty": 1
+        },
+        {
+          "id": "sprig-of-mistletoe",
+          "qty": 1
+        },
+        {
+          "id": "explorers-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 7
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 150
+    }
+  ],
+  "spellcasting": {
+    "ability": "sab",
+    "progression": "meia",
+    "cantrips": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "prepared": [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15],
+    "slots": [
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0]
+    ],
+    "ritual": false,
+    "focus": "Foco Druídico",
+    "swap": "descanso-longo",
+    "explainer": "Patrulheiros têm poucas magias, voltadas à caça e à sobrevivência. Você tem espaços de magia (como cargas que voltam no Descanso Longo) e uma lista de magias preparadas. A mais importante é a Marca do Caçador, que você pode lançar de graça algumas vezes por dia. Sua magia usa Sabedoria."
+  },
+  "columns": [
+    {
+      "id": "inimigo-favorito",
+      "label": "Inimigo Favorito",
+      "values": [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6]
+    }
+  ],
+  "features": [
+    {
+      "id": "ranger-spellcasting",
+      "level": 1,
+      "name": "Conjuração",
+      "text": "Você aprendeu a canalizar a essência mágica da natureza para lançar magias.\n**Espaços de Magia.** A tabela do Patrulheiro mostra quantos espaços de magia você tem para magias de 1º círculo ou mais. Você recupera todos ao terminar um Descanso Longo.\n**Magias Preparadas.** Para começar, escolha duas magias de 1º círculo de Patrulheiro; Curar Ferimentos e Golpe Constritor são as recomendadas. O número de magias da lista cresce com seu nível, como mostra a coluna Magias Preparadas; sempre que ele aumentar, escolha mais magias de Patrulheiro de círculos para os quais tenha espaços. Magias sempre preparadas por outra característica não contam nesse limite.\n**Trocar Magias Preparadas.** Ao terminar um Descanso Longo, você pode trocar uma magia da lista por outra de Patrulheiro para a qual tenha espaços.\n**Atributo de Conjuração.** Sabedoria.\n**Foco de Conjuração.** Você pode usar um Foco Druídico.",
+      "plain": "Você lança magias com Sabedoria, usando espaços que voltam no Descanso Longo."
+    },
+    {
+      "id": "ranger-favored-enemy",
+      "level": 1,
+      "name": "Inimigo Favorito",
+      "text": "Você sempre tem a magia Marca do Caçador preparada. Pode lançá-la duas vezes sem gastar espaço de magia e recupera esses usos ao terminar um Descanso Longo.\nO número de vezes que pode lançá-la assim aumenta em certos níveis de Patrulheiro, como mostra a coluna Inimigo Favorito.",
+      "plain": "Algumas vezes por dia, você marca um alvo de graça e causa dano extra nele.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "inimigo-favorito"
+        },
+        "recharge": "descanso-longo"
+      },
+      "effects": [
+        {
+          "type": "magia",
+          "spell": "hunters-mark",
+          "level": 1,
+          "freeCast": true
+        }
+      ]
+    },
+    {
+      "id": "ranger-weapon-mastery",
+      "level": 1,
+      "name": "Maestria em Armas",
+      "text": "Seu treino com armas permite usar as propriedades de maestria de dois tipos de armas em que você tenha proficiência, como Arcos Longos e Espadas Curtas.\nAo terminar um Descanso Longo, você pode trocar os tipos de armas escolhidos.",
+      "plain": "Escolha duas armas: com elas, você ativa efeitos extras.",
+      "choices": [
+        {
+          "id": "weapon-mastery",
+          "kind": "maestria",
+          "label": "Armas com maestria",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "ranger-deft-explorer",
+      "level": 2,
+      "name": "Explorador Habilidoso",
+      "text": "Graças às suas viagens, você recebe os benefícios a seguir.\n**Especialização.** Escolha uma perícia em que tenha proficiência e ainda não tenha Especialização. Você ganha Especialização nela.\n**Idiomas.** Você conhece dois idiomas à sua escolha.",
+      "plain": "Especialização numa perícia e dois idiomas extras.",
+      "choices": [
+        {
+          "id": "deft-explorer-expertise",
+          "kind": "especializacao",
+          "label": "Especialização: 1 perícia",
+          "count": 1
+        },
+        {
+          "id": "deft-explorer-languages",
+          "kind": "idioma",
+          "label": "Dois idiomas",
+          "count": 2,
+          "from": "qualquer"
+        }
+      ]
+    },
+    {
+      "id": "ranger-fighting-style",
+      "level": 2,
+      "name": "Estilo de Luta",
+      "text": "Você ganha um talento de Estilo de Luta à sua escolha. Em vez disso, pode escolher a opção abaixo.\n**Guerreiro Druídico.** Você aprende dois truques de Druida à sua escolha; Orientação e Fagulha Estelar são os recomendados. Eles contam como magias de Patrulheiro para você, e Sabedoria é o atributo de conjuração deles. Sempre que ganhar um nível de Patrulheiro, você pode trocar um desses truques por outro truque de Druida.",
+      "plain": "Escolha um estilo de luta (Arquearia é ótimo) ou aprenda dois truques de druida.",
+      "choices": [
+        {
+          "id": "fighting-style",
+          "kind": "talento",
+          "label": "Estilo de Luta (ou Guerreiro Druídico)",
+          "count": 1,
+          "featCategory": "estilo-de-luta"
+        }
+      ]
+    },
+    {
+      "id": "ranger-subclass",
+      "level": 3,
+      "name": "Subclasse de Patrulheiro",
+      "text": "Você ganha uma subclasse de Patrulheiro à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Patrulheiro. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Patrulheiro ou menor.",
+      "plain": "No nível 3, você escolhe seu Arquétipo de Patrulheiro."
+    },
+    {
+      "id": "ranger-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Patrulheiro 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "ranger-extra-attack",
+      "level": 5,
+      "name": "Ataque Extra",
+      "text": "Você pode atacar duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.",
+      "effects": [
+        {
+          "type": "ataques-extras",
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "id": "ranger-roving",
+      "level": 6,
+      "name": "Andarilho",
+      "text": "Seu Deslocamento aumenta em 3 metros enquanto você não estiver usando armadura Pesada. Você também tem Deslocamento de Escalada e de Natação iguais ao seu Deslocamento.",
+      "effects": [
+        {
+          "type": "deslocamento-bonus",
+          "value": 10,
+          "condition": "sem-armadura-pesada"
+        }
+      ]
+    },
+    {
+      "id": "ranger-expertise",
+      "level": 9,
+      "name": "Especialização",
+      "text": "Escolha duas perícias em que tenha proficiência e ainda não tenha Especialização. Você ganha Especialização nelas.",
+      "choices": [
+        {
+          "id": "expertise",
+          "kind": "especializacao",
+          "label": "Especialização: 2 perícias",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "ranger-tireless",
+      "level": 10,
+      "name": "Incansável",
+      "text": "Forças primais agora alimentam suas jornadas, com os benefícios a seguir.\n**Pontos de Vida Temporários.** Com a ação Magia, você ganha Pontos de Vida Temporários iguais a 1d8 + seu modificador de Sabedoria (mínimo 1). Pode fazer isso um número de vezes igual ao seu modificador de Sabedoria (mínimo uma) e recupera os usos ao terminar um Descanso Longo.\n**Menos Exaustão.** Sempre que terminar um Descanso Curto, seu nível de Exaustão, se houver, diminui em 1.",
+      "uses": {
+        "max": {
+          "kind": "modificador",
+          "ability": "sab",
+          "min": 1
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "ranger-relentless-hunter",
+      "level": 13,
+      "name": "Caçador Implacável",
+      "text": "Sofrer dano não interrompe sua Concentração na Marca do Caçador."
+    },
+    {
+      "id": "ranger-natures-veil",
+      "level": 14,
+      "name": "Véu da Natureza",
+      "action": "acao-bonus",
+      "text": "Você invoca espíritos da natureza para se esconder magicamente. Como Ação Bônus, você fica Invisível até o fim do seu próximo turno.\nPode usar esta característica um número de vezes igual ao seu modificador de Sabedoria (mínimo uma) e recupera os usos ao terminar um Descanso Longo.",
+      "uses": {
+        "max": {
+          "kind": "modificador",
+          "ability": "sab",
+          "min": 1
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "ranger-precise-hunter",
+      "level": 17,
+      "name": "Caçador Preciso",
+      "text": "Você tem Vantagem em jogadas de ataque contra a criatura marcada pela sua Marca do Caçador."
+    },
+    {
+      "id": "ranger-feral-senses",
+      "level": 18,
+      "name": "Sentidos Selvagens",
+      "text": "Sua ligação com as forças da natureza lhe dá Percepção às Cegas com alcance de 9 metros."
+    },
+    {
+      "id": "ranger-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Viagem Dimensional é a recomendada."
+    },
+    {
+      "id": "ranger-foe-slayer",
+      "level": 20,
+      "name": "Matador de Inimigos",
+      "text": "O dado de dano da sua Marca do Caçador passa a ser d10 em vez de d6."
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Arquétipo de Patrulheiro",
+  "typicalTurn": "No primeiro turno, use a Ação Bônus para lançar Marca do Caçador num inimigo. Depois, use a ação Atacar com o arco longo: cada acerto no alvo marcado causa 1d6 de dano extra. Se o alvo cair, mova a marca para outro inimigo com a Ação Bônus."
+}

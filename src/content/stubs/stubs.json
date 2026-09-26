@@ -1,0 +1,332 @@
+[
+  {
+    "id": "caminho-do-coracao-selvagem",
+    "type": "subclasse",
+    "name": "Caminho do Coração Selvagem",
+    "parentId": "barbarian",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "caminho-da-arvore-do-mundo",
+    "type": "subclasse",
+    "name": "Caminho da Árvore do Mundo",
+    "parentId": "barbarian",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "caminho-do-fanatico",
+    "type": "subclasse",
+    "name": "Caminho do Fanático",
+    "parentId": "barbarian",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "colegio-da-danca",
+    "type": "subclasse",
+    "name": "Colégio da Dança",
+    "parentId": "bard",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "colegio-do-glamour",
+    "type": "subclasse",
+    "name": "Colégio do Glamour",
+    "parentId": "bard",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "colegio-da-bravura",
+    "type": "subclasse",
+    "name": "Colégio da Bravura",
+    "parentId": "bard",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "dominio-da-luz",
+    "type": "subclasse",
+    "name": "Domínio da Luz",
+    "parentId": "cleric",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "dominio-da-trapaca",
+    "type": "subclasse",
+    "name": "Domínio da Trapaça",
+    "parentId": "cleric",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "dominio-da-guerra",
+    "type": "subclasse",
+    "name": "Domínio da Guerra",
+    "parentId": "cleric",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "circulo-da-lua",
+    "type": "subclasse",
+    "name": "Círculo da Lua",
+    "parentId": "druid",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "circulo-do-mar",
+    "type": "subclasse",
+    "name": "Círculo do Mar",
+    "parentId": "druid",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "circulo-das-estrelas",
+    "type": "subclasse",
+    "name": "Círculo das Estrelas",
+    "parentId": "druid",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "mestre-de-batalha",
+    "type": "subclasse",
+    "name": "Mestre de Batalha",
+    "parentId": "fighter",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "cavaleiro-mistico",
+    "type": "subclasse",
+    "name": "Cavaleiro Místico",
+    "parentId": "fighter",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "guerreiro-psiquico",
+    "type": "subclasse",
+    "name": "Guerreiro Psíquico",
+    "parentId": "fighter",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "guerreiro-da-misericordia",
+    "type": "subclasse",
+    "name": "Guerreiro da Misericórdia",
+    "parentId": "monk",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "guerreiro-da-sombra",
+    "type": "subclasse",
+    "name": "Guerreiro da Sombra",
+    "parentId": "monk",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "guerreiro-dos-elementos",
+    "type": "subclasse",
+    "name": "Guerreiro dos Elementos",
+    "parentId": "monk",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "juramento-da-gloria",
+    "type": "subclasse",
+    "name": "Juramento da Glória",
+    "parentId": "paladin",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "juramento-dos-ancioes",
+    "type": "subclasse",
+    "name": "Juramento dos Anciões",
+    "parentId": "paladin",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "juramento-de-vinganca",
+    "type": "subclasse",
+    "name": "Juramento de Vingança",
+    "parentId": "paladin",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "mestre-das-feras",
+    "type": "subclasse",
+    "name": "Mestre das Feras",
+    "parentId": "ranger",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "andarilho-feerico",
+    "type": "subclasse",
+    "name": "Andarilho Feérico",
+    "parentId": "ranger",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "espreitador-sombrio",
+    "type": "subclasse",
+    "name": "Espreitador Sombrio",
+    "parentId": "ranger",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "trapaceiro-arcano",
+    "type": "subclasse",
+    "name": "Trapaceiro Arcano",
+    "parentId": "rogue",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "assassino",
+    "type": "subclasse",
+    "name": "Assassino",
+    "parentId": "rogue",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "lamina-psiquica",
+    "type": "subclasse",
+    "name": "Lâmina Psíquica",
+    "parentId": "rogue",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "feiticaria-aberrante",
+    "type": "subclasse",
+    "name": "Feitiçaria Aberrante",
+    "parentId": "sorcerer",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "feiticaria-mecanica",
+    "type": "subclasse",
+    "name": "Feitiçaria Mecânica",
+    "parentId": "sorcerer",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "feiticaria-selvagem",
+    "type": "subclasse",
+    "name": "Feitiçaria Selvagem",
+    "parentId": "sorcerer",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "patrono-arquifada",
+    "type": "subclasse",
+    "name": "Patrono Arquifada",
+    "parentId": "warlock",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "patrono-celestial",
+    "type": "subclasse",
+    "name": "Patrono Celestial",
+    "parentId": "warlock",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "patrono-grande-antigo",
+    "type": "subclasse",
+    "name": "Patrono Grande Antigo",
+    "parentId": "warlock",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "abjurador",
+    "type": "subclasse",
+    "name": "Abjurador",
+    "parentId": "wizard",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "adivinhador",
+    "type": "subclasse",
+    "name": "Adivinhador",
+    "parentId": "wizard",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "ilusionista",
+    "type": "subclasse",
+    "name": "Ilusionista",
+    "parentId": "wizard",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-artesao",
+    "type": "antecedente",
+    "name": "Artesão",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-charlatao",
+    "type": "antecedente",
+    "name": "Charlatão",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-artista",
+    "type": "antecedente",
+    "name": "Artista",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-fazendeiro",
+    "type": "antecedente",
+    "name": "Fazendeiro",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-guarda",
+    "type": "antecedente",
+    "name": "Guarda",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-guia",
+    "type": "antecedente",
+    "name": "Guia",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-eremita",
+    "type": "antecedente",
+    "name": "Eremita",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-mercador",
+    "type": "antecedente",
+    "name": "Mercador",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-nobre",
+    "type": "antecedente",
+    "name": "Nobre",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-marinheiro",
+    "type": "antecedente",
+    "name": "Marinheiro",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-escriba",
+    "type": "antecedente",
+    "name": "Escriba",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "antecedente-andarilho",
+    "type": "antecedente",
+    "name": "Andarilho",
+    "ref": "Livro do Jogador (2024)"
+  },
+  {
+    "id": "aasimar",
+    "type": "especie",
+    "name": "Aasimar",
+    "ref": "Livro do Jogador (2024)"
+  }
+]

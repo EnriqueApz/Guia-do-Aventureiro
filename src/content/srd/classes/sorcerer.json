@@ -1,0 +1,192 @@
+{
+  "id": "sorcerer",
+  "name": "Feiticeiro",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Conjurador com magia no sangue, que molda as próprias magias com Metamagia.",
+  "description": "Feiticeiros não estudam magia: nascem com ela. Um dom de dragões, tempestades ou forças desconhecidas corre nas suas veias. Conhecem menos magias que um mago, mas podem torcê-las à vontade com Pontos de Feitiçaria e Metamagia.",
+  "roles": ["conjurador"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Poucas magias para decorar, mas os Pontos de Feitiçaria pedem planejamento."
+  },
+  "primaryAbilities": ["car"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "car": 15,
+    "con": 14,
+    "des": 13,
+    "sab": 12,
+    "int": 10,
+    "for": 8
+  },
+  "recommendedWhy": "Carisma move suas magias; Constituição compensa a vida baixa e ajuda a manter a Concentração.",
+  "hitDie": 6,
+  "saves": ["con", "car"],
+  "armor": [],
+  "weapons": ["simples"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": ["arcanismo", "enganacao", "intuicao", "intimidacao", "persuasao", "religiao"]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "spear",
+          "qty": 1
+        },
+        {
+          "id": "dagger",
+          "qty": 2
+        },
+        {
+          "id": "crystal",
+          "qty": 1
+        },
+        {
+          "id": "dungeoneer-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 28
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 50
+    }
+  ],
+  "spellcasting": {
+    "ability": "car",
+    "progression": "completa",
+    "cantrips": [4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+    "prepared": [2, 4, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22],
+    "slots": [
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 2, 1, 1]
+    ],
+    "ritual": false,
+    "focus": "Foco Arcano",
+    "swap": "subir-de-nivel",
+    "explainer": "Magias são como cargas: você tem espaços de magia que gasta para lançá-las e que voltam depois de um Descanso Longo. Truques são magias simples que você lança à vontade. Você tem uma lista de magias preparadas e troca uma delas a cada nível. Sua magia usa Carisma."
+  },
+  "columns": [
+    {
+      "id": "pontos-de-feiticaria",
+      "label": "Pontos de Feitiçaria",
+      "values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    }
+  ],
+  "features": [
+    {
+      "id": "sorcerer-spellcasting",
+      "level": 1,
+      "name": "Conjuração",
+      "text": "Usando sua magia inata, você lança magias.\n**Truques.** Você conhece quatro truques de Feiticeiro; Luz, Prestidigitação, Toque Chocante e Explosão Feiticeira são os recomendados. Sempre que ganhar um nível de Feiticeiro, pode trocar um truque por outro. Nos níveis 4 e 10, aprende mais um, como mostra a coluna Truques.\n**Espaços de Magia.** A tabela do Feiticeiro mostra quantos espaços você tem para magias de 1º círculo ou mais. Você recupera todos ao terminar um Descanso Longo.\n**Magias Preparadas.** Para começar, escolha duas magias de 1º círculo de Feiticeiro; Mãos Flamejantes e Detectar Magia são as recomendadas. O número cresce com seu nível, como mostra a coluna Magias Preparadas; os círculos precisam ser de espaços que você tem. Magias sempre preparadas por outra característica não contam nesse limite.\n**Trocar Magias Preparadas.** Sempre que ganhar um nível de Feiticeiro, você pode trocar uma magia da lista por outra de Feiticeiro para a qual tenha espaços.\n**Atributo de Conjuração.** Carisma.\n**Foco de Conjuração.** Você pode usar um Foco Arcano.",
+      "plain": "Você lança magias com Carisma. Truques são livres; as outras magias gastam espaços que voltam no Descanso Longo."
+    },
+    {
+      "id": "sorcerer-innate-sorcery",
+      "level": 1,
+      "name": "Feitiçaria Inata",
+      "action": "acao-bonus",
+      "text": "Um evento do seu passado deixou em você uma marca permanente de magia. Como Ação Bônus, você libera essa magia por 1 minuto e recebe estes benefícios:\n- A CD das suas magias de Feiticeiro aumenta em 1.\n- Você tem Vantagem nas jogadas de ataque das magias de Feiticeiro que lançar.\nVocê pode usar esta característica duas vezes e recupera os usos ao terminar um Descanso Longo.",
+      "plain": "Duas vezes por dia, por 1 minuto: suas magias acertam mais e são mais difíceis de resistir.",
+      "uses": {
+        "max": 2,
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "sorcerer-font-of-magic",
+      "level": 2,
+      "name": "Fonte de Magia",
+      "text": "Você pode acessar a fonte de magia dentro de si, representada pelos Pontos de Feitiçaria, que permitem criar vários efeitos mágicos.\nVocê tem 2 Pontos de Feitiçaria e ganha mais em níveis maiores, como mostra a coluna Pontos de Feitiçaria. Não pode ter mais pontos que o indicado para o seu nível. Recupera todos ao terminar um Descanso Longo.\n**Converter Espaços em Pontos.** Você pode gastar um espaço de magia para ganhar Pontos de Feitiçaria iguais ao círculo do espaço (sem gastar ação).\n**Criar Espaços de Magia.** Como Ação Bônus, você transforma Pontos de Feitiçaria num espaço de magia. Custos: 1º círculo, 2 pontos (nível 2+); 2º círculo, 3 pontos (nível 3+); 3º círculo, 5 pontos (nível 5+); 4º círculo, 6 pontos (nível 7+); 5º círculo, 7 pontos (nível 9+). Espaços criados assim somem ao terminar um Descanso Longo.",
+      "plain": "Pontos que você troca por espaços de magia (e vice-versa) ou gasta com Metamagia.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "pontos-de-feiticaria"
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "sorcerer-metamagic",
+      "level": 2,
+      "name": "Metamagia",
+      "text": "Como sua magia vem de dentro, você pode alterar suas magias conforme a necessidade. Você ganha duas opções de Metamagia à sua escolha. Para usar uma opção, gaste os Pontos de Feitiçaria que ela custa. Só pode usar uma opção de Metamagia por magia, salvo indicação contrária.\nSempre que ganhar um nível de Feiticeiro, pode trocar uma opção por outra que não conheça. Ganha mais duas opções no nível 10 e mais duas no nível 17.",
+      "plain": "Gaste pontos para mudar suas magias: lançar mais rápido, mais longe, em dois alvos..."
+    },
+    {
+      "id": "sorcerer-subclass",
+      "level": 3,
+      "name": "Subclasse de Feiticeiro",
+      "text": "Você ganha uma subclasse de Feiticeiro à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Feiticeiro. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Feiticeiro ou menor.",
+      "plain": "No nível 3, você escolhe sua Origem de Feitiçaria."
+    },
+    {
+      "id": "sorcerer-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Feiticeiro 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "sorcerer-sorcerous-restoration",
+      "level": 5,
+      "name": "Restauração Feiticeira",
+      "text": "Ao terminar um Descanso Curto, você pode recuperar Pontos de Feitiçaria gastos, até metade do seu nível de Feiticeiro (arredondado para baixo). Depois de usar esta característica, só pode usá-la de novo após terminar um Descanso Longo.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "sorcerer-sorcery-incarnate",
+      "level": 7,
+      "name": "Feitiçaria Encarnada",
+      "text": "Se não tiver mais usos de Feitiçaria Inata, você pode usá-la gastando 2 Pontos de Feitiçaria ao usar a Ação Bônus para ativá-la.\nAlém disso, enquanto a Feitiçaria Inata estiver ativa, você pode usar até duas opções de Metamagia em cada magia que lançar."
+    },
+    {
+      "id": "sorcerer-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Viagem Dimensional é a recomendada."
+    },
+    {
+      "id": "sorcerer-arcane-apotheosis",
+      "level": 20,
+      "name": "Apoteose Arcana",
+      "text": "Enquanto sua Feitiçaria Inata estiver ativa, você pode usar uma opção de Metamagia em cada um dos seus turnos sem gastar Pontos de Feitiçaria nela."
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Origem de Feitiçaria",
+  "typicalTurn": "Lance um truque de ataque, como Explosão Feiticeira ou Raio de Fogo, no inimigo mais perigoso. Em uma luta difícil, ative a Feitiçaria Inata com a Ação Bônus para ter Vantagem nos ataques mágicos, ou lance Mãos Flamejantes em vários inimigos de uma vez."
+}

@@ -1,0 +1,296 @@
+{
+  "id": "barbarian",
+  "name": "Bárbaro",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Guerreiro movido pela Fúria: aguenta muito dano e bate com força.",
+  "description": "Bárbaros canalizam uma força primal, a Fúria, que os deixa mais resistentes e mais fortes. Lutam na linha de frente, com armaduras leves ou nenhuma, confiando no próprio corpo.",
+  "roles": ["combatente", "defensor"],
+  "beginner": {
+    "rating": "facil",
+    "note": "Poucas decisões por turno: entre em Fúria e ataque. Muita vida para errar sem medo."
+  },
+  "primaryAbilities": ["for"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "for": 15,
+    "con": 14,
+    "des": 13,
+    "sab": 12,
+    "car": 10,
+    "int": 8
+  },
+  "recommendedWhy": "Força acerta e causa dano; Constituição dá vida e, junto com Destreza, forma sua CA sem armadura.",
+  "hitDie": 12,
+  "saves": ["for", "con"],
+  "armor": ["leve", "media", "escudo"],
+  "weapons": ["simples", "marciais"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": [
+      "adestrar-animais",
+      "atletismo",
+      "intimidacao",
+      "natureza",
+      "percepcao",
+      "sobrevivencia"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "greataxe",
+          "qty": 1
+        },
+        {
+          "id": "handaxe",
+          "qty": 4
+        },
+        {
+          "id": "explorers-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 15
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 75
+    }
+  ],
+  "columns": [
+    {
+      "id": "furias",
+      "label": "Fúrias",
+      "values": [2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]
+    },
+    {
+      "id": "dano-de-furia",
+      "label": "Dano de Fúria",
+      "values": [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4]
+    },
+    {
+      "id": "maestria-em-armas",
+      "label": "Maestria em Armas",
+      "values": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+    }
+  ],
+  "features": [
+    {
+      "id": "barbarian-rage",
+      "level": 1,
+      "name": "Fúria",
+      "action": "acao-bonus",
+      "text": "Você pode se imbuir de um poder primal chamado Fúria, uma força que lhe dá vigor e resistência extraordinários. Você entra em Fúria como Ação Bônus, se não estiver usando armadura Pesada.\nVocê pode entrar em Fúria o número de vezes indicado na coluna Fúrias da tabela do Bárbaro. Recupera um uso ao terminar um Descanso Curto e todos os usos ao terminar um Descanso Longo.\nEnquanto ativa, sua Fúria segue estas regras:\n**Resistência a Dano.** Você tem Resistência a dano de Concussão, Perfurante e Cortante.\n**Dano de Fúria.** Quando você faz um ataque usando Força (com arma ou Ataque Desarmado) e causa dano, recebe um bônus no dano que cresce com seu nível de Bárbaro, como mostra a coluna Dano de Fúria.\n**Vantagem de Força.** Você tem Vantagem em testes e salvaguardas de Força.\n**Sem Concentração ou Magias.** Você não pode manter Concentração nem lançar magias.\n**Duração.** A Fúria dura até o fim do seu próximo turno e acaba antes se você vestir armadura Pesada ou ficar Incapacitado. Se ela ainda estiver ativa no seu próximo turno, você pode estendê-la por mais uma rodada fazendo uma destas coisas: fazer uma jogada de ataque contra um inimigo, forçar um inimigo a fazer uma salvaguarda, ou usar uma Ação Bônus para estender a Fúria. Cada extensão dura até o fim do seu próximo turno. A Fúria pode durar até 10 minutos.",
+      "plain": "Com uma Ação Bônus, você entra em Fúria: sofre metade do dano de armas, causa dano extra com ataques de Força e tem Vantagem em Força. Continue atacando para ela não acabar.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "furias"
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "barbarian-unarmored-defense",
+      "level": 1,
+      "name": "Defesa sem Armadura",
+      "text": "Enquanto não estiver usando armadura, sua Classe de Armadura base é 10 + seus modificadores de Destreza e Constituição. Você pode usar Escudo e ainda assim receber este benefício.",
+      "plain": "Sem armadura, sua CA é 10 + Destreza + Constituição. Muitas vezes é melhor que vestir armadura.",
+      "effects": [
+        {
+          "type": "ca-sem-armadura",
+          "base": 10,
+          "abilities": ["des", "con"],
+          "allowShield": true
+        }
+      ]
+    },
+    {
+      "id": "barbarian-weapon-mastery",
+      "level": 1,
+      "name": "Maestria em Armas",
+      "text": "Seu treino com armas permite usar as propriedades de maestria de dois tipos de armas corpo a corpo, Simples ou Marciais, à sua escolha, como Machado Grande e Machadinha. Ao terminar um Descanso Longo, você pode praticar e trocar uma dessas escolhas.\nEm certos níveis de Bárbaro, você passa a usar a maestria de mais tipos de armas, como mostra a coluna Maestria em Armas.",
+      "plain": "Escolha armas corpo a corpo: com elas, você ativa efeitos extras (derrubar, empurrar, atingir outro alvo...).",
+      "choices": [
+        {
+          "id": "weapon-mastery",
+          "kind": "maestria",
+          "label": "Armas com maestria",
+          "count": {
+            "kind": "coluna",
+            "column": "maestria-em-armas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "barbarian-danger-sense",
+      "level": 2,
+      "name": "Sentido de Perigo",
+      "text": "Você tem um sentido incomum para quando as coisas não estão como deveriam, o que ajuda a escapar de perigos. Você tem Vantagem em salvaguardas de Destreza, a menos que esteja Incapacitado.",
+      "plain": "Vantagem para escapar de armadilhas, explosões e sopros."
+    },
+    {
+      "id": "barbarian-reckless-attack",
+      "level": 2,
+      "name": "Ataque Descuidado",
+      "text": "Você pode deixar a defesa de lado para atacar com mais ferocidade. Ao fazer sua primeira jogada de ataque no turno, você pode decidir atacar de forma descuidada. Isso lhe dá Vantagem em jogadas de ataque usando Força até o início do seu próximo turno, mas jogadas de ataque contra você também têm Vantagem nesse período.",
+      "plain": "Você acerta mais fácil, mas também fica mais fácil de acertar até o seu próximo turno."
+    },
+    {
+      "id": "barbarian-subclass",
+      "level": 3,
+      "name": "Subclasse de Bárbaro",
+      "text": "Você ganha uma subclasse de Bárbaro à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Bárbaro. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Bárbaro ou menor.",
+      "plain": "No nível 3, você escolhe seu Caminho Primitivo."
+    },
+    {
+      "id": "barbarian-primal-knowledge",
+      "level": 3,
+      "name": "Conhecimento Primitivo",
+      "text": "Você ganha proficiência em mais uma perícia à sua escolha da lista de perícias do Bárbaro no nível 1.\nAlém disso, enquanto sua Fúria estiver ativa, você pode canalizar poder primal em certas tarefas: ao fazer um teste de atributo com Acrobacia, Intimidação, Percepção, Furtividade ou Sobrevivência, você pode fazê-lo como teste de Força, mesmo que normalmente use outro atributo.",
+      "plain": "Mais uma perícia, e em Fúria você usa Força em vários testes.",
+      "choices": [
+        {
+          "id": "primal-knowledge",
+          "kind": "pericia",
+          "label": "Conhecimento Primitivo: 1 perícia",
+          "count": 1,
+          "from": [
+            "adestrar-animais",
+            "atletismo",
+            "intimidacao",
+            "natureza",
+            "percepcao",
+            "sobrevivencia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barbarian-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Bárbaro 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "barbarian-extra-attack",
+      "level": 5,
+      "name": "Ataque Extra",
+      "text": "Você pode atacar duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.",
+      "plain": "Dois ataques por ação Atacar.",
+      "effects": [
+        {
+          "type": "ataques-extras",
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "id": "barbarian-fast-movement",
+      "level": 5,
+      "name": "Movimento Rápido",
+      "text": "Seu Deslocamento aumenta em 3 metros enquanto você não estiver usando armadura Pesada.",
+      "plain": "+3 metros de deslocamento.",
+      "effects": [
+        {
+          "type": "deslocamento-bonus",
+          "value": 10,
+          "condition": "sem-armadura-pesada"
+        }
+      ]
+    },
+    {
+      "id": "barbarian-feral-instinct",
+      "level": 7,
+      "name": "Instinto Selvagem",
+      "text": "Seus instintos estão tão afiados que você tem Vantagem nas rolagens de Iniciativa.",
+      "plain": "Vantagem na Iniciativa."
+    },
+    {
+      "id": "barbarian-instinctive-pounce",
+      "level": 7,
+      "name": "Bote Instintivo",
+      "text": "Como parte da Ação Bônus que usa para entrar em Fúria, você pode se mover até metade do seu Deslocamento.",
+      "plain": "Ao entrar em Fúria, você também avança meio deslocamento."
+    },
+    {
+      "id": "barbarian-brutal-strike",
+      "level": 9,
+      "name": "Golpe Brutal",
+      "text": "Se usar o Ataque Descuidado, você pode abrir mão da Vantagem numa jogada de ataque baseada em Força à sua escolha no seu turno. Essa jogada não pode ter Desvantagem. Se acertar, o alvo sofre 1d10 de dano extra do mesmo tipo da arma ou do Ataque Desarmado, e você pode causar um efeito de Golpe Brutal à sua escolha:\n**Golpe Violento.** O alvo é empurrado 4,5 metros para longe de você em linha reta. Depois, você pode se mover até metade do seu Deslocamento em linha reta na direção dele sem provocar Ataques de Oportunidade.\n**Golpe no Tendão.** O Deslocamento do alvo é reduzido em 4,5 metros até o início do seu próximo turno. Um alvo só pode sofrer um Golpe no Tendão por vez (o mais recente)."
+    },
+    {
+      "id": "barbarian-relentless-rage",
+      "level": 11,
+      "name": "Fúria Implacável",
+      "text": "Sua Fúria pode mantê-lo lutando mesmo com ferimentos graves. Se você cair a 0 Pontos de Vida com a Fúria ativa e não morrer na hora, pode fazer uma salvaguarda de Constituição CD 10. Se passar, seus Pontos de Vida passam a ser o dobro do seu nível de Bárbaro.\nCada vez que usar esta característica depois da primeira, a CD aumenta em 5. Ao terminar um Descanso Curto ou Longo, a CD volta a 10."
+    },
+    {
+      "id": "barbarian-improved-brutal-strike-1",
+      "level": 13,
+      "name": "Golpe Brutal Aprimorado",
+      "text": "Você aprendeu novas formas de atacar com fúria. Os efeitos a seguir passam a fazer parte das opções do seu Golpe Brutal:\n**Golpe Atordoante.** O alvo tem Desvantagem na próxima salvaguarda que fizer e não pode fazer Ataques de Oportunidade até o início do seu próximo turno.\n**Golpe Rompedor.** Antes do início do seu próximo turno, a próxima jogada de ataque feita por outra criatura contra o alvo recebe +5. Uma jogada de ataque só pode receber um bônus de Golpe Rompedor."
+    },
+    {
+      "id": "barbarian-persistent-rage",
+      "level": 15,
+      "name": "Fúria Persistente",
+      "text": "Ao rolar Iniciativa, você pode recuperar todos os usos gastos de Fúria. Depois de recuperá-los assim, só pode fazer isso de novo após terminar um Descanso Longo.\nAlém disso, sua Fúria é tão intensa que agora dura 10 minutos sem que você precise fazer nada para estendê-la. Ela termina antes se você ficar Inconsciente (não só Incapacitado) ou vestir armadura Pesada."
+    },
+    {
+      "id": "barbarian-improved-brutal-strike-2",
+      "level": 17,
+      "name": "Golpe Brutal Aprimorado (2)",
+      "text": "O dano extra do seu Golpe Brutal aumenta para 2d10. Além disso, você pode usar dois efeitos diferentes de Golpe Brutal sempre que usar a característica."
+    },
+    {
+      "id": "barbarian-indomitable-might",
+      "level": 18,
+      "name": "Força Indomável",
+      "text": "Se o total de um teste de Força ou salvaguarda de Força seu for menor que o seu valor de Força, você pode usar o valor no lugar do total."
+    },
+    {
+      "id": "barbarian-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Ofensiva Irresistível é a recomendada."
+    },
+    {
+      "id": "barbarian-primal-champion",
+      "level": 20,
+      "name": "Campeão Primitivo",
+      "text": "Você encarna o poder primal. Seus valores de Força e Constituição aumentam em 4, até o máximo de 25.",
+      "effects": [
+        {
+          "type": "atributo-maximo",
+          "abilities": ["for", "con"],
+          "max": 25
+        },
+        {
+          "type": "atributo-bonus",
+          "ability": "for",
+          "value": 4
+        },
+        {
+          "type": "atributo-bonus",
+          "ability": "con",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Caminho Primitivo",
+  "typicalTurn": "Na primeira rodada, use sua Ação Bônus para entrar em Fúria. Depois, ande até o inimigo e use a ação Atacar com seu machado grande, somando o dano da Fúria. Nas rodadas seguintes, continue atacando para manter a Fúria ativa. Se quiser arriscar, use o Ataque Descuidado para ter Vantagem."
+}

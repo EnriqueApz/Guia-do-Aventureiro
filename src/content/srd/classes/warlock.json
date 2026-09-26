@@ -1,0 +1,202 @@
+{
+  "id": "warlock",
+  "name": "Bruxo",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Conjurador que fez um pacto com um patrono poderoso, com magias que voltam a cada descanso curto.",
+  "description": "Bruxos conseguem magia por meio de um pacto com uma entidade de outro mundo: um ínfero, uma fada, um ser das estrelas. Têm poucos espaços de magia, mas eles voltam em qualquer descanso, e as Invocações Místicas personalizam seus poderes.",
+  "roles": ["conjurador"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Poucos espaços de magia e um ótimo truque de ataque, mas as Invocações exigem escolhas."
+  },
+  "primaryAbilities": ["car"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "car": 15,
+    "con": 14,
+    "des": 13,
+    "sab": 12,
+    "int": 10,
+    "for": 8
+  },
+  "recommendedWhy": "Carisma move suas magias e sua Rajada Mística; Constituição e Destreza mantêm você vivo com armadura leve.",
+  "hitDie": 8,
+  "saves": ["sab", "car"],
+  "armor": ["leve"],
+  "weapons": ["simples"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": [
+      "arcanismo",
+      "enganacao",
+      "historia",
+      "intimidacao",
+      "investigacao",
+      "natureza",
+      "religiao"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "leather-armor",
+          "qty": 1
+        },
+        {
+          "id": "sickle",
+          "qty": 1
+        },
+        {
+          "id": "dagger",
+          "qty": 2
+        },
+        {
+          "id": "orb",
+          "qty": 1
+        },
+        {
+          "id": "book",
+          "qty": 1
+        },
+        {
+          "id": "scholars-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 15,
+      "note": "O livro é de conhecimento oculto."
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 100
+    }
+  ],
+  "spellcasting": {
+    "ability": "car",
+    "progression": "pacto",
+    "cantrips": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    "prepared": [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15],
+    "slots": [
+      [1, 0, 0, 0, 0, 0, 0, 0, 0],
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 2, 0, 0, 0, 0, 0, 0, 0],
+      [0, 2, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 2, 0, 0, 0, 0, 0, 0],
+      [0, 0, 2, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 2, 0, 0, 0, 0, 0],
+      [0, 0, 0, 2, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 2, 0, 0, 0, 0],
+      [0, 0, 0, 0, 2, 0, 0, 0, 0],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0],
+      [0, 0, 0, 0, 4, 0, 0, 0, 0],
+      [0, 0, 0, 0, 4, 0, 0, 0, 0],
+      [0, 0, 0, 0, 4, 0, 0, 0, 0],
+      [0, 0, 0, 0, 4, 0, 0, 0, 0]
+    ],
+    "ritual": false,
+    "focus": "Foco Arcano",
+    "swap": "subir-de-nivel",
+    "explainer": "Sua Magia de Pacto é diferente: você tem poucos espaços de magia, todos do mesmo círculo (o mais alto que você alcança), e eles voltam em qualquer descanso, até no Descanso Curto. Truques você lança à vontade; o Rajada Mística é seu ataque principal. Sua magia usa Carisma."
+  },
+  "columns": [
+    {
+      "id": "invocacoes",
+      "label": "Invocações Místicas",
+      "values": [1, 3, 3, 3, 5, 5, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10]
+    }
+  ],
+  "features": [
+    {
+      "id": "warlock-eldritch-invocations",
+      "level": 1,
+      "name": "Invocações Místicas",
+      "text": "Você descobriu as Invocações Místicas, fragmentos de conhecimento proibido que lhe dão habilidades mágicas permanentes. Você ganha uma invocação à sua escolha, como Pacto do Tomo.\n**Pré-requisitos.** Se uma invocação tiver pré-requisito, você precisa atendê-lo para aprendê-la. Por exemplo, se ela exigir Bruxo de nível 5+, você pode escolhê-la ao chegar ao nível 5.\n**Trocar e Ganhar Invocações.** Sempre que ganhar um nível de Bruxo, pode trocar uma invocação por outra para a qual se qualifique (desde que não seja pré-requisito de outra que você tenha). Em certos níveis, ganha mais invocações, como mostra a coluna Invocações Místicas. Você não pode escolher a mesma invocação mais de uma vez, salvo indicação contrária.",
+      "plain": "Poderes especiais que você escolhe e troca ao subir de nível (ex.: melhorar a Rajada Mística)."
+    },
+    {
+      "id": "warlock-pact-magic",
+      "level": 1,
+      "name": "Magia de Pacto",
+      "text": "Por meio de uma cerimônia oculta, você fez um pacto com uma entidade misteriosa em troca de poderes mágicos.\n**Truques.** Você conhece dois truques de Bruxo; Rajada Mística e Prestidigitação são os recomendados. Sempre que ganhar um nível, pode trocar um truque por outro. Nos níveis 4 e 10, aprende mais um, como mostra a coluna Truques.\n**Espaços de Magia.** A tabela do Bruxo mostra quantos espaços você tem para lançar magias de Bruxo de 1º a 5º círculo e de qual círculo eles são (todos do mesmo círculo). Você recupera todos os espaços de Magia de Pacto ao terminar um Descanso Curto ou Longo. Por exemplo, no nível 5 você tem dois espaços de 3º círculo; para lançar Enfeitiçar Pessoa (1º círculo), gasta um deles e a lança no 3º círculo.\n**Magias Preparadas.** Para começar, escolha duas magias de 1º círculo de Bruxo; Enfeitiçar Pessoa e Bruxaria são as recomendadas. O número cresce com seu nível, como mostra a coluna Magias Preparadas; o círculo não pode passar do círculo dos seus espaços. Magias sempre preparadas por outra característica não contam nesse limite.\n**Trocar Magias Preparadas.** Sempre que ganhar um nível de Bruxo, pode trocar uma magia da lista por outra de Bruxo de círculo permitido.\n**Atributo de Conjuração.** Carisma.\n**Foco de Conjuração.** Você pode usar um Foco Arcano.",
+      "plain": "Poucos espaços de magia, todos do círculo mais alto, e que voltam em qualquer descanso."
+    },
+    {
+      "id": "warlock-magical-cunning",
+      "level": 2,
+      "name": "Astúcia Mágica",
+      "text": "Você pode realizar um rito esotérico de 1 minuto. No fim, recupera espaços de Magia de Pacto gastos, até metade do seu máximo (arredondado para cima). Depois de usar esta característica, só pode usá-la de novo após terminar um Descanso Longo.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      },
+      "plain": "Uma vez por dia, com 1 minuto de ritual, recupere metade dos seus espaços de magia."
+    },
+    {
+      "id": "warlock-subclass",
+      "level": 3,
+      "name": "Subclasse de Bruxo",
+      "text": "Você ganha uma subclasse de Bruxo à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Bruxo. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Bruxo ou menor.",
+      "plain": "No nível 3, você escolhe seu Patrono Transcendental."
+    },
+    {
+      "id": "warlock-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Bruxo 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "warlock-contact-patron",
+      "level": 9,
+      "name": "Contatar Patrono",
+      "text": "Antes, você falava com seu patrono por intermediários. Agora pode se comunicar diretamente: você sempre tem a magia Contatar Outro Plano preparada. Com esta característica, pode lançá-la sem gastar espaço de magia para falar com seu patrono, e passa automaticamente na salvaguarda da magia. Depois de lançá-la assim, só pode fazer isso de novo após terminar um Descanso Longo.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      },
+      "effects": [
+        {
+          "type": "magia",
+          "spell": "contact-other-plane",
+          "level": 9,
+          "freeCast": true
+        }
+      ]
+    },
+    {
+      "id": "warlock-mystic-arcanum",
+      "level": 11,
+      "name": "Arcano Místico",
+      "text": "Seu patrono lhe concede um segredo mágico chamado arcano. Escolha uma magia de Bruxo de 6º círculo como seu arcano. Você pode lançá-la uma vez sem gastar espaço de magia e precisa terminar um Descanso Longo antes de lançá-la assim de novo.\nComo mostra a tabela do Bruxo, você ganha outra magia assim nos níveis 13 (7º círculo), 15 (8º círculo) e 17 (9º círculo). Recupera todos os usos do Arcano Místico ao terminar um Descanso Longo.\nSempre que ganhar um nível de Bruxo, pode trocar uma magia de arcano por outra de Bruxo do mesmo círculo."
+    },
+    {
+      "id": "warlock-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva do Destino é a recomendada."
+    },
+    {
+      "id": "warlock-eldritch-master",
+      "level": 20,
+      "name": "Mestre Místico",
+      "text": "Ao usar a Astúcia Mágica, você recupera todos os espaços de Magia de Pacto gastos."
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Patrono Transcendental",
+  "typicalTurn": "Lance Rajada Mística (um truque, não gasta nada) no inimigo, quase todo turno. No começo da luta, use a Ação Bônus para lançar Bruxaria num alvo e causar dano extra nele. Guarde seus poucos espaços para momentos importantes: eles voltam no Descanso Curto."
+}

@@ -19,5 +19,11 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
     css: false,
+    coverage: {
+      provider: 'v8',
+      include: ['src/rules/**', 'src/content/validate.ts'],
+      exclude: ['**/__tests__/**', '**/*.test.ts'],
+      thresholds: { 'src/rules/**': { lines: 95, functions: 95, statements: 95, branches: 85 } },
+    },
   },
 });

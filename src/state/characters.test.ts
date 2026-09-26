@@ -1,4 +1,5 @@
-import { CHARACTERS_KEY, sortByRecent, useCharacters } from './characters';
+import { emptyCharacter } from '@/model/character';
+import { CHARACTERS_KEY, migrateCharacters, sortByRecent, useCharacters } from './characters';
 
 beforeEach(() => useCharacters.setState({ characters: {} }));
 
@@ -36,9 +37,28 @@ describe('personagens salvos', () => {
 
   it('ordena do mais recente para o mais antigo', () => {
     const list = sortByRecent({
-      a: { id: 'a', name: '', level: 1, createdAt: '', updatedAt: '2026-01-01' },
-      b: { id: 'b', name: '', level: 1, createdAt: '', updatedAt: '2026-02-01' },
+      a: { ...emptyCharacter('a', ''), updatedAt: '2026-01-01' },
+      b: { ...emptyCharacter('b', ''), updatedAt: '2026-02-01' },
     });
     expect(list.map((c) => c.id)).toEqual(['b', 'a']);
+  });
+
+  it('migra rascunhos da versão 1 para o modelo completo', () => {
+    const migrated = migrateCharacters(
+      {
+        characters: {
+          x: { id: 'x', name: 'Zynn', level: 2, createdAt: '2026-01-01', updatedAt: '2026-01-02' },
+        },
+      },
+      1,
+    );
+    expect(migrated.characters.x).toMatchObject({
+      id: 'x',
+      name: 'Zynn',
+      level: 2,
+      schemaVersion: 2,
+      updatedAt: '2026-01-02',
+      choices: {},
+    });
   });
 });

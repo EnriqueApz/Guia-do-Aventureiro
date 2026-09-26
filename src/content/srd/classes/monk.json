@@ -1,0 +1,342 @@
+{
+  "id": "monk",
+  "name": "Monge",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Lutador ágil de artes marciais, que usa o Foco para golpes rápidos e esquivas.",
+  "description": "Monges treinam corpo e mente até transformar a disciplina em poder. Lutam sem armadura, com os punhos ou armas simples, se movem mais rápido que todos e gastam Pontos de Foco para golpear em sequência, se esquivar ou atordoar inimigos.",
+  "roles": ["combatente", "especialista"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Muitas opções de Ação Bônus e um recurso (Foco) para administrar a cada luta."
+  },
+  "primaryAbilities": ["des", "sab"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "des": 15,
+    "sab": 14,
+    "con": 13,
+    "for": 12,
+    "int": 10,
+    "car": 8
+  },
+  "recommendedWhy": "Destreza para acertar e desviar; Sabedoria também entra na sua CA e na dificuldade dos seus golpes especiais.",
+  "hitDie": 8,
+  "saves": ["for", "des"],
+  "armor": [],
+  "weapons": ["simples", "marciais:leve"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": ["acrobacia", "atletismo", "historia", "intuicao", "religiao", "furtividade"]
+  },
+  "toolChoice": {
+    "id": "monk-tool",
+    "kind": "ferramenta",
+    "label": "Um tipo de ferramenta de artesão ou um instrumento musical",
+    "count": 1,
+    "from": [
+      "alchemists-supplies",
+      "brewers-supplies",
+      "calligraphers-supplies",
+      "carpenters-tools",
+      "cartographer-tools",
+      "cobblers-tools",
+      "cooks-utensils",
+      "glassblowers-tools",
+      "jewelers-tools",
+      "leatherworkers-tools",
+      "masons-tools",
+      "painters-supplies",
+      "potters-tools",
+      "smiths-tools",
+      "tinkers-tools",
+      "weavers-tools",
+      "woodcarvers-tools",
+      "bagpipes",
+      "drum",
+      "dulcimer",
+      "flute",
+      "horn",
+      "lute",
+      "lyre",
+      "pan-flute",
+      "shawm",
+      "viol"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "spear",
+          "qty": 1
+        },
+        {
+          "id": "dagger",
+          "qty": 5
+        },
+        {
+          "id": "explorers-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 11,
+      "note": "Inclui também a ferramenta ou instrumento escolhido na proficiência."
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 50
+    }
+  ],
+  "columns": [
+    {
+      "id": "artes-marciais",
+      "label": "Artes Marciais",
+      "values": [
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d8",
+        "d8",
+        "d8",
+        "d8",
+        "d8",
+        "d8",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+        "d12",
+        "d12",
+        "d12",
+        "d12"
+      ]
+    },
+    {
+      "id": "pontos-de-foco",
+      "label": "Pontos de Foco",
+      "values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    },
+    {
+      "id": "movimento-sem-armadura",
+      "label": "Movimento sem Armadura",
+      "values": [0, 10, 10, 10, 10, 15, 15, 15, 15, 20, 20, 20, 20, 25, 25, 25, 25, 30, 30, 30]
+    }
+  ],
+  "features": [
+    {
+      "id": "monk-martial-arts",
+      "level": 1,
+      "name": "Artes Marciais",
+      "text": "Sua prática de artes marciais lhe dá domínio de estilos de combate que usam o Ataque Desarmado e armas de Monge, que são: armas corpo a corpo Simples e armas corpo a corpo Marciais com a propriedade Leve.\nVocê recebe os benefícios a seguir enquanto estiver desarmado ou empunhando só armas de Monge, sem usar armadura nem Escudo.\n**Ataque Desarmado Bônus.** Você pode fazer um Ataque Desarmado como Ação Bônus.\n**Dado de Artes Marciais.** Você pode rolar 1d6 no lugar do dano normal do seu Ataque Desarmado ou das armas de Monge. Esse dado cresce com seu nível de Monge, como mostra a coluna Artes Marciais.\n**Ataques Ágeis.** Você pode usar seu modificador de Destreza em vez do de Força nas jogadas de ataque e de dano dos Ataques Desarmados e das armas de Monge. Além disso, ao usar a opção Agarrar ou Empurrar do Ataque Desarmado, pode usar a Destreza em vez da Força para calcular a CD.",
+      "plain": "Seus socos causam bom dano, usam Destreza, e você ganha um soco extra com a Ação Bônus."
+    },
+    {
+      "id": "monk-unarmored-defense",
+      "level": 1,
+      "name": "Defesa sem Armadura",
+      "text": "Enquanto não estiver usando armadura nem empunhando Escudo, sua Classe de Armadura base é 10 + seus modificadores de Destreza e Sabedoria.",
+      "plain": "Sem armadura, sua CA é 10 + Destreza + Sabedoria.",
+      "effects": [
+        {
+          "type": "ca-sem-armadura",
+          "base": 10,
+          "abilities": ["des", "sab"],
+          "allowShield": false
+        }
+      ]
+    },
+    {
+      "id": "monk-monks-focus",
+      "level": 2,
+      "name": "Foco do Monge",
+      "text": "Seu foco e treino marcial permitem acessar uma fonte de energia extraordinária dentro de você, representada pelos Pontos de Foco. Seu nível de Monge define quantos pontos você tem, como mostra a coluna Pontos de Foco.\nVocê gasta esses pontos para aprimorar ou alimentar certas características. Começa conhecendo três: Rajada de Golpes, Defesa Paciente e Passo do Vento.\nUm Ponto de Foco gasto fica indisponível até você terminar um Descanso Curto ou Longo, quando recupera todos. Quando uma característica pedir salvaguarda, a CD é 8 + seu modificador de Sabedoria + seu Bônus de Proficiência.\n**Rajada de Golpes.** Gaste 1 Ponto de Foco para fazer dois Ataques Desarmados como Ação Bônus.\n**Defesa Paciente.** Você pode realizar a ação Desengajar como Ação Bônus. Ou gaste 1 Ponto de Foco para realizar Desengajar e Esquivar como Ação Bônus.\n**Passo do Vento.** Você pode realizar a ação Disparada como Ação Bônus. Ou gaste 1 Ponto de Foco para realizar Desengajar e Disparada como Ação Bônus, e sua distância de salto dobra no turno.",
+      "plain": "Pontos que você gasta para socar mais, se defender ou correr. Voltam em qualquer descanso.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "pontos-de-foco"
+        },
+        "recharge": "descanso-curto"
+      }
+    },
+    {
+      "id": "monk-unarmored-movement",
+      "level": 2,
+      "name": "Movimento sem Armadura",
+      "text": "Seu Deslocamento aumenta em 3 metros enquanto você não estiver usando armadura nem empunhando Escudo. Esse bônus aumenta em certos níveis de Monge, como mostra a tabela do Monge.",
+      "plain": "Você corre mais rápido que todo mundo.",
+      "effects": [
+        {
+          "type": "deslocamento-bonus",
+          "value": {
+            "kind": "coluna",
+            "column": "movimento-sem-armadura"
+          },
+          "condition": "sem-armadura-e-escudo"
+        }
+      ]
+    },
+    {
+      "id": "monk-uncanny-metabolism",
+      "level": 2,
+      "name": "Metabolismo Sobrenatural",
+      "text": "Ao rolar Iniciativa, você pode recuperar todos os Pontos de Foco gastos. Quando fizer isso, role seu dado de Artes Marciais e recupere Pontos de Vida iguais ao seu nível de Monge + o resultado.\nDepois de usar esta característica, só pode usá-la de novo após terminar um Descanso Longo.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      },
+      "plain": "Uma vez por dia, ao rolar Iniciativa, recupere todo o Foco e um pouco de vida."
+    },
+    {
+      "id": "monk-deflect-attacks",
+      "level": 3,
+      "name": "Desviar Ataques",
+      "action": "reacao",
+      "text": "Quando uma jogada de ataque o acerta e o dano inclui Concussão, Perfurante ou Cortante, você pode usar uma Reação para reduzir o dano total do ataque em 1d10 + seu modificador de Destreza + seu nível de Monge.\nSe reduzir o dano a 0, pode gastar 1 Ponto de Foco para redirecionar parte da força do ataque. Escolha uma criatura que consiga ver a até 1,5 metro (se o ataque foi corpo a corpo) ou a até 18 metros e sem Cobertura Total (se foi à distância). Ela precisa passar numa salvaguarda de Destreza ou sofre dano igual a duas rolagens do dado de Artes Marciais + seu modificador de Destreza, do mesmo tipo do ataque.",
+      "plain": "Com sua Reação, reduza o dano de um golpe; se zerar, devolva o ataque."
+    },
+    {
+      "id": "monk-subclass",
+      "level": 3,
+      "name": "Subclasse de Monge",
+      "text": "Você ganha uma subclasse de Monge à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Monge. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Monge ou menor.",
+      "plain": "No nível 3, você escolhe sua Tradição Monástica."
+    },
+    {
+      "id": "monk-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Monge 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "monk-slow-fall",
+      "level": 4,
+      "name": "Queda Lenta",
+      "action": "reacao",
+      "text": "Você pode usar uma Reação ao cair para reduzir o dano da queda em cinco vezes o seu nível de Monge."
+    },
+    {
+      "id": "monk-extra-attack",
+      "level": 5,
+      "name": "Ataque Extra",
+      "text": "Você pode atacar duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.",
+      "effects": [
+        {
+          "type": "ataques-extras",
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "id": "monk-stunning-strike",
+      "level": 5,
+      "name": "Golpe Atordoante",
+      "text": "Uma vez por turno, quando acertar uma criatura com uma arma de Monge ou um Ataque Desarmado, você pode gastar 1 Ponto de Foco para tentar um golpe atordoante. O alvo faz uma salvaguarda de Constituição. Se falhar, fica Atordoado até o início do seu próximo turno. Se passar, o Deslocamento dele cai à metade até o início do seu próximo turno, e a próxima jogada de ataque contra ele antes disso tem Vantagem."
+    },
+    {
+      "id": "monk-empowered-strikes",
+      "level": 6,
+      "name": "Golpes Fortalecidos",
+      "text": "Sempre que causar dano com seu Ataque Desarmado, você pode escolher entre dano de Energia e o tipo normal de dano."
+    },
+    {
+      "id": "monk-evasion",
+      "level": 7,
+      "name": "Evasão",
+      "text": "Quando for alvo de um efeito que permite uma salvaguarda de Destreza para sofrer só metade do dano, você não sofre dano se passar e sofre só metade se falhar.\nVocê não recebe este benefício se estiver Incapacitado."
+    },
+    {
+      "id": "monk-acrobatic-movement",
+      "level": 9,
+      "name": "Movimento Acrobático",
+      "text": "Enquanto não estiver usando armadura nem empunhando Escudo, você pode se mover por superfícies verticais e sobre líquidos no seu turno sem cair durante o movimento."
+    },
+    {
+      "id": "monk-heightened-focus",
+      "level": 10,
+      "name": "Foco Elevado",
+      "text": "Sua Rajada de Golpes, Defesa Paciente e Passo do Vento ganham os benefícios a seguir.\n**Rajada de Golpes.** Com 1 Ponto de Foco, você faz três Ataques Desarmados em vez de dois.\n**Defesa Paciente.** Ao gastar um Ponto de Foco na Defesa Paciente, você ganha Pontos de Vida Temporários iguais a duas rolagens do dado de Artes Marciais.\n**Passo do Vento.** Ao gastar um Ponto de Foco no Passo do Vento, você pode escolher uma criatura disposta a até 1,5 metro, Grande ou menor, e levá-la junto até o fim do seu turno. O movimento dela não provoca Ataques de Oportunidade."
+    },
+    {
+      "id": "monk-self-restoration",
+      "level": 10,
+      "name": "Autorrestauração",
+      "text": "Pela força de vontade, você pode remover de si uma destas condições no fim de cada um dos seus turnos: Enfeitiçado, Amedrontado ou Envenenado.\nAlém disso, ficar sem comida e bebida não lhe causa níveis de Exaustão."
+    },
+    {
+      "id": "monk-deflect-energy",
+      "level": 13,
+      "name": "Desviar Energia",
+      "text": "Agora você pode usar Desviar Ataques contra ataques de qualquer tipo de dano, não só Concussão, Perfurante ou Cortante."
+    },
+    {
+      "id": "monk-disciplined-survivor",
+      "level": 14,
+      "name": "Sobrevivente Disciplinado",
+      "text": "Sua disciplina física e mental lhe dá proficiência em todas as salvaguardas.\nAlém disso, sempre que falhar numa salvaguarda, você pode gastar 1 Ponto de Foco para rolá-la de novo, e precisa usar o novo resultado.",
+      "effects": [
+        {
+          "type": "proficiencia",
+          "category": "salvaguarda",
+          "ids": ["for", "des", "con", "int", "sab", "car"]
+        }
+      ]
+    },
+    {
+      "id": "monk-perfect-focus",
+      "level": 15,
+      "name": "Foco Perfeito",
+      "text": "Ao rolar Iniciativa sem usar o Metabolismo Sobrenatural, se tiver 3 Pontos de Foco ou menos, você recupera pontos até ficar com 4."
+    },
+    {
+      "id": "monk-superior-defense",
+      "level": 18,
+      "name": "Defesa Superior",
+      "text": "No início do seu turno, você pode gastar 3 Pontos de Foco para se proteger por 1 minuto ou até ficar Incapacitado. Nesse tempo, você tem Resistência a todo dano, exceto de Energia."
+    },
+    {
+      "id": "monk-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Ofensiva Irresistível é a recomendada."
+    },
+    {
+      "id": "monk-body-and-mind",
+      "level": 20,
+      "name": "Corpo e Mente",
+      "text": "Você levou corpo e mente a novos patamares. Seus valores de Destreza e Sabedoria aumentam em 4, até o máximo de 25.",
+      "effects": [
+        {
+          "type": "atributo-maximo",
+          "abilities": ["des", "sab"],
+          "max": 25
+        },
+        {
+          "type": "atributo-bonus",
+          "ability": "des",
+          "value": 4
+        },
+        {
+          "type": "atributo-bonus",
+          "ability": "sab",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Tradição Monástica",
+  "typicalTurn": "Corra até o inimigo (você é rápido). Use a ação Atacar com os punhos ou a lança, e depois a Ação Bônus para mais um soco. Se quiser, gaste 1 Ponto de Foco na Rajada de Golpes para dar dois socos em vez de um."
+}

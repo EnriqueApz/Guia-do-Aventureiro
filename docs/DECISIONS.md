@@ -3,6 +3,38 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-26 · Motor de regras: ficha sempre derivada
+
+**Contexto:** a ficha tem dezenas de números que dependem uns dos outros, e o
+jogador pode mudar qualquer escolha a qualquer momento.
+**Decisão:** o personagem guarda só escolhas (`src/model/character.ts`); a ficha é
+calculada por `derive(personagem, conteúdo)` em `src/rules`, funções puras sem
+React. Cada número traz as partes que o compõem ("de onde vem esse +5?").
+Sobrescritas manuais ficam em `overrides` e aparecem sinalizadas. Personagens
+salvos passaram para a versão 2 do armazenamento, com migração automática.
+**Consequências:** cobertura mínima de 95% em `src/rules` exigida na CI.
+Simplificações conhecidas: recursos que recuperam só _um_ uso no Descanso Curto
+(Fúria, Canalizar Divindade, Forma Selvagem) são tratados como "voltam no
+Descanso Longo"; o texto da característica explica a regra completa.
+
+## 2026-09-26 · Conteúdo: ids do SRD em inglês, textos em português
+
+**Contexto:** o conteúdo vem do SRD 5.2 estruturado em inglês e vai ser cruzado
+com magias e itens em fases seguintes.
+**Decisão:** entidades do SRD mantêm o id original em inglês (`longsword`,
+`magic-initiate`); enumerações usam ids em português (`furtividade`, `concussao`).
+Números em pés/libras como no SRD; textos já em metros/quilos.
+**Consequências:** reimportar e comparar com a fonte é trivial; o usuário nunca vê
+os ids.
+
+## 2026-09-26 · Terminologia de 2024 sem tradução oficial conhecida
+
+**Contexto:** conceitos novos (maestrias, Emanação, Sangrando, ações Influenciar e
+Estudar) não têm termo oficial em pt-BR que possamos consultar daqui.
+**Decisão:** propusemos termos em `docs/TERMINOLOGIA.md`, marcados como
+"proposto", para o grupo ajustar.
+**Consequências:** trocar um termo é editar a tabela e os JSON.
+
 ## 2026-09-26 · Fontes só com o subconjunto latino
 
 **Contexto:** os pacotes `@fontsource-variable` importam todos os alfabetos

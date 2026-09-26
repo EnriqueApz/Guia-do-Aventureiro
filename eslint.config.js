@@ -22,4 +22,9 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    // Nos testes, afirmar "isto existe" com ! deixa o código mais direto.
+    files: ['**/*.test.{ts,tsx}', '**/__tests__/**', 'src/test/**', 'e2e/**'],
+    rules: { '@typescript-eslint/no-non-null-assertion': 'off' },
+  },
 );

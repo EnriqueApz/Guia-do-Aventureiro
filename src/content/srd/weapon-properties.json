@@ -1,0 +1,62 @@
+[
+  {
+    "id": "municao",
+    "name": "Munição",
+    "text": "Você só pode usar uma arma com a propriedade Munição para fazer um ataque à distância se tiver munição para disparar. O tipo de munição necessário aparece junto ao alcance da arma. Cada ataque gasta uma unidade de munição. Sacar a munição faz parte do ataque (você precisa de uma mão livre para carregar uma arma de uma mão). Depois de uma luta, você pode gastar 1 minuto para recuperar metade da munição usada (arredondada para baixo); o resto se perde.",
+    "plain": "Precisa de flechas, virotes ou balas. Depois da luta, você recupera metade."
+  },
+  {
+    "id": "acuidade",
+    "name": "Acuidade",
+    "text": "Ao atacar com uma arma com Acuidade, você escolhe usar o modificador de Força ou de Destreza nas jogadas de ataque e de dano. Você precisa usar o mesmo modificador nas duas jogadas.",
+    "plain": "Você pode usar Destreza em vez de Força para atacar com ela."
+  },
+  {
+    "id": "pesada",
+    "name": "Pesada",
+    "text": "Você tem Desvantagem em jogadas de ataque com uma arma Pesada se ela for corpo a corpo e seu valor de Força for menor que 13, ou se ela for à distância e seu valor de Destreza for menor que 13.",
+    "plain": "Precisa de pelo menos 13 de Força (ou Destreza, se for à distância); senão, você ataca com Desvantagem."
+  },
+  {
+    "id": "leve",
+    "name": "Leve",
+    "text": "Quando você realiza a ação Atacar no seu turno e ataca com uma arma Leve, pode fazer um ataque extra como Ação Bônus mais tarde no mesmo turno. Esse ataque extra precisa ser feito com outra arma Leve, e você não soma seu modificador de atributo ao dano do ataque extra, a menos que ele seja negativo. Por exemplo, você pode atacar com uma Espada Curta numa mão e uma Adaga na outra usando a ação Atacar e uma Ação Bônus, mas não soma sua Força ou Destreza ao dano da Ação Bônus, a menos que o modificador seja negativo.",
+    "plain": "Dá para lutar com duas armas leves: a segunda ataca com sua Ação Bônus, mas sem somar o atributo ao dano."
+  },
+  {
+    "id": "recarga",
+    "name": "Recarga",
+    "text": "Você só consegue disparar uma unidade de munição de uma arma com Recarga quando usa uma ação, Ação Bônus ou Reação para dispará-la, não importa quantos ataques você normalmente poderia fazer.",
+    "plain": "Só um disparo por ação, mesmo se você normalmente atacasse mais vezes."
+  },
+  {
+    "id": "distancia",
+    "name": "Distância",
+    "text": "Uma arma com Distância tem um alcance entre parênteses depois da propriedade Munição ou Arremesso. O alcance tem dois números: o primeiro é o alcance normal, e o segundo, o alcance máximo. Ao atacar um alvo além do alcance normal, você tem Desvantagem na jogada de ataque. Você não pode atacar um alvo além do alcance máximo.",
+    "plain": "Até o primeiro número, ataque normal; até o segundo, com Desvantagem; mais longe, não alcança."
+  },
+  {
+    "id": "alcance",
+    "name": "Alcance",
+    "text": "Uma arma com Alcance soma 1,5 metro ao seu alcance quando você ataca com ela, inclusive para Ataques de Oportunidade.",
+    "plain": "Você acerta inimigos a até 3 metros em vez de 1,5."
+  },
+  {
+    "id": "arremesso",
+    "name": "Arremesso",
+    "text": "Se uma arma tem a propriedade Arremesso, você pode arremessá-la para fazer um ataque à distância e pode sacá-la como parte do ataque. Se a arma for corpo a corpo, use no ataque e no dano o mesmo modificador de atributo que usaria num ataque corpo a corpo com ela.",
+    "plain": "Dá para arremessar a arma no inimigo."
+  },
+  {
+    "id": "duas-maos",
+    "name": "Duas Mãos",
+    "text": "Uma arma de Duas Mãos exige as duas mãos para atacar.",
+    "plain": "Você precisa das duas mãos (não dá para usar escudo junto)."
+  },
+  {
+    "id": "versatil",
+    "name": "Versátil",
+    "text": "Uma arma Versátil pode ser usada com uma ou duas mãos. Um valor de dano aparece entre parênteses junto à propriedade: é o dano que a arma causa quando usada com as duas mãos num ataque corpo a corpo.",
+    "plain": "Com uma mão ou com duas; com as duas, o dano é maior."
+  }
+]

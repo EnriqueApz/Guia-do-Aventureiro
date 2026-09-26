@@ -1,0 +1,264 @@
+{
+  "id": "bard",
+  "name": "Bardo",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Artista mágico que inspira aliados, encanta inimigos e sabe um pouco de tudo.",
+  "description": "Bardos tecem magia com música, palavras e dança. São contadores de histórias, diplomatas e trapaceiros, capazes de inspirar os aliados, confundir os inimigos, curar feridas e resolver problemas com as mais variadas perícias.",
+  "roles": ["suporte", "conjurador", "especialista"],
+  "beginner": {
+    "rating": "medio",
+    "note": "Ótimo para quem gosta de interpretar, mas tem muitas magias e opções para conhecer."
+  },
+  "primaryAbilities": ["car"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "car": 15,
+    "des": 14,
+    "con": 13,
+    "sab": 12,
+    "int": 10,
+    "for": 8
+  },
+  "recommendedWhy": "Carisma move suas magias e sua Inspiração Bárdica; Destreza protege você com armadura leve.",
+  "hitDie": 8,
+  "saves": ["des", "car"],
+  "armor": ["leve"],
+  "weapons": ["simples"],
+  "tools": [],
+  "skillChoice": {
+    "count": 3,
+    "from": "qualquer"
+  },
+  "toolChoice": {
+    "id": "bard-instruments",
+    "kind": "ferramenta",
+    "label": "Três instrumentos musicais",
+    "count": 3,
+    "from": [
+      "bagpipes",
+      "drum",
+      "dulcimer",
+      "flute",
+      "horn",
+      "lute",
+      "lyre",
+      "pan-flute",
+      "shawm",
+      "viol"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "leather-armor",
+          "qty": 1
+        },
+        {
+          "id": "dagger",
+          "qty": 2
+        },
+        {
+          "id": "entertainers-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 19,
+      "note": "Inclui também um instrumento musical à sua escolha."
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 90
+    }
+  ],
+  "spellcasting": {
+    "ability": "car",
+    "progression": "completa",
+    "cantrips": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    "prepared": [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22],
+    "slots": [
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 2, 1, 1]
+    ],
+    "ritual": true,
+    "focus": "Instrumento Musical",
+    "swap": "subir-de-nivel",
+    "explainer": "Magias são como cargas: você tem espaços de magia que gasta para lançá-las e que voltam depois de um Descanso Longo. Truques são magias simples que você lança à vontade. Você escolhe uma lista de magias preparadas da lista do bardo e pode trocar uma delas a cada nível. Sua magia usa Carisma."
+  },
+  "columns": [
+    {
+      "id": "inspiracao-bardica",
+      "label": "Inspiração Bárdica",
+      "values": [
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d8",
+        "d8",
+        "d8",
+        "d8",
+        "d8",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+        "d12",
+        "d12",
+        "d12",
+        "d12",
+        "d12",
+        "d12"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "bard-bardic-inspiration",
+      "level": 1,
+      "name": "Inspiração Bárdica",
+      "action": "acao-bonus",
+      "text": "Você pode inspirar os outros de forma sobrenatural com palavras, música ou dança. Essa inspiração é representada pelo seu dado de Inspiração Bárdica, um d6.\n**Usando.** Como Ação Bônus, você inspira outra criatura a até 18 metros que possa vê-lo ou ouvi-lo. Ela recebe um dado de Inspiração Bárdica. Uma criatura só pode ter um dado desses por vez.\nUma vez na próxima hora, quando a criatura falhar num Teste de d20, ela pode rolar o dado e somar ao d20, podendo transformar a falha em sucesso. O dado é gasto ao ser rolado.\n**Número de Usos.** Você pode conceder o dado um número de vezes igual ao seu modificador de Carisma (mínimo uma) e recupera os usos ao terminar um Descanso Longo.\n**Em Níveis Maiores.** O dado muda em certos níveis: d8 no nível 5, d10 no nível 10 e d12 no nível 15.",
+      "plain": "Dê um dado extra a um aliado: se ele falhar numa rolagem, soma o dado e talvez passe.",
+      "uses": {
+        "max": {
+          "kind": "modificador",
+          "ability": "car",
+          "min": 1
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "bard-spellcasting",
+      "level": 1,
+      "name": "Conjuração",
+      "text": "Você aprendeu a lançar magias por meio das artes bárdicas.\n**Truques.** Você conhece dois truques da lista do Bardo; Globos de Luz e Zombaria Viciosa são os recomendados. Sempre que ganhar um nível de Bardo, pode trocar um truque por outro da lista. Nos níveis 4 e 10, aprende mais um truque, como mostra a coluna Truques.\n**Espaços de Magia.** A tabela do Bardo mostra quantos espaços você tem para magias de 1º círculo ou mais. Você recupera todos ao terminar um Descanso Longo.\n**Magias Preparadas.** Para começar, escolha quatro magias de 1º círculo da lista do Bardo; Enfeitiçar Pessoa, Leque Cromático, Sussurros Dissonantes e Palavra Curativa são as recomendadas. O número cresce com seu nível, como mostra a coluna Magias Preparadas; os círculos precisam ser de espaços que você tem. Magias sempre preparadas por outra característica não contam nesse limite.\n**Trocar Magias Preparadas.** Sempre que ganhar um nível de Bardo, você pode trocar uma magia da lista por outra de Bardo para a qual tenha espaços.\n**Atributo de Conjuração.** Carisma.\n**Foco de Conjuração.** Você pode usar um Instrumento Musical.",
+      "plain": "Você lança magias com Carisma. Truques são livres; as outras magias gastam espaços que voltam no Descanso Longo."
+    },
+    {
+      "id": "bard-expertise",
+      "level": 2,
+      "name": "Especialização",
+      "text": "Você ganha Especialização em duas perícias em que tenha proficiência, à sua escolha. Atuação e Persuasão são as recomendadas, se você tiver proficiência nelas.\nNo nível 9 de Bardo, você ganha Especialização em mais duas perícias.",
+      "plain": "Em duas perícias, seu bônus de proficiência conta em dobro.",
+      "choices": [
+        {
+          "id": "expertise",
+          "kind": "especializacao",
+          "label": "Especialização em perícias",
+          "count": {
+            "kind": "por-nivel",
+            "values": [0, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bard-jack-of-all-trades",
+      "level": 2,
+      "name": "Pau pra Toda Obra",
+      "text": "Você pode somar metade do seu Bônus de Proficiência (arredondado para baixo) a qualquer teste de atributo que use uma perícia em que você não tenha proficiência e que não use seu Bônus de Proficiência de outra forma.\nPor exemplo, num teste de Força (Atletismo) sem proficiência em Atletismo, você soma metade do seu Bônus de Proficiência.",
+      "plain": "Você soma metade da proficiência em todas as perícias que não treinou.",
+      "effects": [
+        {
+          "type": "pericias-meia-proficiencia"
+        }
+      ]
+    },
+    {
+      "id": "bard-subclass",
+      "level": 3,
+      "name": "Subclasse de Bardo",
+      "text": "Você ganha uma subclasse de Bardo à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Bardo. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Bardo ou menor.",
+      "plain": "No nível 3, você escolhe seu Colégio de Bardo."
+    },
+    {
+      "id": "bard-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Bardo 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "bard-font-of-inspiration",
+      "level": 5,
+      "name": "Fonte de Inspiração",
+      "text": "Agora você recupera todos os usos de Inspiração Bárdica ao terminar um Descanso Curto ou Longo.\nAlém disso, pode gastar um espaço de magia (sem gastar ação) para recuperar um uso de Inspiração Bárdica."
+    },
+    {
+      "id": "bard-countercharm",
+      "level": 7,
+      "name": "Contraencanto",
+      "action": "reacao",
+      "text": "Você pode usar notas musicais ou palavras de poder para romper efeitos que influenciam a mente. Se você ou uma criatura a até 9 metros falhar numa salvaguarda contra um efeito que causa as condições Enfeitiçado ou Amedrontado, você pode usar uma Reação para fazer a salvaguarda ser rolada de novo, com Vantagem."
+    },
+    {
+      "id": "bard-magical-secrets",
+      "level": 10,
+      "name": "Segredos Mágicos",
+      "text": "Você aprendeu segredos de várias tradições mágicas. Sempre que alcançar um nível de Bardo (incluindo este) em que o número de Magias Preparadas aumente, você pode escolher as novas magias preparadas das listas do Bardo, Clérigo, Druida e Mago, e elas contam como magias de Bardo para você. Além disso, sempre que trocar uma magia preparada desta classe, pode trocá-la por uma magia dessas listas."
+    },
+    {
+      "id": "bard-superior-inspiration",
+      "level": 18,
+      "name": "Inspiração Superior",
+      "text": "Ao rolar Iniciativa, se tiver menos de dois usos de Inspiração Bárdica, você recupera usos até ficar com dois."
+    },
+    {
+      "id": "bard-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Recordação de Magia é a recomendada."
+    },
+    {
+      "id": "bard-words-of-creation",
+      "level": 20,
+      "name": "Palavras da Criação",
+      "text": "Você domina duas das Palavras da Criação: as palavras da vida e da morte. Por isso, sempre tem as magias Palavra de Poder Curar e Palavra de Poder Matar preparadas. Ao lançar qualquer uma delas, você pode escolher uma segunda criatura como alvo, se ela estiver a até 3 metros do primeiro alvo.",
+      "effects": [
+        {
+          "type": "magia",
+          "spell": "power-word-heal",
+          "level": 20,
+          "freeCast": false
+        },
+        {
+          "type": "magia",
+          "spell": "power-word-kill",
+          "level": 20,
+          "freeCast": false
+        }
+      ]
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Colégio de Bardo",
+  "typicalTurn": "Use a Ação Bônus para dar Inspiração Bárdica ao guerreiro que vai atacar. Depois, use a ação Magia para lançar Zombaria Viciosa (um truque que causa dano psíquico e atrapalha o ataque do inimigo) ou Palavra Curativa num aliado caído."
+}

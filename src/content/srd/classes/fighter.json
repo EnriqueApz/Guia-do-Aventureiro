@@ -1,0 +1,282 @@
+{
+  "id": "fighter",
+  "name": "Guerreiro",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Mestre das armas e armaduras, com mais ataques que qualquer outra classe.",
+  "description": "Guerreiros dominam todas as armas e armaduras. São soldados, cavaleiros, mercenários e campeões, e sua força vem do treino: atacam várias vezes, recuperam o fôlego no meio da luta e conseguem um surto de ação quando mais importa.",
+  "roles": ["combatente", "defensor"],
+  "beginner": {
+    "rating": "facil",
+    "note": "A classe mais direta do jogo: boa armadura, boa vida e ataques confiáveis."
+  },
+  "primaryAbilities": ["for", "des"],
+  "primaryMode": "ou",
+  "recommendedScores": {
+    "for": 15,
+    "con": 14,
+    "des": 13,
+    "sab": 12,
+    "car": 10,
+    "int": 8
+  },
+  "recommendedWhy": "Força para acertar e causar dano com armas corpo a corpo (troque por Destreza se preferir arco); Constituição para aguentar mais golpes.",
+  "hitDie": 10,
+  "saves": ["for", "con"],
+  "armor": ["leve", "media", "pesada", "escudo"],
+  "weapons": ["simples", "marciais"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": [
+      "acrobacia",
+      "adestrar-animais",
+      "atletismo",
+      "historia",
+      "intuicao",
+      "intimidacao",
+      "percepcao",
+      "sobrevivencia"
+    ]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "chain-mail",
+          "qty": 1
+        },
+        {
+          "id": "greatsword",
+          "qty": 1
+        },
+        {
+          "id": "flail",
+          "qty": 1
+        },
+        {
+          "id": "javelin",
+          "qty": 8
+        },
+        {
+          "id": "dungeoneer-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 4
+    },
+    {
+      "id": "b",
+      "items": [
+        {
+          "id": "studded-leather-armor",
+          "qty": 1
+        },
+        {
+          "id": "scimitar",
+          "qty": 1
+        },
+        {
+          "id": "shortsword",
+          "qty": 1
+        },
+        {
+          "id": "longbow",
+          "qty": 1
+        },
+        {
+          "id": "arrows",
+          "qty": 1
+        },
+        {
+          "id": "quiver",
+          "qty": 1
+        },
+        {
+          "id": "dungeoneer-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 11
+    },
+    {
+      "id": "c",
+      "items": [],
+      "gold": 155
+    }
+  ],
+  "columns": [
+    {
+      "id": "retomar-o-folego",
+      "label": "Retomar o Fôlego",
+      "values": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+    },
+    {
+      "id": "maestria-em-armas",
+      "label": "Maestria em Armas",
+      "values": [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6]
+    }
+  ],
+  "features": [
+    {
+      "id": "fighter-fighting-style",
+      "level": 1,
+      "name": "Estilo de Luta",
+      "text": "Você aprimorou sua perícia marcial e ganha um talento de Estilo de Luta à sua escolha. Defesa é o recomendado.\nSempre que ganhar um nível de Guerreiro, você pode trocar o talento escolhido por outro talento de Estilo de Luta.",
+      "plain": "Escolha um estilo: +1 na CA (Defesa), +2 com arcos (Arquearia) e outros.",
+      "choices": [
+        {
+          "id": "fighting-style",
+          "kind": "talento",
+          "label": "Estilo de Luta",
+          "count": 1,
+          "featCategory": "estilo-de-luta"
+        }
+      ]
+    },
+    {
+      "id": "fighter-second-wind",
+      "level": 1,
+      "name": "Retomar o Fôlego",
+      "action": "acao-bonus",
+      "text": "Você tem uma reserva limitada de vigor físico e mental. Como Ação Bônus, pode usá-la para recuperar Pontos de Vida iguais a 1d10 + seu nível de Guerreiro.\nVocê pode usar esta característica duas vezes. Recupera um uso ao terminar um Descanso Curto e todos os usos ao terminar um Descanso Longo.\nEm certos níveis de Guerreiro, você ganha mais usos, como mostra a coluna Retomar o Fôlego.",
+      "plain": "Com a Ação Bônus, você se cura 1d10 + nível. Algumas vezes por dia.",
+      "uses": {
+        "max": {
+          "kind": "coluna",
+          "column": "retomar-o-folego"
+        },
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "fighter-weapon-mastery",
+      "level": 1,
+      "name": "Maestria em Armas",
+      "text": "Seu treino com armas permite usar as propriedades de maestria de três tipos de armas Simples ou Marciais à sua escolha. Ao terminar um Descanso Longo, você pode praticar e trocar uma dessas escolhas.\nEm certos níveis de Guerreiro, você passa a usar a maestria de mais tipos de armas, como mostra a coluna Maestria em Armas.",
+      "plain": "Escolha armas: com elas, você ativa efeitos extras (derrubar, empurrar, atingir outro alvo...).",
+      "choices": [
+        {
+          "id": "weapon-mastery",
+          "kind": "maestria",
+          "label": "Armas com maestria",
+          "count": {
+            "kind": "coluna",
+            "column": "maestria-em-armas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fighter-action-surge",
+      "level": 2,
+      "name": "Surto de Ação",
+      "text": "Você consegue ir além dos seus limites por um momento. No seu turno, você pode realizar uma ação adicional, exceto a ação Magia.\nDepois de usar esta característica, só pode usá-la de novo após terminar um Descanso Curto ou Longo. A partir do nível 17, você pode usá-la duas vezes antes de descansar, mas só uma vez por turno.",
+      "plain": "Uma vez por descanso, faça duas ações no mesmo turno.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-curto"
+      }
+    },
+    {
+      "id": "fighter-tactical-mind",
+      "level": 2,
+      "name": "Mente Tática",
+      "text": "Você tem cabeça para táticas, dentro e fora do campo de batalha. Quando falhar num teste de atributo, você pode gastar um uso de Retomar o Fôlego para se esforçar: em vez de recuperar Pontos de Vida, role 1d10 e some ao resultado do teste, podendo transformá-lo em sucesso. Se o teste ainda falhar, esse uso não é gasto.",
+      "plain": "Falhou num teste? Gaste um Retomar o Fôlego para somar 1d10."
+    },
+    {
+      "id": "fighter-subclass",
+      "level": 3,
+      "name": "Subclasse de Guerreiro",
+      "text": "Você ganha uma subclasse de Guerreiro à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Guerreiro. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Guerreiro ou menor.",
+      "plain": "No nível 3, você escolhe seu Arquétipo Marcial."
+    },
+    {
+      "id": "fighter-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Guerreiro 6, 8, 12, 14 e 16.",
+      "plain": "Nos níveis 4, 6, 8, 12, 14 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "fighter-extra-attack",
+      "level": 5,
+      "name": "Ataque Extra",
+      "text": "Você pode atacar duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.",
+      "plain": "Dois ataques por ação Atacar.",
+      "effects": [
+        {
+          "type": "ataques-extras",
+          "attacks": 2
+        }
+      ]
+    },
+    {
+      "id": "fighter-tactical-shift",
+      "level": 5,
+      "name": "Reposicionamento Tático",
+      "text": "Sempre que ativar Retomar o Fôlego com uma Ação Bônus, você pode se mover até metade do seu Deslocamento sem provocar Ataques de Oportunidade."
+    },
+    {
+      "id": "fighter-indomitable",
+      "level": 9,
+      "name": "Indomável",
+      "text": "Se falhar numa salvaguarda, você pode rolá-la de novo com um bônus igual ao seu nível de Guerreiro. Precisa usar o novo resultado e só pode usar esta característica de novo após terminar um Descanso Longo.\nVocê pode usá-la duas vezes por Descanso Longo a partir do nível 13, e três vezes a partir do nível 17.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "fighter-tactical-master",
+      "level": 9,
+      "name": "Mestre Tático",
+      "text": "Ao atacar com uma arma cuja propriedade de maestria você pode usar, você pode trocar essa propriedade por Empurrar, Enfraquecer ou Desacelerar nesse ataque."
+    },
+    {
+      "id": "fighter-two-extra-attacks",
+      "level": 11,
+      "name": "Dois Ataques Extras",
+      "text": "Você pode atacar três vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.",
+      "effects": [
+        {
+          "type": "ataques-extras",
+          "attacks": 3
+        }
+      ]
+    },
+    {
+      "id": "fighter-studied-attacks",
+      "level": 13,
+      "name": "Ataques Estudados",
+      "text": "Você estuda seus oponentes e aprende com cada ataque. Se fizer uma jogada de ataque contra uma criatura e errar, você tem Vantagem na próxima jogada de ataque contra ela antes do fim do seu próximo turno."
+    },
+    {
+      "id": "fighter-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Proeza em Combate é a recomendada."
+    },
+    {
+      "id": "fighter-three-extra-attacks",
+      "level": 20,
+      "name": "Três Ataques Extras",
+      "text": "Você pode atacar quatro vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.",
+      "effects": [
+        {
+          "type": "ataques-extras",
+          "attacks": 4
+        }
+      ]
+    }
+  ],
+  "featLevels": [4, 6, 8, 12, 14, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Arquétipo Marcial",
+  "typicalTurn": "Ande até o inimigo e use a ação Atacar com sua espada. Se estiver ferido, use a Ação Bônus para Retomar o Fôlego e recuperar vida. Em um momento decisivo, use o Surto de Ação para ganhar uma ação extra e atacar de novo."
+}

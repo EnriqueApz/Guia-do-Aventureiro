@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "dragonborn",
+    "name": "Draconato",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Descendente de dragões, com escamas, sopro elemental e, mais tarde, asas mágicas.",
+    "description": "Draconatos carregam o sangue de dragões ancestrais. A cor das escamas lembra o dragão de origem, e dele vem também o elemento do sopro e da resistência. São presenças marcantes em qualquer grupo.",
+    "creatureType": "Humanoide",
+    "sizes": ["Médio"],
+    "sizeNote": "Cerca de 1,5 a 2,1 metros de altura.",
+    "speed": 30,
+    "lineageLabel": "Ancestral dracônico",
+    "traits": [
+      {
+        "id": "draconic-ancestry",
+        "name": "Ancestralidade Dracônica",
+        "text": "Sua linhagem vem de um dragão ancestral. Escolha o tipo de dragão; a escolha define o tipo de dano do seu Sopro e da sua Resistência a Dano, além da sua aparência.",
+        "plain": "Escolha a cor do seu dragão ancestral: ela define o elemento do seu sopro e o dano a que você resiste."
+      },
+      {
+        "id": "breath-weapon",
+        "name": "Sopro",
+        "action": "acao",
+        "text": "Quando você realiza a ação Atacar no seu turno, pode trocar um dos ataques por uma exalação de energia mágica num Cone de 4,5 metros ou numa Linha de 9 metros com 1,5 metro de largura (escolha o formato a cada uso). Cada criatura na área faz uma salvaguarda de Destreza (CD 8 + seu modificador de Constituição + seu Bônus de Proficiência). Se falhar, sofre 1d10 de dano do tipo do seu ancestral; se passar, sofre metade. O dano aumenta em 1d10 nos níveis de personagem 5 (2d10), 11 (3d10) e 17 (4d10).\nVocê pode usar o Sopro um número de vezes igual ao seu Bônus de Proficiência e recupera todos os usos ao terminar um Descanso Longo.",
+        "plain": "No lugar de um ataque, você cospe o elemento do seu dragão numa área. Ótimo contra grupos de inimigos.",
+        "uses": {
+          "max": {
+            "kind": "proficiencia"
+          },
+          "recharge": "descanso-longo"
+        }
+      },
+      {
+        "id": "darkvision",
+        "name": "Visão no Escuro",
+        "text": "Você tem Visão no Escuro com alcance de 18 metros.",
+        "plain": "Você enxerga no escuro (em tons de cinza) até 18 metros.",
+        "effects": [
+          {
+            "type": "visao-no-escuro",
+            "range": 60
+          }
+        ]
+      },
+      {
+        "id": "draconic-flight",
+        "name": "Voo Dracônico",
+        "level": 5,
+        "action": "acao-bonus",
+        "text": "A partir do nível de personagem 5, você pode canalizar magia dracônica para voar por um tempo. Como Ação Bônus, asas espectrais surgem nas suas costas e duram 10 minutos, ou até você recolhê-las (sem gastar ação) ou ficar Incapacitado. Durante esse tempo, você tem Deslocamento de Voo igual ao seu Deslocamento. As asas parecem feitas da mesma energia do seu Sopro. Depois de usar este traço, você só pode usá-lo de novo após terminar um Descanso Longo.",
+        "plain": "A partir do nível 5, você pode voar por 10 minutos, uma vez por dia.",
+        "uses": {
+          "max": 1,
+          "recharge": "descanso-longo"
+        }
+      }
+    ],
+    "lineages": [
+      {
+        "id": "draconic-ancestor-black",
+        "name": "Dragão Negro (Ácido)",
+        "summary": "Sopro e resistência de Ácido.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Ácido.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "acido"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-blue",
+        "name": "Dragão Azul (Elétrico)",
+        "summary": "Sopro e resistência Elétricos.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano Elétrico.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "eletrico"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-brass",
+        "name": "Dragão de Latão (Fogo)",
+        "summary": "Sopro e resistência de Fogo.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Fogo.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "fogo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-bronze",
+        "name": "Dragão de Bronze (Elétrico)",
+        "summary": "Sopro e resistência Elétricos.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano Elétrico.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "eletrico"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-copper",
+        "name": "Dragão de Cobre (Ácido)",
+        "summary": "Sopro e resistência de Ácido.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Ácido.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "acido"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-gold",
+        "name": "Dragão Dourado (Fogo)",
+        "summary": "Sopro e resistência de Fogo.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Fogo.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "fogo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-green",
+        "name": "Dragão Verde (Veneno)",
+        "summary": "Sopro e resistência de Veneno.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Veneno.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "veneno"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-red",
+        "name": "Dragão Vermelho (Fogo)",
+        "summary": "Sopro e resistência de Fogo.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Fogo.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "fogo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-silver",
+        "name": "Dragão Prateado (Frio)",
+        "summary": "Sopro e resistência de Frio.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Frio.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "frio"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draconic-ancestor-white",
+        "name": "Dragão Branco (Frio)",
+        "summary": "Sopro e resistência de Frio.",
+        "traits": [
+          {
+            "id": "damage-resistance",
+            "name": "Resistência a Dano",
+            "text": "Você tem Resistência a dano de Frio.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "frio"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "beginner": {
+      "rating": "facil",
+      "note": "Traços simples e fortes: um ataque em área e uma resistência que funcionam sozinhos."
+    }
+  },
+  {
+    "id": "dwarf",
+    "name": "Anão",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Robusto e teimoso, resiste a venenos e sente vibrações pela pedra.",
+    "description": "Anões são conhecidos pela resistência física e pela ligação com a pedra e as montanhas. Aguentam golpes e venenos que derrubariam outros e enxergam longe na escuridão.",
+    "creatureType": "Humanoide",
+    "sizes": ["Médio"],
+    "sizeNote": "Cerca de 1,2 a 1,5 metro de altura.",
+    "speed": 30,
+    "traits": [
+      {
+        "id": "darkvision",
+        "name": "Visão no Escuro",
+        "text": "Você tem Visão no Escuro com alcance de 36 metros.",
+        "plain": "Você enxerga no escuro (em tons de cinza) até 36 metros.",
+        "effects": [
+          {
+            "type": "visao-no-escuro",
+            "range": 120
+          }
+        ]
+      },
+      {
+        "id": "dwarven-resilience",
+        "name": "Resiliência Anã",
+        "text": "Você tem Resistência a dano de Veneno. Você também tem Vantagem em salvaguardas para evitar ou encerrar a condição Envenenado.",
+        "plain": "Veneno te machuca pela metade e é mais difícil você ficar envenenado.",
+        "effects": [
+          {
+            "type": "resistencia",
+            "damage": "veneno"
+          }
+        ]
+      },
+      {
+        "id": "dwarven-toughness",
+        "name": "Robustez Anã",
+        "text": "Seu máximo de Pontos de Vida aumenta em 1, e aumenta em 1 de novo sempre que você sobe de nível.",
+        "plain": "Você tem 1 Ponto de Vida a mais por nível.",
+        "effects": [
+          {
+            "type": "pv-por-nivel",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "id": "stonecunning",
+        "name": "Especialista em Pedra",
+        "action": "acao-bonus",
+        "text": "Como Ação Bônus, você ganha Sentido Sísmico com alcance de 18 metros por 10 minutos. Você precisa estar sobre uma superfície de pedra ou tocando uma para usar esse Sentido Sísmico. A pedra pode ser natural ou trabalhada.\nVocê pode usar esta Ação Bônus um número de vezes igual ao seu Bônus de Proficiência e recupera todos os usos ao terminar um Descanso Longo.",
+        "plain": "Tocando pedra, você sente criaturas se movendo por perto, mesmo sem vê-las.",
+        "uses": {
+          "max": {
+            "kind": "proficiencia"
+          },
+          "recharge": "descanso-longo"
+        }
+      }
+    ],
+    "lineages": [],
+    "beginner": {
+      "rating": "facil",
+      "note": "Traços quase todos automáticos: mais vida, resistência a veneno e visão no escuro."
+    }
+  },
+  {
+    "id": "elf",
+    "name": "Elfo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Longevo e de sentidos aguçados, com magia herdada da sua linhagem.",
+    "description": "Elfos vivem por séculos e têm um pé no mundo feérico. Não dormem: meditam em transe. Cada linhagem élfica, drow, alto elfo ou elfo silvestre, traz magias próprias que crescem com o personagem.",
+    "creatureType": "Humanoide",
+    "sizes": ["Médio"],
+    "sizeNote": "Cerca de 1,5 a 1,8 metro de altura.",
+    "speed": 30,
+    "lineageLabel": "Linhagem élfica",
+    "lineageSpellAbilities": ["int", "sab", "car"],
+    "traits": [
+      {
+        "id": "darkvision",
+        "name": "Visão no Escuro",
+        "text": "Você tem Visão no Escuro com alcance de 18 metros.",
+        "plain": "Você enxerga no escuro (em tons de cinza) até 18 metros.",
+        "effects": [
+          {
+            "type": "visao-no-escuro",
+            "range": 60
+          }
+        ]
+      },
+      {
+        "id": "elven-lineage",
+        "name": "Linhagem Élfica",
+        "text": "Você faz parte de uma linhagem que concede habilidades sobrenaturais. Escolha uma linhagem e receba o benefício de nível 1 dela.\nNos níveis de personagem 3 e 5, você aprende uma magia de círculo maior, como mostra a linhagem. Você sempre tem essa magia preparada. Pode lançá-la uma vez sem gastar espaço de magia e recupera esse uso ao terminar um Descanso Longo. Também pode lançá-la usando qualquer espaço de magia do círculo adequado que tiver.\nInteligência, Sabedoria ou Carisma é o seu atributo de conjuração para as magias deste traço (escolha ao selecionar a linhagem).",
+        "plain": "Sua linhagem te dá um truque agora e mais duas magias nos níveis 3 e 5, cada uma de graça uma vez por dia."
+      },
+      {
+        "id": "fey-ancestry",
+        "name": "Ancestralidade Feérica",
+        "text": "Você tem Vantagem em salvaguardas para evitar ou encerrar a condição Enfeitiçado.",
+        "plain": "É mais difícil te enfeitiçar."
+      },
+      {
+        "id": "keen-senses",
+        "name": "Sentidos Aguçados",
+        "text": "Você tem proficiência na perícia Intuição, Percepção ou Sobrevivência.",
+        "plain": "Escolha uma perícia entre Intuição, Percepção e Sobrevivência.",
+        "choices": [
+          {
+            "id": "keen-senses",
+            "kind": "pericia",
+            "label": "Sentidos Aguçados: escolha 1 perícia",
+            "count": 1,
+            "from": ["intuicao", "percepcao", "sobrevivencia"]
+          }
+        ]
+      },
+      {
+        "id": "trance",
+        "name": "Transe",
+        "text": "Você não precisa dormir, e magia não pode fazê-lo dormir. Você pode terminar um Descanso Longo em 4 horas se passar esse tempo numa meditação semelhante a um transe, durante a qual continua consciente.",
+        "plain": "Você medita em vez de dormir e descansa em só 4 horas."
+      }
+    ],
+    "lineages": [
+      {
+        "id": "elven-lineage-drow",
+        "name": "Drow",
+        "summary": "Elfos das profundezas: visão no escuro de 36 metros e magias de luz e sombra.",
+        "traits": [
+          {
+            "id": "drow-magic",
+            "name": "Magia Drow",
+            "text": "Nível 1: o alcance da sua Visão no Escuro aumenta para 36 metros, e você conhece o truque Globos de Luz.\nNível 3: Fogo das Fadas.\nNível 5: Escuridão.",
+            "effects": [
+              {
+                "type": "visao-no-escuro",
+                "range": 120
+              },
+              {
+                "type": "magia",
+                "spell": "dancing-lights",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "faerie-fire",
+                "level": 3,
+                "freeCast": true
+              },
+              {
+                "type": "magia",
+                "spell": "darkness",
+                "level": 5,
+                "freeCast": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "elven-lineage-high-elf",
+        "name": "Alto Elfo",
+        "summary": "Elfos de tradição arcana: um truque de mago que pode ser trocado todo dia.",
+        "traits": [
+          {
+            "id": "high-elf-magic",
+            "name": "Magia dos Altos Elfos",
+            "text": "Nível 1: você conhece o truque Prestidigitação. Ao terminar um Descanso Longo, pode trocá-lo por outro truque da lista de magias do Mago.\nNível 3: Detectar Magia.\nNível 5: Passo Nebuloso.",
+            "effects": [
+              {
+                "type": "magia",
+                "spell": "prestidigitation",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "detect-magic",
+                "level": 3,
+                "freeCast": true
+              },
+              {
+                "type": "magia",
+                "spell": "misty-step",
+                "level": 5,
+                "freeCast": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "elven-lineage-wood-elf",
+        "name": "Elfo Silvestre",
+        "summary": "Elfos das florestas: mais rápidos e com magias da natureza.",
+        "traits": [
+          {
+            "id": "wood-elf-magic",
+            "name": "Magia dos Elfos Silvestres",
+            "text": "Nível 1: seu Deslocamento aumenta para 10,5 metros, e você conhece o truque Arte Druídica.\nNível 3: Passos Largos.\nNível 5: Passos sem Pegadas.",
+            "effects": [
+              {
+                "type": "deslocamento-base",
+                "value": 35
+              },
+              {
+                "type": "magia",
+                "spell": "druidcraft",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "longstrider",
+                "level": 3,
+                "freeCast": true
+              },
+              {
+                "type": "magia",
+                "spell": "pass-without-trace",
+                "level": 5,
+                "freeCast": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "beginner": {
+      "rating": "medio",
+      "note": "Os traços são simples, mas as magias da linhagem pedem um pouco de atenção."
+    }
+  },
+  {
+    "id": "gnome",
+    "name": "Gnomo",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Pequeno, curioso e esperto, com mente difícil de enganar por magia.",
+    "description": "Gnomos são pequenos, inventivos e cheios de curiosidade. Sua mente afiada resiste a magias que mexem com os pensamentos. Gnomos da floresta falam com animais; gnomos das rochas constroem pequenos mecanismos.",
+    "creatureType": "Humanoide",
+    "sizes": ["Pequeno"],
+    "sizeNote": "Cerca de 0,9 a 1,2 metro de altura.",
+    "speed": 30,
+    "lineageLabel": "Linhagem gnômica",
+    "lineageSpellAbilities": ["int", "sab", "car"],
+    "traits": [
+      {
+        "id": "darkvision",
+        "name": "Visão no Escuro",
+        "text": "Você tem Visão no Escuro com alcance de 18 metros.",
+        "plain": "Você enxerga no escuro (em tons de cinza) até 18 metros.",
+        "effects": [
+          {
+            "type": "visao-no-escuro",
+            "range": 60
+          }
+        ]
+      },
+      {
+        "id": "gnomish-cunning",
+        "name": "Astúcia Gnômica",
+        "text": "Você tem Vantagem em salvaguardas de Inteligência, Sabedoria e Carisma.",
+        "plain": "Você resiste melhor a magias que atacam a mente."
+      },
+      {
+        "id": "gnomish-lineage",
+        "name": "Linhagem Gnômica",
+        "text": "Você faz parte de uma linhagem que concede habilidades sobrenaturais. Escolha uma das opções; qualquer que seja, Inteligência, Sabedoria ou Carisma é o seu atributo de conjuração para as magias deste traço (escolha ao selecionar a linhagem).",
+        "plain": "Escolha entre gnomo da floresta (ilusões e falar com animais) e gnomo das rochas (pequenas engenhocas)."
+      }
+    ],
+    "lineages": [
+      {
+        "id": "gnomish-lineage-forest-gnome",
+        "name": "Gnomo da Floresta",
+        "summary": "Ilusões simples e conversa com animais.",
+        "traits": [
+          {
+            "id": "forest-gnome-magic",
+            "name": "Magia dos Gnomos da Floresta",
+            "text": "Você conhece o truque Ilusão Menor. Também tem sempre preparada a magia Falar com Animais. Pode lançá-la sem espaço de magia um número de vezes igual ao seu Bônus de Proficiência e recupera todos os usos ao terminar um Descanso Longo. Também pode usar seus espaços de magia para lançá-la.",
+            "uses": {
+              "max": {
+                "kind": "proficiencia"
+              },
+              "recharge": "descanso-longo"
+            },
+            "effects": [
+              {
+                "type": "magia",
+                "spell": "minor-illusion",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "speak-with-animals",
+                "level": 1,
+                "freeCast": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gnomish-lineage-rock-gnome",
+        "name": "Gnomo das Rochas",
+        "summary": "Truques de conserto e pequenos mecanismos de corda.",
+        "traits": [
+          {
+            "id": "rock-gnome-magic",
+            "name": "Engenhocas dos Gnomos das Rochas",
+            "text": "Você conhece os truques Consertar e Prestidigitação. Além disso, pode gastar 10 minutos lançando Prestidigitação para criar um mecanismo de corda Minúsculo (CA 5, 1 PV), como um brinquedo, um acendedor ou uma caixinha de música. Ao criá-lo, você escolhe um efeito de Prestidigitação; o mecanismo produz esse efeito sempre que você ou outra criatura usa uma Ação Bônus para ativá-lo com um toque. Se o efeito tiver opções, você escolhe uma delas ao criar o mecanismo (por exemplo, acender ou apagar fogo, não os dois).\nVocê pode ter até três mecanismos ao mesmo tempo. Cada um se desmonta 8 horas depois de criado ou quando você o desmonta com um toque, usando a ação Usar.",
+            "effects": [
+              {
+                "type": "magia",
+                "spell": "mending",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "prestidigitation",
+                "level": 1,
+                "freeCast": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "beginner": {
+      "rating": "medio",
+      "note": "Traços simples, mas os truques da linhagem funcionam melhor com criatividade."
+    }
+  },
+  {
+    "id": "goliath",
+    "name": "Golias",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Gigante entre as pessoas, com um dom herdado dos grandes gigantes.",
+    "description": "Golias descendem de gigantes. São altos, fortes e rápidos, e cada um carrega um dom de um tipo de gigante: das nuvens, do fogo, do gelo, das colinas, da pedra ou da tempestade. A partir do nível 5, conseguem crescer até o tamanho Grande.",
+    "creatureType": "Humanoide",
+    "sizes": ["Médio"],
+    "sizeNote": "Cerca de 2,1 a 2,4 metros de altura.",
+    "speed": 35,
+    "lineageLabel": "Ancestralidade gigante",
+    "traits": [
+      {
+        "id": "giant-ancestry",
+        "name": "Ancestralidade Gigante",
+        "text": "Você descende de Gigantes. Escolha um dos dons sobrenaturais da sua ancestralidade. Você pode usá-lo um número de vezes igual ao seu Bônus de Proficiência e recupera todos os usos ao terminar um Descanso Longo.",
+        "plain": "Escolha um dom de gigante; dá para usar algumas vezes por dia.",
+        "uses": {
+          "max": {
+            "kind": "proficiencia"
+          },
+          "recharge": "descanso-longo"
+        }
+      },
+      {
+        "id": "large-form",
+        "name": "Forma Grande",
+        "level": 5,
+        "action": "acao-bonus",
+        "text": "A partir do nível de personagem 5, você pode mudar seu tamanho para Grande como Ação Bônus, se estiver num espaço grande o suficiente. A transformação dura 10 minutos ou até você encerrá-la (sem gastar ação). Nesse tempo, você tem Vantagem em testes de Força, e seu Deslocamento aumenta em 3 metros. Depois de usar este traço, você só pode usá-lo de novo após terminar um Descanso Longo.",
+        "plain": "A partir do nível 5, você pode virar Grande por 10 minutos, uma vez por dia.",
+        "uses": {
+          "max": 1,
+          "recharge": "descanso-longo"
+        }
+      },
+      {
+        "id": "powerful-build",
+        "name": "Constituição Poderosa",
+        "text": "Você tem Vantagem em qualquer teste de atributo para encerrar a condição Agarrado. Você também conta como um tamanho maior para calcular sua capacidade de carga.",
+        "plain": "Você carrega mais peso e se solta com mais facilidade quando é agarrado.",
+        "effects": [
+          {
+            "type": "carga-tamanho-maior"
+          }
+        ]
+      }
+    ],
+    "lineages": [
+      {
+        "id": "giant-ancestry-clouds-jaunt",
+        "name": "Salto das Nuvens (Gigante das Nuvens)",
+        "summary": "Teleporte curto como Ação Bônus.",
+        "traits": [
+          {
+            "id": "clouds-jaunt",
+            "name": "Salto das Nuvens",
+            "action": "acao-bonus",
+            "text": "Como Ação Bônus, você se teleporta magicamente até 9 metros para um espaço desocupado que consiga ver."
+          }
+        ]
+      },
+      {
+        "id": "giant-ancestry-fires-burn",
+        "name": "Queimadura do Fogo (Gigante do Fogo)",
+        "summary": "1d10 de dano de Fogo extra num ataque.",
+        "traits": [
+          {
+            "id": "fires-burn",
+            "name": "Queimadura do Fogo",
+            "text": "Quando você acerta um alvo com uma jogada de ataque e causa dano a ele, pode causar também 1d10 de dano de Fogo a esse alvo."
+          }
+        ]
+      },
+      {
+        "id": "giant-ancestry-frosts-chill",
+        "name": "Arrepio do Gelo (Gigante do Gelo)",
+        "summary": "Dano de Frio extra e deixa o alvo mais lento.",
+        "traits": [
+          {
+            "id": "frosts-chill",
+            "name": "Arrepio do Gelo",
+            "text": "Quando você acerta um alvo com uma jogada de ataque e causa dano a ele, pode causar também 1d6 de dano de Frio a esse alvo e reduzir o Deslocamento dele em 3 metros até o início do seu próximo turno."
+          }
+        ]
+      },
+      {
+        "id": "giant-ancestry-hills-tumble",
+        "name": "Tombo das Colinas (Gigante das Colinas)",
+        "summary": "Derruba o alvo que você acertar.",
+        "traits": [
+          {
+            "id": "hills-tumble",
+            "name": "Tombo das Colinas",
+            "text": "Quando você acerta uma criatura Grande ou menor com uma jogada de ataque e causa dano a ela, pode deixá-la Caída."
+          }
+        ]
+      },
+      {
+        "id": "giant-ancestry-stones-endurance",
+        "name": "Resistência da Pedra (Gigante da Pedra)",
+        "summary": "Reduz o dano que você sofre.",
+        "traits": [
+          {
+            "id": "stones-endurance",
+            "name": "Resistência da Pedra",
+            "action": "reacao",
+            "text": "Quando você sofre dano, pode usar uma Reação para rolar 1d12. Some seu modificador de Constituição ao resultado e reduza o dano nesse total."
+          }
+        ]
+      },
+      {
+        "id": "giant-ancestry-storms-thunder",
+        "name": "Trovão da Tempestade (Gigante da Tempestade)",
+        "summary": "Devolve dano Trovejante a quem te atacar.",
+        "traits": [
+          {
+            "id": "storms-thunder",
+            "name": "Trovão da Tempestade",
+            "action": "reacao",
+            "text": "Quando você sofre dano de uma criatura a até 18 metros, pode usar uma Reação para causar 1d8 de dano Trovejante a ela."
+          }
+        ]
+      }
+    ],
+    "beginner": {
+      "rating": "facil",
+      "note": "Rápido, forte e com um dom fácil de usar. Combina muito bem com classes de combate."
+    }
+  },
+  {
+    "id": "halfling",
+    "name": "Halfling",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Pequeno, corajoso e sortudo: pode rolar de novo um 1 no d20.",
+    "description": "Halflings são pequenos, simpáticos e surpreendentemente corajosos. A sorte parece acompanhá-los, e eles têm talento para passar despercebidos, escondendo-se atrás de criaturas maiores.",
+    "creatureType": "Humanoide",
+    "sizes": ["Pequeno"],
+    "sizeNote": "Cerca de 0,6 a 0,9 metro de altura.",
+    "speed": 30,
+    "traits": [
+      {
+        "id": "brave",
+        "name": "Bravura",
+        "text": "Você tem Vantagem em salvaguardas para evitar ou encerrar a condição Amedrontado.",
+        "plain": "É difícil te amedrontar."
+      },
+      {
+        "id": "halfling-nimbleness",
+        "name": "Agilidade Halfling",
+        "text": "Você pode passar pelo espaço de qualquer criatura pelo menos um tamanho maior que você, mas não pode parar no mesmo espaço.",
+        "plain": "Você passa por entre as pernas de criaturas maiores."
+      },
+      {
+        "id": "luck",
+        "name": "Sortudo",
+        "text": "Quando você tira 1 no d20 de um Teste de d20, pode rolar o dado de novo, e precisa usar o novo resultado.",
+        "plain": "Tirou 1 no d20? Role de novo."
+      },
+      {
+        "id": "naturally-stealthy",
+        "name": "Furtividade Natural",
+        "text": "Você pode realizar a ação Esconder mesmo quando estiver encoberto só por uma criatura pelo menos um tamanho maior que você.",
+        "plain": "Você consegue se esconder atrás de um aliado maior."
+      }
+    ],
+    "lineages": [],
+    "beginner": {
+      "rating": "facil",
+      "note": "Tudo funciona sozinho. A sorte salva muitas rolagens ruins."
+    }
+  },
+  {
+    "id": "human",
+    "name": "Humano",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Versátil e cheio de recursos: uma perícia e um talento a mais.",
+    "description": "Humanos são a espécie mais comum e variada. O que lhes falta em dons sobrenaturais sobra em adaptação: ganham uma perícia extra, um talento de origem e Inspiração Heroica a cada Descanso Longo.",
+    "creatureType": "Humanoide",
+    "sizes": ["Médio", "Pequeno"],
+    "sizeNote": "Médio (cerca de 1,2 a 2,1 metros) ou Pequeno (cerca de 0,6 a 1,2 metro), à sua escolha.",
+    "speed": 30,
+    "traits": [
+      {
+        "id": "resourceful",
+        "name": "Cheio de Recursos",
+        "text": "Você ganha Inspiração Heroica sempre que termina um Descanso Longo.",
+        "plain": "Todo dia você pode rolar de novo um dado importante."
+      },
+      {
+        "id": "skillful",
+        "name": "Habilidoso",
+        "text": "Você ganha proficiência em uma perícia à sua escolha.",
+        "plain": "Escolha uma perícia qualquer.",
+        "choices": [
+          {
+            "id": "skillful",
+            "kind": "pericia",
+            "label": "Habilidoso: escolha 1 perícia",
+            "count": 1,
+            "from": "qualquer"
+          }
+        ]
+      },
+      {
+        "id": "versatile",
+        "name": "Versátil",
+        "text": "Você ganha um talento de Origem à sua escolha. Habilidoso é o recomendado.",
+        "plain": "Escolha um talento de origem extra.",
+        "choices": [
+          {
+            "id": "versatile",
+            "kind": "talento",
+            "label": "Versátil: escolha 1 talento de origem",
+            "count": 1,
+            "featCategory": "origem"
+          }
+        ]
+      }
+    ],
+    "lineages": [],
+    "beginner": {
+      "rating": "facil",
+      "note": "Sem traços complicados: só escolhas extras que deixam o personagem mais competente."
+    }
+  },
+  {
+    "id": "orc",
+    "name": "Orc",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Resistente e incansável: corre como Ação Bônus e se recusa a cair.",
+    "description": "Orcs são fortes, determinados e cheios de energia. Enxergam longe no escuro, conseguem correr em disparada num piscar de olhos e, uma vez por dia, ficam de pé quando deveriam cair.",
+    "creatureType": "Humanoide",
+    "sizes": ["Médio"],
+    "sizeNote": "Cerca de 1,8 a 2,1 metros de altura.",
+    "speed": 30,
+    "traits": [
+      {
+        "id": "adrenaline-rush",
+        "name": "Descarga de Adrenalina",
+        "action": "acao-bonus",
+        "text": "Você pode realizar a ação Disparada como Ação Bônus. Quando faz isso, ganha Pontos de Vida Temporários iguais ao seu Bônus de Proficiência.\nVocê pode usar este traço um número de vezes igual ao seu Bônus de Proficiência e recupera todos os usos ao terminar um Descanso Curto ou Longo.",
+        "plain": "Algumas vezes por descanso, você corre o dobro com a Ação Bônus e ainda ganha um pouco de vida temporária.",
+        "uses": {
+          "max": {
+            "kind": "proficiencia"
+          },
+          "recharge": "descanso-curto"
+        }
+      },
+      {
+        "id": "darkvision",
+        "name": "Visão no Escuro",
+        "text": "Você tem Visão no Escuro com alcance de 36 metros.",
+        "plain": "Você enxerga no escuro (em tons de cinza) até 36 metros.",
+        "effects": [
+          {
+            "type": "visao-no-escuro",
+            "range": 120
+          }
+        ]
+      },
+      {
+        "id": "relentless-endurance",
+        "name": "Resistência Implacável",
+        "text": "Quando você cai a 0 Pontos de Vida mas não morre na hora, pode ficar com 1 Ponto de Vida em vez disso. Depois de usar este traço, você só pode usá-lo de novo após terminar um Descanso Longo.",
+        "plain": "Uma vez por dia, quando cairia, você fica de pé com 1 PV.",
+        "uses": {
+          "max": 1,
+          "recharge": "descanso-longo"
+        }
+      }
+    ],
+    "lineages": [],
+    "beginner": {
+      "rating": "facil",
+      "note": "Traços diretos e muito úteis para quem luta na linha de frente."
+    }
+  },
+  {
+    "id": "tiefling",
+    "name": "Tiefling",
+    "source": {
+      "kind": "srd",
+      "ref": "SRD 5.2"
+    },
+    "summary": "Com herança de outros planos, resiste a um elemento e conhece magias ínferas.",
+    "description": "Tieflings carregam no sangue a marca dos Planos Inferiores: chifres, cauda, olhos incomuns. Cada legado, abissal, ctônico ou infernal, traz uma resistência e magias que crescem com o personagem.",
+    "creatureType": "Humanoide",
+    "sizes": ["Médio", "Pequeno"],
+    "sizeNote": "Médio (cerca de 1,2 a 2,1 metros) ou Pequeno (cerca de 0,9 a 1,2 metro), à sua escolha.",
+    "speed": 30,
+    "lineageLabel": "Legado ínfero",
+    "lineageSpellAbilities": ["int", "sab", "car"],
+    "traits": [
+      {
+        "id": "darkvision",
+        "name": "Visão no Escuro",
+        "text": "Você tem Visão no Escuro com alcance de 18 metros.",
+        "plain": "Você enxerga no escuro (em tons de cinza) até 18 metros.",
+        "effects": [
+          {
+            "type": "visao-no-escuro",
+            "range": 60
+          }
+        ]
+      },
+      {
+        "id": "fiendish-legacy",
+        "name": "Legado Ínfero",
+        "text": "Você recebeu um legado que concede habilidades sobrenaturais. Escolha um legado e receba o benefício de nível 1 dele.\nNos níveis de personagem 3 e 5, você aprende uma magia de círculo maior, como mostra o legado. Você sempre tem essa magia preparada. Pode lançá-la uma vez sem gastar espaço de magia e recupera esse uso ao terminar um Descanso Longo. Também pode lançá-la usando qualquer espaço de magia do círculo adequado que tiver.\nInteligência, Sabedoria ou Carisma é o seu atributo de conjuração para as magias deste traço (escolha ao selecionar o legado).",
+        "plain": "Seu legado te dá uma resistência e um truque agora, e mais duas magias nos níveis 3 e 5."
+      },
+      {
+        "id": "otherworldly-presence",
+        "name": "Presença de Outro Mundo",
+        "text": "Você conhece o truque Taumaturgia. Quando o lança com este traço, a magia usa o mesmo atributo de conjuração do seu Legado Ínfero.",
+        "plain": "Você sabe o truque Taumaturgia: pequenos efeitos assustadores, como fazer a voz trovejar.",
+        "effects": [
+          {
+            "type": "magia",
+            "spell": "thaumaturgy",
+            "level": 1,
+            "freeCast": false
+          }
+        ]
+      }
+    ],
+    "lineages": [
+      {
+        "id": "fiendish-legacy-abyssal",
+        "name": "Abissal",
+        "summary": "Resistência a Veneno e magias de doença e paralisia.",
+        "traits": [
+          {
+            "id": "abyssal-legacy",
+            "name": "Legado Abissal",
+            "text": "Nível 1: você tem Resistência a dano de Veneno e conhece o truque Borrifo Venenoso.\nNível 3: Raio Nauseante.\nNível 5: Imobilizar Pessoa.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "veneno"
+              },
+              {
+                "type": "magia",
+                "spell": "poison-spray",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "ray-of-sickness",
+                "level": 3,
+                "freeCast": true
+              },
+              {
+                "type": "magia",
+                "spell": "hold-person",
+                "level": 5,
+                "freeCast": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fiendish-legacy-chthonic",
+        "name": "Ctônico",
+        "summary": "Resistência a dano Necrótico e magias de morte e fraqueza.",
+        "traits": [
+          {
+            "id": "chthonic-legacy",
+            "name": "Legado Ctônico",
+            "text": "Nível 1: você tem Resistência a dano Necrótico e conhece o truque Toque Arrepiante.\nNível 3: Vitalidade Falsa.\nNível 5: Raio do Enfraquecimento.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "necrotico"
+              },
+              {
+                "type": "magia",
+                "spell": "chill-touch",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "false-life",
+                "level": 3,
+                "freeCast": true
+              },
+              {
+                "type": "magia",
+                "spell": "ray-of-enfeeblement",
+                "level": 5,
+                "freeCast": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fiendish-legacy-infernal",
+        "name": "Infernal",
+        "summary": "Resistência a Fogo e magias de fogo e escuridão.",
+        "traits": [
+          {
+            "id": "infernal-legacy",
+            "name": "Legado Infernal",
+            "text": "Nível 1: você tem Resistência a dano de Fogo e conhece o truque Raio de Fogo.\nNível 3: Repreensão Infernal.\nNível 5: Escuridão.",
+            "effects": [
+              {
+                "type": "resistencia",
+                "damage": "fogo"
+              },
+              {
+                "type": "magia",
+                "spell": "fire-bolt",
+                "level": 1,
+                "freeCast": false
+              },
+              {
+                "type": "magia",
+                "spell": "hellish-rebuke",
+                "level": 3,
+                "freeCast": true
+              },
+              {
+                "type": "magia",
+                "spell": "darkness",
+                "level": 5,
+                "freeCast": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "beginner": {
+      "rating": "medio",
+      "note": "A resistência é automática; as magias do legado pedem um pouco de atenção."
+    }
+  }
+]

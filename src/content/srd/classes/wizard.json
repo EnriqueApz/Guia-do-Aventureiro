@@ -1,0 +1,188 @@
+{
+  "id": "wizard",
+  "name": "Mago",
+  "source": {
+    "kind": "srd",
+    "ref": "SRD 5.2"
+  },
+  "summary": "Estudioso da magia arcana, com um grimório cheio das magias mais variadas.",
+  "description": "Magos dominam a magia pelo estudo. Guardam num grimório magias para quase toda situação: ataques de fogo e gelo, proteções, ilusões, voo, teleporte. São frágeis no corpo a corpo, mas o conhecimento é a sua arma.",
+  "roles": ["conjurador"],
+  "beginner": {
+    "rating": "avancado",
+    "note": "Pouca vida e muitas magias para escolher. Recompensa quem gosta de planejar."
+  },
+  "primaryAbilities": ["int"],
+  "primaryMode": "e",
+  "recommendedScores": {
+    "int": 15,
+    "con": 14,
+    "des": 13,
+    "sab": 12,
+    "car": 10,
+    "for": 8
+  },
+  "recommendedWhy": "Inteligência move suas magias; Constituição e Destreza compensam a vida baixa e a falta de armadura.",
+  "hitDie": 6,
+  "saves": ["int", "sab"],
+  "armor": [],
+  "weapons": ["simples"],
+  "tools": [],
+  "skillChoice": {
+    "count": 2,
+    "from": ["arcanismo", "historia", "intuicao", "investigacao", "medicina", "religiao"]
+  },
+  "startingEquipment": [
+    {
+      "id": "a",
+      "items": [
+        {
+          "id": "dagger",
+          "qty": 2
+        },
+        {
+          "id": "quarterstaff",
+          "qty": 1
+        },
+        {
+          "id": "robe",
+          "qty": 1
+        },
+        {
+          "id": "spellbook",
+          "qty": 1
+        },
+        {
+          "id": "scholars-pack",
+          "qty": 1
+        }
+      ],
+      "gold": 5,
+      "note": "O bordão serve como foco arcano."
+    },
+    {
+      "id": "b",
+      "items": [],
+      "gold": 55
+    }
+  ],
+  "spellcasting": {
+    "ability": "int",
+    "progression": "completa",
+    "cantrips": [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    "prepared": [4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22],
+    "slots": [
+      [2, 0, 0, 0, 0, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [4, 2, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 0, 0, 0, 0, 0, 0, 0],
+      [4, 3, 2, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 0, 0, 0, 0, 0, 0],
+      [4, 3, 3, 1, 0, 0, 0, 0, 0],
+      [4, 3, 3, 2, 0, 0, 0, 0, 0],
+      [4, 3, 3, 3, 1, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 0, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 0, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 0, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 0],
+      [4, 3, 3, 3, 2, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 1, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 1, 1, 1],
+      [4, 3, 3, 3, 3, 2, 2, 1, 1]
+    ],
+    "ritual": true,
+    "focus": "Foco Arcano ou grimório",
+    "swap": "descanso-longo",
+    "explainer": "Magias são como cargas: você tem espaços de magia que gasta para lançá-las e que voltam depois de um Descanso Longo. Truques você lança à vontade. Seu grimório guarda todas as magias que você aprendeu; a cada dia, você prepara algumas delas para usar. Sua magia usa Inteligência."
+  },
+  "columns": [],
+  "features": [
+    {
+      "id": "wizard-spellcasting",
+      "level": 1,
+      "name": "Conjuração",
+      "text": "Como estudante de magia arcana, você aprendeu a lançar magias.\n**Truques.** Você conhece três truques de Mago; Luz, Mão Mágica e Raio de Gelo são os recomendados. Ao terminar um Descanso Longo, pode trocar um truque por outro. Nos níveis 4 e 10, aprende mais um, como mostra a coluna Truques.\n**Grimório.** Seu aprendizado resultou num livro único: seu grimório, um objeto Minúsculo de 1,5 kg e 100 páginas, que só você (ou alguém usando Identificação) consegue ler. Ele guarda as magias de 1º círculo ou mais que você conhece e começa com seis magias de 1º círculo de Mago à sua escolha; Detectar Magia, Queda Suave, Armadura Arcana, Mísseis Mágicos, Sono e Onda Trovejante são as recomendadas. Sempre que ganhar um nível de Mago depois do 1, adicione duas magias de Mago ao grimório, de círculos para os quais tenha espaços.\n**Espaços de Magia.** A tabela do Mago mostra quantos espaços você tem para magias de 1º círculo ou mais. Você recupera todos ao terminar um Descanso Longo.\n**Magias Preparadas.** Escolha quatro magias do seu grimório para preparar, de círculos para os quais tenha espaços. O número cresce com seu nível, como mostra a coluna Magias Preparadas. Magias sempre preparadas por outra característica não contam nesse limite.\n**Trocar Magias Preparadas.** Ao terminar um Descanso Longo, você pode mudar sua lista de magias preparadas, escolhendo outras do grimório.\n**Atributo de Conjuração.** Inteligência.\n**Foco de Conjuração.** Você pode usar um Foco Arcano ou o grimório.",
+      "plain": "Você lança magias com Inteligência. Seu grimório guarda as magias; a cada dia, você prepara algumas."
+    },
+    {
+      "id": "wizard-ritual-adept",
+      "level": 1,
+      "name": "Adepto de Rituais",
+      "text": "Você pode lançar como Ritual qualquer magia que tenha a marca Ritual e esteja no seu grimório. Não precisa tê-la preparada, mas precisa ler o livro para lançá-la assim.",
+      "plain": "Magias de ritual do grimório podem ser lançadas sem prepará-las e sem gastar espaço (demoram mais)."
+    },
+    {
+      "id": "wizard-arcane-recovery",
+      "level": 1,
+      "name": "Recuperação Arcana",
+      "text": "Você recupera parte da sua energia mágica estudando o grimório. Ao terminar um Descanso Curto, pode escolher espaços de magia gastos para recuperar. A soma dos círculos não pode passar da metade do seu nível de Mago (arredondada para cima), e nenhum espaço pode ser de 6º círculo ou mais.\nPor exemplo, um Mago de nível 4 recupera até dois círculos: um espaço de 2º círculo ou dois de 1º.\nDepois de usar esta característica, só pode usá-la de novo após terminar um Descanso Longo.",
+      "plain": "Uma vez por dia, num Descanso Curto, recupere alguns espaços de magia.",
+      "uses": {
+        "max": 1,
+        "recharge": "descanso-longo"
+      }
+    },
+    {
+      "id": "wizard-scholar",
+      "level": 2,
+      "name": "Erudito",
+      "text": "Enquanto estudava magia, você também se especializou em outro campo. Escolha uma destas perícias em que tenha proficiência: Arcanismo, História, Investigação, Medicina, Natureza ou Religião. Você tem Especialização nela.",
+      "choices": [
+        {
+          "id": "scholar",
+          "kind": "especializacao",
+          "label": "Erudito: 1 perícia",
+          "count": 1,
+          "from": ["arcanismo", "historia", "investigacao", "medicina", "natureza", "religiao"]
+        }
+      ],
+      "plain": "Especialização em uma perícia de conhecimento."
+    },
+    {
+      "id": "wizard-subclass",
+      "level": 3,
+      "name": "Subclasse de Mago",
+      "text": "Você ganha uma subclasse de Mago à sua escolha. A subclasse é uma especialização que concede características em certos níveis de Mago. Pelo resto da sua carreira, você ganha cada característica da subclasse do seu nível de Mago ou menor.",
+      "plain": "No nível 3, você escolhe sua Tradição Arcana."
+    },
+    {
+      "id": "wizard-ability-score-improvement",
+      "level": 4,
+      "name": "Aumento no Valor de Atributo",
+      "text": "Você ganha o talento Aumento no Valor de Atributo ou outro talento para o qual se qualifique. Você ganha esta característica de novo nos níveis de Mago 8, 12 e 16.",
+      "plain": "Nos níveis 4, 8, 12 e 16: melhore atributos ou escolha um talento."
+    },
+    {
+      "id": "wizard-memorize-spell",
+      "level": 5,
+      "name": "Memorizar Magia",
+      "text": "Sempre que terminar um Descanso Curto, você pode estudar o grimório e trocar uma magia de 1º círculo ou mais preparada por outra magia do livro."
+    },
+    {
+      "id": "wizard-spell-mastery",
+      "level": 18,
+      "name": "Maestria em Magia",
+      "text": "Você domina certas magias a ponto de lançá-las à vontade. Escolha uma magia de 1º círculo e uma de 2º círculo do seu grimório com tempo de conjuração de uma ação. Você sempre as tem preparadas e pode lançá-las no círculo mais baixo sem gastar espaço de magia. Para lançá-las num círculo maior, precisa gastar um espaço.\nAo terminar um Descanso Longo, pode estudar o grimório e trocar uma dessas magias por outra do mesmo círculo que atenda às condições."
+    },
+    {
+      "id": "wizard-epic-boon",
+      "level": 19,
+      "name": "Dádiva Épica",
+      "text": "Você ganha um talento de Dádiva Épica ou outro talento para o qual se qualifique. A Dádiva da Recordação de Magia é a recomendada."
+    },
+    {
+      "id": "wizard-signature-spells",
+      "level": 20,
+      "name": "Magias Características",
+      "text": "Escolha duas magias de 3º círculo do seu grimório como suas magias características. Você sempre as tem preparadas e pode lançar cada uma uma vez no 3º círculo sem gastar espaço de magia; depois disso, só pode lançá-las assim de novo após terminar um Descanso Curto ou Longo. Para lançá-las num círculo maior, precisa gastar um espaço."
+    }
+  ],
+  "featLevels": [4, 8, 12, 16],
+  "epicBoonLevel": 19,
+  "subclassLevel": 3,
+  "subclassLabel": "Tradição Arcana",
+  "typicalTurn": "Fique longe da linha de frente. Lance Raio de Gelo (um truque, não gasta nada) no inimigo mais perigoso. Se vários inimigos se juntarem, use um espaço de magia para Onda Trovejante ou Mísseis Mágicos. Se alguém te atacar, a magia Escudo (Reação) pode salvar sua vida."
+}

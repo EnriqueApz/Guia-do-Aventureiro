@@ -1,18 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { newId } from '@/lib/id';
+import { emptyCharacter, type Character } from '@/model/character';
 
-/**
- * Rascunho mínimo de personagem. O modelo completo (escolhas de espécie, classe,
- * atributos etc.) entra na Fase 2; a versão do armazenamento permite migrar depois.
- */
-export interface CharacterDraft {
-  id: string;
-  name: string;
-  level: number;
-  createdAt: string;
-  updatedAt: string;
-}
+/** Personagem salvo (modelo completo em `@/model/character`). */
+export type CharacterDraft = Character;
 
 export interface CharactersState {
   characters: Record<string, CharacterDraft>;
@@ -24,7 +16,7 @@ export interface CharactersState {
 }
 
 export const CHARACTERS_KEY = 'guia:personagens';
-export const CHARACTERS_VERSION = 1;
+export const CHARACTERS_VERSION = 2;
 
 export const useCharacters = create<CharactersState>()(
   persist(
@@ -32,13 +24,10 @@ export const useCharacters = create<CharactersState>()(
       characters: {},
 
       create: (partial) => {
-        const now = new Date().toISOString();
         const character: CharacterDraft = {
-          id: newId(),
-          name: partial?.name ?? '',
-          level: partial?.level ?? 1,
-          createdAt: now,
-          updatedAt: now,
+          ...emptyCharacter(newId(), new Date().toISOString()),
+          ...(partial?.name !== undefined && { name: partial.name }),
+          ...(partial?.level !== undefined && { level: partial.level }),
         };
         set((s) => ({ characters: { ...s.characters, [character.id]: character } }));
         return character;
@@ -84,11 +73,41 @@ export const useCharacters = create<CharactersState>()(
       restore: (character) =>
         set((s) => ({ characters: { ...s.characters, [character.id]: character } })),
     }),
-    { name: CHARACTERS_KEY, version: CHARACTERS_VERSION },
+    { name: CHARACTERS_KEY, version: CHARACTERS_VERSION, migrate: migrateCharacters },
   ),
 );
 
 /** Personagens ordenados do mais recente para o mais antigo. */
 export function sortByRecent(characters: Record<string, CharacterDraft>): CharacterDraft[] {
   return Object.values(characters).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+}
+
+interface V1Draft {
+  id: string;
+  name: string;
+  level: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+/** Migra dados salvos por versões antigas do site. */
+export function migrateCharacters(
+  persisted: unknown,
+  version: number,
+): Pick<CharactersState, 'characters'> {
+  const state = (persisted ?? {}) as { characters?: Record<string, unknown> };
+  const characters = state.characters ?? {};
+  if (version < 2) {
+    const migrated: Record<string, Character> = {};
+    for (const raw of Object.values(characters) as V1Draft[]) {
+      migrated[raw.id] = {
+        ...emptyCharacter(raw.id, raw.createdAt),
+        name: raw.name,
+        level: raw.level,
+        updatedAt: raw.updatedAt,
+      };
+    }
+    return { characters: migrated };
+  }
+  return { characters: characters as Record<string, Character> };
 }
