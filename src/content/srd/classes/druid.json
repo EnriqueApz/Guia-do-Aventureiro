@@ -282,5 +282,15 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Círculo Druídico",
-  "typicalTurn": "Lance Fogo das Fadas sobre os inimigos para que os aliados os acertem com Vantagem, ou Onda Trovejante se estiverem cercando você. Em outra situação, use a Ação Bônus para virar um lobo e lutar ao lado do grupo, ou para explorar como um rato."
+  "typicalTurn": "Lance Fogo das Fadas sobre os inimigos para que os aliados os acertem com Vantagem, ou Onda Trovejante se estiverem cercando você. Em outra situação, use a Ação Bônus para virar um lobo e lutar ao lado do grupo, ou para explorar como um rato.",
+  "beginnerKit": {
+    "skills": ["percepcao", "medicina"],
+    "equipment": "a",
+    "cantrips": ["produce-flame", "guidance"],
+    "spells": ["healing-word", "faerie-fire", "thunderwave", "entangle"],
+    "choices": {
+      "classe:druid-primal-order:primal-order": ["warden"]
+    },
+    "why": "Guardião dá armadura média e armas marciais para você não ficar frágil. Constrição e Fogo das Fadas controlam o combate e Palavra Curativa salva aliados."
+  }
 }

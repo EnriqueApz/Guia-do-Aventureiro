@@ -24,6 +24,7 @@ import languages from './srd/languages.json';
 import masteries from './srd/masteries.json';
 import skills from './srd/skills.json';
 import species from './srd/species.json';
+import spells from './srd/spells.json';
 import subclasses from './srd/subclasses.json';
 import weaponProperties from './srd/weapon-properties.json';
 import glossary from './glossary.json';
@@ -61,6 +62,7 @@ export const rawContent = {
   backgrounds,
   feats,
   items,
+  spells,
   glossary,
   stubs,
 };

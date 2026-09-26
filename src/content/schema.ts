@@ -305,6 +305,17 @@ export const ClassDef = z.object({
   subclassLevel: z.literal(3),
   subclassLabel: z.string(),
   typicalTurn: z.string(),
+  /** Kit "recomendado para iniciantes": aplicado com um toque no assistente. */
+  beginnerKit: z
+    .object({
+      skills: z.array(SkillId),
+      equipment: z.enum(['a', 'b', 'c']),
+      cantrips: z.array(Id).optional(),
+      spells: z.array(Id).optional(),
+      choices: z.record(z.string(), z.array(z.string())).optional(),
+      why: z.string(),
+    })
+    .optional(),
 });
 export type ClassDef = z.infer<typeof ClassDef>;
 
@@ -458,6 +469,46 @@ export const Item = z.object({
 });
 export type Item = z.infer<typeof Item>;
 
+// ---------------------------------------------------------------- Magias
+
+export const SCHOOLS = [
+  'abjuracao',
+  'adivinhacao',
+  'conjuracao',
+  'encantamento',
+  'evocacao',
+  'ilusao',
+  'necromancia',
+  'transmutacao',
+] as const;
+export const School = z.enum(SCHOOLS);
+export type School = z.infer<typeof School>;
+
+export const Spell = z.object({
+  id: Id,
+  name: z.string(),
+  source: Source,
+  level: z.number().int().min(0).max(9),
+  school: School,
+  classes: z.array(Id),
+  castingTime: z.string(),
+  range: z.string(),
+  components: z.object({ v: z.boolean(), s: z.boolean(), m: z.string().optional() }),
+  duration: z.string(),
+  concentration: z.boolean(),
+  ritual: z.boolean(),
+  attack: z.enum(['corpo-a-corpo', 'distancia']).optional(),
+  save: Ability.optional(),
+  damageType: DamageType.optional(),
+  text: z.string(),
+  higherLevels: z.string().optional(),
+  /** "Na prática": uma frase simples para iniciantes. */
+  plain: z.string().optional(),
+  /** Fácil de usar para quem está começando. */
+  beginner: z.boolean().optional(),
+});
+export type Spell = z.infer<typeof Spell>;
+
 export const RuleText = z.object({ id: Id, name: z.string(), text: z.string(), plain: z.string() });
 export type RuleText = z.infer<typeof RuleText>;
 
@@ -521,6 +572,7 @@ export const ContentBundle = z.object({
   backgrounds: z.array(Background),
   feats: z.array(Feat),
   items: z.array(Item),
+  spells: z.array(Spell),
   glossary: z.array(GlossaryEntry),
   stubs: z.array(Stub),
 });

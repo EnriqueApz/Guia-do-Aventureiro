@@ -198,5 +198,12 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Patrono Transcendental",
-  "typicalTurn": "Lance Rajada Mística (um truque, não gasta nada) no inimigo, quase todo turno. No começo da luta, use a Ação Bônus para lançar Bruxaria num alvo e causar dano extra nele. Guarde seus poucos espaços para momentos importantes: eles voltam no Descanso Curto."
+  "typicalTurn": "Lance Rajada Mística (um truque, não gasta nada) no inimigo, quase todo turno. No começo da luta, use a Ação Bônus para lançar Bruxaria num alvo e causar dano extra nele. Guarde seus poucos espaços para momentos importantes: eles voltam no Descanso Curto.",
+  "beginnerKit": {
+    "skills": ["enganacao", "arcanismo"],
+    "equipment": "a",
+    "cantrips": ["eldritch-blast", "prestidigitation"],
+    "spells": ["hex", "charm-person"],
+    "why": "Rajada Mística é o melhor truque de ataque do jogo, e Bruxaria soma dano a cada acerto. Os espaços de magia voltam no Descanso Curto."
+  }
 }

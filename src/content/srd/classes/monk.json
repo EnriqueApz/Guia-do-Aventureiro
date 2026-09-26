@@ -338,5 +338,13 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Tradição Monástica",
-  "typicalTurn": "Corra até o inimigo (você é rápido). Use a ação Atacar com os punhos ou a lança, e depois a Ação Bônus para mais um soco. Se quiser, gaste 1 Ponto de Foco na Rajada de Golpes para dar dois socos em vez de um."
+  "typicalTurn": "Corra até o inimigo (você é rápido). Use a ação Atacar com os punhos ou a lança, e depois a Ação Bônus para mais um soco. Se quiser, gaste 1 Ponto de Foco na Rajada de Golpes para dar dois socos em vez de um.",
+  "beginnerKit": {
+    "skills": ["acrobacia", "furtividade"],
+    "equipment": "a",
+    "choices": {
+      "classe:ferramentas": ["flute"]
+    },
+    "why": "Acrobacia e Furtividade combinam com a Destreza alta do monge; a lança e as adagas servem de armas de monge desde o primeiro nível."
+  }
 }

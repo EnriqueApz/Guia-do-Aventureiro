@@ -278,5 +278,14 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Arquétipo Marcial",
-  "typicalTurn": "Ande até o inimigo e use a ação Atacar com sua espada. Se estiver ferido, use a Ação Bônus para Retomar o Fôlego e recuperar vida. Em um momento decisivo, use o Surto de Ação para ganhar uma ação extra e atacar de novo."
+  "typicalTurn": "Ande até o inimigo e use a ação Atacar com sua espada. Se estiver ferido, use a Ação Bônus para Retomar o Fôlego e recuperar vida. Em um momento decisivo, use o Surto de Ação para ganhar uma ação extra e atacar de novo.",
+  "beginnerKit": {
+    "skills": ["atletismo", "percepcao"],
+    "equipment": "a",
+    "choices": {
+      "classe:fighter-fighting-style:fighting-style": ["defense"],
+      "classe:fighter-weapon-mastery:weapon-mastery": ["greatsword", "flail", "javelin"]
+    },
+    "why": "Cota de malha com o estilo Defesa deixa sua CA alta; a espada grande causa muito dano e as azagaias resolvem inimigos a distância."
+  }
 }

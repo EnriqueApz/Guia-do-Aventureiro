@@ -3,6 +3,40 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-26 · Assistente completo: validação, kit e progressão até o nível 20
+
+**Contexto:** a fase 4 precisa impedir fichas ilegais sem travar quem está
+aprendendo, e funcionar em qualquer nível de 1 a 20.
+**Decisão:** as escolhas (atributos, equipamento, magias, talentos por nível, PV)
+são edições puras em `src/model/edits.ts`; a validação (`validateCharacter`) lista
+o que falta ou está errado por etapa, e os seletores bloqueiam o que passaria do
+limite (contadores "2 de 3"). O array padrão já vem distribuído pela sugestão da
+classe; na rolagem, os totais vão para os atributos mais importantes da classe e o
+jogador troca à vontade. O kit para iniciantes aplica, num toque, perícias sem
+repetir as do antecedente, pacote de equipamento, magias do 1º nível, escolhas de
+classe, idiomas e o talento de origem. Nos níveis de talento aceitamos talentos
+gerais e de origem (e de estilo de luta para quem tem Estilo de Luta; dádivas no
+19), como nas regras de 2024. Um teste monta todas as classes em todos os níveis
+de 1 a 20 e exige zero erros.
+**Consequências:** o conteúdo do SRD (com as magias) passou a ~148 kB gzip num
+pedaço carregado só no assistente; a página inicial não muda. Nomes, alinhamentos
+e ganchos da etapa Detalhes são texto próprio do projeto, sem efeito nas regras.
+
+## 2026-09-26 · Assistente: etapas na URL e ficha sempre visível
+
+**Contexto:** o grupo vai criar personagens no celular, indo e voltando entre as
+etapas sem medo de perder nada.
+**Decisão:** cada etapa tem sua URL (`/criar/:id/:etapa`), então o botão voltar do
+navegador funciona e dá para compartilhar o link de uma etapa. Toda escolha é
+salva na hora; a última etapa aberta fica em `wizardStep` e o link do personagem
+retoma dali. Trocar espécie, classe ou antecedente limpa só as escolhas que
+dependiam deles (`src/model/edits.ts`). A ficha fica numa coluna fixa no desktop e
+numa gaveta no celular, aberta por uma barra inferior com voltar/avançar.
+Nada bloqueia o avanço: cada etapa mostra o que falta, em linguagem simples.
+**Consequências:** o pedaço do assistente pesa ~148 kB gzip (conteúdo do SRD + Motion),
+carregado só ao entrar nele; a página inicial continua em ~128 kB. Se crescer demais
+com as magias (fase 4), dividimos o conteúdo por tipo.
+
 ## 2026-09-26 · Motor de regras: ficha sempre derivada
 
 **Contexto:** a ficha tem dezenas de números que dependem uns dos outros, e o

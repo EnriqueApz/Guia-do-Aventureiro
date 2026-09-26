@@ -396,5 +396,12 @@
     "aliases": ["alignment", "tendência"],
     "short": "Uma bússola moral do personagem: Leal, Neutro ou Caótico, e Bom, Neutro ou Mau. É opcional.",
     "seeAlso": []
+  },
+  {
+    "id": "componentes",
+    "term": "Componentes",
+    "aliases": ["components", "V, S, M"],
+    "short": "O que a magia exige para ser lançada: V (falar em voz alta), S (gestos com uma mão livre) e M (um material; um foco de conjuração substitui o material que não tem custo nem é consumido).",
+    "seeAlso": ["magia"]
   }
 ]

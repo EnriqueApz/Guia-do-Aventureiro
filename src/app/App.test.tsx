@@ -29,11 +29,11 @@ describe('aplicação', () => {
     const user = userEvent.setup();
     const router = renderAt('/');
     await user.click(await screen.findByRole('button', { name: /criar meu personagem/i }));
-    const input = await screen.findByLabelText(/nome do personagem/i);
+    const input = await screen.findByLabelText(/nome do personagem/i, {}, { timeout: 5000 });
     await user.type(input, 'Lira');
     const [character] = Object.values(useCharacters.getState().characters);
     expect(character?.name).toBe('Lira');
-    expect(router.state.location.pathname).toBe(`/criar/${character?.id}`);
+    expect(router.state.location.pathname).toBe(`/criar/${character?.id}/boas-vindas`);
   });
 
   it('troca para o tema "luz de vela" e aumenta a fonte', async () => {

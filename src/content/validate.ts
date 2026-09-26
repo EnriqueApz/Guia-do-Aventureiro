@@ -43,6 +43,7 @@ export function validateContent(
     antecedentes: c.backgrounds,
     talentos: c.feats,
     itens: c.items,
+    magias: c.spells,
     idiomas: c.languages,
     condicoes: c.conditions,
     glossario: c.glossary,
@@ -67,9 +68,9 @@ export function validateContent(
     if (!itemIds.has(id)) errors.push(`${where}: item "${id}" não existe`);
   };
 
+  const spellIds = options.spellIds ?? new Set(c.spells.map((s) => s.id));
   const checkSpell = (where: string, id: string) => {
-    if (!options.spellIds) return;
-    if (!options.spellIds.has(id)) errors.push(`${where}: magia "${id}" não existe`);
+    if (!spellIds.has(id)) errors.push(`${where}: magia "${id}" não existe`);
   };
 
   const checkFormula = (where: string, f: Formula, cls?: ClassDef) => {
@@ -143,6 +144,7 @@ export function validateContent(
   for (const cls of c.classes) {
     const at = `classe ${cls.id}`;
     checkFeatures(at, cls.features, cls, 3);
+    if (cls.beginnerKit) checkKit(at, cls);
     const sorted = Object.values(cls.recommendedScores).sort((a, b) => b - a);
     if (
       Object.keys(cls.recommendedScores).length !== 6 ||
@@ -182,6 +184,43 @@ export function validateContent(
     if (!cls) errors.push(`${at}: classe "${sub.classId}" não existe`);
     checkFeatures(at, sub.features, cls, 3);
     for (const group of sub.alwaysPrepared ?? []) for (const sp of group.spells) checkSpell(at, sp);
+  }
+
+  // ---- magias
+  function checkKit(at: string, cls: ClassDef) {
+    const kit = cls.beginnerKit;
+    if (!kit) return;
+    const w = `${at} › kit para iniciantes`;
+    if (kit.skills.length !== cls.skillChoice.count)
+      errors.push(`${w}: precisa de ${cls.skillChoice.count} perícias`);
+    const from = cls.skillChoice.from;
+    for (const sk of kit.skills)
+      if (from !== 'qualquer' && !from.includes(sk))
+        errors.push(`${w}: perícia "${sk}" fora da lista`);
+    if (!cls.startingEquipment.some((o) => o.id === kit.equipment))
+      errors.push(`${w}: opção de equipamento "${kit.equipment}" não existe`);
+    const sc = cls.spellcasting;
+    const checkList = (ids: string[] | undefined, circle: (n: number) => boolean, max: number) => {
+      if (!ids) return;
+      if (!sc) errors.push(`${w}: classe sem conjuração não pode ter magias no kit`);
+      if (ids.length > max)
+        errors.push(`${w}: magias demais para o 1º nível (${ids.length} de ${max})`);
+      for (const id of ids) {
+        const sp = c.spells.find((x) => x.id === id);
+        if (!sp) errors.push(`${w}: magia "${id}" não existe`);
+        else if (!sp.classes.includes(cls.id) || !circle(sp.level))
+          errors.push(`${w}: magia "${id}" não serve para ${cls.id} no 1º nível`);
+      }
+    };
+    checkList(kit.cantrips, (l) => l === 0, sc?.cantrips[0] ?? 0);
+    checkList(kit.spells, (l) => l === 1, sc?.prepared[0] ?? 0);
+  }
+
+  for (const sp of c.spells) {
+    for (const cls of sp.classes)
+      if (!classIds.has(cls)) errors.push(`magia ${sp.id}: classe "${cls}" não existe`);
+    if (sp.beginner && sp.level > 2)
+      warnings.push(`magia ${sp.id}: marcada para iniciantes, mas é de ${sp.level}º círculo`);
   }
 
   // ---- antecedentes

@@ -13,7 +13,9 @@ src/content/
     abilities.json skills.json languages.json damage-types.json conditions.json
     weapon-properties.json masteries.json items.json
     species.json backgrounds.json feats.json subclasses.json
-    classes/<id>.json  uma classe por arquivo (características, tabelas, magia)
+    spells.json        as 339 magias (mecânica + tradução + "na prática")
+    classes/<id>.json  uma classe por arquivo (características, tabelas, magia,
+                       kit recomendado para iniciantes)
   stubs/stubs.json     opções fora do SRD: só nome e origem
   glossary.json        glossário (termos, sinônimos, "veja também")
 ```
@@ -49,6 +51,22 @@ src/content/
    - Magias do Juramento de Devoção nos níveis 3, 9 e 17 (texto da fonte truncado).
    - Equipamento inicial do Feiticeiro (a fonte trocava a lança por armadura de couro).
    - Símbolo Sagrado genérico trocado pelo Amuleto (as três formas estão nos itens).
+   - Magias com texto ou tabela quebrados na fonte, refeitos a partir do SRD 5.2:
+     Confusão (tabela de comportamento), Controlar a Água (vinha misturada com a
+     tabela de Controlar o Clima), Controlar o Clima (texto e tabelas cortados),
+     Encontrar Montaria e Inseto Gigante (estatísticas), Criação (tabela de
+     materiais), Vidência (tabelas de conhecimento e ligação), Telecinesia (último
+     parágrafo cortado), Palavra Divina (faltava a linha 31–40), Spray Prismático e
+     Muralha Prismática (faltavam camadas), Teletransporte (tabela de resultados).
+4. Magias: a mecânica (círculo, escola, classes, tempo, alcance, componentes,
+   duração, concentração, ritual) vem da fonte; tempo, alcance e duração são
+   traduzidos automaticamente, e o texto é traduzido à mão. `plain` ("na prática")
+   aparece nas magias mais usadas; `beginner` marca as fáceis para iniciantes
+   (só truques e 1º–2º círculos).
+5. O **kit recomendado para iniciantes** (`beginnerKit` em cada classe) é uma
+   sugestão nossa de perícias, pacote de equipamento, magias e escolhas do 1º
+   nível. O `content:check` confere se ele é legal (lista da classe, quantidades,
+   círculos).
 
 ## Validação
 
@@ -59,12 +77,14 @@ npm run content:check
 Verifica esquema, ids únicos, referências entre coleções (itens do equipamento,
 talentos dos antecedentes, classes das subclasses, colunas das tabelas, magias
 citadas), tabelas de magia que não diminuem, sugestão de atributos usando o array
-padrão, glossário sem "veja também" quebrado nem sinônimos em conflito. Enquanto as
-magias não entram (fase 4), as referências a magias são checadas contra a lista de
-ids do SRD em `scripts/srd-spell-ids.json`.
+padrão, glossário sem "veja também" quebrado nem sinônimos em conflito, magias
+citadas existentes na coleção de magias, classes das magias e kits para iniciantes
+dentro das regras.
 
 ## O que ainda não está aqui
 
-- **Magias** (339 no SRD 5.2): fase 4.
-- **Invocações Místicas** e **opções de Metamagia**: entram junto com as magias.
+- **Invocações Místicas** (Bruxo) e **opções de Metamagia** (Feiticeiro): a fonte
+  estruturada não traz essas listas. Para não inventar regras, as características
+  aparecem só com o texto, sem escolha no assistente; o jogador anota a escolha com
+  o Mestre. Entram quando tivermos a lista do SRD 5.2 revisada.
 - Monstros e itens mágicos: fora do escopo da v1.

@@ -325,5 +325,14 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Arquétipo de Patrulheiro",
-  "typicalTurn": "No primeiro turno, use a Ação Bônus para lançar Marca do Caçador num inimigo. Depois, use a ação Atacar com o arco longo: cada acerto no alvo marcado causa 1d6 de dano extra. Se o alvo cair, mova a marca para outro inimigo com a Ação Bônus."
+  "typicalTurn": "No primeiro turno, use a Ação Bônus para lançar Marca do Caçador num inimigo. Depois, use a ação Atacar com o arco longo: cada acerto no alvo marcado causa 1d6 de dano extra. Se o alvo cair, mova a marca para outro inimigo com a Ação Bônus.",
+  "beginnerKit": {
+    "skills": ["sobrevivencia", "percepcao", "furtividade"],
+    "equipment": "a",
+    "spells": ["cure-wounds", "goodberry"],
+    "choices": {
+      "classe:ranger-weapon-mastery:weapon-mastery": ["longbow", "shortsword"]
+    },
+    "why": "O arco longo ataca de longe com segurança e a Marca do Caçador já vem de graça. Curar Ferimentos e Bom Fruto mantêm o grupo de pé."
+  }
 }

@@ -292,5 +292,13 @@
   "epicBoonLevel": 19,
   "subclassLevel": 3,
   "subclassLabel": "Caminho Primitivo",
-  "typicalTurn": "Na primeira rodada, use sua Ação Bônus para entrar em Fúria. Depois, ande até o inimigo e use a ação Atacar com seu machado grande, somando o dano da Fúria. Nas rodadas seguintes, continue atacando para manter a Fúria ativa. Se quiser arriscar, use o Ataque Descuidado para ter Vantagem."
+  "typicalTurn": "Na primeira rodada, use sua Ação Bônus para entrar em Fúria. Depois, ande até o inimigo e use a ação Atacar com seu machado grande, somando o dano da Fúria. Nas rodadas seguintes, continue atacando para manter a Fúria ativa. Se quiser arriscar, use o Ataque Descuidado para ter Vantagem.",
+  "beginnerKit": {
+    "skills": ["atletismo", "percepcao"],
+    "equipment": "a",
+    "choices": {
+      "classe:barbarian-weapon-mastery:weapon-mastery": ["greataxe", "handaxe"]
+    },
+    "why": "Machado grande para bater forte, machadinhas para arremessar e as perícias que mais aparecem em aventuras (subir, pular, notar perigos)."
+  }
 }

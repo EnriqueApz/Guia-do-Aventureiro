@@ -1,10 +1,8 @@
-import srdSpellIds from '../../scripts/srd-spell-ids.json';
 import { content, rawContent } from './index';
 import type { ContentBundle } from './schema';
 import { normalize, validateContent } from './validate';
 
 type Raw = ContentBundle;
-const spellIds = new Set(srdSpellIds);
 
 /** Cópia profunda do conteúdo para quebrar de propósito. */
 function broken(mutate: (c: Raw) => void): Raw {
@@ -14,12 +12,12 @@ function broken(mutate: (c: Raw) => void): Raw {
 }
 
 function errorsOf(raw: unknown) {
-  return validateContent(raw, { spellIds }).errors;
+  return validateContent(raw).errors;
 }
 
 describe('validação do conteúdo', () => {
   it('o conteúdo do SRD é válido', () => {
-    const report = validateContent(rawContent, { spellIds });
+    const report = validateContent(rawContent);
     expect(report.errors).toEqual([]);
   });
 

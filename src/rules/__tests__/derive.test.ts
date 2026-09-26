@@ -85,7 +85,16 @@ describe('ficha derivada — personagens de referência', () => {
     expect(s.skills.arcanismo).toMatchObject({ bonus: 7, expertise: true });
     expect(s.spellcasting).toMatchObject({ saveDc: 13, attackBonus: 5, cantrips: 3, prepared: 6 });
     expect(s.spellcasting?.slots.slice(0, 2)).toEqual([4, 2]);
-    expect(s.grantedSpells.map((g) => g.spell)).toEqual(['prestidigitation', 'detect-magic']);
+    // Linhagem (Prestidigitação, Detectar Magia) + Iniciado em Magia (2 truques + Sono grátis)
+    expect(s.grantedSpells.map((g) => g.spell)).toEqual([
+      'prestidigitation',
+      'detect-magic',
+      'fire-bolt',
+      'minor-illusion',
+      'sleep',
+    ]);
+    expect(s.grantedSpells.find((g) => g.spell === 'sleep')?.freeCast).toBe(true);
+    expect(s.grantedSpells.find((g) => g.spell === 'fire-bolt')?.freeCast).toBe(false);
     expect(s.darkvision).toBe(60);
     expect(s.attacks.find((a) => a.id === 'quarterstaff')).toMatchObject({
       attackBonus: 1,

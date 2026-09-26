@@ -487,6 +487,18 @@ export function derive(character: Character, content: ContentBundle): Sheet {
       freeCast: effect.freeCast,
       source,
     }));
+  // Magias escolhidas em talentos (Iniciado em Magia): truques e uma de 1º círculo grátis.
+  const spellById = new Map(content.spells.map((sp) => [sp.id, sp]));
+  for (const f of feats) {
+    for (const ch of f.feat.choices ?? []) {
+      if (ch.kind !== 'magia') continue;
+      for (const id of pick(`${f.scope}:${ch.id}`)) {
+        const sp = spellById.get(id);
+        if (sp)
+          grantedSpells.push({ spell: id, level: 1, freeCast: sp.level > 0, source: f.feat.name });
+      }
+    }
+  }
   let spellcasting: SheetSpellcasting | undefined;
   if (classDef?.spellcasting) {
     const sc = classDef.spellcasting;

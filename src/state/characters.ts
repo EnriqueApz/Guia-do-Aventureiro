@@ -10,6 +10,8 @@ export interface CharactersState {
   characters: Record<string, CharacterDraft>;
   create: (partial?: Partial<Pick<CharacterDraft, 'name' | 'level'>>) => CharacterDraft;
   update: (id: string, patch: Partial<Omit<CharacterDraft, 'id' | 'createdAt'>>) => void;
+  /** Aplica uma edição pura (veja `@/model/edits`). */
+  edit: (id: string, fn: (c: CharacterDraft) => CharacterDraft) => void;
   duplicate: (id: string) => CharacterDraft | undefined;
   remove: (id: string) => CharacterDraft | undefined;
   restore: (character: CharacterDraft) => void;
@@ -42,6 +44,17 @@ export const useCharacters = create<CharactersState>()(
               ...s.characters,
               [id]: { ...current, ...patch, updatedAt: new Date().toISOString() },
             },
+          };
+        }),
+
+      edit: (id, fn) =>
+        set((s) => {
+          const current = s.characters[id];
+          if (!current) return s;
+          const next = fn(current);
+          if (next === current) return s;
+          return {
+            characters: { ...s.characters, [id]: { ...next, updatedAt: new Date().toISOString() } },
           };
         }),
 
