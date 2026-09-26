@@ -3,6 +3,26 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-26 · Modo jogo, rolador e vários personagens
+
+**Contexto:** na mesa, a ficha precisa acompanhar o que acontece (PV, espaços,
+condições) sem papel e sem conta de cabeça.
+**Decisão:** `/ficha/:id` tem duas vistas: **Ficha** (completa, com ajustes
+manuais de CA, PV máximos e Iniciativa, marcados como "ajustado à mão") e **Modo
+jogo** (`?modo=jogo`). O estado de jogo fica em `character.play` e só muda por
+funções puras (`src/rules/rest.ts` e `src/model/play.ts`): dano com as regras de
+0 PV (cair, falha por dano, crítico conta duas, morte instantânea), cura, PV
+temporários que não se somam, salvaguardas contra a morte, descansos, espaços,
+recursos, condições e exaustão. O rolador guarda o modo (normal, vantagem,
+desvantagem, que volta ao normal depois de cada teste) e as últimas 30 rolagens em
+`guia:rolagens`; os botões de perícia, salvaguarda e ataque já descontam a
+exaustão. Exportar gera um pacote `{ app, version, characters }`; importar valida
+com Zod (`src/model/transfer.ts`), aceita pacote, lista ou personagem solto,
+migra a versão 1, dá id novo a quem já existe e explica em português por que um
+personagem não entrou.
+**Consequências:** o nome do personagem na lista abre a ficha; "Editar" volta ao
+assistente. A Revisão leva direto ao modo jogo quando a ficha está pronta.
+
 ## 2026-09-26 · Apoio ao novato: glossário, "Me guie" e comparador
 
 **Contexto:** a fase 5 precisa ajudar quem nunca jogou a escolher sem ler o livro.

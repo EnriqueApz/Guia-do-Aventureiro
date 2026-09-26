@@ -11,7 +11,7 @@ test('cria um personagem, e o nome continua lá depois de recarregar', async ({ 
   await expect(page.getByLabel('Nome do personagem')).toHaveValue('Lira Vento-Sul');
 
   await page.goto('/personagens');
-  await expect(page.getByRole('link', { name: /Lira Vento-Sul/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /^Lira Vento-Sul/ })).toBeVisible();
 });
 
 test('o tema "luz de vela" persiste entre visitas', async ({ page }) => {

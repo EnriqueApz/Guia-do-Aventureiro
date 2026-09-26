@@ -1,0 +1,204 @@
+{
+  "app": "guia-do-aventureiro",
+  "version": 2,
+  "exportedAt": "2026-09-26T12:00:00.000Z",
+  "characters": [
+    {
+      "id": "e2e-thorin",
+      "schemaVersion": 2,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-09-26T12:00:00.000Z",
+      "name": "Thorin",
+      "level": 3,
+      "backgroundBonus": {
+        "sab": 2,
+        "car": 1
+      },
+      "abilities": {
+        "method": "padrao",
+        "base": {
+          "for": 13,
+          "des": 12,
+          "con": 14,
+          "int": 8,
+          "sab": 15,
+          "car": 10
+        }
+      },
+      "choices": {
+        "classe:pericias": ["medicina", "persuasao"],
+        "idiomas": ["dwarvish", "giant"],
+        "classe:cleric-divine-order:divine-order": ["protector"],
+        "talento:magic-initiate:list": ["clerigo"],
+        "talento:magic-initiate:ability": ["sab"],
+        "talento:magic-initiate:cantrips": ["guidance", "spare-the-dying"],
+        "talento:magic-initiate:spell": ["bless"]
+      },
+      "feats": [],
+      "hp": {
+        "method": "media",
+        "rolls": {}
+      },
+      "startingEquipment": {
+        "classOption": "a",
+        "backgroundOption": "b"
+      },
+      "inventory": [
+        {
+          "id": "chain-shirt",
+          "qty": 1,
+          "equipped": true
+        },
+        {
+          "id": "shield",
+          "qty": 1,
+          "equipped": true
+        },
+        {
+          "id": "mace",
+          "qty": 1
+        }
+      ],
+      "coins": {
+        "pc": 0,
+        "pp": 0,
+        "pe": 0,
+        "po": 0,
+        "pl": 0
+      },
+      "spells": {
+        "cantrips": ["sacred-flame", "guidance", "thaumaturgy"],
+        "prepared": [
+          "guiding-bolt",
+          "shield-of-faith",
+          "command",
+          "create-or-destroy-water",
+          "detect-magic",
+          "detect-evil-and-good"
+        ]
+      },
+      "details": {
+        "appearance": "",
+        "personality": {
+          "traits": "",
+          "ideals": "",
+          "bonds": "",
+          "flaws": ""
+        },
+        "backstory": ""
+      },
+      "overrides": {},
+      "play": {
+        "hpCurrent": null,
+        "hpTemp": 0,
+        "hitDiceUsed": 0,
+        "slotsUsed": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "resourcesUsed": {},
+        "conditions": [],
+        "exhaustion": 0,
+        "deathSaves": {
+          "successes": 0,
+          "failures": 0
+        },
+        "heroicInspiration": false
+      },
+      "speciesId": "dwarf",
+      "classId": "cleric",
+      "subclassId": "life-domain",
+      "backgroundId": "acolyte"
+    },
+    {
+      "id": "e2e-brom",
+      "schemaVersion": 2,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-09-25T12:00:00.000Z",
+      "name": "Brom",
+      "level": 1,
+      "backgroundBonus": {
+        "for": 2,
+        "con": 1
+      },
+      "abilities": {
+        "method": "padrao",
+        "base": {
+          "for": 15,
+          "des": 13,
+          "con": 14,
+          "int": 8,
+          "sab": 12,
+          "car": 10
+        }
+      },
+      "choices": {
+        "classe:pericias": ["acrobacia", "percepcao"],
+        "antecedente:ferramenta": ["dice"],
+        "idiomas": ["orc", "giant"],
+        "classe:fighter-fighting-style:fighting-style": ["defense"],
+        "classe:fighter-weapon-mastery:weapon-mastery": ["greatsword", "javelin", "longsword"],
+        "especie:skillful:skillful": ["furtividade"],
+        "especie:versatile:versatile": ["skilled"],
+        "talento:skilled:proficiencies": ["historia", "sobrevivencia", "thieves-tools"]
+      },
+      "feats": [],
+      "hp": {
+        "method": "media",
+        "rolls": {}
+      },
+      "startingEquipment": {
+        "classOption": "a",
+        "backgroundOption": "a"
+      },
+      "inventory": [
+        {
+          "id": "chain-mail",
+          "qty": 1,
+          "equipped": true
+        },
+        {
+          "id": "greatsword",
+          "qty": 1
+        }
+      ],
+      "coins": {
+        "pc": 0,
+        "pp": 0,
+        "pe": 0,
+        "po": 0,
+        "pl": 0
+      },
+      "spells": {
+        "cantrips": [],
+        "prepared": []
+      },
+      "details": {
+        "appearance": "",
+        "personality": {
+          "traits": "",
+          "ideals": "",
+          "bonds": "",
+          "flaws": ""
+        },
+        "backstory": ""
+      },
+      "overrides": {},
+      "play": {
+        "hpCurrent": null,
+        "hpTemp": 0,
+        "hitDiceUsed": 0,
+        "slotsUsed": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "resourcesUsed": {},
+        "conditions": [],
+        "exhaustion": 0,
+        "deathSaves": {
+          "successes": 0,
+          "failures": 0
+        },
+        "heroicInspiration": false
+      },
+      "speciesId": "human",
+      "size": "Médio",
+      "classId": "fighter",
+      "backgroundId": "soldier"
+    }
+  ]
+}

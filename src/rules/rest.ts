@@ -106,3 +106,55 @@ export function deathSave(
     next.failures >= 3 ? 'morto' : next.successes >= 3 ? 'estavel' : 'continua';
   return { play: { ...play, deathSaves: next }, outcome };
 }
+
+export type DamageOutcome = 'ok' | 'caiu' | 'falha' | 'morto';
+
+/**
+ * Dano com as regras de 0 PV: ao cair a 0, o personagem fica inconsciente; se o
+ * dano que sobra for igual ou maior que o máximo de PV, é morte instantânea.
+ * Sofrer dano já estando com 0 PV conta uma falha na salvaguarda contra a morte
+ * (duas se for Acerto Crítico), e o dano que sobra do máximo também mata.
+ */
+export function takeDamage(
+  play: PlayState,
+  sheet: Sheet,
+  amount: number,
+  options: { critical?: boolean } = {},
+): { play: PlayState; outcome: DamageOutcome } {
+  if (amount < 0) throw new RangeError('Dano não pode ser negativo.');
+  if (amount === 0) return { play, outcome: 'ok' };
+  const before = currentHp(play, sheet);
+  const fromTemp = Math.min(play.hpTemp, amount);
+  const rest = amount - fromTemp;
+
+  if (before === 0) {
+    if (rest >= sheet.hp.max) {
+      return {
+        play: {
+          ...play,
+          hpTemp: play.hpTemp - fromTemp,
+          deathSaves: { successes: 0, failures: 3 },
+        },
+        outcome: 'morto',
+      };
+    }
+    if (rest === 0) return { play: { ...play, hpTemp: play.hpTemp - fromTemp }, outcome: 'ok' };
+    const failures = Math.min(3, play.deathSaves.failures + (options.critical ? 2 : 1));
+    return {
+      play: {
+        ...play,
+        hpTemp: play.hpTemp - fromTemp,
+        deathSaves: { ...play.deathSaves, failures },
+      },
+      outcome: failures >= 3 ? 'morto' : 'falha',
+    };
+  }
+
+  const next = applyDamage(play, sheet, amount);
+  const hp = currentHp(next, sheet);
+  if (hp > 0) return { play: next, outcome: 'ok' };
+  const overflow = rest - before;
+  if (overflow >= sheet.hp.max)
+    return { play: { ...next, deathSaves: { successes: 0, failures: 3 } }, outcome: 'morto' };
+  return { play: { ...next, deathSaves: { successes: 0, failures: 0 } }, outcome: 'caiu' };
+}

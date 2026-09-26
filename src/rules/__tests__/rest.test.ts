@@ -10,6 +10,7 @@ import {
   gainTempHp,
   longRest,
   shortRest,
+  takeDamage,
 } from '../rest';
 
 const sheetOf = (c = thorin(1)) => derive(c, content);
@@ -124,5 +125,36 @@ describe('modo jogo: dano, cura e descansos', () => {
       'morto',
     );
     expect(deathSave(base, 15).outcome).toBe('continua');
+  });
+
+  it('dano com as regras de 0 PV: cair, falhas e morte instantânea', () => {
+    const sheet = sheetOf(); // Thorin 1: 11 PV máximos
+    const max = sheet.hp.max;
+    let r = takeDamage(thorin(1).play, sheet, 0);
+    expect(r.outcome).toBe('ok');
+    r = takeDamage(thorin(1).play, sheet, 4);
+    expect(r).toMatchObject({ outcome: 'ok', play: { hpCurrent: max - 4 } });
+    // Cai a 0: o que sobra é menor que o máximo.
+    r = takeDamage(thorin(1).play, sheet, max + 3);
+    expect(r).toMatchObject({ outcome: 'caiu', play: { hpCurrent: 0 } });
+    // Dano já com 0 PV: uma falha; crítico, duas.
+    const down = r.play;
+    expect(takeDamage(down, sheet, 2).play.deathSaves.failures).toBe(1);
+    expect(takeDamage(down, sheet, 2, { critical: true })).toMatchObject({
+      outcome: 'falha',
+      play: { deathSaves: { failures: 2 } },
+    });
+    expect(
+      takeDamage({ ...down, deathSaves: { successes: 0, failures: 2 } }, sheet, 1).outcome,
+    ).toBe('morto');
+    // Dano enorme com 0 PV ou que sobra do máximo: morte instantânea.
+    expect(takeDamage(down, sheet, max).outcome).toBe('morto');
+    expect(takeDamage(thorin(1).play, sheet, max * 2).outcome).toBe('morto');
+    // Com 0 PV, PV temporários absorvem sem contar falha.
+    expect(takeDamage({ ...down, hpTemp: 5 }, sheet, 3)).toMatchObject({
+      outcome: 'ok',
+      play: { hpTemp: 2, deathSaves: { failures: 0 } },
+    });
+    expect(() => takeDamage(down, sheet, -1)).toThrow(RangeError);
   });
 });

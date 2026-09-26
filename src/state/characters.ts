@@ -15,6 +15,8 @@ export interface CharactersState {
   duplicate: (id: string) => CharacterDraft | undefined;
   remove: (id: string) => CharacterDraft | undefined;
   restore: (character: CharacterDraft) => void;
+  /** Adiciona personagens importados (já validados, com ids únicos). */
+  importMany: (characters: CharacterDraft[]) => void;
 }
 
 export const CHARACTERS_KEY = 'guia:personagens';
@@ -85,6 +87,11 @@ export const useCharacters = create<CharactersState>()(
 
       restore: (character) =>
         set((s) => ({ characters: { ...s.characters, [character.id]: character } })),
+
+      importMany: (list) =>
+        set((s) => ({
+          characters: { ...s.characters, ...Object.fromEntries(list.map((c) => [c.id, c])) },
+        })),
     }),
     { name: CHARACTERS_KEY, version: CHARACTERS_VERSION, migrate: migrateCharacters },
   ),

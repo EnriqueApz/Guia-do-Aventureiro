@@ -30,6 +30,13 @@ describe('personagens salvos', () => {
     expect(useCharacters.getState().characters[c.id]).toEqual(c);
   });
 
+  it('importa vários de uma vez', () => {
+    const a = emptyCharacter('a', '2026-01-01T00:00:00.000Z');
+    const b = emptyCharacter('b', '2026-01-02T00:00:00.000Z');
+    useCharacters.getState().importMany([a, b]);
+    expect(Object.keys(useCharacters.getState().characters).sort()).toEqual(['a', 'b']);
+  });
+
   it('ignora ids inexistentes', () => {
     expect(useCharacters.getState().duplicate('nada')).toBeUndefined();
     expect(useCharacters.getState().remove('nada')).toBeUndefined();
