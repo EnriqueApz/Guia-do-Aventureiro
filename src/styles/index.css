@@ -1,0 +1,181 @@
+@import 'tailwindcss';
+
+/*
+ * Tokens de design. Os temas trocam apenas as variáveis abaixo;
+ * os componentes usam sempre as classes semânticas (bg-surface, text-ink, ...).
+ */
+
+:root {
+  color-scheme: light;
+  /* Pergaminho (tema claro) */
+  --c-bg: #f3ead6;
+  --c-surface: #fbf6ea;
+  --c-sunken: #eadfc6;
+  --c-ink: #2a1f16;
+  --c-ink-muted: #5c4a37;
+  --c-line: #d6c49f;
+  --c-line-strong: #b39c70;
+  --c-gold: #7a5c16;
+  --c-gold-soft: #c9a24c;
+  --c-seal: #8e2f22;
+  --c-seal-hover: #74241a;
+  --c-on-seal: #fdf8ee;
+  --c-forest: #35602f;
+  --c-sky: #2d587f;
+  --c-danger: #9b2518;
+  --c-focus: #2d587f;
+  --shadow-card:
+    0 1px 0 rgb(255 255 255 / 0.6) inset, 0 1px 2px rgb(60 40 10 / 0.08),
+    0 8px 24px -12px rgb(60 40 10 / 0.25);
+  --paper-grain: 0.05;
+}
+
+/* "Luz de vela" (tema escuro): aplicado pelo atributo data-theme no <html>. */
+:root[data-theme='escuro'] {
+  color-scheme: dark;
+  --c-bg: #15100b;
+  --c-surface: #211910;
+  --c-sunken: #0e0a07;
+  --c-ink: #f1e6cf;
+  --c-ink-muted: #c2b193;
+  --c-line: #3b2e20;
+  --c-line-strong: #5a4731;
+  --c-gold: #e6bd66;
+  --c-gold-soft: #a9853c;
+  --c-seal: #b8452f;
+  --c-seal-hover: #cc5840;
+  --c-on-seal: #fff7e8;
+  --c-forest: #9cc98c;
+  --c-sky: #8fbbe3;
+  --c-danger: #f08a78;
+  --c-focus: #f0c46a;
+  --shadow-card: 0 1px 0 rgb(255 220 160 / 0.04) inset, 0 12px 32px -16px rgb(0 0 0 / 0.7);
+  --paper-grain: 0.08;
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-sunken: var(--c-sunken);
+  --color-ink: var(--c-ink);
+  --color-ink-muted: var(--c-ink-muted);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-gold: var(--c-gold);
+  --color-gold-soft: var(--c-gold-soft);
+  --color-seal: var(--c-seal);
+  --color-seal-hover: var(--c-seal-hover);
+  --color-on-seal: var(--c-on-seal);
+  --color-forest: var(--c-forest);
+  --color-sky: var(--c-sky);
+  --color-danger: var(--c-danger);
+  --color-focus: var(--c-focus);
+
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Literata Variable', 'Iowan Old Style', Georgia, serif;
+
+  --shadow-card: var(--shadow-card);
+  --radius-card: 0.875rem;
+}
+
+/* Fonte maior (ajuste de acessibilidade): todo o layout usa rem, então escala junto. */
+:root[data-font='grande'] {
+  font-size: 112.5%;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--c-bg);
+    color: var(--c-ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    /* Grão de papel sutil, gerado em SVG para não pesar. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+    background-blend-mode: multiply;
+  }
+
+  :root[data-theme='escuro'] body {
+    background-blend-mode: soft-light;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgb(230 170 80 / 0.12), transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--c-focus);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--c-gold-soft) 45%, transparent);
+  }
+
+  :root[data-motion='reduzido'] *,
+  :root[data-motion='reduzido'] *::before,
+  :root[data-motion='reduzido'] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: rotate(-5deg) scale(0.96);
+  }
+}
+
+@layer components {
+  /* Texto corrido com medida confortável de leitura. */
+  .prose-guia {
+    max-width: 68ch;
+  }
+  .prose-guia > * + * {
+    margin-top: 0.9em;
+  }
+
+  /* Numerais de ficha: alinhados e legíveis. */
+  .num {
+    font-family: var(--font-display);
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+}

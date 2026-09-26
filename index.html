@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="claro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f3ead6" />
+    <meta
+      name="description"
+      content="Crie seu personagem de D&D 5e (regras 2024) passo a passo, com explicações simples para iniciantes."
+    />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <title>Guia do Aventureiro · Crie seu personagem de D&amp;D</title>
+    <script>
+      // Aplica o tema salvo antes da pintura, para não piscar o tema errado.
+      try {
+        var s = JSON.parse(localStorage.getItem('guia:ajustes') || '{}').state || {};
+        var dark =
+          s.theme === 'escuro' ||
+          ((!s.theme || s.theme === 'sistema') &&
+            matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'escuro' : 'claro';
+        if (s.largeText) document.documentElement.dataset.font = 'grande';
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
