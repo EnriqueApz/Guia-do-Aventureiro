@@ -6,8 +6,9 @@ linguagem simples, e uma ficha que se monta sozinha enquanto você escolhe.
 
 Site estático, sem servidor: os personagens ficam salvos no navegador de cada um.
 
-> **Status:** fase 3 de 8 (assistente de criação: espécie, classe, subclasse e
-> antecedente, com a ficha ao vivo). Veja o
+> **Status:** fase 4 de 8 (assistente de criação completo, da espécie à revisão:
+> atributos, perícias, equipamento, as 339 magias do SRD em português, talentos e
+> PV do nível 1 ao 20, com a ficha ao vivo). Veja o
 > plano em [`docs/PLANO.md`](docs/PLANO.md), as decisões em
 > [`docs/DECISIONS.md`](docs/DECISIONS.md) e o guia do conteúdo em
 > [`docs/CONTEUDO.md`](docs/CONTEUDO.md).

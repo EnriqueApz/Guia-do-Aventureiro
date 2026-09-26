@@ -21,20 +21,27 @@ export interface StepProps {
   goTo: (stepId: string) => void;
 }
 
+const WelcomeStep = lazy(() => import('./steps/WelcomeStep'));
 const STEP_COMPONENTS: Record<string, ComponentType<StepProps>> = {
-  'boas-vindas': lazy(() => import('./steps/WelcomeStep')),
+  'boas-vindas': WelcomeStep,
   especie: lazy(() => import('./steps/SpeciesStep')),
   classe: lazy(() => import('./steps/ClassStep')),
   subclasse: lazy(() => import('./steps/SubclassStep')),
   antecedente: lazy(() => import('./steps/BackgroundStep')),
+  atributos: lazy(() => import('./steps/AbilitiesStep')),
+  escolhas: lazy(() => import('./steps/ChoicesStep')),
+  detalhes: lazy(() => import('./steps/DetailsStep')),
+  revisao: lazy(() => import('./steps/ReviewStep')),
 };
-const ComingStep = lazy(() => import('./steps/ComingStep'));
 
 const DONE_TEXT: Record<string, string> = {
   especie: 'Espécie escolhida. Tudo certo por aqui!',
   classe: 'Classe escolhida. Tudo certo por aqui!',
   subclasse: 'Subclasse resolvida. Tudo certo por aqui!',
   antecedente: 'Antecedente escolhido. Tudo certo por aqui!',
+  atributos: 'Atributos definidos. Tudo certo por aqui!',
+  escolhas: 'Todas as escolhas feitas. Tudo certo por aqui!',
+  detalhes: 'Detalhes preenchidos. Tudo certo por aqui!',
 };
 
 export default function WizardPage() {
@@ -79,19 +86,24 @@ export default function WizardPage() {
   }
 
   const loaded = wizard as LoadedWizard;
-  const goTo = (stepId: string) => navigate(`/criar/${id}/${stepId}`);
+  const goTo = (stepId: string) => {
+    // Salva a etapa já no clique, sem esperar o efeito da nova etapa.
+    edit((c) => (c.wizardStep === stepId ? c : { ...c, wizardStep: stepId }));
+    void navigate(`/criar/${id}/${stepId}`);
+  };
   const prev = STEPS[current - 1];
   const next = STEPS[current + 1];
   const stepIssues = step.issueStep ? issues.filter((i) => i.step === step.issueStep) : [];
   const statuses: StepStatus[] = STEPS.map((s, i) => {
-    if (s.phase > 3) return 'em-breve';
+    if (s.phase > 4) return 'em-breve';
+    if (s.id === 'revisao') return issues.some((x) => x.severity === 'erro') ? 'pendente' : 'feito';
     if (!s.issueStep) return i <= current || character.speciesId ? 'feito' : 'pendente';
     if (s.id === 'subclasse' && !character.classId) return 'pendente';
     return issues.some((x) => x.step === s.issueStep && x.severity === 'erro')
       ? 'pendente'
       : 'feito';
   });
-  const StepComponent = STEP_COMPONENTS[step.id] ?? ComingStep;
+  const StepComponent = STEP_COMPONENTS[step.id] ?? WelcomeStep;
 
   return (
     <MotionConfig reducedMotion={reduceMotion ? 'always' : 'user'}>
@@ -104,7 +116,7 @@ export default function WizardPage() {
             </Suspense>
           </div>
 
-          {step.issueStep && step.phase <= 3 && (
+          {step.issueStep && step.phase <= 4 && (
             <div className="mt-8">
               <StepIssues
                 issues={stepIssues}

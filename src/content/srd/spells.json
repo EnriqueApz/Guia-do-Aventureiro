@@ -8,9 +8,7 @@
     },
     "level": 0,
     "school": "transmutacao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -32,9 +30,7 @@
     },
     "level": 0,
     "school": "transmutacao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação Bônus",
     "range": "Pessoal",
     "components": {
@@ -57,12 +53,7 @@
     },
     "level": 0,
     "school": "necromancia",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -86,9 +77,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -112,13 +101,7 @@
     },
     "level": 0,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "sorcerer", "wizard"],
     "castingTime": "1 minuto",
     "range": "Toque",
     "components": {
@@ -141,11 +124,7 @@
     },
     "level": 0,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -167,9 +146,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "sorcerer"
-    ],
+    "classes": ["sorcerer"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -193,10 +170,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "druid"
-    ],
+    "classes": ["bard", "druid"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -221,11 +195,7 @@
     },
     "level": 0,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -248,12 +218,7 @@
     },
     "level": 0,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -276,12 +241,7 @@
     },
     "level": 0,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -304,12 +264,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -333,12 +288,7 @@
     },
     "level": 0,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -361,12 +311,7 @@
     },
     "level": 0,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -389,10 +334,7 @@
     },
     "level": 0,
     "school": "adivinhacao",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
+    "classes": ["cleric", "druid"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -415,10 +357,7 @@
     },
     "level": 0,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
+    "classes": ["cleric", "druid"],
     "castingTime": "Ação",
     "range": "4,5 metros",
     "components": {
@@ -441,12 +380,7 @@
     },
     "level": 0,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "3 metros",
     "components": {
@@ -469,9 +403,7 @@
     },
     "level": 0,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação Bônus",
     "range": "Pessoal",
     "components": {
@@ -496,10 +428,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -524,10 +453,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -552,9 +478,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "warlock"
-    ],
+    "classes": ["warlock"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -579,10 +503,7 @@
     },
     "level": 0,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
+    "classes": ["cleric", "druid"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -604,10 +525,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -631,9 +549,7 @@
     },
     "level": 0,
     "school": "transmutacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -655,11 +571,7 @@
     },
     "level": 0,
     "school": "necromancia",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -683,10 +595,7 @@
     },
     "level": 0,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -711,9 +620,7 @@
     },
     "level": 0,
     "school": "encantamento",
-    "classes": [
-      "bard"
-    ],
+    "classes": ["bard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -737,10 +644,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "ranger",
-      "wizard"
-    ],
+    "classes": ["ranger", "wizard"],
     "castingTime": "1 minuto",
     "range": "9 metros",
     "components": {
@@ -763,11 +667,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["bard", "druid", "ranger"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -791,10 +691,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -817,10 +714,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -844,10 +738,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -872,10 +763,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -898,9 +786,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "warlock"
-    ],
+    "classes": ["warlock"],
     "castingTime": "Ação Bônus",
     "range": "27 metros",
     "components": {
@@ -926,9 +812,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "paladin"
-    ],
+    "classes": ["paladin"],
     "castingTime": "Ação Bônus, logo depois de acertar um alvo com uma arma corpo a corpo ou um Ataque Desarmado",
     "range": "Pessoal",
     "components": {
@@ -953,11 +837,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["bard", "cleric", "paladin"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -980,12 +860,7 @@
     },
     "level": 1,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1008,10 +883,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -1033,10 +905,7 @@
     },
     "level": 1,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
+    "classes": ["cleric", "druid"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -1059,13 +928,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -1089,9 +952,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "paladin"
-    ],
+    "classes": ["paladin"],
     "castingTime": "Ação Bônus, logo depois de acertar um alvo com uma arma corpo a corpo ou um Ataque Desarmado",
     "range": "Pessoal",
     "components": {
@@ -1115,16 +976,7 @@
     },
     "level": 1,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1147,10 +999,7 @@
     },
     "level": 1,
     "school": "adivinhacao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1171,12 +1020,7 @@
     },
     "level": 1,
     "school": "adivinhacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
+    "classes": ["cleric", "druid", "paladin", "ranger"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1198,9 +1042,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -1222,11 +1064,7 @@
     },
     "level": 1,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1248,9 +1086,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "1 hora",
     "range": "3 metros",
     "components": {
@@ -1273,13 +1109,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -1302,11 +1132,7 @@
     },
     "level": 1,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "Toque",
     "components": {
@@ -1328,10 +1154,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Reação, quando você é atingido por uma jogada de ataque ou é alvo da magia Mísseis Mágicos",
     "range": "Pessoal",
     "components": {
@@ -1354,10 +1177,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação Bônus",
     "range": "18 metros",
     "components": {
@@ -1381,11 +1201,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -1410,12 +1226,7 @@
     },
     "level": 1,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "druid",
-      "ranger",
-      "warlock"
-    ],
+    "classes": ["bard", "druid", "ranger", "warlock"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1437,9 +1248,7 @@
     },
     "level": 1,
     "school": "transmutacao",
-    "classes": [
-      "paladin"
-    ],
+    "classes": ["paladin"],
     "castingTime": "Ação Bônus",
     "range": "Pessoal",
     "components": {
@@ -1462,10 +1271,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "druid"
-    ],
+    "classes": ["bard", "druid"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -1488,9 +1294,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "ranger"
-    ],
+    "classes": ["ranger"],
     "castingTime": "Ação Bônus, logo depois de acertar uma criatura com uma arma",
     "range": "Pessoal",
     "components": {
@@ -1514,10 +1318,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "paladin"
-    ],
+    "classes": ["bard", "paladin"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -1541,10 +1342,7 @@
     },
     "level": 1,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "1 minuto",
     "range": "Toque",
     "components": {
@@ -1567,11 +1365,7 @@
     },
     "level": 1,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -1593,9 +1387,7 @@
     },
     "level": 1,
     "school": "necromancia",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -1619,11 +1411,7 @@
     },
     "level": 1,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1646,10 +1434,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1674,9 +1459,7 @@
     },
     "level": 1,
     "school": "adivinhacao",
-    "classes": [
-      "ranger"
-    ],
+    "classes": ["ranger"],
     "castingTime": "Ação Bônus",
     "range": "27 metros",
     "components": {
@@ -1701,10 +1484,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -1728,12 +1508,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -1756,12 +1531,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -1786,10 +1556,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -1813,11 +1580,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid"
-    ],
+    "classes": ["bard", "cleric", "druid"],
     "castingTime": "Ação Bônus",
     "range": "18 metros",
     "components": {
@@ -1841,12 +1604,7 @@
     },
     "level": 1,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid",
-      "ranger",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "ranger", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -1870,11 +1628,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "cleric",
-      "warlock"
-    ],
+    "classes": ["bard", "cleric", "warlock"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -1898,13 +1652,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "druid",
-      "paladin",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "paladin", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -1926,11 +1674,7 @@
     },
     "level": 1,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "paladin"
-    ],
+    "classes": ["cleric", "druid", "paladin"],
     "castingTime": "Ação",
     "range": "3 metros",
     "components": {
@@ -1951,11 +1695,7 @@
     },
     "level": 1,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Reação, quando você ou uma criatura que você consegue ver a até 18 metros cai",
     "range": "18 metros",
     "components": {
@@ -1978,9 +1718,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -2006,10 +1744,7 @@
     },
     "level": 1,
     "school": "necromancia",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2033,11 +1768,7 @@
     },
     "level": 1,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação Bônus",
     "range": "Pessoal",
     "components": {
@@ -2059,9 +1790,7 @@
     },
     "level": 1,
     "school": "evocacao",
-    "classes": [
-      "warlock"
-    ],
+    "classes": ["warlock"],
     "castingTime": "Reação, ao sofrer dano de uma criatura que você consegue ver a até 18 metros",
     "range": "18 metros",
     "components": {
@@ -2085,11 +1814,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -2113,12 +1838,7 @@
     },
     "level": 1,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação Bônus",
     "range": "Toque",
     "components": {
@@ -2141,9 +1861,7 @@
     },
     "level": 1,
     "school": "abjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação Bônus",
     "range": "9 metros",
     "components": {
@@ -2166,11 +1884,7 @@
     },
     "level": 1,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2192,11 +1906,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2219,9 +1929,7 @@
     },
     "level": 1,
     "school": "encantamento",
-    "classes": [
-      "bard"
-    ],
+    "classes": ["bard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2246,10 +1954,7 @@
     },
     "level": 1,
     "school": "necromancia",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -2273,10 +1978,7 @@
     },
     "level": 2,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "cleric"
-    ],
+    "classes": ["bard", "cleric"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2297,10 +1999,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -2321,14 +2020,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -2351,9 +2043,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação Bônus",
     "range": "18 metros",
     "components": {
@@ -2377,12 +2067,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "paladin",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["paladin", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação Bônus",
     "range": "Toque",
     "components": {
@@ -2404,11 +2089,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2429,11 +2110,7 @@
     },
     "level": 2,
     "school": "adivinhacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "wizard"],
     "castingTime": "1 minuto",
     "range": "Pessoal",
     "components": {
@@ -2456,12 +2133,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -2483,9 +2155,7 @@
     },
     "level": 2,
     "school": "ilusao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -2507,13 +2177,7 @@
     },
     "level": 2,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -2538,10 +2202,7 @@
     },
     "level": 2,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "1 minuto",
     "range": "9 metros",
     "components": {
@@ -2563,12 +2224,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -2590,11 +2246,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -2616,9 +2268,7 @@
     },
     "level": 2,
     "school": "conjuracao",
-    "classes": [
-      "paladin"
-    ],
+    "classes": ["paladin"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -2641,10 +2291,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -2667,11 +2314,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2696,9 +2339,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "paladin"
-    ],
+    "classes": ["paladin"],
     "castingTime": "Ação Bônus, logo depois de acertar uma criatura com uma arma corpo a corpo ou um Ataque Desarmado",
     "range": "Pessoal",
     "components": {
@@ -2721,11 +2362,7 @@
     },
     "level": 2,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -2747,10 +2384,7 @@
     },
     "level": 2,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "warlock"
-    ],
+    "classes": ["bard", "warlock"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2771,11 +2405,7 @@
     },
     "level": 2,
     "school": "adivinhacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["cleric", "druid", "ranger"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -2796,11 +2426,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2822,11 +2448,7 @@
     },
     "level": 2,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2850,10 +2472,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid"
-    ],
+    "classes": ["bard", "druid"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2877,11 +2496,7 @@
     },
     "level": 2,
     "school": "adivinhacao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -2904,9 +2519,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -2931,11 +2544,7 @@
     },
     "level": 2,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -2958,12 +2567,7 @@
     },
     "level": 2,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -2985,14 +2589,7 @@
     },
     "level": 2,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -3016,12 +2613,7 @@
     },
     "level": 2,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3045,10 +2637,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "sorcerer"
-    ],
+    "classes": ["druid", "sorcerer"],
     "castingTime": "Ação Bônus",
     "range": "Pessoal",
     "components": {
@@ -3072,10 +2661,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -3097,11 +2683,7 @@
     },
     "level": 2,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["bard", "druid", "ranger"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -3123,14 +2705,7 @@
     },
     "level": 2,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -3152,12 +2727,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -3179,11 +2749,7 @@
     },
     "level": 2,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["bard", "druid", "ranger"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -3206,10 +2772,7 @@
     },
     "level": 2,
     "school": "ilusao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -3231,10 +2794,7 @@
     },
     "level": 2,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "10 minutos",
     "range": "9 metros",
     "components": {
@@ -3256,11 +2816,7 @@
     },
     "level": 2,
     "school": "conjuracao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação Bônus",
     "range": "Pessoal",
     "components": {
@@ -3283,10 +2839,7 @@
     },
     "level": 2,
     "school": "abjuracao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -3309,11 +2862,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3336,10 +2885,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação Bônus",
     "range": "Toque",
     "components": {
@@ -3361,12 +2907,7 @@
     },
     "level": 2,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
+    "classes": ["cleric", "druid", "paladin", "ranger"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3387,10 +2928,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -3414,10 +2952,7 @@
     },
     "level": 2,
     "school": "necromancia",
-    "classes": [
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -3438,9 +2973,7 @@
     },
     "level": 2,
     "school": "evocacao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -3464,11 +2997,7 @@
     },
     "level": 2,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "paladin",
-      "wizard"
-    ],
+    "classes": ["cleric", "paladin", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3490,13 +3019,7 @@
     },
     "level": 2,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger"],
     "castingTime": "Ação Bônus",
     "range": "Toque",
     "components": {
@@ -3519,11 +3042,7 @@
     },
     "level": 2,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "cleric",
-      "ranger"
-    ],
+    "classes": ["bard", "cleric", "ranger"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -3544,10 +3063,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação Bônus",
     "range": "Toque",
     "components": {
@@ -3570,12 +3086,7 @@
     },
     "level": 2,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -3597,10 +3108,7 @@
     },
     "level": 2,
     "school": "conjuracao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -3624,9 +3132,7 @@
     },
     "level": 2,
     "school": "abjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3648,9 +3154,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3673,11 +3177,7 @@
     },
     "level": 2,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -3699,10 +3199,7 @@
     },
     "level": 2,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3724,12 +3221,7 @@
     },
     "level": 2,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -3751,11 +3243,7 @@
     },
     "level": 2,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["bard", "cleric", "paladin"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -3776,10 +3264,7 @@
     },
     "level": 3,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "wizard"
-    ],
+    "classes": ["cleric", "wizard"],
     "castingTime": "1 minuto",
     "range": "3 metros",
     "components": {
@@ -3802,10 +3287,7 @@
     },
     "level": 3,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -3830,12 +3312,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "ranger",
-      "sorcerer"
-    ],
+    "classes": ["cleric", "druid", "ranger", "sorcerer"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -3857,12 +3334,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "paladin", "warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "3 metros",
     "components": {
@@ -3885,12 +3357,7 @@
     },
     "level": 3,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "sorcerer", "wizard"],
     "castingTime": "10 minutos",
     "range": "1,5 quilômetro",
     "components": {
@@ -3912,10 +3379,7 @@
     },
     "level": 3,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -3938,11 +3402,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Reação, quando você vê uma criatura a até 18 metros lançando uma magia com componentes Verbais, Somáticos ou Materiais",
     "range": "18 metros",
     "components": {
@@ -3964,9 +3424,7 @@
     },
     "level": 3,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -3989,11 +3447,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["bard", "druid", "ranger"],
     "castingTime": "Ação (Crescimento) ou 8 horas (Enriquecimento)",
     "range": "45 metros",
     "components": {
@@ -4014,10 +3468,7 @@
     },
     "level": 3,
     "school": "conjuracao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -4038,11 +3489,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "ranger",
-      "wizard"
-    ],
+    "classes": ["bard", "ranger", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4064,16 +3511,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -4096,11 +3534,7 @@
     },
     "level": 3,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "wizard"],
     "castingTime": "Ação",
     "range": "Ilimitado",
     "components": {
@@ -4122,9 +3556,7 @@
     },
     "level": 3,
     "school": "conjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4149,11 +3581,7 @@
     },
     "level": 3,
     "school": "necromancia",
-    "classes": [
-      "bard",
-      "cleric",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "wizard"],
     "castingTime": "Ação",
     "range": "3 metros",
     "components": {
@@ -4175,11 +3603,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["bard", "druid", "ranger"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4200,11 +3624,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4227,11 +3647,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["cleric", "druid", "ranger"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4253,11 +3669,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "wizard"],
     "castingTime": "1 hora",
     "range": "Toque",
     "components": {
@@ -4280,13 +3692,7 @@
     },
     "level": 3,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4308,12 +3714,7 @@
     },
     "level": 3,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -4336,11 +3737,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -4362,13 +3759,7 @@
     },
     "level": 3,
     "school": "evocacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger",
-      "sorcerer"
-    ],
+    "classes": ["cleric", "druid", "paladin", "ranger", "sorcerer"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -4389,12 +3780,7 @@
     },
     "level": 3,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4416,9 +3802,7 @@
     },
     "level": 3,
     "school": "ilusao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "1 minuto",
     "range": "9 metros",
     "components": {
@@ -4439,10 +3823,7 @@
     },
     "level": 3,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -4465,11 +3846,7 @@
     },
     "level": 3,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -4491,11 +3868,7 @@
     },
     "level": 3,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -4517,12 +3890,7 @@
     },
     "level": 3,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -4544,10 +3912,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric"
-    ],
+    "classes": ["bard", "cleric"],
     "castingTime": "Ação Bônus",
     "range": "18 metros",
     "components": {
@@ -4569,10 +3934,7 @@
     },
     "level": 3,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "1 minuto",
     "range": "Pessoal",
     "components": {
@@ -4595,10 +3957,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4619,13 +3978,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4646,10 +3999,7 @@
     },
     "level": 3,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4673,12 +4023,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "paladin", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4699,12 +4044,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -4726,12 +4066,7 @@
     },
     "level": 3,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
+    "classes": ["cleric", "druid", "paladin", "ranger"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4754,11 +4089,7 @@
     },
     "level": 3,
     "school": "necromancia",
-    "classes": [
-      "bard",
-      "cleric",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4781,9 +4112,7 @@
     },
     "level": 3,
     "school": "abjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -4804,11 +4133,7 @@
     },
     "level": 3,
     "school": "necromancia",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4832,10 +4157,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -4858,11 +4180,7 @@
     },
     "level": 3,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -4885,11 +4203,7 @@
     },
     "level": 4,
     "school": "adivinhacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4911,10 +4225,7 @@
     },
     "level": 4,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -4937,10 +4248,7 @@
     },
     "level": 4,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -4961,13 +4269,7 @@
     },
     "level": 4,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "paladin", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -4990,9 +4292,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -5014,9 +4314,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -5039,9 +4337,7 @@
     },
     "level": 4,
     "school": "encantamento",
-    "classes": [
-      "bard"
-    ],
+    "classes": ["bard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -5062,12 +4358,7 @@
     },
     "level": 4,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -5090,10 +4381,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "wizard"
-    ],
+    "classes": ["druid", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -5115,10 +4403,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -5141,11 +4426,7 @@
     },
     "level": 4,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "wizard"],
     "castingTime": "Ação",
     "range": "90 metros",
     "components": {
@@ -5168,11 +4449,7 @@
     },
     "level": 4,
     "school": "encantamento",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer"
-    ],
+    "classes": ["druid", "ranger", "sorcerer"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -5194,13 +4471,7 @@
     },
     "level": 4,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -5222,11 +4493,7 @@
     },
     "level": 4,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -5249,9 +4516,7 @@
     },
     "level": 4,
     "school": "abjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -5273,10 +4538,7 @@
     },
     "level": 4,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -5300,9 +4562,7 @@
     },
     "level": 4,
     "school": "transmutacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "10 minutos",
     "range": "36 metros",
     "components": {
@@ -5323,9 +4583,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -5346,9 +4604,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -5370,11 +4626,7 @@
     },
     "level": 4,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -5395,12 +4647,7 @@
     },
     "level": 4,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "ranger"
-    ],
+    "classes": ["bard", "cleric", "druid", "ranger"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -5423,14 +4670,7 @@
     },
     "level": 4,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -5452,12 +4692,7 @@
     },
     "level": 4,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -5479,11 +4714,7 @@
     },
     "level": 4,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -5505,11 +4736,7 @@
     },
     "level": 4,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -5533,9 +4760,7 @@
     },
     "level": 4,
     "school": "adivinhacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -5557,12 +4782,7 @@
     },
     "level": 4,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "ranger", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -5584,12 +4804,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "150 metros",
     "components": {
@@ -5611,12 +4826,7 @@
     },
     "level": 4,
     "school": "necromancia",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -5639,10 +4849,7 @@
     },
     "level": 4,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -5663,9 +4870,7 @@
     },
     "level": 4,
     "school": "abjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "10 minutos",
     "range": "36 metros",
     "components": {
@@ -5688,11 +4893,7 @@
     },
     "level": 4,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "90 metros",
     "components": {
@@ -5716,9 +4917,7 @@
     },
     "level": 4,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -5741,12 +4940,7 @@
     },
     "level": 4,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "druid",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "warlock", "wizard"],
     "castingTime": "10 minutos",
     "range": "90 metros",
     "components": {
@@ -5768,11 +4962,7 @@
     },
     "level": 5,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -5795,10 +4985,7 @@
     },
     "level": 5,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -5819,12 +5006,7 @@
     },
     "level": 5,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "3 metros",
     "components": {
@@ -5846,9 +5028,7 @@
     },
     "level": 5,
     "school": "evocacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -5873,9 +5053,7 @@
     },
     "level": 5,
     "school": "adivinhacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "1 minuto",
     "range": "Pessoal",
     "components": {
@@ -5897,10 +5075,7 @@
     },
     "level": 5,
     "school": "adivinhacao",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
+    "classes": ["druid", "ranger"],
     "castingTime": "1 minuto",
     "range": "Pessoal",
     "components": {
@@ -5921,11 +5096,7 @@
     },
     "level": 5,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -5950,10 +5121,7 @@
     },
     "level": 5,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "wizard"
-    ],
+    "classes": ["druid", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -5975,9 +5143,7 @@
     },
     "level": 5,
     "school": "abjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "24 horas",
     "range": "Toque",
     "components": {
@@ -5999,10 +5165,7 @@
     },
     "level": 5,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
+    "classes": ["cleric", "druid"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -6024,10 +5187,7 @@
     },
     "level": 5,
     "school": "adivinhacao",
-    "classes": [
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "Pessoal",
     "components": {
@@ -6049,10 +5209,7 @@
     },
     "level": 5,
     "school": "ilusao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "1 minuto",
     "range": "9 metros",
     "components": {
@@ -6075,9 +5232,7 @@
     },
     "level": 5,
     "school": "transmutacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -6099,11 +5254,7 @@
     },
     "level": 5,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid"
-    ],
+    "classes": ["bard", "cleric", "druid"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -6126,10 +5277,7 @@
     },
     "level": 5,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "druid"
-    ],
+    "classes": ["bard", "druid"],
     "castingTime": "8 horas",
     "range": "Toque",
     "components": {
@@ -6151,11 +5299,7 @@
     },
     "level": 5,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -6176,10 +5320,7 @@
     },
     "level": 5,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["cleric", "paladin"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -6201,11 +5342,7 @@
     },
     "level": 5,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -6227,10 +5364,7 @@
     },
     "level": 5,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -6252,9 +5386,7 @@
     },
     "level": 5,
     "school": "abjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -6275,12 +5407,7 @@
     },
     "level": 5,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -6304,9 +5431,7 @@
     },
     "level": 5,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -6329,11 +5454,7 @@
     },
     "level": 5,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "wizard"],
     "castingTime": "10 minutos",
     "range": "Pessoal",
     "components": {
@@ -6355,10 +5476,7 @@
     },
     "level": 5,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -6383,13 +5501,7 @@
     },
     "level": 5,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "wizard"],
     "castingTime": "1 minuto",
     "range": "18 metros",
     "components": {
@@ -6412,10 +5524,7 @@
     },
     "level": 5,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -6437,9 +5546,7 @@
     },
     "level": 5,
     "school": "evocacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -6462,11 +5569,7 @@
     },
     "level": 5,
     "school": "evocacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -6488,10 +5591,7 @@
     },
     "level": 5,
     "school": "conjuracao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -6515,11 +5615,7 @@
     },
     "level": 5,
     "school": "conjuracao",
-    "classes": [
-      "cleric",
-      "druid",
-      "sorcerer"
-    ],
+    "classes": ["cleric", "druid", "sorcerer"],
     "castingTime": "Ação",
     "range": "90 metros",
     "components": {
@@ -6543,9 +5639,7 @@
     },
     "level": 5,
     "school": "necromancia",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "1 hora",
     "range": "Toque",
     "components": {
@@ -6567,13 +5661,7 @@
     },
     "level": 5,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
+    "classes": ["bard", "cleric", "druid", "paladin", "ranger"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -6596,11 +5684,7 @@
     },
     "level": 5,
     "school": "necromancia",
-    "classes": [
-      "bard",
-      "cleric",
-      "paladin"
-    ],
+    "classes": ["bard", "cleric", "paladin"],
     "castingTime": "1 hora",
     "range": "Toque",
     "components": {
@@ -6623,11 +5707,7 @@
     },
     "level": 5,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -6648,11 +5728,7 @@
     },
     "level": 5,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "Especial",
     "components": {
@@ -6675,10 +5751,7 @@
     },
     "level": 5,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -6699,13 +5772,7 @@
     },
     "level": 5,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "warlock", "wizard"],
     "castingTime": "10 minutos",
     "range": "Pessoal",
     "components": {
@@ -6727,13 +5794,7 @@
     },
     "level": 5,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "warlock", "wizard"],
     "castingTime": "1 hora",
     "range": "18 metros",
     "components": {
@@ -6756,9 +5817,7 @@
     },
     "level": 6,
     "school": "conjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "10 minutos",
     "range": "18 metros",
     "components": {
@@ -6779,11 +5838,7 @@
     },
     "level": 6,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid"
-    ],
+    "classes": ["bard", "cleric", "druid"],
     "castingTime": "10 minutos",
     "range": "Pessoal",
     "components": {
@@ -6805,9 +5860,7 @@
     },
     "level": 6,
     "school": "evocacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -6829,9 +5882,7 @@
     },
     "level": 6,
     "school": "transmutacao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "1 minuto",
     "range": "9 metros",
     "components": {
@@ -6853,11 +5904,7 @@
     },
     "level": 6,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -6879,11 +5926,7 @@
     },
     "level": 6,
     "school": "necromancia",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -6907,9 +5950,7 @@
     },
     "level": 6,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -6932,9 +5973,7 @@
     },
     "level": 6,
     "school": "abjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "10 minutos",
     "range": "Pessoal",
     "components": {
@@ -6956,9 +5995,7 @@
     },
     "level": 6,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "1 minuto",
     "range": "Toque",
     "components": {
@@ -6980,10 +6017,7 @@
     },
     "level": 6,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -7007,11 +6041,7 @@
     },
     "level": 6,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "3 metros",
     "components": {
@@ -7034,10 +6064,7 @@
     },
     "level": 6,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
+    "classes": ["cleric", "druid"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -7060,10 +6087,7 @@
     },
     "level": 6,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -7084,10 +6108,7 @@
     },
     "level": 6,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -7111,11 +6132,7 @@
     },
     "level": 6,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid"
-    ],
+    "classes": ["bard", "cleric", "druid"],
     "castingTime": "1 minuto",
     "range": "Pessoal",
     "components": {
@@ -7137,10 +6154,7 @@
     },
     "level": 6,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "90 metros",
     "components": {
@@ -7164,9 +6178,7 @@
     },
     "level": 6,
     "school": "necromancia",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -7188,10 +6200,7 @@
     },
     "level": 6,
     "school": "abjuracao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -7214,10 +6223,7 @@
     },
     "level": 6,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -7239,11 +6245,7 @@
     },
     "level": 6,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -7265,9 +6267,7 @@
     },
     "level": 6,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -7291,9 +6291,7 @@
     },
     "level": 6,
     "school": "evocacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -7317,12 +6315,7 @@
     },
     "level": 6,
     "school": "necromancia",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -7343,9 +6336,7 @@
     },
     "level": 6,
     "school": "conjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "1,5 metro",
     "components": {
@@ -7366,9 +6357,7 @@
     },
     "level": 6,
     "school": "abjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "10 minutos",
     "range": "Toque",
     "components": {
@@ -7390,12 +6379,7 @@
     },
     "level": 6,
     "school": "evocacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -7418,9 +6402,7 @@
     },
     "level": 6,
     "school": "necromancia",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "1 minuto",
     "range": "Pessoal",
     "components": {
@@ -7442,11 +6424,7 @@
     },
     "level": 6,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -7469,9 +6447,7 @@
     },
     "level": 6,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "3 metros",
     "components": {
@@ -7492,10 +6468,7 @@
     },
     "level": 6,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "1 hora",
     "range": "Toque",
     "components": {
@@ -7517,13 +6490,7 @@
     },
     "level": 6,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -7545,10 +6512,7 @@
     },
     "level": 7,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -7571,9 +6535,7 @@
     },
     "level": 7,
     "school": "conjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -7596,11 +6558,7 @@
     },
     "level": 7,
     "school": "necromancia",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -7621,10 +6579,7 @@
     },
     "level": 7,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "27 metros",
     "components": {
@@ -7647,13 +6602,7 @@
     },
     "level": 7,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -7675,11 +6624,7 @@
     },
     "level": 7,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "30 metros",
     "components": {
@@ -7701,9 +6646,7 @@
     },
     "level": 7,
     "school": "transmutacao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -7725,11 +6668,7 @@
     },
     "level": 7,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "30 metros",
     "components": {
@@ -7751,10 +6690,7 @@
     },
     "level": 7,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "1 minuto",
     "range": "90 metros",
     "components": {
@@ -7776,11 +6712,7 @@
     },
     "level": 7,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "wizard"],
     "castingTime": "10 minutos",
     "range": "Visão",
     "components": {
@@ -7801,13 +6733,7 @@
     },
     "level": 7,
     "school": "conjuracao",
-    "classes": [
-      "cleric",
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -7829,9 +6755,7 @@
     },
     "level": 7,
     "school": "evocacao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação Bônus",
     "range": "9 metros",
     "components": {
@@ -7852,10 +6776,7 @@
     },
     "level": 7,
     "school": "ilusao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "750 quilômetros",
     "components": {
@@ -7877,11 +6798,7 @@
     },
     "level": 7,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid"
-    ],
+    "classes": ["bard", "cleric", "druid"],
     "castingTime": "1 minuto",
     "range": "Toque",
     "components": {
@@ -7903,10 +6820,7 @@
     },
     "level": 7,
     "school": "necromancia",
-    "classes": [
-      "bard",
-      "cleric"
-    ],
+    "classes": ["bard", "cleric"],
     "castingTime": "1 hora",
     "range": "Toque",
     "components": {
@@ -7928,12 +6842,7 @@
     },
     "level": 7,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["bard", "cleric", "druid", "wizard"],
     "castingTime": "1 minuto",
     "range": "Toque",
     "components": {
@@ -7956,9 +6865,7 @@
     },
     "level": 7,
     "school": "ilusao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "12 horas",
     "range": "Toque",
     "components": {
@@ -7980,11 +6887,7 @@
     },
     "level": 7,
     "school": "evocacao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -8006,11 +6909,7 @@
     },
     "level": 7,
     "school": "conjuracao",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "3 metros",
     "components": {
@@ -8032,11 +6931,7 @@
     },
     "level": 7,
     "school": "evocacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "sorcerer"
-    ],
+    "classes": ["cleric", "druid", "sorcerer"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -8058,11 +6953,7 @@
     },
     "level": 8,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "wizard"],
     "castingTime": "1 hora",
     "range": "18 metros",
     "components": {
@@ -8084,9 +6975,7 @@
     },
     "level": 8,
     "school": "abjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -8108,10 +6997,7 @@
     },
     "level": 8,
     "school": "abjuracao",
-    "classes": [
-      "cleric",
-      "wizard"
-    ],
+    "classes": ["cleric", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -8133,9 +7019,7 @@
     },
     "level": 8,
     "school": "necromancia",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "1 hora",
     "range": "Toque",
     "components": {
@@ -8157,12 +7041,7 @@
     },
     "level": 8,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "druid",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -8185,11 +7064,7 @@
     },
     "level": 8,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "wizard"],
     "castingTime": "10 minutos",
     "range": "Pessoal",
     "components": {
@@ -8211,12 +7086,7 @@
     },
     "level": 8,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8238,12 +7108,7 @@
     },
     "level": 8,
     "school": "evocacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["cleric", "druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -8266,9 +7131,7 @@
     },
     "level": 8,
     "school": "transmutacao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -8289,10 +7152,7 @@
     },
     "level": 8,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "warlock"
-    ],
+    "classes": ["bard", "warlock"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -8313,9 +7173,7 @@
     },
     "level": 8,
     "school": "conjuracao",
-    "classes": [
-      "wizard"
-    ],
+    "classes": ["wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8336,10 +7194,7 @@
     },
     "level": 8,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "Toque",
     "components": {
@@ -8360,11 +7215,7 @@
     },
     "level": 8,
     "school": "conjuracao",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["druid", "sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "45 metros",
     "components": {
@@ -8386,12 +7237,7 @@
     },
     "level": 8,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8412,11 +7258,7 @@
     },
     "level": 8,
     "school": "conjuracao",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8437,11 +7279,7 @@
     },
     "level": 8,
     "school": "transmutacao",
-    "classes": [
-      "cleric",
-      "druid",
-      "sorcerer"
-    ],
+    "classes": ["cleric", "druid", "sorcerer"],
     "castingTime": "Ação",
     "range": "150 metros",
     "components": {
@@ -8464,9 +7302,7 @@
     },
     "level": 8,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "1 minuto",
     "range": "1,5 quilômetro",
     "components": {
@@ -8488,10 +7324,7 @@
     },
     "level": 9,
     "school": "abjuracao",
-    "classes": [
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "9 metros",
     "components": {
@@ -8513,10 +7346,7 @@
     },
     "level": 9,
     "school": "evocacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "1,5 quilômetro",
     "components": {
@@ -8539,9 +7369,7 @@
     },
     "level": 9,
     "school": "abjuracao",
-    "classes": [
-      "cleric"
-    ],
+    "classes": ["cleric"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8562,10 +7390,7 @@
     },
     "level": 9,
     "school": "conjuracao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -8588,11 +7413,7 @@
     },
     "level": 9,
     "school": "transmutacao",
-    "classes": [
-      "bard",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "9 metros",
     "components": {
@@ -8614,10 +7435,7 @@
     },
     "level": 9,
     "school": "transmutacao",
-    "classes": [
-      "druid",
-      "wizard"
-    ],
+    "classes": ["druid", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -8639,10 +7457,7 @@
     },
     "level": 9,
     "school": "abjuracao",
-    "classes": [
-      "bard",
-      "wizard"
-    ],
+    "classes": ["bard", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8664,10 +7479,7 @@
     },
     "level": 9,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "cleric"
-    ],
+    "classes": ["bard", "cleric"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8688,12 +7500,7 @@
     },
     "level": 9,
     "school": "encantamento",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8715,10 +7522,7 @@
     },
     "level": 9,
     "school": "transmutacao",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
+    "classes": ["sorcerer", "wizard"],
     "castingTime": "Ação",
     "range": "Pessoal",
     "components": {
@@ -8739,10 +7543,7 @@
     },
     "level": 9,
     "school": "ilusao",
-    "classes": [
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["warlock", "wizard"],
     "castingTime": "Ação",
     "range": "36 metros",
     "components": {
@@ -8764,12 +7565,7 @@
     },
     "level": 9,
     "school": "conjuracao",
-    "classes": [
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "sorcerer", "warlock", "wizard"],
     "castingTime": "Ação",
     "range": "18 metros",
     "components": {
@@ -8791,12 +7587,7 @@
     },
     "level": 9,
     "school": "adivinhacao",
-    "classes": [
-      "bard",
-      "druid",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["bard", "druid", "warlock", "wizard"],
     "castingTime": "1 minuto",
     "range": "Toque",
     "components": {
@@ -8818,11 +7609,7 @@
     },
     "level": 9,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "warlock",
-      "wizard"
-    ],
+    "classes": ["cleric", "warlock", "wizard"],
     "castingTime": "1 hora",
     "range": "3 metros",
     "components": {
@@ -8844,10 +7631,7 @@
     },
     "level": 9,
     "school": "necromancia",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
+    "classes": ["cleric", "druid"],
     "castingTime": "1 hora",
     "range": "Toque",
     "components": {
@@ -8869,9 +7653,7 @@
     },
     "level": 9,
     "school": "conjuracao",
-    "classes": [
-      "druid"
-    ],
+    "classes": ["druid"],
     "castingTime": "Ação",
     "range": "1,5 quilômetro",
     "components": {

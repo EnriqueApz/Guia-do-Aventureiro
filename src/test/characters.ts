@@ -22,8 +22,7 @@ export function withSpells(c: Character): Character {
     [...new Set([...first, ...pool])]
       .filter((id) => !budget.alwaysPrepared.includes(id))
       .slice(0, n);
-  const ids = (min: number, max: number) =>
-    classSpells(content, cls.id, min, max).map((s) => s.id);
+  const ids = (min: number, max: number) => classSpells(content, cls.id, min, max).map((s) => s.id);
   return {
     ...c,
     spells: {
@@ -35,66 +34,76 @@ export function withSpells(c: Character): Character {
 
 /** Anão Clérigo (Acólito), array padrão, +2 SAB +1 CAR. */
 export function thorin(level = 1): Character {
-  return withSpells(makeCharacter({
-    name: 'Thorin',
-    level,
-    speciesId: 'dwarf',
-    classId: 'cleric',
-    ...(level >= 3 && { subclassId: 'life-domain' }),
-    backgroundId: 'acolyte',
-    backgroundBonus: { sab: 2, car: 1 },
-    abilities: { method: 'padrao', base: { for: 13, des: 12, con: 14, int: 8, sab: 15, car: 10 } },
-    feats:
-      level >= 4
-        ? [{ level: 4, featId: 'ability-score-improvement', abilityBonus: { sab: 2 } }]
-        : [],
-    choices: {
-      'classe:pericias': ['medicina', 'persuasao'],
-      idiomas: ['dwarvish', 'giant'],
-      [choiceKey('classe', 'cleric-divine-order', 'divine-order')]: ['protector'],
-      'talento:magic-initiate:list': ['clerigo'],
-      'talento:magic-initiate:ability': ['sab'],
-      'talento:magic-initiate:cantrips': ['guidance', 'spare-the-dying'],
-      'talento:magic-initiate:spell': ['bless'],
-    },
-    startingEquipment: { classOption: 'a', backgroundOption: 'b' },
-    inventory: [
-      { id: 'chain-shirt', qty: 1, equipped: true },
-      { id: 'shield', qty: 1, equipped: true },
-      { id: 'mace', qty: 1 },
-    ],
-  }));
+  return withSpells(
+    makeCharacter({
+      name: 'Thorin',
+      level,
+      speciesId: 'dwarf',
+      classId: 'cleric',
+      ...(level >= 3 && { subclassId: 'life-domain' }),
+      backgroundId: 'acolyte',
+      backgroundBonus: { sab: 2, car: 1 },
+      abilities: {
+        method: 'padrao',
+        base: { for: 13, des: 12, con: 14, int: 8, sab: 15, car: 10 },
+      },
+      feats:
+        level >= 4
+          ? [{ level: 4, featId: 'ability-score-improvement', abilityBonus: { sab: 2 } }]
+          : [],
+      choices: {
+        'classe:pericias': ['medicina', 'persuasao'],
+        idiomas: ['dwarvish', 'giant'],
+        [choiceKey('classe', 'cleric-divine-order', 'divine-order')]: ['protector'],
+        'talento:magic-initiate:list': ['clerigo'],
+        'talento:magic-initiate:ability': ['sab'],
+        'talento:magic-initiate:cantrips': ['guidance', 'spare-the-dying'],
+        'talento:magic-initiate:spell': ['bless'],
+      },
+      startingEquipment: { classOption: 'a', backgroundOption: 'b' },
+      inventory: [
+        { id: 'chain-shirt', qty: 1, equipped: true },
+        { id: 'shield', qty: 1, equipped: true },
+        { id: 'mace', qty: 1 },
+      ],
+    }),
+  );
 }
 
 /** Alta Elfa Maga (Sábia), array padrão, +2 INT +1 CON. */
 export function lira(level = 3): Character {
-  return withSpells(makeCharacter({
-    name: 'Lira',
-    level,
-    speciesId: 'elf',
-    lineageId: 'elven-lineage-high-elf',
-    lineageSpellAbility: 'int',
-    classId: 'wizard',
-    ...(level >= 3 && { subclassId: 'evoker' }),
-    backgroundId: 'sage',
-    backgroundBonus: { int: 2, con: 1 },
-    abilities: { method: 'padrao', base: { for: 8, des: 13, con: 14, int: 15, sab: 12, car: 10 } },
-    choices: {
-      'classe:pericias': ['investigacao', 'medicina'],
-      idiomas: ['elvish', 'draconic'],
-      [choiceKey('especie', 'keen-senses', 'keen-senses')]: ['percepcao'],
-      [choiceKey('classe', 'wizard-scholar', 'scholar')]: ['arcanismo'],
-      'talento:magic-initiate:list': ['mago'],
-      'talento:magic-initiate:ability': ['int'],
-      'talento:magic-initiate:cantrips': ['fire-bolt', 'minor-illusion'],
-      'talento:magic-initiate:spell': ['sleep'],
-    },
-    startingEquipment: { classOption: 'a', backgroundOption: 'a' },
-    inventory: [
-      { id: 'quarterstaff', qty: 1 },
-      { id: 'dagger', qty: 2 },
-    ],
-  }));
+  return withSpells(
+    makeCharacter({
+      name: 'Lira',
+      level,
+      speciesId: 'elf',
+      lineageId: 'elven-lineage-high-elf',
+      lineageSpellAbility: 'int',
+      classId: 'wizard',
+      ...(level >= 3 && { subclassId: 'evoker' }),
+      backgroundId: 'sage',
+      backgroundBonus: { int: 2, con: 1 },
+      abilities: {
+        method: 'padrao',
+        base: { for: 8, des: 13, con: 14, int: 15, sab: 12, car: 10 },
+      },
+      choices: {
+        'classe:pericias': ['investigacao', 'medicina'],
+        idiomas: ['elvish', 'draconic'],
+        [choiceKey('especie', 'keen-senses', 'keen-senses')]: ['percepcao'],
+        [choiceKey('classe', 'wizard-scholar', 'scholar')]: ['arcanismo'],
+        'talento:magic-initiate:list': ['mago'],
+        'talento:magic-initiate:ability': ['int'],
+        'talento:magic-initiate:cantrips': ['fire-bolt', 'minor-illusion'],
+        'talento:magic-initiate:spell': ['sleep'],
+      },
+      startingEquipment: { classOption: 'a', backgroundOption: 'a' },
+      inventory: [
+        { id: 'quarterstaff', qty: 1 },
+        { id: 'dagger', qty: 2 },
+      ],
+    }),
+  );
 }
 
 /** Halfling Ladino (Criminoso), array padrão, +2 DES +1 CON; nível 4: +1 DES +1 CON. */

@@ -4,8 +4,13 @@
  */
 import type { Ability, ClassDef, ContentBundle } from '@/content/schema';
 import { ABILITIES } from '@/content/schema';
-import { canChangePointBuy, POINT_BUY_MIN, STANDARD_ARRAY } from '@/rules/abilities';
-import { spellBudget } from '@/rules/spells';
+import {
+  canChangePointBuy,
+  isStandardArray,
+  POINT_BUY_MIN,
+  STANDARD_ARRAY,
+} from '@/rules/abilities';
+import { featSpellOptions, spellBudget } from '@/rules/spells';
 import {
   DEFAULT_SCORES,
   type AbilityMethod,
@@ -176,6 +181,13 @@ export function setAbilityMethod(
           ? { ...DEFAULT_SCORES }
           : { ...c.abilities.base };
   return { ...c, abilities: { method, base } };
+}
+
+/** Com o array padrão, garante que os seis valores estejam distribuídos (sugestão da classe). */
+export function ensureStandardArray(c: Character, content: ContentBundle): Character {
+  if (c.abilities.method !== 'padrao' || isStandardArray(c.abilities.base)) return c;
+  const classDef = content.classes.find((x) => x.id === c.classId);
+  return { ...c, abilities: { method: 'padrao', base: standardFor(classDef) } };
 }
 
 /**
@@ -420,8 +432,31 @@ export function applyBeginnerKit(c: Character, content: ContentBundle): Characte
       spellAbility && ['int', 'sab', 'car'].includes(spellAbility) ? spellAbility : mi.ability;
     if (!next.choices[k('list')]) next = setChoice(next, k('list'), [list]);
     if (!next.choices[k('ability')]) next = setChoice(next, k('ability'), [ability]);
-    if (!next.choices[k('cantrips')]) next = setChoice(next, k('cantrips'), mi.cantrips);
-    if (!next.choices[k('spell')]) next = setChoice(next, k('spell'), [mi.spell]);
+    // Evita repetir magias que a classe já tem: troca por outras da mesma lista.
+    const known = new Set([...next.spells.cantrips, ...next.spells.prepared]);
+    const pickFrom = (first: string[], choiceId: string, n: number) => {
+      const pool = featSpellOptions(content, featId, choiceId, list);
+      const ranked = [
+        ...first,
+        ...pool.filter((sp) => sp.beginner).map((sp) => sp.id),
+        ...pool.map((sp) => sp.id),
+      ];
+      return [...new Set(ranked)].filter((id) => !known.has(id)).slice(0, n);
+    };
+    if (!next.choices[k('cantrips')])
+      next = setChoice(next, k('cantrips'), pickFrom(mi.cantrips, 'cantrips', 2));
+    if (!next.choices[k('spell')])
+      next = setChoice(next, k('spell'), pickFrom([mi.spell], 'spell', 1));
   }
   return next;
+}
+
+// ------------------------------------------------------------------ detalhes
+
+export function setName(c: Character, name: string): Character {
+  return { ...c, name };
+}
+
+export function setDetails(c: Character, patch: Partial<Character['details']>): Character {
+  return { ...c, details: { ...c.details, ...patch } };
 }

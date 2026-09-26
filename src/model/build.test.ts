@@ -9,6 +9,7 @@ import {
   assignScore,
   changePointBuy,
   chooseEquipment,
+  ensureStandardArray,
   selectBackground,
   selectClass,
   setAbilityMethod,
@@ -36,6 +37,13 @@ describe('atributos', () => {
     expect(c.abilities.base.int).toBe(15);
     expect(c.abilities.base.sab).toBe(8); // trocou com quem tinha o 15
     expect(setAbilityMethod(c, 'padrao', content)).toBe(c);
+  });
+
+  it('garante o array padrão distribuído na primeira visita', () => {
+    const c = makeCharacter({ classId: 'cleric' });
+    const next = ensureStandardArray(c, content);
+    expect(next.abilities.base).toEqual({ ...cleric?.recommendedScores });
+    expect(ensureStandardArray(next, content)).toBe(next);
   });
 
   it('array padrão sem classe usa a ordem FOR→CAR', () => {
@@ -198,6 +206,18 @@ describe('kit para iniciantes', () => {
         );
       }
     }
+  });
+
+  it('o Iniciado em Magia do kit não repete magias da classe', () => {
+    let c = makeCharacter({ classId: 'wizard', speciesId: 'elf' });
+    c = selectBackground(c, 'sage', content);
+    c = applyBeginnerKit(c, content);
+    const mi = [
+      ...(c.choices['talento:magic-initiate:cantrips'] ?? []),
+      ...(c.choices['talento:magic-initiate:spell'] ?? []),
+    ];
+    expect(mi).toHaveLength(3);
+    for (const id of mi) expect([...c.spells.cantrips, ...c.spells.prepared]).not.toContain(id);
   });
 
   it('sem classe ou sem kit, nada muda', () => {
