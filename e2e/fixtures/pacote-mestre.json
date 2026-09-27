@@ -1,0 +1,28 @@
+{
+  "app": "guia-do-aventureiro",
+  "kind": "conteudo",
+  "version": 1,
+  "name": "Mesa de teste",
+  "species": [],
+  "subclasses": [
+    {
+      "id": "caminho-do-fanatico",
+      "classId": "barbarian",
+      "name": "Caminho do Fanático",
+      "source": { "kind": "homebrew", "ref": "Anotações da mesa" },
+      "summary": "Fúria movida pela fé.",
+      "description": "Texto de teste escrito pelo grupo.",
+      "features": [
+        {
+          "id": "furia-da-fe",
+          "level": 3,
+          "name": "Fúria da Fé",
+          "text": "Texto de teste do grupo.",
+          "plain": "Texto de teste do grupo."
+        }
+      ]
+    }
+  ],
+  "backgrounds": [],
+  "feats": []
+}

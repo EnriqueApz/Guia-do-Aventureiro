@@ -1,8 +1,9 @@
 import { Download, Pencil, Plus, RefreshCw, Trash2, Upload } from 'lucide-react';
 import { useRef, useState } from 'react';
+import { Link } from 'react-router';
 import { usePageTitle } from '@/app/usePageTitle';
 import { homebrewAtLoad, srdContent } from '@/content';
-import { checkPack, packSize, PACK_APP, type HomebrewKind } from '@/content/homebrew';
+import { packSize, type HomebrewKind } from '@/content/homebrew';
 import type { Stub } from '@/content/schema';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -11,6 +12,7 @@ import { downloadText } from '@/lib/download';
 import { PageHeader } from '@/routes/PageHeader';
 import { useHomebrew } from '@/state/homebrew';
 import { BackgroundEditor, SpeciesEditor, SubclassEditor } from './Editors';
+import { readPackFile } from './readPack';
 
 type Editing =
   | { kind: 'subclasses'; id?: string; preset?: { id: string; name: string; classId?: string } }
@@ -43,26 +45,12 @@ export default function ContentPage() {
 
   const onFile = async (file: File | undefined) => {
     if (!file) return;
-    let data: unknown;
-    try {
-      data = JSON.parse(await file.text());
-    } catch {
-      setMessage({ ok: false, text: ['O arquivo não é um JSON válido.'] });
+    const read = await readPackFile(file);
+    if (read.errors) {
+      setMessage({ ok: false, text: read.errors });
       return;
     }
-    const obj = data as { app?: unknown; kind?: unknown };
-    if (obj && typeof obj === 'object' && (obj.app !== PACK_APP || obj.kind !== 'conteudo')) {
-      setMessage({
-        ok: false,
-        text: ['Este arquivo não é um pacote de conteúdo do Guia do Aventureiro.'],
-      });
-      return;
-    }
-    const { pack: next, errors } = checkPack(data, srdContent);
-    if (!next) {
-      setMessage({ ok: false, text: errors });
-      return;
-    }
+    const next = read.pack;
     replace(next);
     setMessage({ ok: true, text: [`Pacote importado com ${packSize(next)} opções.`] });
     if (fileRef.current) fileRef.current.value = '';
@@ -102,6 +90,16 @@ export default function ContentPage() {
         <p>
           <strong>Fica só neste navegador.</strong> Para passar para outra pessoa, exporte o pacote
           e mande o arquivo. Escreva com as suas palavras: não copie o texto dos livros.
+        </p>
+        <p>
+          Jogador recebendo um pacote do Mestre?{' '}
+          <Link
+            to="/receber"
+            className="font-semibold text-ink underline decoration-seal underline-offset-2"
+          >
+            Use a página Receber pacote
+          </Link>
+          , que é mais simples no celular.
         </p>
         <p className="text-ink-muted">
           O conteúdo próprio não calcula efeitos sozinho (só visão no escuro, perícias e atributos):

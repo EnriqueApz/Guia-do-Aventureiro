@@ -26,6 +26,7 @@ export const routes: RouteObject[] = [
       { path: 'comparar', lazy: page(() => import('@/features/compare/ComparePage')) },
       { path: 'mesa', lazy: page(() => import('@/features/table/TablePage')) },
       { path: 'conteudo', lazy: page(() => import('@/features/homebrew/ContentPage')) },
+      { path: 'receber', lazy: page(() => import('@/features/homebrew/ReceivePage')) },
       { path: 'sobre', lazy: page(() => import('@/routes/AboutPage')) },
       { path: 'design', lazy: page(() => import('@/routes/DesignPage')) },
       { path: '*', lazy: page(() => import('@/routes/NotFoundPage')) },

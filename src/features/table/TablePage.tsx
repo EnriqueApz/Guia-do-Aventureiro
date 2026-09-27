@@ -85,6 +85,12 @@ function JoinCard({ rules }: { rules: TableRules }) {
         Convite para a mesa{rules.name ? ` “${rules.name}”` : ''}
       </h2>
       <RulesSummary rules={rules} />
+      {rules.allowHomebrew && (
+        <p className="text-sm text-ink-muted">
+          Se o Mestre também mandou um arquivo de pacote, instale depois em{' '}
+          <strong>Recebi um pacote do Mestre</strong>, na página inicial.
+        </p>
+      )}
       <div className="flex flex-wrap gap-2">
         <Button
           onClick={() => {

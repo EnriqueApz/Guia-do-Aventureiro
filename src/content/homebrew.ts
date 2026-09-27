@@ -38,6 +38,25 @@ export function packSize(p: HomebrewPack): number {
 }
 
 /**
+ * Junta dois pacotes: o que chega substitui opções com o mesmo id e o resto é mantido
+ * (receber o pacote do Mestre não apaga o que o jogador já criou).
+ */
+export function mergePacks(base: HomebrewPack, incoming: HomebrewPack): HomebrewPack {
+  const join = <T extends { id: string }>(a: T[], b: T[]) => {
+    const ids = new Set(b.map((x) => x.id));
+    return [...a.filter((x) => !ids.has(x.id)), ...b];
+  };
+  return {
+    ...base,
+    name: incoming.name ?? base.name,
+    species: join(base.species, incoming.species),
+    subclasses: join(base.subclasses, incoming.subclasses),
+    backgrounds: join(base.backgrounds, incoming.backgrounds),
+    feats: join(base.feats, incoming.feats),
+  };
+}
+
+/**
  * SRD + conteúdo próprio. Um stub some quando o grupo cria uma opção com o mesmo
  * id (é assim que "completar" funciona).
  */
