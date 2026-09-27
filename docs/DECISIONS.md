@@ -3,6 +3,17 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-27 · Site se atualiza sozinho em abas abertas
+
+**Contexto:** com `autoUpdate`, o service worker novo assume, mas a aba já aberta
+continua com o código antigo. No celular a aba fica aberta por dias, e uma rota nova
+(como `/receber`) caía em "Você se perdeu na masmorra".
+**Decisão:** `src/app/swUpdate.ts` recarrega a página uma vez quando uma versão nova
+assume o controle (não na primeira visita). Ao voltar para a aba, o site procura
+versão nova. A página 404 também procura e tem o botão "Atualizar o site".
+**Consequências:** depois de um deploy, o jogador vê a versão nova no máximo ao voltar
+para a aba. Nada se perde na recarga, porque o estado fica no localStorage.
+
 ## 2026-09-27 · Pacote do Mestre por arquivo (página Receber pacote)
 
 **Contexto:** o Mestre quer passar ao grupo conteúdo que só existe nos livros. Esse
