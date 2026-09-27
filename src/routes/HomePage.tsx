@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BookOpen,
   Dices,
+  PenLine,
   ScrollText,
   Sparkles,
   Users,
@@ -125,6 +126,12 @@ export default function HomePage() {
           icon={<Users aria-hidden className="size-6" />}
           title="Sou o Mestre"
           text="Crie um link com as regras da sua mesa para o grupo todo usar."
+        />
+        <ShortcutCard
+          to="/conteudo"
+          icon={<PenLine aria-hidden className="size-6" />}
+          title="Conteúdo próprio"
+          text="Complete as opções com cadeado (subclasses, antecedentes) e troque pacotes com o grupo."
         />
       </section>
     </div>

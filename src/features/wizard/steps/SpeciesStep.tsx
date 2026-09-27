@@ -16,6 +16,7 @@ import type { StepProps } from '../WizardPage';
 import { allowed, homebrewBlocked } from '@/model/table';
 import { useTable } from '@/state/table';
 import { useScrollIntoViewOnChange } from '../useScrollIntoView';
+import { StubsLink } from '../parts/StubsLink';
 
 export default function SpeciesStep({ wizard }: StepProps) {
   const tableRules = useTable((st) => st.rules);
@@ -68,6 +69,7 @@ export default function SpeciesStep({ wizard }: StepProps) {
           />
         ))}
       </div>
+      {stubs.length > 0 && <StubsLink />}
 
       {species && (
         <div

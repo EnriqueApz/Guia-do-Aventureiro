@@ -15,6 +15,7 @@ import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
 import { homebrewBlocked } from '@/model/table';
 import { useTable } from '@/state/table';
+import { StubsLink } from '../parts/StubsLink';
 
 export default function SubclassStep({ wizard, goTo }: StepProps) {
   const tableRules = useTable((st) => st.rules);
@@ -43,7 +44,7 @@ export default function SubclassStep({ wizard, goTo }: StepProps) {
 
   return (
     <div className="space-y-8">
-      <StepHeader eyebrow="Etapa 4" title={`${cls.subclassLabel} do ${cls.name}`}>
+      <StepHeader eyebrow="Etapa 4" title={cls.subclassLabel}>
         <p>
           A subclasse é uma especialização da classe, escolhida no nível 3. Ela dá características
           próprias em alguns níveis e define o “sabor” do seu {cls.name.toLowerCase()}.
@@ -92,6 +93,7 @@ export default function SubclassStep({ wizard, goTo }: StepProps) {
           />
         ))}
       </div>
+      {stubs.length > 0 && <StubsLink />}
 
       {shown && (
         <div
