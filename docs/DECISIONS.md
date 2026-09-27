@@ -3,6 +3,21 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-09-27 · Pacote do Mestre por arquivo (página Receber pacote)
+
+**Contexto:** o Mestre quer passar ao grupo conteúdo que só existe nos livros. Esse
+conteúdo não pode ir para o repositório (público) nem para o site. Um link da mesa com
+o pacote dentro passaria de 50 mil caracteres, grande demais para o WhatsApp.
+**Decisão:** o pacote viaja como arquivo, direto entre as pessoas. A página
+`/receber` ("Recebi um pacote do Mestre", na página inicial) tem um botão grande e o
+passo a passo para Android e iPhone. O pacote é validado (`checkPack`) e **somado** ao
+conteúdo próprio do aparelho (`mergePacks`: o que chega substitui ids iguais e o
+resto fica). O seletor de arquivo não restringe o tipo, porque no iPhone isso às
+vezes deixa o `.json` indisponível. A importação em `/conteudo` continua substituindo
+tudo, como antes.
+**Consequências:** nada do livro passa pelo site. Cada jogador instala uma vez; para
+atualizar, basta receber e instalar o arquivo novo.
+
 ## 2026-09-26 · Polimento: acessibilidade, toque e pacote inicial
 
 **Contexto:** a fase 8 fecha a v1 com critérios verificáveis, não impressões.

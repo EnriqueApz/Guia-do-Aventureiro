@@ -47,6 +47,9 @@ de cada um, e o site funciona offline depois da primeira visita.
   leitura) para você acompanhar ou imprimir.
 - **Guia rápido** (`/guia-rapido`): testes, combate, magia, dano, morte e descanso
   em duas folhas para imprimir e deixar na mesa.
+- **Pacote do Mestre**: o que o grupo completar em Conteúdo próprio pode ser
+  exportado como arquivo e mandado no grupo. No celular, cada jogador toca em
+  **Recebi um pacote do Mestre** (página inicial) e escolhe o arquivo.
 - **Comparador** (`/comparar`): duas classes ou espécies lado a lado, para ajudar
   quem está em dúvida.
 

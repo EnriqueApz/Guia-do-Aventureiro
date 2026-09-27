@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BookOpen,
   Dices,
+  FileUp,
   PenLine,
   ScrollText,
   Sparkles,
@@ -126,6 +127,12 @@ export default function HomePage() {
           icon={<Users aria-hidden className="size-6" />}
           title="Sou o Mestre"
           text="Crie um link com as regras da sua mesa para o grupo todo usar."
+        />
+        <ShortcutCard
+          to="/receber"
+          icon={<FileUp aria-hidden className="size-6" />}
+          title="Recebi um pacote do Mestre"
+          text="Instale as subclasses e antecedentes que o Mestre mandou no grupo."
         />
         <ShortcutCard
           to="/conteudo"

@@ -17,6 +17,7 @@ const ROUTES = [
   '/comparar',
   '/mesa',
   '/conteudo',
+  '/receber',
   '/sobre',
   '/nao-existe',
   '/criar/e2e-thorin/boas-vindas',

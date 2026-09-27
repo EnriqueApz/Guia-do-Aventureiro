@@ -4,6 +4,7 @@ import {
   EMPTY_PACK,
   firstSentence,
   mergeContent,
+  mergePacks,
   packSize,
   slugify,
 } from '@/content/homebrew';
@@ -75,6 +76,17 @@ describe('conteúdo próprio', () => {
     expect(checkPack(clash, srdContent).errors[0]).toContain('já é do SRD');
     const orphan = { ...EMPTY_PACK, subclasses: [{ ...zealot, classId: 'nao-existe' }] };
     expect(checkPack(orphan, srdContent).errors.join()).toContain('nao-existe');
+  });
+
+  it('juntar pacotes mantém o que o jogador tinha e atualiza o que chega', () => {
+    const mine = { ...EMPTY_PACK, backgrounds: [craftsman], subclasses: [zealot] };
+    const renamed = { ...zealot, name: 'Caminho do Fanático (Mestre)' };
+    const master = { ...EMPTY_PACK, name: 'Mesa de sexta', subclasses: [renamed] };
+    const merged = mergePacks(mine, master);
+    expect(merged.name).toBe('Mesa de sexta');
+    expect(merged.backgrounds).toEqual([craftsman]);
+    expect(merged.subclasses).toEqual([renamed]);
+    expect(mergePacks(EMPTY_PACK, EMPTY_PACK)).toEqual(EMPTY_PACK);
   });
 
   it('ids e explicações automáticas', () => {
