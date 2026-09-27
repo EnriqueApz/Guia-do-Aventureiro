@@ -19,6 +19,7 @@ import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
 import { allowed, homebrewBlocked } from '@/model/table';
 import { useTable } from '@/state/table';
+import { StubsLink } from '../parts/StubsLink';
 
 type PersonalityField = keyof Character['details']['personality'];
 
@@ -100,6 +101,7 @@ export default function BackgroundStep({ wizard }: StepProps) {
           />
         ))}
       </div>
+      {stubs.length > 0 && <StubsLink />}
 
       {bg && (
         <div

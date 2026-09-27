@@ -15,6 +15,7 @@ import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
 import { homebrewBlocked } from '@/model/table';
 import { useTable } from '@/state/table';
+import { StubsLink } from '../parts/StubsLink';
 
 export default function SubclassStep({ wizard, goTo }: StepProps) {
   const tableRules = useTable((st) => st.rules);
@@ -92,6 +93,7 @@ export default function SubclassStep({ wizard, goTo }: StepProps) {
           />
         ))}
       </div>
+      {stubs.length > 0 && <StubsLink />}
 
       {shown && (
         <div
