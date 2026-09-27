@@ -43,7 +43,7 @@ export default function SubclassStep({ wizard, goTo }: StepProps) {
 
   return (
     <div className="space-y-8">
-      <StepHeader eyebrow="Etapa 4" title={`${cls.subclassLabel} do ${cls.name}`}>
+      <StepHeader eyebrow="Etapa 4" title={cls.subclassLabel}>
         <p>
           A subclasse é uma especialização da classe, escolhida no nível 3. Ela dá características
           próprias em alguns níveis e define o “sabor” do seu {cls.name.toLowerCase()}.
