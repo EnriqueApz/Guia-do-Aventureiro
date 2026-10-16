@@ -28,3 +28,23 @@ test('o jogador instala o pacote do Mestre pelo celular', async ({ page }) => {
   await page.getByRole('button', { name: /^Caminho do Fanático/ }).click();
   await expect(page.getByText('Fúria da Fé').first()).toBeVisible();
 });
+
+test('o pacote do Mestre pode trazer uma classe nova', async ({ page }) => {
+  await page.goto('/receber');
+  await page
+    .getByLabel('Arquivo do pacote do Mestre')
+    .setInputFiles('e2e/fixtures/pacote-classe.json');
+  await expect(page.getByRole('status').filter({ hasText: 'Pacote instalado' })).toContainText(
+    '1 classe',
+  );
+  await page.getByRole('button', { name: 'Começar a usar' }).click();
+  await page.getByRole('button', { name: 'Criar meu personagem' }).click();
+  await expect(page).toHaveURL(/boas-vindas/);
+  await page.goto(page.url().replace('boas-vindas', 'classe'));
+  await page.getByRole('button', { name: /^Duelista/ }).click();
+  await expect(page.getByRole('heading', { name: 'Duelista', level: 2 })).toBeVisible();
+
+  await page.goto('/conteudo');
+  await expect(page.getByText('Classe (veio de um pacote)')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Editar Duelista' })).toHaveCount(0);
+});

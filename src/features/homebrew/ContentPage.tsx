@@ -19,7 +19,7 @@ type Editing =
   | { kind: 'backgrounds'; id?: string; preset?: { id: string; name: string } }
   | { kind: 'species'; id?: string; preset?: { id: string; name: string } };
 
-const KIND_LABEL: Record<Exclude<HomebrewKind, 'feats'>, string> = {
+const KIND_LABEL: Record<Editing['kind'], string> = {
   species: 'Espécie',
   subclasses: 'Subclasse',
   backgrounds: 'Antecedente',
@@ -41,7 +41,7 @@ export default function ContentPage() {
   const dirty = JSON.stringify(pack) !== JSON.stringify(homebrewAtLoad);
   const done = new Set([...pack.species, ...pack.subclasses, ...pack.backgrounds].map((x) => x.id));
   const stubs = srdContent.stubs.filter((s) => STUB_KIND[s.type] && !done.has(s.id));
-  const className = new Map(srdContent.classes.map((c) => [c.id, c.name]));
+  const className = new Map([...srdContent.classes, ...pack.classes].map((c) => [c.id, c.name]));
 
   const onFile = async (file: File | undefined) => {
     if (!file) return;
@@ -56,7 +56,18 @@ export default function ContentPage() {
     if (fileRef.current) fileRef.current.value = '';
   };
 
-  const entries: { kind: Editing['kind']; id: string; name: string; detail: string }[] = [
+  const entries: {
+    kind: Exclude<HomebrewKind, 'feats'>;
+    id: string;
+    name: string;
+    detail: string;
+  }[] = [
+    ...pack.classes.map((x) => ({
+      kind: 'classes' as const,
+      id: x.id,
+      name: x.name,
+      detail: 'Classe (veio de um pacote)',
+    })),
     ...pack.species.map((x) => ({
       kind: 'species' as const,
       id: x.id,
@@ -184,14 +195,17 @@ export default function ContentPage() {
                     <p className="truncate font-display text-lg font-semibold">{e.name}</p>
                     <p className="text-sm text-ink-muted">{e.detail}</p>
                   </div>
-                  <Button
-                    variant="fantasma"
-                    size="icone"
-                    aria-label={`Editar ${e.name}`}
-                    onClick={() => setEditing({ kind: e.kind, id: e.id })}
-                  >
-                    <Pencil aria-hidden className="size-5" />
-                  </Button>
+                  {/* Classes só chegam por pacote: não há editor para elas. */}
+                  {e.kind !== 'classes' && (
+                    <Button
+                      variant="fantasma"
+                      size="icone"
+                      aria-label={`Editar ${e.name}`}
+                      onClick={() => e.kind !== 'classes' && setEditing({ kind: e.kind, id: e.id })}
+                    >
+                      <Pencil aria-hidden className="size-5" />
+                    </Button>
+                  )}
                   <Button
                     variant="fantasma"
                     size="icone"

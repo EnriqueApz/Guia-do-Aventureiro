@@ -56,6 +56,7 @@ export default function ReceivePage() {
           <p>
             {status.pack.name ? `“${status.pack.name}”: ` : ''}
             {[
+              status.pack.classes.length && plural(status.pack.classes.length, 'classe', 'classes'),
               status.pack.subclasses.length &&
                 plural(status.pack.subclasses.length, 'subclasse', 'subclasses'),
               status.pack.backgrounds.length &&
