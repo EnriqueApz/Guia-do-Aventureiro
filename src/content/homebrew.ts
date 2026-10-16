@@ -1,10 +1,10 @@
 /**
- * Conteúdo próprio do grupo: espécies, subclasses, antecedentes e talentos criados
+ * Conteúdo próprio do grupo: espécies, classes, subclasses, antecedentes e talentos criados
  * no navegador (ou recebidos num pacote JSON). Fica só neste aparelho e é mesclado
  * por cima do SRD quando o site carrega.
  */
 import { z } from 'zod';
-import { Background, Feat, Species, Subclass, type ContentBundle } from './schema';
+import { Background, ClassDef, Feat, Species, Subclass, type ContentBundle } from './schema';
 import { validateContent } from './validate';
 
 export const HOMEBREW_KEY = 'guia:conteudo';
@@ -16,25 +16,34 @@ export const HomebrewPack = z.object({
   version: z.literal(1).default(1),
   name: z.string().optional(),
   species: z.array(Species).default([]),
+  /** Classes inteiras (só chegam por pacote; não há editor para elas). */
+  classes: z.array(ClassDef).default([]),
   subclasses: z.array(Subclass).default([]),
   backgrounds: z.array(Background).default([]),
   feats: z.array(Feat).default([]),
 });
 export type HomebrewPack = z.infer<typeof HomebrewPack>;
-export type HomebrewKind = 'species' | 'subclasses' | 'backgrounds' | 'feats';
+export type HomebrewKind = 'species' | 'classes' | 'subclasses' | 'backgrounds' | 'feats';
 
 export const EMPTY_PACK: HomebrewPack = {
   app: PACK_APP,
   kind: 'conteudo',
   version: 1,
   species: [],
+  classes: [],
   subclasses: [],
   backgrounds: [],
   feats: [],
 };
 
 export function packSize(p: HomebrewPack): number {
-  return p.species.length + p.subclasses.length + p.backgrounds.length + p.feats.length;
+  return (
+    p.species.length +
+    p.classes.length +
+    p.subclasses.length +
+    p.backgrounds.length +
+    p.feats.length
+  );
 }
 
 /**
@@ -50,6 +59,7 @@ export function mergePacks(base: HomebrewPack, incoming: HomebrewPack): Homebrew
     ...base,
     name: incoming.name ?? base.name,
     species: join(base.species, incoming.species),
+    classes: join(base.classes, incoming.classes),
     subclasses: join(base.subclasses, incoming.subclasses),
     backgrounds: join(base.backgrounds, incoming.backgrounds),
     feats: join(base.feats, incoming.feats),
@@ -64,6 +74,7 @@ export function mergeContent(base: ContentBundle, pack: HomebrewPack): ContentBu
   if (!packSize(pack)) return base;
   const ids = new Set([
     ...pack.species.map((x) => x.id),
+    ...pack.classes.map((x) => x.id),
     ...pack.subclasses.map((x) => x.id),
     ...pack.backgrounds.map((x) => x.id),
     ...pack.feats.map((x) => x.id),
@@ -71,6 +82,7 @@ export function mergeContent(base: ContentBundle, pack: HomebrewPack): ContentBu
   return {
     ...base,
     species: [...base.species, ...pack.species],
+    classes: [...base.classes, ...pack.classes],
     subclasses: [...base.subclasses, ...pack.subclasses],
     backgrounds: [...base.backgrounds, ...pack.backgrounds],
     feats: [...base.feats, ...pack.feats],
@@ -93,11 +105,11 @@ export function checkPack(
   const pack = parsed.data;
   const errors: string[] = [];
   const srdIds = new Set(
-    [...base.species, ...base.subclasses, ...base.backgrounds, ...base.feats]
+    [...base.species, ...base.classes, ...base.subclasses, ...base.backgrounds, ...base.feats]
       .filter((x) => x.source.kind === 'srd')
       .map((x) => x.id),
   );
-  for (const list of [pack.species, pack.subclasses, pack.backgrounds, pack.feats])
+  for (const list of [pack.species, pack.classes, pack.subclasses, pack.backgrounds, pack.feats])
     for (const x of list)
       if (srdIds.has(x.id)) errors.push(`“${x.name}” usa o id "${x.id}", que já é do SRD.`);
   if (errors.length) return { errors };

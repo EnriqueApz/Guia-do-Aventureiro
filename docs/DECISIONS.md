@@ -3,6 +3,19 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-10-16 · Pacote de conteúdo pode trazer classes
+
+**Contexto:** o grupo quer usar classes de outros livros. O pacote só aceitava
+espécies, subclasses, antecedentes e talentos.
+**Decisão:** `HomebrewPack.classes` usa o mesmo esquema `ClassDef` do SRD. As classes
+são validadas por `validateContent` como as do SRD (tabela, magias, kit) e somadas a
+`content.classes`, então assistente, ficha, comparador e Modo mesa as tratam igual.
+Não há editor para classes: elas só chegam prontas, por pacote. Em Conteúdo próprio
+aparecem com "Excluir", sem "Editar", e o editor de subclasse oferece também as
+classes que vieram por pacote.
+**Consequências:** nenhum texto de livro entra no site; o código só passa a aceitar
+mais um tipo de conteúdo no pacote.
+
 ## 2026-09-27 · Site se atualiza sozinho em abas abertas
 
 **Contexto:** com `autoUpdate`, o service worker novo assume, mas a aba já aberta

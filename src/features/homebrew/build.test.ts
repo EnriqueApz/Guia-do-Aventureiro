@@ -89,6 +89,35 @@ describe('conteúdo próprio', () => {
     expect(mergePacks(EMPTY_PACK, EMPTY_PACK)).toEqual(EMPTY_PACK);
   });
 
+  it('pacote pode trazer uma classe inteira, com subclasse própria', () => {
+    const fighter = srdContent.classes.find((c) => c.id === 'fighter')!;
+    const duelist = {
+      ...fighter,
+      id: 'duelista',
+      name: 'Duelista',
+      source: { kind: 'homebrew' as const, ref: 'Anotações da mesa' },
+    };
+    const school = {
+      ...zealot,
+      id: 'escola-da-lamina',
+      name: 'Escola da Lâmina',
+      classId: 'duelista',
+    };
+    const pack = { ...EMPTY_PACK, classes: [duelist], subclasses: [school] };
+    const checked = checkPack(pack, srdContent);
+    expect(checked.errors).toEqual([]);
+    expect(packSize(pack)).toBe(2);
+    const merged = mergeContent(srdContent, pack);
+    expect(merged.classes.at(-1)?.name).toBe('Duelista');
+    const c = makeCharacter({ classId: 'duelista', subclassId: 'escola-da-lamina', level: 5 });
+    expect(derive(c, merged).hp.max).toBeGreaterThan(0);
+    // Classe com id do SRD é recusada.
+    const clash = { ...EMPTY_PACK, classes: [{ ...duelist, id: 'fighter' }] };
+    expect(checkPack(clash, srdContent).errors[0]).toContain('já é do SRD');
+    // Juntar pacotes também junta classes.
+    expect(mergePacks(EMPTY_PACK, pack).classes).toEqual([duelist]);
+  });
+
   it('ids e explicações automáticas', () => {
     expect(slugify('Caminho do Fanático!')).toBe('caminho-do-fanatico');
     expect(firstSentence('**Um.** Dois. Três.')).toBe('Um.');
