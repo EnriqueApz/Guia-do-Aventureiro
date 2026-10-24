@@ -76,6 +76,8 @@ export function SubclassEditor({
   onDone: () => void;
 }) {
   const saveEntry = useSaveEntry('subclasses');
+  // Subclasses podem ser de classes que vieram por pacote.
+  const packClasses = useHomebrew((s) => s.pack.classes);
   const [errors, setErrors] = useState<string[]>([]);
   const [form, setForm] = useState<SubclassForm>(() =>
     initial
@@ -128,7 +130,10 @@ export function SubclassEditor({
         <SelectField
           label="Classe"
           value={form.classId}
-          options={srdContent.classes.map((c) => ({ value: c.id, label: c.name }))}
+          options={[...srdContent.classes, ...packClasses].map((c) => ({
+            value: c.id,
+            label: c.name,
+          }))}
           onChange={(classId) => setForm({ ...form, classId })}
         />
       </Row>

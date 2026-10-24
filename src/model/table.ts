@@ -74,6 +74,7 @@ export function tableIssues(c: Character, rules: TableRules, content: ContentBun
   if (!rules.allowHomebrew) {
     const own = [
       content.species.find((x) => x.id === c.speciesId),
+      content.classes.find((x) => x.id === c.classId),
       content.subclasses.find((x) => x.id === c.subclassId),
       content.backgrounds.find((x) => x.id === c.backgroundId),
     ].filter((x) => x?.source.kind === 'homebrew');
