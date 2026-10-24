@@ -28,6 +28,7 @@ import {
   setExhaustion,
   setHeroicInspiration,
   setResourceUsed,
+  setPactSlotsUsed,
   setSlotsUsed,
   toggleCondition,
 } from '@/model/play';
@@ -39,6 +40,7 @@ import {
   deathSave,
   gainTempHp,
   longRest,
+  hitDiceAvailable,
   shortRest,
   takeDamage,
   type DamageOutcome,
@@ -550,8 +552,9 @@ function Resources({
 }) {
   const play = character.play;
   const slots = sheet.spellcasting?.slots ?? [];
+  const pactSlots = sheet.spellcasting?.pactSlots ?? [];
   const withUses = sheet.features.filter((f) => f.uses && f.uses.max > 0);
-  if (!slots.some((n) => n > 0) && !withUses.length) return null;
+  if (!slots.some((n) => n > 0) && !pactSlots.some((n) => n > 0) && !withUses.length) return null;
   return (
     <Card className="space-y-4">
       {slots.some((n) => n > 0) && (
@@ -572,6 +575,27 @@ function Resources({
                 total={total}
                 used={Math.min(total, play.slotsUsed[i] ?? 0)}
                 onChange={(n) => setPlay((p) => setSlotsUsed(p, i, n, total))}
+              />
+            ) : null,
+          )}
+        </div>
+      )}
+      {pactSlots.some((n) => n > 0) && (
+        <div className="space-y-2">
+          <h2 className="text-xl font-semibold">
+            Magia de Pacto
+            <span className="ml-2 text-sm font-normal text-ink-muted">
+              (voltam no Descanso Curto)
+            </span>
+          </h2>
+          {pactSlots.map((total, i) =>
+            total > 0 ? (
+              <Pips
+                key={i}
+                label={`Pacto: ${i + 1}º círculo`}
+                total={total}
+                used={Math.min(total, play.pactSlotsUsed?.[i] ?? 0)}
+                onChange={(n) => setPlay((p) => setPactSlotsUsed(p, i, n, total))}
               />
             ) : null,
           )}
@@ -690,12 +714,17 @@ function Rests({
 }) {
   const play = character.play;
   const rollExpr = useRolls((s) => s.rollExpr);
-  const available = sheet.hitDice.total - play.hitDiceUsed;
-  const [dice, setDice] = useState(0);
+  // Multiclasse: um contador por tamanho de dado (d10, d8...).
+  const pools = hitDiceAvailable(play, sheet);
+  const available = pools.reduce((sum, p) => sum + p.left, 0);
+  const [dice, setDice] = useState<Record<number, number>>({});
   const [confirmLong, setConfirmLong] = useState(false);
   const [message, setMessage] = useState('');
-  const n = Math.min(dice, available);
+  const count = (die: number) =>
+    Math.min(dice[die] ?? 0, pools.find((p) => p.die === die)?.left ?? 0);
+  const total = pools.reduce((sum, p) => sum + count(p.die), 0);
   const con = sheet.abilities.con.modifier;
+  const multi = pools.length > 1;
 
   return (
     <Card className="space-y-4">
@@ -705,7 +734,7 @@ function Rests({
         <strong className="num">
           {available} de {sheet.hitDice.total}
         </strong>{' '}
-        (d{sheet.hitDice.die}
+        ({multi ? pools.map((p) => `${p.left}d${p.die}`).join(' + ') : `d${sheet.hitDice.die}`}
         {con ? ` ${formatBonus(con)} cada` : ''})
       </p>
 
@@ -718,38 +747,51 @@ function Rests({
           Gaste Dados de Vida para curar e recupere o que volta no descanso curto.
         </p>
         <div className="flex flex-wrap items-center gap-2">
-          <Button
-            variant="secundario"
-            size="icone"
-            aria-label="Menos Dados de Vida"
-            disabled={n <= 0}
-            onClick={() => setDice(n - 1)}
-          >
-            <Minus aria-hidden className="size-4" />
-          </Button>
-          <span className="num w-24 text-center" aria-live="polite">
-            {n} {n === 1 ? 'dado' : 'dados'}
-          </span>
-          <Button
-            variant="secundario"
-            size="icone"
-            aria-label="Mais Dados de Vida"
-            disabled={n >= available}
-            onClick={() => setDice(n + 1)}
-          >
-            <Plus aria-hidden className="size-4" />
-          </Button>
+          {pools.map((p) => {
+            const n = count(p.die);
+            const what = multi ? ` d${p.die}` : '';
+            return (
+              <div key={p.die} className="flex items-center gap-2">
+                <Button
+                  variant="secundario"
+                  size="icone"
+                  aria-label={`Menos Dados de Vida${what}`}
+                  disabled={n <= 0}
+                  onClick={() => setDice((d) => ({ ...d, [p.die]: n - 1 }))}
+                >
+                  <Minus aria-hidden className="size-4" />
+                </Button>
+                <span className="num w-24 text-center" aria-live="polite">
+                  {n} {multi ? `d${p.die}` : n === 1 ? 'dado' : 'dados'}
+                </span>
+                <Button
+                  variant="secundario"
+                  size="icone"
+                  aria-label={`Mais Dados de Vida${what}`}
+                  disabled={n >= p.left}
+                  onClick={() => setDice((d) => ({ ...d, [p.die]: n + 1 }))}
+                >
+                  <Plus aria-hidden className="size-4" />
+                </Button>
+              </div>
+            );
+          })}
           <Button
             onClick={() => {
-              const rolls = n
-                ? rollExpr('Descanso curto: Dados de Vida', `${n}d${sheet.hitDice.die}`).dice
-                : [];
+              const rolls = pools.flatMap((p) => {
+                const n = count(p.die);
+                return n ? rollExpr('Descanso curto: Dados de Vida', `${n}d${p.die}`).dice : [];
+              });
+              const spent = Object.fromEntries(pools.map((p) => [p.die, count(p.die)]));
               const before = currentHp(play, sheet);
-              const next = shortRest(play, sheet, { hitDiceRolls: rolls });
+              const next = shortRest(play, sheet, {
+                hitDiceRolls: rolls,
+                ...(multi && { diceSpent: spent }),
+              });
               setPlay(() => next);
-              setDice(0);
+              setDice({});
               setMessage(
-                `Descanso curto feito${n ? `: +${currentHp(next, sheet) - before} PV` : ''}.`,
+                `Descanso curto feito${total ? `: +${currentHp(next, sheet) - before} PV` : ''}.`,
               );
             }}
           >

@@ -86,6 +86,29 @@
       "gold": 150
     }
   ],
+  "multiclass": {
+    "armor": ["leve", "media", "escudo"],
+    "weapons": ["marciais"],
+    "tools": [],
+    "choices": [
+      {
+        "id": "pericia",
+        "kind": "pericia",
+        "label": "Uma perícia da lista da classe",
+        "count": 1,
+        "from": [
+          "adestrar-animais",
+          "atletismo",
+          "intuicao",
+          "investigacao",
+          "natureza",
+          "percepcao",
+          "furtividade",
+          "sobrevivencia"
+        ]
+      }
+    ]
+  },
   "spellcasting": {
     "ability": "sab",
     "progression": "meia",

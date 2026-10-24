@@ -9,6 +9,7 @@ import { usePageTitle } from '@/app/usePageTitle';
 import { downloadText } from '@/lib/download';
 import { exportCharacters, exportFileName, parseImport, type ImportResult } from '@/model/transfer';
 import { validateCharacter } from '@/rules/validate';
+import { classEntries, classLabel } from '@/rules/classes';
 import { sortByRecent, useCharacters, type CharacterDraft } from '@/state/characters';
 import { PageHeader } from './PageHeader';
 import { useStartCharacter } from './useStartCharacter';
@@ -17,8 +18,11 @@ const dateFormat = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeS
 
 function identity(c: CharacterDraft): string {
   const species = content.species.find((s) => s.id === c.speciesId)?.name;
-  const cls = content.classes.find((x) => x.id === c.classId)?.name;
-  return [species, cls && `${cls} ${c.level}`].filter(Boolean).join(' · ') || `Nível ${c.level}`;
+  const classes = classEntries(c, content);
+  return (
+    [species, classes.length ? classLabel(classes) : undefined].filter(Boolean).join(' · ') ||
+    `Nível ${c.level}`
+  );
 }
 
 export default function CharactersPage() {

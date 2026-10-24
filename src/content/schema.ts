@@ -296,6 +296,18 @@ export const ClassDef = z.object({
   }),
   toolChoice: Choice.optional(),
   startingEquipment: z.array(EquipmentOption).min(1),
+  /**
+   * O que a classe dá a quem entra nela por multiclasse (só parte das proficiências).
+   * Ausente = nada. Os requisitos (13 nos atributos principais) vêm de primaryAbilities.
+   */
+  multiclass: z
+    .object({
+      armor: z.array(ArmorProficiency),
+      weapons: z.array(WeaponProficiency),
+      tools: z.array(Id),
+      choices: z.array(Choice).optional(),
+    })
+    .optional(),
   spellcasting: Spellcasting.optional(),
   columns: z.array(ClassColumn),
   features: z.array(Feature.extend({ level: z.number().int().min(1).max(20) })),

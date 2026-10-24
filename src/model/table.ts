@@ -22,6 +22,8 @@ export interface TableRules {
   abilityMethods: (typeof ABILITY_METHODS)[number][];
   hpMethod: 'media' | 'rolagem' | 'livre';
   allowHomebrew: boolean;
+  /** Multiclasse liberada? Ausente = sim. */
+  multiclass?: boolean | undefined;
 }
 
 export const DEFAULT_TABLE: TableRules = {
@@ -81,6 +83,8 @@ export function tableIssues(c: Character, rules: TableRules, content: ContentBun
     for (const x of own)
       if (x) err('especie', `${table} não permite conteúdo próprio (${x.name}).`);
   }
+  if (rules.multiclass === false && (c.multiclass ?? []).some((m) => m.levels > 0))
+    err('classe', `${table} não usa multiclasse.`);
   if (!rules.abilityMethods.includes(c.abilities.method))
     err('atributos', `${table} não usa ${METHOD_LABEL[c.abilities.method].toLowerCase()}.`);
   if (rules.hpMethod !== 'livre' && c.level > 1 && c.hp.method !== rules.hpMethod)

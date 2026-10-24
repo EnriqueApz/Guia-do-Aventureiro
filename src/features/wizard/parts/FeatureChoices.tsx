@@ -15,6 +15,8 @@ interface ChoiceFieldProps {
   storeKey: string;
   choice: Choice;
   classDef?: ClassDef | undefined;
+  /** Nível usado nas fórmulas (multiclasse: o nível da classe). Padrão: nível total. */
+  level?: number | undefined;
   /** Para escolhas "magia" de talentos: id do talento e lista de magias escolhida. */
   spellSource?: { featId: string; list: string | undefined } | undefined;
 }
@@ -25,11 +27,12 @@ export function ChoiceField({
   storeKey,
   choice: ch,
   classDef,
+  level,
   spellSource,
 }: ChoiceFieldProps) {
   const { character, sheet, edit } = wizard;
   const ctx = {
-    level: character.level,
+    level: level ?? character.level,
     proficiencyBonus: sheet.proficiencyBonus,
     modifiers: Object.fromEntries(
       Object.entries(sheet.abilities).map(([a, v]) => [a, v.modifier]),
@@ -132,12 +135,15 @@ interface FeatureChoicesProps {
   scope: string;
   features: Feature[];
   classDef?: ClassDef | undefined;
+  /** Até que nível mostrar (multiclasse: o nível da classe). Padrão: nível total. */
+  level?: number | undefined;
 }
 
 /** Escolhas das características ativas (perícias, idiomas, opções, talentos, maestrias...). */
-export function FeatureChoices({ wizard, scope, features, classDef }: FeatureChoicesProps) {
+export function FeatureChoices({ wizard, scope, features, classDef, level }: FeatureChoicesProps) {
+  const upTo = level ?? wizard.character.level;
   const pickers = features
-    .filter((f) => (f.level ?? 1) <= wizard.character.level)
+    .filter((f) => (f.level ?? 1) <= upTo)
     .flatMap((f) => (f.choices ?? []).filter((ch) => ch.kind !== 'magia').map((ch) => ({ f, ch })));
   if (!pickers.length) return null;
   return (
@@ -145,7 +151,14 @@ export function FeatureChoices({ wizard, scope, features, classDef }: FeatureCho
       {pickers.map(({ f, ch }) => {
         const key = choiceKey(scope, f.id, ch.id);
         return (
-          <ChoiceField key={key} wizard={wizard} storeKey={key} choice={ch} classDef={classDef} />
+          <ChoiceField
+            key={key}
+            wizard={wizard}
+            storeKey={key}
+            choice={ch}
+            classDef={classDef}
+            level={upTo}
+          />
         );
       })}
     </div>

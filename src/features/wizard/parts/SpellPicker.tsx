@@ -6,49 +6,66 @@ import { Switch } from '@/components/ui/Switch';
 import type { Spell } from '@/content/schema';
 import { toggleSpell } from '@/model/edits';
 import { cn } from '@/lib/cn';
-import { classSpells, spellBudget } from '@/rules/spells';
+import { chosenSpells, classSpells, spellBudgets } from '@/rules/spells';
 import { circleLabel, SCHOOL_LABEL, spellName } from '../spellLabels';
 import type { LoadedWizard } from '../useWizard';
 import { GlossaryTerm } from './GlossaryTerm';
 
-/** Truques e magias preparadas da classe, com filtros e detalhes de cada magia. */
+/**
+ * Truques e magias preparadas de cada classe conjuradora, com filtros e detalhes.
+ * Com multiclasse, cada classe tem a sua lista e o seu limite.
+ */
 export function SpellPicker({ wizard }: { wizard: LoadedWizard }) {
   const { character, edit } = wizard;
-  const budget = spellBudget(character, content);
-  if (!budget || !character.classId) return null;
-  const classId = character.classId;
+  const budgets = spellBudgets(character, content);
+  if (!budgets.length) return null;
+  const many = budgets.length > 1;
   return (
-    <div className="space-y-8">
-      {budget.alwaysPrepared.length > 0 && (
-        <p className="rounded-lg border border-line bg-sunken/60 px-4 py-3 text-sm">
-          <Lock aria-hidden className="mr-1 inline size-4 text-gold" />
-          <strong>Sempre preparadas pela subclasse</strong> (não contam no limite):{' '}
-          {budget.alwaysPrepared.map(spellName).join(', ')}.
-        </p>
-      )}
-      {budget.cantrips > 0 && (
-        <SpellList
-          title="Truques"
-          help="Magias simples que você lança à vontade, sem gastar espaço de magia."
-          spells={classSpells(content, classId, 0, 0)}
-          selected={character.spells.cantrips}
-          max={budget.cantrips}
-          onToggle={(id) => edit((c) => toggleSpell(c, 'cantrips', id, budget.cantrips))}
-        />
-      )}
-      {budget.prepared > 0 && (
-        <SpellList
-          title="Magias preparadas"
-          help={`Cada vez que lança uma, você gasta um espaço de magia. No seu nível dá para escolher até o ${budget.maxCircle}º círculo.`}
-          spells={classSpells(content, classId, 1, budget.maxCircle).filter(
-            (s) => !budget.alwaysPrepared.includes(s.id),
-          )}
-          selected={character.spells.prepared}
-          max={budget.prepared}
-          onToggle={(id) => edit((c) => toggleSpell(c, 'prepared', id, budget.prepared))}
-          showCircles={budget.maxCircle > 1}
-        />
-      )}
+    <div className="space-y-10">
+      {budgets.map((budget) => {
+        const chosen = chosenSpells(character, budget.key);
+        return (
+          <div key={budget.key} className="space-y-8">
+            {many && (
+              <h4 className="font-display text-xl font-semibold">Magias de {budget.className}</h4>
+            )}
+            {budget.alwaysPrepared.length > 0 && (
+              <p className="rounded-lg border border-line bg-sunken/60 px-4 py-3 text-sm">
+                <Lock aria-hidden className="mr-1 inline size-4 text-gold" />
+                <strong>Sempre preparadas pela subclasse</strong> (não contam no limite):{' '}
+                {budget.alwaysPrepared.map(spellName).join(', ')}.
+              </p>
+            )}
+            {budget.cantrips > 0 && (
+              <SpellList
+                title={many ? `Truques de ${budget.className}` : 'Truques'}
+                help="Magias simples que você lança à vontade, sem gastar espaço de magia."
+                spells={classSpells(content, budget.classId, 0, 0)}
+                selected={chosen.cantrips}
+                max={budget.cantrips}
+                onToggle={(id) =>
+                  edit((c) => toggleSpell(c, 'cantrips', id, budget.cantrips, budget.key))
+                }
+              />
+            )}
+            {budget.prepared > 0 && (
+              <SpellList
+                title={many ? `Magias preparadas de ${budget.className}` : 'Magias preparadas'}
+                help={`Cada vez que lança uma, você gasta um espaço de magia. ${many ? `Com seus níveis de ${budget.className}` : 'No seu nível'} dá para escolher até o ${budget.maxCircle}º círculo.`}
+                spells={classSpells(content, budget.classId, 1, budget.maxCircle).filter(
+                  (s) => !budget.alwaysPrepared.includes(s.id),
+                )}
+                selected={chosen.prepared}
+                max={budget.prepared}
+                onToggle={(id) =>
+                  edit((c) => toggleSpell(c, 'prepared', id, budget.prepared, budget.key))
+                }
+                showCircles={budget.maxCircle > 1}
+              />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

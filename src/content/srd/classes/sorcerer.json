@@ -61,6 +61,11 @@
       "gold": 50
     }
   ],
+  "multiclass": {
+    "armor": [],
+    "weapons": [],
+    "tools": []
+  },
   "spellcasting": {
     "ability": "car",
     "progression": "completa",

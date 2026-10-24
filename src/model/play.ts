@@ -25,6 +25,19 @@ export function setSlotsUsed(
   return { ...play, slotsUsed };
 }
 
+/** Multiclasse com Bruxo: espaços de Magia de Pacto gastos (à parte dos comuns). */
+export function setPactSlotsUsed(
+  play: PlayState,
+  circle: number,
+  used: number,
+  total: number,
+): PlayState {
+  const pactSlotsUsed = [...(play.pactSlotsUsed ?? [])];
+  while (pactSlotsUsed.length < 9) pactSlotsUsed.push(0);
+  pactSlotsUsed[circle] = Math.min(total, Math.max(0, Math.round(used)));
+  return { ...play, pactSlotsUsed };
+}
+
 /** Define quantos usos de um recurso (Fúria, Retomar o Fôlego...) já foram gastos. */
 export function setResourceUsed(play: PlayState, id: string, used: number, max: number): PlayState {
   const n = Math.min(max, Math.max(0, Math.round(used)));

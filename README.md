@@ -34,6 +34,8 @@ de cada um, e o site funciona offline depois da primeira visita.
 6. **Na mesa (Modo jogo)**: toque em uma perícia, salvaguarda ou ataque para rolar
    (com Vantagem ou Desvantagem); marque dano, cura, espaços de magia, recursos e
    condições; faça descanso curto e longo. Tudo fica salvo.
+   Quer misturar classes? Na etapa Classe, a seção **Multiclasse** divide os níveis
+   entre duas ou mais classes (a partir do nível 2).
 7. **Guarde uma cópia**: em **Personagens**, **Exportar** baixa um arquivo que
    pode ser importado em outro aparelho. **Imprimir / PDF** gera a ficha em A4.
 

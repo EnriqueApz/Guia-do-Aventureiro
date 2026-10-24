@@ -27,10 +27,14 @@ export function characterSummary(c: Character, sheet: Sheet, content: ContentBun
   // Sem artigos nem adjetivos de gênero: o texto serve para qualquer personagem.
   const identity = [
     sheet.species?.name,
-    sheet.classDef && `${sheet.classDef.name} de ${ORDINAL(c.level)} nível`,
+    sheet.classDef &&
+      (sheet.multiclass
+        ? `${sheet.classLabel} (${ORDINAL(c.level)} nível no total)`
+        : `${sheet.classDef.name} de ${ORDINAL(c.level)} nível`),
   ].filter(Boolean);
   let first = `${name}: ${identity.length ? identity.join(', ') : `personagem de ${ORDINAL(c.level)} nível`}`;
-  if (sheet.subclass) first += ` (${sheet.subclass.name})`;
+  const subclasses = sheet.classes.map((x) => x.subclass?.name).filter(Boolean);
+  if (subclasses.length) first += ` (${subclasses.join(', ')})`;
   if (sheet.background) first += `, com o antecedente ${sheet.background.name}`;
   parts.push(`${first}.`);
 

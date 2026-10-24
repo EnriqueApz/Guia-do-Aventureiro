@@ -108,6 +108,11 @@
       "gold": 155
     }
   ],
+  "multiclass": {
+    "armor": ["leve", "media", "escudo"],
+    "weapons": ["marciais"],
+    "tools": []
+  },
   "columns": [
     {
       "id": "retomar-o-folego",

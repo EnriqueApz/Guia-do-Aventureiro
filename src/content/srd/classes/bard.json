@@ -76,6 +76,38 @@
       "gold": 90
     }
   ],
+  "multiclass": {
+    "armor": ["leve"],
+    "weapons": [],
+    "tools": [],
+    "choices": [
+      {
+        "id": "pericia",
+        "kind": "pericia",
+        "label": "Uma perícia",
+        "count": 1,
+        "from": "qualquer"
+      },
+      {
+        "id": "instrumento",
+        "kind": "ferramenta",
+        "label": "Um instrumento musical",
+        "count": 1,
+        "from": [
+          "bagpipes",
+          "drum",
+          "dulcimer",
+          "flute",
+          "lute",
+          "lyre",
+          "horn",
+          "pan-flute",
+          "shawm",
+          "viol"
+        ]
+      }
+    ]
+  },
   "spellcasting": {
     "ability": "car",
     "progression": "completa",

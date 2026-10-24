@@ -78,6 +78,11 @@
       "gold": 100
     }
   ],
+  "multiclass": {
+    "armor": ["leve"],
+    "weapons": [],
+    "tools": []
+  },
   "spellcasting": {
     "ability": "car",
     "progression": "pacto",

@@ -28,6 +28,8 @@ import { StepHeader } from '../parts/StepHeader';
 import type { LoadedWizard } from '../useWizard';
 import type { StepProps } from '../WizardPage';
 import { useTable } from '@/state/table';
+import { classEntries, hitDiceByLevel, primaryLevels } from '@/rules/classes';
+import { multiclassGains } from '../labels';
 
 export default function ChoicesStep({ wizard, goTo }: StepProps) {
   const { character, sheet, edit } = wizard;
@@ -51,6 +53,8 @@ export default function ChoicesStep({ wizard, goTo }: StepProps) {
   }
 
   const kit = classDef.beginnerKit;
+  const mainLevels = primaryLevels(character);
+  const extraEntries = classEntries(character, content).filter((e) => !e.primary);
   const sections = [
     { id: 'pericias', label: 'Perícias e idiomas' },
     { id: 'caracteristicas', label: 'Características' },
@@ -136,6 +140,7 @@ export default function ChoicesStep({ wizard, goTo }: StepProps) {
           scope="classe"
           features={classDef.features}
           classDef={classDef}
+          level={mainLevels}
         />
         {subclass && (
           <FeatureChoices
@@ -143,11 +148,50 @@ export default function ChoicesStep({ wizard, goTo }: StepProps) {
             scope="subclasse"
             features={subclass.features}
             classDef={classDef}
+            level={mainLevels}
           />
         )}
         <OriginFeat wizard={wizard} background={background} />
-        <LevelFeats wizard={wizard} classDef={classDef} />
+        <LevelFeats wizard={wizard} classDef={classDef} classLevels={mainLevels} />
       </Section>
+
+      {extraEntries.map((e) => (
+        <Section key={e.classDef.id} title={`${e.classDef.name} ${e.levels} (multiclasse)`}>
+          <p className="text-ink-muted">Como multiclasse, ganha {multiclassGains(e.classDef)}.</p>
+          {(e.classDef.multiclass?.choices ?? []).map((ch) => (
+            <ChoiceField
+              key={ch.id}
+              wizard={wizard}
+              storeKey={`multiclasse:${e.classDef.id}:${ch.id}`}
+              choice={ch}
+              classDef={e.classDef}
+              level={e.levels}
+            />
+          ))}
+          <FeatureChoices
+            wizard={wizard}
+            scope={e.scope}
+            features={e.classDef.features}
+            classDef={e.classDef}
+            level={e.levels}
+          />
+          {e.subclass && (
+            <FeatureChoices
+              wizard={wizard}
+              scope={e.subScope}
+              features={e.subclass.features}
+              classDef={e.classDef}
+              level={e.levels}
+            />
+          )}
+          <LevelFeats
+            wizard={wizard}
+            classDef={e.classDef}
+            classLevels={e.levels}
+            classId={e.classDef.id}
+          />
+        </Section>
+      ))}
 
       <Section title="Equipamento inicial">
         <span id="equipamento" className="block scroll-mt-24" />
@@ -157,7 +201,9 @@ export default function ChoicesStep({ wizard, goTo }: StepProps) {
       {sheet.spellcasting && (
         <Section title="Magias">
           <span id="magias" className="block scroll-mt-24" />
-          <p className="text-ink-muted">{classDef.spellcasting?.explainer}</p>
+          {classDef.spellcasting && (
+            <p className="text-ink-muted">{classDef.spellcasting.explainer}</p>
+          )}
           <SpellPicker wizard={wizard} />
         </Section>
       )}
@@ -359,19 +405,25 @@ function Equipment({
 function HitPoints({ wizard, classDef }: { wizard: LoadedWizard; classDef: ClassDef }) {
   const { character, sheet, edit } = wizard;
   const die = classDef.hitDie;
+  // Multiclasse: cada nível usa o dado da classe daquele nível.
+  const dice = hitDiceByLevel(classEntries(character, content));
+  const dieAt = (l: number) => dice[l - 1] ?? die;
+  const multi = new Set(dice).size > 1;
   const [rolling, setRolling] = useState(0);
   const levels = Array.from({ length: character.level - 1 }, (_, i) => i + 2);
   const tableHp = useTable((st) => st.rules?.hpMethod);
   const fixedHp = tableHp && tableHp !== 'livre' ? tableHp : undefined;
   const rollAll = () => {
     setRolling((n) => n + 1);
-    edit((c) => levels.reduce((acc, l) => setHpRoll(acc, l, rollDie(die)), c));
+    edit((c) => levels.reduce((acc, l) => setHpRoll(acc, l, rollDie(dieAt(l))), c));
   };
   return (
     <div className="space-y-3">
       <p className="text-ink-muted">
         No 1º nível você tem o máximo do dado de vida (d{die}) mais a Constituição. A cada nível
         seguinte, use a média fixa ({fixedHitDieValue(die)}) ou role o d{die}.{' '}
+        {multi &&
+          'Com multiclasse, cada nível usa o dado da sua classe: primeiro os níveis da classe principal, depois os das outras. '}
         <GlossaryTerm id="pv">PV</GlossaryTerm> máximos agora:{' '}
         <strong className="num">{sheet.hp.max}</strong>.
       </p>
@@ -383,8 +435,11 @@ function HitPoints({ wizard, classDef }: { wizard: LoadedWizard; classDef: Class
       <Segmented
         legend="Pontos de Vida por nível"
         options={[
-          { value: 'media' as const, label: `Média (${fixedHitDieValue(die)})` },
-          { value: 'rolagem' as const, label: `Rolar d${die}` },
+          {
+            value: 'media' as const,
+            label: multi ? 'Média' : `Média (${fixedHitDieValue(die)})`,
+          },
+          { value: 'rolagem' as const, label: multi ? 'Rolar' : `Rolar d${die}` },
         ].filter((o) => !fixedHp || o.value === fixedHp)}
         value={character.hp.method}
         onChange={(m) => edit((c) => setHpMethod(c, m))}
@@ -402,8 +457,11 @@ function HitPoints({ wizard, classDef }: { wizard: LoadedWizard; classDef: Class
                   key={l}
                   className="flex items-center gap-2 rounded-lg border border-line bg-surface px-3 py-2"
                 >
-                  <span className="text-sm text-ink-muted">Nível {l}</span>
-                  {v !== undefined && die === 6 ? (
+                  <span className="text-sm text-ink-muted">
+                    Nível {l}
+                    {multi && ` (d${dieAt(l)})`}
+                  </span>
+                  {v !== undefined && dieAt(l) === 6 ? (
                     <D6 value={v} rollKey={`${rolling}-${l}`} delay={(l - 2) * 0.04} />
                   ) : (
                     <span className="num font-semibold">{v ?? '—'}</span>

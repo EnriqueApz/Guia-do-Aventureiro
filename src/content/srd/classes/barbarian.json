@@ -64,6 +64,11 @@
       "gold": 75
     }
   ],
+  "multiclass": {
+    "armor": ["escudo"],
+    "weapons": ["marciais"],
+    "tools": []
+  },
   "columns": [
     {
       "id": "furias",

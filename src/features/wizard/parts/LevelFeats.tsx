@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { content } from '@/content';
 import { ABILITIES, type Ability, type ClassDef } from '@/content/schema';
-import type { FeatPick } from '@/model/character';
+import { featScope, type FeatPick } from '@/model/character';
 import { setLevelFeat, setLevelFeatBonus } from '@/model/edits';
 import { allowedFeatCategories } from '@/rules/validate';
 import { cn } from '@/lib/cn';
@@ -16,12 +16,25 @@ const CATEGORY_LABEL = {
   'dadiva-epica': 'Dádivas épicas',
 } as const;
 
-/** Talentos ganhos por nível (Aumento no Valor de Atributo, outros talentos, Dádiva Épica). */
-export function LevelFeats({ wizard, classDef }: { wizard: LoadedWizard; classDef: ClassDef }) {
+/**
+ * Talentos ganhos por nível (Aumento no Valor de Atributo, outros talentos, Dádiva
+ * Épica). Com multiclasse, cada classe ganha nos níveis DELA: passe `classLevels` e,
+ * para classes extras, `classId`.
+ */
+export function LevelFeats({
+  wizard,
+  classDef,
+  classLevels,
+  classId,
+}: {
+  wizard: LoadedWizard;
+  classDef: ClassDef;
+  classLevels?: number;
+  classId?: string;
+}) {
   const { character } = wizard;
-  const levels = [...classDef.featLevels, classDef.epicBoonLevel].filter(
-    (l) => l <= character.level,
-  );
+  const upTo = classLevels ?? character.level;
+  const levels = [...classDef.featLevels, classDef.epicBoonLevel].filter((l) => l <= upTo);
   if (!levels.length) return null;
   return (
     <div className="space-y-6">
@@ -31,7 +44,8 @@ export function LevelFeats({ wizard, classDef }: { wizard: LoadedWizard; classDe
           wizard={wizard}
           classDef={classDef}
           level={lvl}
-          pick={character.feats.find((f) => f.level === lvl)}
+          classId={classId}
+          pick={character.feats.find((f) => f.level === lvl && f.classId === classId)}
         />
       ))}
     </div>
@@ -42,11 +56,13 @@ function LevelFeat({
   wizard,
   classDef,
   level,
+  classId,
   pick,
 }: {
   wizard: LoadedWizard;
   classDef: ClassDef;
   level: number;
+  classId: string | undefined;
   pick: FeatPick | undefined;
 }) {
   const id = useId();
@@ -58,7 +74,8 @@ function LevelFeat({
     <div className="space-y-3 rounded-card border border-line bg-surface p-4">
       <div>
         <label htmlFor={id} className="font-display font-semibold">
-          Nível {level}: {epic ? 'Dádiva Épica (ou outro talento)' : 'talento'}
+          {classId ? `${classDef.name} ${level}` : `Nível ${level}`}:{' '}
+          {epic ? 'Dádiva Épica (ou outro talento)' : 'talento'}
         </label>
         <p className="text-sm text-ink-muted">
           {epic
@@ -69,7 +86,7 @@ function LevelFeat({
       <select
         id={id}
         value={pick?.featId ?? ''}
-        onChange={(e) => edit((c) => setLevelFeat(c, level, e.target.value))}
+        onChange={(e) => edit((c) => setLevelFeat(c, level, e.target.value, classId))}
         className="min-h-11 w-full cursor-pointer rounded-lg border border-line-strong bg-bg px-3 sm:w-auto"
       >
         <option value="">Escolha um talento…</option>
@@ -91,10 +108,16 @@ function LevelFeat({
           mode={feat.abilityIncrease.mode}
           options={feat.abilityIncrease.options}
           value={pick?.abilityBonus ?? {}}
-          onChange={(b) => edit((c) => setLevelFeatBonus(c, level, b))}
+          onChange={(b) => edit((c) => setLevelFeatBonus(c, level, b, classId))}
         />
       )}
-      {feat && <FeatChoices wizard={wizard} featId={feat.id} scope={`nivel${level}:${feat.id}`} />}
+      {feat && (
+        <FeatChoices
+          wizard={wizard}
+          featId={feat.id}
+          scope={`${featScope({ level, ...(classId && { classId }) })}:${feat.id}`}
+        />
+      )}
     </div>
   );
 }
