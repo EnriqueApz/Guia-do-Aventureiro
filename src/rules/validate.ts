@@ -4,7 +4,7 @@
  */
 import type { Choice, ContentBundle, Feat, Feature } from '@/content/schema';
 import { ABILITIES } from '@/content/schema';
-import { choiceKey, type Character } from '@/model/character';
+import { choiceKey, featScope, type Character } from '@/model/character';
 import {
   isStandardArray,
   isValidAsi,
@@ -15,7 +15,15 @@ import {
 import { evaluateFormula } from './formula';
 import { abilityModifier } from './abilities';
 import { proficiencyBonus } from './proficiency';
-import { featSpellOptions, spellBudget } from './spells';
+import {
+  classEntries,
+  extraLevels,
+  meetsMulticlassRequirement,
+  requirementLabel,
+  hitDiceByLevel,
+} from './classes';
+import { ABILITY_NAMES, derive } from './derive';
+import { chosenSpells, featSpellOptions, spellBudgets } from './spells';
 
 export type WizardStep =
   'especie' | 'classe' | 'subclasse' | 'antecedente' | 'atributos' | 'escolhas' | 'detalhes';
@@ -55,11 +63,51 @@ export function validateCharacter(c: Character, content: ContentBundle): Issue[]
   // ---- classe e subclasse
   const classDef = content.classes.find((x) => x.id === c.classId);
   if (!classDef) err('classe', 'Escolha uma classe.');
-  if (classDef && c.level >= 3) {
-    const sub = content.subclasses.find((s) => s.id === c.subclassId);
-    if (!sub) err('subclasse', `No nível ${c.level}, escolha uma subclasse de ${classDef.name}.`);
-    else if (sub.classId !== classDef.id)
-      err('subclasse', `${sub.name} não é uma subclasse de ${classDef.name}.`);
+  const entries = classEntries(c, content);
+  for (const e of entries) {
+    if (e.levels < 3) continue;
+    const id = e.primary
+      ? c.subclassId
+      : c.multiclass?.find((m) => m.classId === e.classDef.id)?.subclassId;
+    const sub = content.subclasses.find((s) => s.id === id);
+    const at = e.primary ? `No nível ${e.levels}` : `Com ${e.levels} níveis de ${e.classDef.name}`;
+    if (!sub) err('subclasse', `${at}, escolha uma subclasse de ${e.classDef.name}.`);
+    else if (sub.classId !== e.classDef.id)
+      err('subclasse', `${sub.name} não é uma subclasse de ${e.classDef.name}.`);
+  }
+
+  // ---- multiclasse
+  if (c.multiclass?.length) {
+    if (extraLevels(c) > c.level - 1)
+      err('classe', 'A soma dos níveis das classes passa do nível do personagem.');
+    const seen = new Set<string>([c.classId ?? '']);
+    for (const m of c.multiclass) {
+      if (!content.classes.some((x) => x.id === m.classId))
+        err('classe', `Classe desconhecida na multiclasse (${m.classId}).`);
+      if (seen.has(m.classId)) err('classe', 'A mesma classe aparece duas vezes na multiclasse.');
+      seen.add(m.classId);
+      if (!Number.isInteger(m.levels) || m.levels < 1)
+        err('classe', 'Cada classe da multiclasse precisa de pelo menos 1 nível.');
+    }
+    // Requisito: 13 nos atributos principais de TODAS as classes (aviso: o Mestre decide).
+    const scores = Object.fromEntries(
+      ABILITIES.map((a) => [a, derive(c, content).abilities[a].score]),
+    ) as Record<(typeof ABILITIES)[number], number>;
+    for (const e of entries)
+      if (!meetsMulticlassRequirement(e.classDef, scores))
+        warn(
+          'atributos',
+          `Multiclasse pede ${requirementLabel(e.classDef, ABILITY_NAMES)} para ${e.classDef.name}.`,
+        );
+    for (const e of entries.filter((x) => !x.primary))
+      for (const ch of e.classDef.multiclass?.choices ?? []) {
+        const got = pick(`multiclasse:${e.classDef.id}:${ch.id}`);
+        const need = evaluateFormula(ch.count, ctxFor(c, e.classDef, e.levels));
+        if (got.length !== need)
+          err('escolhas', `${e.classDef.name} (multiclasse): ${ch.label.toLowerCase()}.`);
+        if (Array.isArray(ch.from) && got.some((v) => !(ch.from as string[]).includes(v)))
+          err('escolhas', `${e.classDef.name} (multiclasse): há escolhas fora da lista.`);
+      }
   }
 
   // ---- antecedente
@@ -93,36 +141,41 @@ export function validateCharacter(c: Character, content: ContentBundle): Issue[]
       err('atributos', 'Valores rolados vão de 3 a 18.');
   }
 
-  // ---- talentos por nível
-  if (classDef) {
-    for (const lvl of [...classDef.featLevels, classDef.epicBoonLevel]) {
-      if (lvl > c.level) continue;
-      const fp = c.feats.find((f) => f.level === lvl);
+  // ---- talentos por nível (cada classe nos níveis dela)
+  for (const e of entries) {
+    const cd = e.classDef;
+    const classId = e.primary ? undefined : cd.id;
+    const where = (lvl: number) => (e.primary ? `do nível ${lvl}` : `de ${cd.name} ${lvl}`);
+    const inLevel = (lvl: number) => (e.primary ? `no nível ${lvl}` : `em ${cd.name} ${lvl}`);
+    const label = (lvl: number) => (e.primary ? `Nível ${lvl}` : `${cd.name} ${lvl}`);
+    for (const lvl of [...cd.featLevels, cd.epicBoonLevel]) {
+      if (lvl > e.levels) continue;
+      const fp = c.feats.find((f) => f.level === lvl && f.classId === classId);
       if (!fp) {
-        err('escolhas', `Escolha o talento do nível ${lvl}.`);
+        err('escolhas', `Escolha o talento ${where(lvl)}.`);
         continue;
       }
       const feat = content.feats.find((f) => f.id === fp.featId);
-      if (!feat) err('escolhas', `Talento desconhecido no nível ${lvl}.`);
-      else if (!allowedFeatCategories(lvl, classDef).includes(feat.category)) {
-        err('escolhas', `${feat.name} não pode ser escolhido no nível ${lvl}.`);
+      if (!feat) err('escolhas', `Talento desconhecido ${inLevel(lvl)}.`);
+      else if (!allowedFeatCategories(lvl, cd).includes(feat.category)) {
+        err('escolhas', `${feat.name} não pode ser escolhido ${inLevel(lvl)}.`);
       } else if (feat.prerequisite?.level && feat.prerequisite.level > c.level) {
         err('escolhas', `${feat.name} exige nível ${feat.prerequisite.level}.`);
       } else if (
         feat.abilityIncrease?.mode === 'um+2-ou-dois+1' &&
         !isValidAsi(fp.abilityBonus ?? {})
       ) {
-        err('escolhas', `Nível ${lvl}: distribua o aumento (+2 em um atributo ou +1 em dois).`);
+        err('escolhas', `${label(lvl)}: distribua o aumento (+2 em um atributo ou +1 em dois).`);
       } else if (feat.abilityIncrease?.mode === '+1') {
-        const entries = Object.entries(fp.abilityBonus ?? {}).filter(([, v]) => v);
-        const [first] = entries;
+        const picks = Object.entries(fp.abilityBonus ?? {}).filter(([, v]) => v);
+        const [first] = picks;
         if (
-          entries.length !== 1 ||
+          picks.length !== 1 ||
           !first ||
           first[1] !== 1 ||
           !feat.abilityIncrease.options.includes(first[0] as never)
         )
-          err('escolhas', `Nível ${lvl}: escolha o atributo que ${feat.name} aumenta em 1.`);
+          err('escolhas', `${label(lvl)}: escolha o atributo que ${feat.name} aumenta em 1.`);
       }
     }
   }
@@ -148,22 +201,25 @@ export function validateCharacter(c: Character, content: ContentBundle): Issue[]
 
   // ---- escolhas das características (espécie, linhagem, classe, subclasse)
   const lineage = species?.lineages.find((l) => l.id === c.lineageId);
-  const subclass = c.level >= 3 ? content.subclasses.find((x) => x.id === c.subclassId) : undefined;
-  const scopes: [string, Feature[]][] = [
-    ['especie', species?.traits ?? []],
-    ['linhagem', lineage?.traits ?? []],
-    ['classe', classDef?.features ?? []],
-    ['subclasse', subclass?.features ?? []],
+  const primaryEntry = entries.find((e) => e.primary);
+  const scopes: [string, Feature[], number, ReturnType<typeof ctxFor>][] = [
+    ['especie', species?.traits ?? [], c.level, ctxFor(c)],
+    ['linhagem', lineage?.traits ?? [], c.level, ctxFor(c)],
   ];
-  const ctx = ctxFor(c, classDef);
+  for (const e of entries) {
+    const ectx = ctxFor(c, e.classDef, e.levels);
+    scopes.push([e.scope, e.classDef.features, e.levels, ectx]);
+    if (e.subclass) scopes.push([e.subScope, e.subclass.features, e.levels, ectx]);
+  }
+  const ctx = ctxFor(c, classDef, primaryEntry?.levels);
   const itemById = new Map(content.items.map((i) => [i.id, i]));
-  for (const [scope, features] of scopes) {
+  for (const [scope, features, upTo, sctx] of scopes) {
     for (const f of features) {
-      if ((f.level ?? 1) > c.level) continue;
+      if ((f.level ?? 1) > upTo) continue;
       for (const ch of f.choices ?? ([] as Choice[])) {
         // Magias de características vêm como efeitos (não como escolha) no SRD.
         if (ch.kind === 'magia') continue;
-        const need = evaluateFormula(ch.count, ctx);
+        const need = evaluateFormula(ch.count, sctx);
         const values = pick(choiceKey(scope, f.id, ch.id));
         const got = values.length;
         if (got < need) err('escolhas', `${ch.label}: escolha ${need} (${got} de ${need}).`);
@@ -190,21 +246,25 @@ export function validateCharacter(c: Character, content: ContentBundle): Issue[]
       scope: `talento:${background.originFeat.id}`,
       at: 'Talento de origem',
     });
-  for (const [scope, features] of scopes)
+  for (const [scope, features, upTo] of scopes)
     for (const f of features) {
-      if ((f.level ?? 1) > c.level) continue;
+      if ((f.level ?? 1) > upTo) continue;
       for (const ch of f.choices ?? [])
         if (ch.kind === 'talento')
           for (const id of pick(choiceKey(scope, f.id, ch.id)))
             featEntries.push({ featId: id, scope: `talento:${id}`, at: f.name });
     }
-  for (const fp of c.feats)
-    if (fp.level <= c.level)
+  for (const fp of c.feats) {
+    const e = entries.find((x) => (fp.classId ? x.classDef.id === fp.classId : x.primary));
+    if (e && fp.level <= e.levels)
       featEntries.push({
         featId: fp.featId,
-        scope: `nivel${fp.level}:${fp.featId}`,
-        at: `Talento do nível ${fp.level}`,
+        scope: `${featScope(fp)}:${fp.featId}`,
+        at: fp.classId
+          ? `Talento de ${e.classDef.name} ${fp.level}`
+          : `Talento do nível ${fp.level}`,
       });
+  }
   const seenFeats = new Set<string>();
   for (const { featId, scope, at } of featEntries) {
     const feat = content.feats.find((f) => f.id === featId);
@@ -233,35 +293,37 @@ export function validateCharacter(c: Character, content: ContentBundle): Issue[]
     }
   }
 
-  // ---- magias da classe
-  const budget = spellBudget(c, content);
-  if (budget && classDef) {
-    const { cantrips, prepared } = c.spells;
-    const byId = new Map(content.spells.map((x) => [x.id, x]));
+  // ---- magias de cada classe conjuradora
+  const byId = new Map(content.spells.map((x) => [x.id, x]));
+  const budgets = spellBudgets(c, content);
+  for (const budget of budgets) {
+    const { cantrips, prepared } = chosenSpells(c, budget.key);
+    const name = budget.className;
+    const of = budgets.length > 1 ? ` de ${name}` : '';
     const fits = (id: string, min: number, max: number) => {
       const sp = byId.get(id);
-      return !!sp && sp.classes.includes(classDef.id) && sp.level >= min && sp.level <= max;
+      return !!sp && sp.classes.includes(budget.classId) && sp.level >= min && sp.level <= max;
     };
     if (cantrips.length > budget.cantrips)
-      err('escolhas', `Truques demais: ${cantrips.length} de ${budget.cantrips}.`);
+      err('escolhas', `Truques${of} demais: ${cantrips.length} de ${budget.cantrips}.`);
     else if (cantrips.length < budget.cantrips)
       err(
         'escolhas',
-        `Escolha ${budget.cantrips} truques (${cantrips.length} de ${budget.cantrips}).`,
+        `Escolha ${budget.cantrips} truques${of} (${cantrips.length} de ${budget.cantrips}).`,
       );
     if (cantrips.some((id) => !fits(id, 0, 0)))
-      err('escolhas', `Há truques que não são da lista de ${classDef.name}.`);
+      err('escolhas', `Há truques que não são da lista de ${name}.`);
     if (prepared.length > budget.prepared)
-      err('escolhas', `Magias preparadas demais: ${prepared.length} de ${budget.prepared}.`);
+      err('escolhas', `Magias preparadas${of} demais: ${prepared.length} de ${budget.prepared}.`);
     else if (prepared.length < budget.prepared)
       err(
         'escolhas',
-        `Escolha ${budget.prepared} magias preparadas (${prepared.length} de ${budget.prepared}).`,
+        `Escolha ${budget.prepared} magias preparadas${of} (${prepared.length} de ${budget.prepared}).`,
       );
     if (prepared.some((id) => !fits(id, 1, budget.maxCircle)))
       err(
         'escolhas',
-        `Há magias preparadas fora da lista de ${classDef.name} ou acima do ${budget.maxCircle}º círculo.`,
+        `Há magias preparadas fora da lista de ${name} ou acima do ${budget.maxCircle}º círculo.`,
       );
     if (new Set([...cantrips, ...prepared]).size !== cantrips.length + prepared.length)
       err('escolhas', 'Há magias repetidas.');
@@ -270,9 +332,18 @@ export function validateCharacter(c: Character, content: ContentBundle): Issue[]
         'escolhas',
         'Uma magia preparada já vem sempre preparada pela subclasse; troque por outra.',
       );
-  } else if (c.spells.cantrips.length || c.spells.prepared.length) {
-    err('escolhas', 'Sua classe não tem magias próprias; remova as magias escolhidas.');
   }
+  if (
+    !budgets.some((b) => b.key === 'principal') &&
+    (c.spells.cantrips.length || c.spells.prepared.length)
+  )
+    err('escolhas', 'Sua classe não tem magias próprias; remova as magias escolhidas.');
+  for (const key of Object.keys(c.spells.byClass ?? {}))
+    if (
+      !budgets.some((b) => b.key === key) &&
+      (c.spells.byClass?.[key]?.cantrips.length || c.spells.byClass?.[key]?.prepared.length)
+    )
+      err('escolhas', 'Há magias de uma classe que não lança magias (ou que saiu da multiclasse).');
 
   // ---- equipamento
   if (classDef && !classDef.startingEquipment.some((o) => o.id === c.startingEquipment.classOption))
@@ -285,10 +356,12 @@ export function validateCharacter(c: Character, content: ContentBundle): Issue[]
 
   // ---- pontos de vida
   if (classDef && c.hp.method === 'rolagem') {
+    const dice = hitDiceByLevel(entries);
     for (let l = 2; l <= c.level; l++) {
+      const die = dice[l - 1] ?? classDef.hitDie;
       const r = c.hp.rolls[l];
-      if (r === undefined || !Number.isInteger(r) || r < 1 || r > classDef.hitDie) {
-        err('escolhas', `Role o dado de vida do nível ${l} (1 a ${classDef.hitDie}).`);
+      if (r === undefined || !Number.isInteger(r) || r < 1 || r > die) {
+        err('escolhas', `Role o dado de vida do nível ${l} (1 a ${die}).`);
         break;
       }
     }
@@ -315,12 +388,12 @@ export function allowedFeatCategories(
   return cats;
 }
 
-function ctxFor(c: Character, classDef?: ContentBundle['classes'][number]) {
+function ctxFor(c: Character, classDef?: ContentBundle['classes'][number], classLevel?: number) {
   const modifiers = Object.fromEntries(
     ABILITIES.map((a) => [a, abilityModifier(c.abilities.base[a])]),
   ) as Record<(typeof ABILITIES)[number], number>;
   return {
-    level: c.level,
+    level: classLevel ?? c.level,
     proficiencyBonus: proficiencyBonus(c.level),
     modifiers,
     ...(classDef && { classDef }),

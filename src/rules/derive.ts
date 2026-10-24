@@ -21,10 +21,18 @@ import type {
   Background,
 } from '@/content/schema';
 import { ABILITIES, SKILLS } from '@/content/schema';
-import { choiceKey, type Character } from '@/model/character';
+import { choiceKey, featScope, type Character } from '@/model/character';
 import { abilityModifier } from './abilities';
 import { armorClass, type AcResult, type UnarmoredOption } from './armor';
 import { isWeaponProficient, unarmedStrike, weaponAttack, type Attack } from './attacks';
+import {
+  classEntries,
+  classLabel,
+  hitDiceByLevel,
+  isMulticlass,
+  spellSlotPools,
+  type ClassEntry,
+} from './classes';
 import { carryingCapacity, coinWeight, dragLiftPush, sizeUp, type Size } from './encumbrance';
 import { columnValue, evaluateFormula, type FormulaContext } from './formula';
 import { maxHitPoints } from './hp';
@@ -60,6 +68,23 @@ export interface SheetSkill {
   overridden: boolean;
 }
 
+/** Conjuração de uma classe (com multiclasse, cada classe tem a sua). */
+export interface SheetCasterClass {
+  classId: string;
+  className: string;
+  /** Chave das magias escolhidas: "principal" ou o id da classe extra. */
+  spellKey: string;
+  ability: Ability;
+  modifier: number;
+  saveDc: number;
+  attackBonus: number;
+  cantrips: number;
+  prepared: number;
+  /** Círculo mais alto que esta classe prepara (pela tabela dela, no nível dela). */
+  maxCircle: number;
+  alwaysPrepared: string[];
+}
+
 export interface SheetSpellcasting {
   ability: Ability;
   modifier: number;
@@ -71,6 +96,17 @@ export interface SheetSpellcasting {
   pact: boolean;
   /** Magias sempre preparadas (subclasse, espécie, talentos). */
   alwaysPrepared: string[];
+  /** Uma entrada por classe conjuradora (a principal primeiro). */
+  classes: SheetCasterClass[];
+  /** Multiclasse com Bruxo e outra conjuradora: espaços de Magia de Pacto à parte. */
+  pactSlots?: number[];
+}
+
+export interface SheetClass {
+  classDef: ClassDef;
+  subclass?: Subclass;
+  levels: number;
+  primary: boolean;
 }
 
 export interface Sheet {
@@ -78,8 +114,14 @@ export interface Sheet {
   proficiencyBonus: number;
   species?: Species;
   lineage?: Lineage;
+  /** Classe principal (a do nível 1). */
   classDef?: ClassDef;
   subclass?: Subclass;
+  /** Todas as classes, a principal primeiro (uma só, sem multiclasse). */
+  classes: SheetClass[];
+  /** "Clérigo 3 / Guerreiro 2" ou "Clérigo 5". */
+  classLabel: string;
+  multiclass: boolean;
   background?: Background;
   size: Size;
   abilities: Record<Ability, { score: number; modifier: number; parts: Part[] }>;
@@ -88,7 +130,8 @@ export interface Sheet {
   passivePerception: number;
   initiative: { value: number; parts: Part[]; overridden: boolean };
   hp: { max: number; parts: Part[]; overridden: boolean };
-  hitDice: { die: number; total: number };
+  /** `die` é o da classe principal; `pools` separa por tamanho de dado (multiclasse). */
+  hitDice: { die: number; total: number; pools: { die: number; total: number }[] };
   ac: AcResult & { overridden: boolean };
   speed: { walk: number; parts: Part[]; overridden: boolean };
   darkvision: number;
@@ -116,6 +159,8 @@ interface ActiveFeature {
   source: SourceKind;
   sourceName: string;
   scope: string;
+  /** Classe de onde veio (características de classe e subclasse). */
+  entry?: ClassEntry;
 }
 
 const ABILITY_NAMES: Record<Ability, string> = {
@@ -136,25 +181,36 @@ export function derive(character: Character, content: ContentBundle): Sheet {
   // ------------------------------------------------------------ entidades
   const species = content.species.find((s) => s.id === character.speciesId);
   const lineage = species?.lineages.find((l) => l.id === character.lineageId);
-  const classDef = content.classes.find((c) => c.id === character.classId);
-  const subclass =
-    level >= 3
-      ? content.subclasses.find((s) => s.id === character.subclassId && s.classId === classDef?.id)
-      : undefined;
+  const entries = classEntries(character, content);
+  const primary = entries.find((e) => e.primary);
+  const classDef = primary?.classDef;
+  const subclass = primary?.subclass;
   const background = content.backgrounds.find((b) => b.id === character.backgroundId);
   const featById = new Map(content.feats.map((f) => [f.id, f]));
   const itemById = new Map(content.items.map((i) => [i.id, i]));
 
   // ------------------------------------------------------------ características ativas
   const active: ActiveFeature[] = [];
-  const add = (features: Feature[], source: SourceKind, sourceName: string, scope: string) => {
+  const add = (
+    features: Feature[],
+    source: SourceKind,
+    sourceName: string,
+    scope: string,
+    upTo: number,
+    entry?: ClassEntry,
+  ) => {
     for (const f of features)
-      if ((f.level ?? 1) <= level) active.push({ feature: f, source, sourceName, scope });
+      if ((f.level ?? 1) <= upTo)
+        active.push({ feature: f, source, sourceName, scope, ...(entry && { entry }) });
   };
-  if (species) add(species.traits, 'especie', species.name, 'especie');
-  if (lineage) add(lineage.traits, 'linhagem', lineage.name, 'linhagem');
-  if (classDef) add(classDef.features, 'classe', classDef.name, 'classe');
-  if (subclass) add(subclass.features, 'subclasse', subclass.name, 'subclasse');
+  if (species) add(species.traits, 'especie', species.name, 'especie', level);
+  if (lineage) add(lineage.traits, 'linhagem', lineage.name, 'linhagem', level);
+  for (const e of entries) {
+    add(e.classDef.features, 'classe', e.classDef.name, e.scope, e.levels, e);
+    if (e.subclass) add(e.subclass.features, 'subclasse', e.subclass.name, e.subScope, e.levels, e);
+  }
+  const levelsIn = (classId: string | undefined) =>
+    entries.find((e) => (classId ? e.classDef.id === classId : e.primary))?.levels ?? 0;
 
   // ------------------------------------------------------------ talentos
   const feats: {
@@ -186,20 +242,35 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     }
   }
   for (const fp of character.feats) {
-    if (fp.level <= level)
-      addFeat(fp.featId, `Nível ${fp.level}`, `nivel${fp.level}:${fp.featId}`, fp.abilityBonus);
+    if (fp.level > levelsIn(fp.classId)) continue;
+    const cls = fp.classId ? entries.find((e) => e.classDef.id === fp.classId) : undefined;
+    addFeat(
+      fp.featId,
+      cls ? `${cls.classDef.name} ${fp.level}` : `Nível ${fp.level}`,
+      `${featScope(fp)}:${fp.featId}`,
+      fp.abilityBonus,
+    );
   }
 
   // ------------------------------------------------------------ efeitos
-  const effects: { effect: Effect; source: string }[] = [];
+  const effects: { effect: Effect; source: string; entry?: ClassEntry }[] = [];
+  // Multiclasse: Defesa sem Armadura de uma segunda classe não vale (fica a primeira).
+  let unarmoredFrom: string | undefined;
+  const pushEffect = (effect: Effect, source: string, entry?: ClassEntry) => {
+    if (effect.type === 'ca-sem-armadura' && entry) {
+      if (unarmoredFrom && unarmoredFrom !== entry.classDef.id) return;
+      unarmoredFrom = entry.classDef.id;
+    }
+    effects.push({ effect, source, ...(entry && { entry }) });
+  };
   for (const a of active) {
-    for (const e of a.feature.effects ?? []) effects.push({ effect: e, source: a.feature.name });
+    for (const e of a.feature.effects ?? []) pushEffect(e, a.feature.name, a.entry);
     for (const ch of a.feature.choices ?? []) {
       if (ch.kind !== 'opcao') continue;
       const selected = pick(choiceKey(a.scope, a.feature.id, ch.id));
       for (const opt of ch.options ?? []) {
         if (selected.includes(opt.id))
-          for (const e of opt.effects ?? []) effects.push({ effect: e, source: opt.name });
+          for (const e of opt.effects ?? []) pushEffect(e, opt.name, a.entry);
       }
     }
   }
@@ -207,7 +278,8 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     for (const e of f.feat.effects ?? []) effects.push({ effect: e, source: f.feat.name });
   const effectsOf = <T extends Effect['type']>(type: T) =>
     effects.filter(
-      (e): e is { effect: Extract<Effect, { type: T }>; source: string } => e.effect.type === type,
+      (e): e is { effect: Extract<Effect, { type: T }>; source: string; entry?: ClassEntry } =>
+        e.effect.type === type,
     );
 
   // ------------------------------------------------------------ atributos
@@ -261,6 +333,9 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     modifiers: mods,
     ...(classDef && { classDef }),
   };
+  // Características de classe contam o nível DAQUELA classe (multiclasse).
+  const ctxOf = (entry?: ClassEntry): FormulaContext =>
+    entry ? { ...ctx, level: entry.levels, classDef: entry.classDef } : ctx;
 
   // ------------------------------------------------------------ escolhas por tipo
   const chosenOfKind = (kind: Choice['kind']) => {
@@ -278,6 +353,7 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     return out;
   };
   const skillSet = new Set<string>(SKILLS);
+  const extraEntries = entries.filter((e) => !e.primary);
 
   // ------------------------------------------------------------ proficiências
   const skillProf = new Set<string>([...pick('classe:pericias'), ...(background?.skills ?? [])]);
@@ -289,11 +365,23 @@ export function derive(character: Character, content: ContentBundle): Sheet {
   // "pericia" pode incluir ferramentas (talento Habilidoso).
   for (const id of chosenOfKind('pericia')) (skillSet.has(id) ? skillProf : toolProf).add(id);
   for (const id of chosenOfKind('ferramenta')) toolProf.add(id);
+  // Multiclasse: só parte das proficiências da classe nova.
+  for (const e of extraEntries) {
+    const mc = e.classDef.multiclass;
+    for (const t of mc?.tools ?? []) toolProf.add(t);
+    for (const ch of mc?.choices ?? [])
+      for (const id of pick(`multiclasse:${e.classDef.id}:${ch.id}`))
+        (skillSet.has(id) ? skillProf : toolProf).add(id);
+  }
   const expertise = new Set(chosenOfKind('especializacao').filter((s) => skillProf.has(s)));
 
   const saveProf = new Set<Ability>(classDef?.saves ?? []);
   const armorProf = new Set<ArmorProficiency>(classDef?.armor ?? []);
   const weaponProf = new Set<string>(classDef?.weapons ?? []);
+  for (const e of extraEntries) {
+    for (const a of e.classDef.multiclass?.armor ?? []) armorProf.add(a);
+    for (const w of e.classDef.multiclass?.weapons ?? []) weaponProf.add(w);
+  }
   const languages = new Set<string>(['common', ...pick('idiomas'), ...chosenOfKind('idioma')]);
   for (const { effect } of effectsOf('proficiencia')) {
     for (const id of effect.ids) {
@@ -376,12 +464,15 @@ export function derive(character: Character, content: ContentBundle): Sheet {
 
   // ------------------------------------------------------------ PV
   const hitDie = classDef?.hitDie ?? 8;
+  const multi = isMulticlass(character) && entries.length > 1;
+  const diceByLevel = multi ? hitDiceByLevel(entries).slice(0, level) : undefined;
   const bonusPerLevel = effectsOf('pv-por-nivel').reduce(
     (sum, { effect }) => sum + effect.value,
     0,
   );
   const hpCalc = maxHitPoints({
     hitDie,
+    ...(diceByLevel && diceByLevel.length === level && { hitDiceByLevel: diceByLevel }),
     level,
     conModifier: mods.con,
     method: character.hp.method,
@@ -408,10 +499,10 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     }
   }
   const heavy = armor?.armor?.type === 'pesada';
-  for (const { effect, source } of effectsOf('deslocamento-bonus')) {
+  for (const { effect, source, entry } of effectsOf('deslocamento-bonus')) {
     if (effect.condition === 'sem-armadura-pesada' && heavy) continue;
     if (effect.condition === 'sem-armadura-e-escudo' && (armor || shield)) continue;
-    const v = evaluateFormula(effect.value, ctx);
+    const v = evaluateFormula(effect.value, ctxOf(entry));
     if (v) {
       speedParts.push({ label: source, value: v });
       walk += v;
@@ -444,9 +535,15 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     (s, { effect }) => s + effect.value,
     0,
   );
-  const hasMartialArts =
-    active.some((a) => a.feature.id === 'monk-martial-arts') && !armor && !shield;
-  const maDieRaw = hasMartialArts ? columnValue(classDef, 'artes-marciais', level) : null;
+  const martialArts = active.find((a) => a.feature.id === 'monk-martial-arts');
+  const hasMartialArts = !!martialArts && !armor && !shield;
+  const maDieRaw = hasMartialArts
+    ? columnValue(
+        martialArts.entry?.classDef ?? classDef,
+        'artes-marciais',
+        martialArts.entry?.levels ?? level,
+      )
+    : null;
   const martialArtsDie =
     typeof maDieRaw === 'string' ? Number(maDieRaw.replace('d', '')) : undefined;
   const weaponProfList = [...weaponProf];
@@ -500,27 +597,51 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     }
   }
   let spellcasting: SheetSpellcasting | undefined;
-  if (classDef?.spellcasting) {
-    const sc = classDef.spellcasting;
+  const casters: SheetCasterClass[] = [];
+  for (const e of entries) {
+    const sc = e.classDef.spellcasting;
+    if (!sc) continue;
     const mod = mods[sc.ability];
-    const alwaysPrepared = [
-      ...(subclass?.alwaysPrepared ?? []).filter((g) => g.level <= level).flatMap((g) => g.spells),
-    ];
-    spellcasting = {
+    let maxCircle = 0;
+    (sc.slots[e.levels - 1] ?? []).forEach((n, i) => {
+      if (n > 0) maxCircle = i + 1;
+    });
+    casters.push({
+      classId: e.classDef.id,
+      className: e.classDef.name,
+      spellKey: e.primary ? 'principal' : e.classDef.id,
       ability: sc.ability,
       modifier: mod,
       saveDc: spellSaveDc(mod, pb),
       attackBonus: spellAttackBonus(mod, pb),
-      cantrips: sc.cantrips[level - 1] ?? 0,
-      prepared: sc.prepared[level - 1] ?? 0,
-      slots: [...(sc.slots[level - 1] ?? [])],
-      pact: sc.progression === 'pacto',
-      alwaysPrepared,
+      cantrips: sc.cantrips[e.levels - 1] ?? 0,
+      prepared: sc.prepared[e.levels - 1] ?? 0,
+      maxCircle,
+      alwaysPrepared: (e.subclass?.alwaysPrepared ?? [])
+        .filter((g) => g.level <= e.levels)
+        .flatMap((g) => g.spells),
+    });
+  }
+  const main = casters[0];
+  if (main) {
+    const pools = spellSlotPools(entries, content);
+    spellcasting = {
+      ability: main.ability,
+      modifier: main.modifier,
+      saveDc: main.saveDc,
+      attackBonus: main.attackBonus,
+      cantrips: main.cantrips,
+      prepared: main.prepared,
+      slots: pools.slots,
+      pact: pools.pactOnly,
+      alwaysPrepared: [...new Set(casters.flatMap((c) => c.alwaysPrepared))],
+      classes: casters,
+      ...(pools.pactSlots && { pactSlots: pools.pactSlots }),
     };
   }
 
   // ------------------------------------------------------------ lista de características
-  const features: SheetFeature[] = active.map(({ feature, source, sourceName }) => ({
+  const features: SheetFeature[] = active.map(({ feature, source, sourceName, entry }) => ({
     id: feature.id,
     name: feature.name,
     source,
@@ -530,7 +651,10 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     ...(feature.plain && { plain: feature.plain }),
     ...(feature.action && { action: feature.action }),
     ...(feature.uses && {
-      uses: { max: evaluateFormula(feature.uses.max, ctx), recharge: feature.uses.recharge },
+      uses: {
+        max: evaluateFormula(feature.uses.max, ctxOf(entry)),
+        recharge: feature.uses.recharge,
+      },
     }),
   }));
 
@@ -549,6 +673,14 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     ...(lineage && { lineage }),
     ...(classDef && { classDef }),
     ...(subclass && { subclass }),
+    classes: entries.map((e) => ({
+      classDef: e.classDef,
+      ...(e.subclass && { subclass: e.subclass }),
+      levels: e.levels,
+      primary: e.primary,
+    })),
+    classLabel: entries.length ? classLabel(entries) : '',
+    multiclass: multi,
     ...(background && { background }),
     size: baseSize,
     abilities,
@@ -557,7 +689,20 @@ export function derive(character: Character, content: ContentBundle): Sheet {
     passivePerception,
     initiative: { value: initiative, parts: initParts, overridden: initOver },
     hp: { max: hpMax, parts: hpCalc.parts, overridden: hpOver },
-    hitDice: { die: hitDie, total: level },
+    hitDice: {
+      die: hitDie,
+      total: level,
+      pools: multi
+        ? [...new Set(entries.map((e) => e.classDef.hitDie))]
+            .sort((x, y) => y - x)
+            .map((die) => ({
+              die,
+              total: entries
+                .filter((e) => e.classDef.hitDie === die)
+                .reduce((sum, e) => sum + e.levels, 0),
+            }))
+        : [{ die: hitDie, total: level }],
+    },
     ac: { ...acBase, value: acValue, overridden: acOver },
     speed: { walk: speed, parts: speedParts, overridden: speedOver },
     darkvision,

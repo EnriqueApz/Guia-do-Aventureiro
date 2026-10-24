@@ -89,6 +89,32 @@
       "gold": 100
     }
   ],
+  "multiclass": {
+    "armor": ["leve"],
+    "weapons": [],
+    "tools": ["thieves-tools"],
+    "choices": [
+      {
+        "id": "pericia",
+        "kind": "pericia",
+        "label": "Uma perícia da lista da classe",
+        "count": 1,
+        "from": [
+          "acrobacia",
+          "atletismo",
+          "enganacao",
+          "intuicao",
+          "intimidacao",
+          "investigacao",
+          "percepcao",
+          "atuacao",
+          "persuasao",
+          "prestidigitacao",
+          "furtividade"
+        ]
+      }
+    ]
+  },
   "columns": [
     {
       "id": "ataque-furtivo",

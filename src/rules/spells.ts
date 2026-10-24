@@ -4,6 +4,7 @@
  */
 import type { ClassDef, ContentBundle, Spell } from '@/content/schema';
 import type { Character } from '@/model/character';
+import { classEntries } from './classes';
 
 /** Círculo mais alto com espaço disponível no nível (0 = só truques). */
 export function maxSpellCircle(classDef: ClassDef | undefined, level: number): number {
@@ -23,21 +24,57 @@ export interface SpellBudget {
   alwaysPrepared: string[];
 }
 
+/** Limites de magias da classe principal (no nível dela). */
 export function spellBudget(c: Character, content: ContentBundle): SpellBudget | undefined {
-  const classDef = content.classes.find((x) => x.id === c.classId);
-  const sc = classDef?.spellcasting;
-  if (!classDef || !sc) return undefined;
-  const subclass =
-    c.level >= 3
-      ? content.subclasses.find((s) => s.id === c.subclassId && s.classId === classDef.id)
-      : undefined;
+  const main = spellBudgets(c, content).find((b) => b.key === 'principal');
+  if (!main) return undefined;
+  const { cantrips, prepared, maxCircle, alwaysPrepared } = main;
+  return { cantrips, prepared, maxCircle, alwaysPrepared };
+}
+
+export interface ClassSpellBudget extends SpellBudget {
+  classId: string;
+  className: string;
+  /** "principal" (classe do nível 1) ou o id da classe extra. */
+  key: string;
+}
+
+/** Limites de magias de cada classe conjuradora (multiclasse: cada uma pelo próprio nível). */
+export function spellBudgets(c: Character, content: ContentBundle): ClassSpellBudget[] {
+  return classEntries(c, content).flatMap((e) => {
+    const sc = e.classDef.spellcasting;
+    if (!sc) return [];
+    return [
+      {
+        classId: e.classDef.id,
+        className: e.classDef.name,
+        key: e.primary ? 'principal' : e.classDef.id,
+        cantrips: sc.cantrips[e.levels - 1] ?? 0,
+        prepared: sc.prepared[e.levels - 1] ?? 0,
+        maxCircle: maxSpellCircle(e.classDef, e.levels),
+        alwaysPrepared: (e.subclass?.alwaysPrepared ?? [])
+          .filter((g) => g.level <= e.levels)
+          .flatMap((g) => g.spells),
+      },
+    ];
+  });
+}
+
+/** Magias escolhidas de uma classe ("principal" ou id da classe extra). */
+export function chosenSpells(
+  c: Character,
+  key: string,
+): { cantrips: string[]; prepared: string[] } {
+  if (key === 'principal') return { cantrips: c.spells.cantrips, prepared: c.spells.prepared };
+  return c.spells.byClass?.[key] ?? { cantrips: [], prepared: [] };
+}
+
+/** Todas as magias escolhidas, de todas as classes. */
+export function allChosenSpells(c: Character): { cantrips: string[]; prepared: string[] } {
+  const extra = Object.values(c.spells.byClass ?? {});
   return {
-    cantrips: sc.cantrips[c.level - 1] ?? 0,
-    prepared: sc.prepared[c.level - 1] ?? 0,
-    maxCircle: maxSpellCircle(classDef, c.level),
-    alwaysPrepared: (subclass?.alwaysPrepared ?? [])
-      .filter((g) => g.level <= c.level)
-      .flatMap((g) => g.spells),
+    cantrips: [...c.spells.cantrips, ...extra.flatMap((x) => x.cantrips)],
+    prepared: [...c.spells.prepared, ...extra.flatMap((x) => x.prepared)],
   };
 }
 

@@ -13,6 +13,7 @@ import {
 import { featSpellOptions, spellBudget } from '@/rules/spells';
 import {
   DEFAULT_SCORES,
+  featScope,
   type AbilityMethod,
   type AbilityScores,
   type Character,
@@ -27,7 +28,87 @@ function withoutChoices(choices: Character['choices'], prefixes: string[]): Char
 
 export function setLevel(c: Character, level: number): Character {
   const clamped = Math.min(20, Math.max(1, Math.round(level)));
-  return { ...c, level: clamped };
+  // Multiclasse: ao baixar o nível, tira níveis das últimas classes extras primeiro
+  // (a classe principal fica sempre com pelo menos 1).
+  let spare = clamped - 1;
+  const kept = (c.multiclass ?? [])
+    .map((m) => {
+      const levels = Math.min(m.levels, spare);
+      spare -= levels;
+      return { ...m, levels };
+    })
+    .filter((m) => m.levels > 0);
+  const removed = (c.multiclass ?? []).filter((m) => !kept.some((k) => k.classId === m.classId));
+  let next: Character = { ...c, level: clamped };
+  if (c.multiclass) next.multiclass = kept;
+  for (const m of removed) next = removeExtraClass(next, m.classId);
+  return next;
+}
+
+// ------------------------------------------------------------------ multiclasse
+
+/** Níveis livres para dar a outra classe (a principal precisa de pelo menos 1). */
+export function freeMulticlassLevels(c: Character): number {
+  const used = (c.multiclass ?? []).reduce((s, m) => s + m.levels, 0);
+  return Math.max(0, c.level - 1 - used);
+}
+
+/** Adiciona uma classe extra com 1 nível (tirado da classe principal). */
+export function addExtraClass(c: Character, classId: string, content: ContentBundle): Character {
+  if (!content.classes.some((x) => x.id === classId)) return c;
+  if (classId === c.classId || (c.multiclass ?? []).some((m) => m.classId === classId)) return c;
+  if (freeMulticlassLevels(c) < 1) return c;
+  return { ...c, multiclass: [...(c.multiclass ?? []), { classId, levels: 1 }] };
+}
+
+/** Muda os níveis de uma classe extra (de 1 até o que couber). */
+export function setExtraClassLevels(c: Character, classId: string, levels: number): Character {
+  const entry = (c.multiclass ?? []).find((m) => m.classId === classId);
+  if (!entry) return c;
+  const max = entry.levels + freeMulticlassLevels(c);
+  const n = Math.min(max, Math.max(1, Math.round(levels)));
+  let next: Character = {
+    ...c,
+    multiclass: (c.multiclass ?? []).map((m) => (m.classId === classId ? { ...m, levels: n } : m)),
+  };
+  // Abaixo do nível da subclasse, ela sai.
+  if (n < 3 && entry.subclassId) next = selectExtraSubclass(next, classId, undefined);
+  return next;
+}
+
+/** Tira uma classe extra e tudo o que foi escolhido nela. */
+export function removeExtraClass(c: Character, classId: string): Character {
+  const byClass = Object.fromEntries(
+    Object.entries(c.spells.byClass ?? {}).filter(([k]) => k !== classId),
+  );
+  return {
+    ...c,
+    multiclass: (c.multiclass ?? []).filter((m) => m.classId !== classId),
+    choices: withoutChoices(c.choices, [
+      `classe@${classId}:`,
+      `subclasse@${classId}:`,
+      `multiclasse:${classId}:`,
+      ...c.feats.filter((f) => f.classId === classId).map((f) => `${featScope(f)}:`),
+    ]),
+    feats: c.feats.filter((f) => f.classId !== classId),
+    spells: { ...c.spells, byClass },
+  };
+}
+
+export function selectExtraSubclass(
+  c: Character,
+  classId: string,
+  subclassId: string | undefined,
+): Character {
+  return {
+    ...c,
+    multiclass: (c.multiclass ?? []).map((m) => {
+      if (m.classId !== classId) return m;
+      const { subclassId: _old, ...rest } = m;
+      return subclassId ? { ...rest, subclassId } : rest;
+    }),
+    choices: withoutChoices(c.choices, [`subclasse@${classId}:`]),
+  };
 }
 
 export function selectSpecies(c: Character, speciesId: string, content: ContentBundle): Character {
@@ -63,14 +144,19 @@ export function selectClass(c: Character, classId: string, content: ContentBundl
   if (c.classId === classId) return c;
   const cls = content.classes.find((x) => x.id === classId);
   if (!cls) return c;
+  const base = (c.multiclass ?? []).some((m) => m.classId === classId)
+    ? removeExtraClass(c, classId)
+    : c;
   const next: Character = {
-    ...c,
+    ...base,
     classId,
-    choices: withoutChoices(c.choices, ['classe:', 'subclasse:']),
+    choices: withoutChoices(base.choices, ['classe:', 'subclasse:']),
     // Talentos só continuam se o novo nível de talento existir na nova classe.
-    feats: c.feats.filter((f) => f.level === 19 || cls.featLevels.includes(f.level)),
+    feats: base.feats.filter(
+      (f) => f.classId || f.level === 19 || cls.featLevels.includes(f.level),
+    ),
     startingEquipment: { ...c.startingEquipment },
-    spells: { cantrips: [], prepared: [] },
+    spells: { ...base.spells, cantrips: [], prepared: [] },
   };
   delete next.startingEquipment.classOption;
   const sub = content.subclasses.find((s) => s.id === c.subclassId);
@@ -302,33 +388,59 @@ export function toggleSpell(
   list: 'cantrips' | 'prepared',
   spellId: string,
   max: number,
+  /** "principal" ou o id da classe extra (multiclasse). */
+  key = 'principal',
 ): Character {
-  const current = c.spells[list];
-  if (current.includes(spellId))
-    return { ...c, spells: { ...c.spells, [list]: current.filter((s) => s !== spellId) } };
-  if (current.length >= max) return c;
-  return { ...c, spells: { ...c.spells, [list]: [...current, spellId] } };
+  const own =
+    key === 'principal'
+      ? { cantrips: c.spells.cantrips, prepared: c.spells.prepared }
+      : (c.spells.byClass?.[key] ?? { cantrips: [], prepared: [] });
+  const current = own[list];
+  let nextList: string[];
+  if (current.includes(spellId)) nextList = current.filter((s) => s !== spellId);
+  else if (current.length >= max) return c;
+  else nextList = [...current, spellId];
+  if (key === 'principal') return { ...c, spells: { ...c.spells, [list]: nextList } };
+  return {
+    ...c,
+    spells: { ...c.spells, byClass: { ...c.spells.byClass, [key]: { ...own, [list]: nextList } } },
+  };
 }
 
 // ------------------------------------------------------------------ talentos por nível
 
-export function setLevelFeat(c: Character, level: number, featId: string): Character {
-  const rest = c.feats.filter((f) => f.level !== level);
-  const feats = featId ? [...rest, { level, featId }].sort((x, y) => x.level - y.level) : rest;
-  return { ...c, feats, choices: withoutChoices(c.choices, [`nivel${level}:`]) };
+/** Talento de um nível de classe; `classId` só para classes extras (multiclasse). */
+export function setLevelFeat(
+  c: Character,
+  level: number,
+  featId: string,
+  classId?: string,
+): Character {
+  const same = (f: Character['feats'][number]) => f.level === level && f.classId === classId;
+  const rest = c.feats.filter((f) => !same(f));
+  const pick = { level, featId, ...(classId && { classId }) };
+  const feats = featId ? [...rest, pick].sort((x, y) => x.level - y.level) : rest;
+  return {
+    ...c,
+    feats,
+    choices: withoutChoices(c.choices, [`${featScope({ level, ...(classId && { classId }) })}:`]),
+  };
 }
 
 export function setLevelFeatBonus(
   c: Character,
   level: number,
   bonus: Partial<AbilityScores>,
+  classId?: string,
 ): Character {
   const clean = Object.fromEntries(
     Object.entries(bonus).filter(([, v]) => v),
   ) as Partial<AbilityScores>;
   return {
     ...c,
-    feats: c.feats.map((f) => (f.level === level ? { ...f, abilityBonus: clean } : f)),
+    feats: c.feats.map((f) =>
+      f.level === level && f.classId === classId ? { ...f, abilityBonus: clean } : f,
+    ),
   };
 }
 

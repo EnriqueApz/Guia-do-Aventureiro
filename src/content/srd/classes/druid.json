@@ -79,6 +79,11 @@
       "gold": 50
     }
   ],
+  "multiclass": {
+    "armor": ["leve", "escudo"],
+    "weapons": [],
+    "tools": []
+  },
   "spellcasting": {
     "ability": "sab",
     "progression": "completa",

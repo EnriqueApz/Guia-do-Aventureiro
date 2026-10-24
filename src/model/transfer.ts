@@ -43,6 +43,15 @@ export const CharacterSchema = z.object({
   lineageSpellAbility: z.enum(ABILITIES).optional(),
   classId: z.string().optional(),
   subclassId: z.string().optional(),
+  multiclass: z
+    .array(
+      z.object({
+        classId: z.string(),
+        subclassId: z.string().optional(),
+        levels: z.number().int().min(1).max(19),
+      }),
+    )
+    .optional(),
   backgroundId: z.string().optional(),
   backgroundBonus: PartialScores,
   abilities: z.object({
@@ -55,6 +64,7 @@ export const CharacterSchema = z.object({
     z.object({
       level: z.number().int().min(1).max(20),
       featId: z.string(),
+      classId: z.string().optional(),
       abilityBonus: PartialScores.optional(),
       choices: z.record(z.string(), z.array(z.string())).optional(),
     }),
@@ -71,7 +81,16 @@ export const CharacterSchema = z.object({
     z.object({ id: z.string(), qty: z.number().int().min(0), equipped: z.boolean().optional() }),
   ),
   coins: Coins,
-  spells: z.object({ cantrips: z.array(z.string()), prepared: z.array(z.string()) }),
+  spells: z.object({
+    cantrips: z.array(z.string()),
+    prepared: z.array(z.string()),
+    byClass: z
+      .record(
+        z.string(),
+        z.object({ cantrips: z.array(z.string()), prepared: z.array(z.string()) }),
+      )
+      .optional(),
+  }),
   details: z.object({
     pronouns: z.string().optional(),
     alignment: z.string().optional(),
@@ -90,7 +109,9 @@ export const CharacterSchema = z.object({
     hpCurrent: z.number().int().min(0).nullable(),
     hpTemp: z.number().int().min(0),
     hitDiceUsed: z.number().int().min(0),
+    hitDiceUsedByDie: z.record(z.string(), z.number().int().min(0)).optional(),
     slotsUsed: z.array(z.number().int().min(0)),
+    pactSlotsUsed: z.array(z.number().int().min(0)).optional(),
     resourcesUsed: z.record(z.string(), z.number().int().min(0)),
     conditions: z.array(z.string()),
     exhaustion: z.number().int().min(0).max(6),

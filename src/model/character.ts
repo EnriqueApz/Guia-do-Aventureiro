@@ -12,11 +12,20 @@ export type AbilityMethod = 'padrao' | 'compra' | 'rolagem' | 'manual';
 export interface FeatPick {
   /** Nível de classe em que foi escolhido. */
   level: number;
+  /** Classe do nível (multiclasse). Ausente = classe principal. */
+  classId?: string;
   featId: string;
   /** Aumentos de atributo que o talento concede (ex.: {for: 2} ou {for: 1, con: 1}). */
   abilityBonus?: Partial<AbilityScores>;
   /** Escolhas internas do talento, por id de escolha. */
   choices?: Record<string, string[]>;
+}
+
+/** Uma classe a mais (multiclasse). */
+export interface ExtraClass {
+  classId: string;
+  subclassId?: string;
+  levels: number;
 }
 
 export interface InventoryItem {
@@ -39,9 +48,14 @@ export interface CharacterDetails {
 export interface PlayState {
   hpCurrent: number | null;
   hpTemp: number;
+  /** Dados de Vida gastos (total). */
   hitDiceUsed: number;
+  /** Multiclasse: Dados de Vida gastos por tamanho do dado ("8" → 2). */
+  hitDiceUsedByDie?: Record<string, number>;
   /** Espaços gastos por círculo (índice 0 = 1º círculo). */
   slotsUsed: number[];
+  /** Multiclasse com Bruxo e outra classe conjuradora: espaços de Magia de Pacto gastos. */
+  pactSlotsUsed?: number[];
   /** Usos gastos por id de característica. */
   resourcesUsed: Record<string, number>;
   conditions: string[];
@@ -64,8 +78,14 @@ export interface Character {
   /** Atributo de conjuração das magias da linhagem. */
   lineageSpellAbility?: Ability;
 
+  /** Classe principal (a do nível 1): dá as salvaguardas e o equipamento inicial. */
   classId?: string;
   subclassId?: string;
+  /**
+   * Multiclasse: outras classes e quantos níveis em cada. A classe principal fica
+   * com o que sobra de `level` (sempre pelo menos 1).
+   */
+  multiclass?: ExtraClass[];
 
   backgroundId?: string;
   /** Aumentos do antecedente: +2/+1 ou +1/+1/+1 entre os três atributos dele. */
@@ -91,7 +111,12 @@ export interface Character {
   inventory: InventoryItem[];
   coins: Coins;
 
-  spells: { cantrips: string[]; prepared: string[] };
+  /** Magias da classe principal; `byClass` guarda as das outras classes (multiclasse). */
+  spells: {
+    cantrips: string[];
+    prepared: string[];
+    byClass?: Record<string, { cantrips: string[]; prepared: string[] }>;
+  };
 
   details: CharacterDetails;
 
@@ -162,4 +187,12 @@ export type { SkillId };
  */
 export function choiceKey(scope: string, featureId: string, choiceId: string): string {
   return `${scope}:${featureId}:${choiceId}`;
+}
+
+/**
+ * Prefixo das escolhas de um talento de nível ("nivel4", ou "nivel4@fighter" quando
+ * o nível é de uma classe de multiclasse).
+ */
+export function featScope(fp: Pick<FeatPick, 'level' | 'classId'>): string {
+  return fp.classId ? `nivel${fp.level}@${fp.classId}` : `nivel${fp.level}`;
 }

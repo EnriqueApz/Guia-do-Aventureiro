@@ -162,6 +162,10 @@ export function validateContent(
     }
     for (const opt of cls.startingEquipment)
       for (const it of opt.items) checkItem(`${at} › equipamento ${opt.id}`, it.id);
+    for (const t of cls.multiclass?.tools ?? []) checkItem(`${at} › multiclasse`, t);
+    for (const ch of cls.multiclass?.choices ?? [])
+      if (ch.kind === 'ferramenta' && Array.isArray(ch.from))
+        for (const t of ch.from) checkItem(`${at} › multiclasse`, t);
     for (const lvl of cls.featLevels)
       if (lvl < 1 || lvl > 20) errors.push(`${at}: nível de talento inválido ${lvl}`);
     if (cls.spellcasting) {

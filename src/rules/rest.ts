@@ -9,6 +9,19 @@ export function currentHp(play: PlayState, sheet: Sheet): number {
 export interface ShortRestInput {
   /** Resultados dos Dados de Vida gastos (só os dados; a CON é somada aqui). */
   hitDiceRolls: number[];
+  /** Multiclasse: quantos dados de cada tamanho foram gastos ({8: 1, 10: 2}). */
+  diceSpent?: Record<number, number>;
+}
+
+/** Dados de Vida ainda disponíveis em cada tamanho de dado. */
+export function hitDiceAvailable(play: PlayState, sheet: Sheet): { die: number; left: number }[] {
+  const pools = sheet.hitDice.pools;
+  if (pools.length <= 1)
+    return [{ die: sheet.hitDice.die, left: Math.max(0, sheet.hitDice.total - play.hitDiceUsed) }];
+  return pools.map((p) => ({
+    die: p.die,
+    left: Math.max(0, p.total - (play.hitDiceUsedByDie?.[String(p.die)] ?? 0)),
+  }));
 }
 
 /**
@@ -19,6 +32,16 @@ export function shortRest(play: PlayState, sheet: Sheet, input: ShortRestInput):
   const available = sheet.hitDice.total - play.hitDiceUsed;
   if (input.hitDiceRolls.length > available) {
     throw new RangeError(`Você só tem ${available} Dado(s) de Vida disponível(is).`);
+  }
+  let hitDiceUsedByDie = play.hitDiceUsedByDie;
+  if (input.diceSpent) {
+    const left = new Map(hitDiceAvailable(play, sheet).map((p) => [p.die, p.left]));
+    hitDiceUsedByDie = { ...(play.hitDiceUsedByDie ?? {}) };
+    for (const [die, n] of Object.entries(input.diceSpent)) {
+      if (n > (left.get(Number(die)) ?? 0))
+        throw new RangeError(`Você só tem ${left.get(Number(die)) ?? 0} d${die} disponível(is).`);
+      hitDiceUsedByDie[die] = (hitDiceUsedByDie[die] ?? 0) + n;
+    }
   }
   const con = sheet.abilities.con.modifier;
   const healed = input.hitDiceRolls.reduce((sum, r) => sum + Math.max(0, r + con), 0);
@@ -32,13 +55,17 @@ export function shortRest(play: PlayState, sheet: Sheet, input: ShortRestInput):
   );
   const slotsUsed = sheet.spellcasting?.pact ? play.slotsUsed.map(() => 0) : [...play.slotsUsed];
 
-  return {
+  const next: PlayState = {
     ...play,
     hpCurrent: hp >= sheet.hp.max ? null : hp,
     hitDiceUsed: play.hitDiceUsed + input.hitDiceRolls.length,
     resourcesUsed,
     slotsUsed,
   };
+  if (hitDiceUsedByDie) next.hitDiceUsedByDie = hitDiceUsedByDie;
+  // Magia de Pacto separada (multiclasse com Bruxo) também volta no descanso curto.
+  if (play.pactSlotsUsed) next.pactSlotsUsed = play.pactSlotsUsed.map(() => 0);
+  return next;
 }
 
 /**
@@ -46,8 +73,9 @@ export function shortRest(play: PlayState, sheet: Sheet, input: ShortRestInput):
  * espaços e usos recuperados, e 1 nível de Exaustão a menos.
  */
 export function longRest(play: PlayState): PlayState {
+  const { hitDiceUsedByDie: _dice, pactSlotsUsed: _pact, ...rest } = play;
   return {
-    ...play,
+    ...rest,
     hpCurrent: null,
     hpTemp: 0,
     hitDiceUsed: 0,
