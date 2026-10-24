@@ -4,6 +4,7 @@ import { RichText } from '@/components/ui/RichText';
 import type { Character } from '@/model/character';
 import type { Sheet } from '@/rules/derive';
 import { formatMeters } from '@/rules/encumbrance';
+import { allChosenSpells } from '@/rules/spells';
 import { ALIGNMENTS } from '@/features/wizard/detailsData';
 import {
   ACTION_LABEL,
@@ -20,10 +21,11 @@ import { circleLabel } from '@/features/wizard/spellLabels';
 /** Ficha completa (números, ataques, magias, equipamento, características e história). */
 export function SheetDetails({ character, sheet }: { character: Character; sheet: Sheet }) {
   const spellById = new Map(content.spells.map((s) => [s.id, s]));
+  const chosen = allChosenSpells(character);
   const allSpells = [
-    ...character.spells.cantrips,
+    ...chosen.cantrips,
     ...(sheet.spellcasting?.alwaysPrepared ?? []),
-    ...character.spells.prepared,
+    ...chosen.prepared,
     ...sheet.grantedSpells.map((g) => g.spell),
   ];
   const spells = [...new Set(allSpells)]

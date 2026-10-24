@@ -15,6 +15,8 @@ import {
   RECHARGE_LABEL,
   skillName,
   weaponList,
+  hitDiceLabel,
+  slotsLabel,
 } from './labels';
 import { GlossaryTerm } from './parts/GlossaryTerm';
 
@@ -80,7 +82,7 @@ export function LiveSheet({ character, sheet }: { character: Character; sheet: S
   const { species, lineage, classDef, subclass, background } = sheet;
   const identity = [
     lineage ? `${species?.name} (${lineage.name.replace(/ \(.*\)$/, '')})` : species?.name,
-    classDef && `${classDef.name} ${sheet.level}`,
+    classDef && sheet.classLabel,
     background?.name,
   ].filter(Boolean);
   const hasAbilities =
@@ -146,7 +148,7 @@ export function LiveSheet({ character, sheet }: { character: Character; sheet: S
         />
         <Stat
           label={<GlossaryTerm id="dados-de-vida">D. Vida</GlossaryTerm>}
-          value={`${sheet.hitDice.total}d${sheet.hitDice.die}`}
+          value={hitDiceLabel(sheet.hitDice)}
         />
       </div>
 
@@ -201,7 +203,30 @@ export function LiveSheet({ character, sheet }: { character: Character; sheet: S
         </Block>
       )}
 
-      {sheet.spellcasting && (
+      {sheet.spellcasting && sheet.spellcasting.classes.length > 1 && (
+        <Block title={<GlossaryTerm id="magia">Magia</GlossaryTerm>}>
+          <ul className="space-y-1 text-sm">
+            {sheet.spellcasting.classes.map((cc) => (
+              <li key={cc.classId}>
+                <strong>{cc.className}</strong>: CD {cc.saveDc} · ataque{' '}
+                {formatBonus(cc.attackBonus)} · {cc.cantrips} truques · {cc.prepared} preparadas
+              </li>
+            ))}
+          </ul>
+          <p className="mt-2 text-sm">
+            <GlossaryTerm id="espaco-de-magia">Espaços</GlossaryTerm>:{' '}
+            {slotsLabel(sheet.spellcasting.slots)}
+            {sheet.spellcasting.pact && ' (voltam no descanso curto)'}
+          </p>
+          {sheet.spellcasting.pactSlots && (
+            <p className="text-sm">
+              Magia de Pacto: {slotsLabel(sheet.spellcasting.pactSlots)} (voltam no descanso curto)
+            </p>
+          )}
+        </Block>
+      )}
+
+      {sheet.spellcasting && sheet.spellcasting.classes.length <= 1 && (
         <Block title={<GlossaryTerm id="magia">Magia</GlossaryTerm>}>
           <dl className="grid grid-cols-2 gap-2 text-sm">
             <div>
@@ -233,10 +258,7 @@ export function LiveSheet({ character, sheet }: { character: Character; sheet: S
           </dl>
           <p className="mt-2 text-sm">
             <GlossaryTerm id="espaco-de-magia">Espaços</GlossaryTerm>:{' '}
-            {sheet.spellcasting.slots
-              .map((n, i) => (n ? `${n}× ${i + 1}º` : null))
-              .filter(Boolean)
-              .join(' · ') || '—'}
+            {slotsLabel(sheet.spellcasting.slots)}
             {sheet.spellcasting.pact && ' (voltam no descanso curto)'}
           </p>
         </Block>

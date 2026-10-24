@@ -71,6 +71,8 @@ function RulesSummary({ rules }: { rules: TableRules }) {
       </dd>
       <dt className="font-semibold">Conteúdo próprio</dt>
       <dd>{rules.allowHomebrew ? 'Permitido' : 'Não permitido'}</dd>
+      <dt className="font-semibold">Multiclasse</dt>
+      <dd>{rules.multiclass === false ? 'Não permitida' : 'Permitida'}</dd>
     </dl>
   );
 }
@@ -260,6 +262,13 @@ function Builder({ initial }: { initial: TableRules }) {
         hint="Opções criadas pelo grupo em Conteúdo próprio."
         checked={rules.allowHomebrew}
         onCheckedChange={(v) => update({ allowHomebrew: v })}
+      />
+
+      <Switch
+        label="Permitir multiclasse"
+        hint="Dividir os níveis entre mais de uma classe."
+        checked={rules.multiclass !== false}
+        onCheckedChange={(v) => update({ multiclass: v ? undefined : false })}
       />
 
       <Card className="space-y-3">

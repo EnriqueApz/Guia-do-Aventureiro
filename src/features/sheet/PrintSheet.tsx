@@ -4,6 +4,7 @@ import { ABILITIES } from '@/content/schema';
 import type { Character } from '@/model/character';
 import type { Sheet } from '@/rules/derive';
 import { formatMeters } from '@/rules/encumbrance';
+import { allChosenSpells } from '@/rules/spells';
 import { cn } from '@/lib/cn';
 import { ALIGNMENTS } from '@/features/wizard/detailsData';
 import {
@@ -11,6 +12,7 @@ import {
   armorList,
   damageName,
   formatBonus,
+  hitDiceLabel,
   itemName,
   joinPt,
   languageName,
@@ -61,10 +63,11 @@ function Lines({ n }: { n: number }) {
  */
 export function PrintSheet({ character, sheet }: { character: Character; sheet: Sheet }) {
   const spellById = new Map(content.spells.map((s) => [s.id, s]));
+  const chosen = allChosenSpells(character);
   const spellIds = [
-    ...character.spells.cantrips,
+    ...chosen.cantrips,
     ...(sheet.spellcasting?.alwaysPrepared ?? []),
-    ...character.spells.prepared,
+    ...chosen.prepared,
     ...sheet.grantedSpells.map((g) => g.spell),
   ];
   const spells = [...new Set(spellIds)]
@@ -74,8 +77,8 @@ export function PrintSheet({ character, sheet }: { character: Character; sheet: 
   const alignment = ALIGNMENTS.find((a) => a.id === character.details.alignment);
   const identity = [
     sheet.species?.name,
-    sheet.classDef && `${sheet.classDef.name} ${sheet.level}`,
-    sheet.subclass?.name,
+    sheet.classDef && sheet.classLabel,
+    ...sheet.classes.map((x) => x.subclass?.name),
     sheet.background?.name,
   ]
     .filter(Boolean)
@@ -127,9 +130,7 @@ export function PrintSheet({ character, sheet }: { character: Character; sheet: 
           <Box label="Iniciativa">{formatBonus(sheet.initiative.value)}</Box>
           <Box label="Desloc.">{formatMeters(sheet.speed.walk)}</Box>
           <Box label="Proficiência">{formatBonus(sheet.proficiencyBonus)}</Box>
-          <Box label="Dados de vida">
-            {sheet.hitDice.total}d{sheet.hitDice.die}
-          </Box>
+          <Box label="Dados de vida">{hitDiceLabel(sheet.hitDice)}</Box>
         </div>
 
         <div className="mt-1 grid grid-cols-[1fr_1.4fr] gap-4">
@@ -234,8 +235,14 @@ export function PrintSheet({ character, sheet }: { character: Character; sheet: 
             <h1 className="font-display text-[16pt] font-semibold">Magias</h1>
             {sheet.spellcasting && (
               <p className="num">
-                {ABILITY_LABEL[sheet.spellcasting.ability].name} · CD {sheet.spellcasting.saveDc} ·
-                ataque {formatBonus(sheet.spellcasting.attackBonus)}
+                {sheet.spellcasting.classes.length > 1
+                  ? sheet.spellcasting.classes
+                      .map(
+                        (cc) =>
+                          `${cc.className}: ${ABILITY_LABEL[cc.ability].abbr} · CD ${cc.saveDc} · ataque ${formatBonus(cc.attackBonus)}`,
+                      )
+                      .join(' | ')
+                  : `${ABILITY_LABEL[sheet.spellcasting.ability].name} · CD ${sheet.spellcasting.saveDc} · ataque ${formatBonus(sheet.spellcasting.attackBonus)}`}
               </p>
             )}
           </header>
@@ -244,6 +251,13 @@ export function PrintSheet({ character, sheet }: { character: Character; sheet: 
               {sheet.spellcasting.slots.map((n, i) =>
                 n ? (
                   <Box key={i} label={`${i + 1}º círculo`} className="min-w-20">
+                    {'☐'.repeat(n)}
+                  </Box>
+                ) : null,
+              )}
+              {sheet.spellcasting.pactSlots?.map((n, i) =>
+                n ? (
+                  <Box key={`p${i}`} label={`Pacto ${i + 1}º`} className="min-w-20">
                     {'☐'.repeat(n)}
                   </Box>
                 ) : null,

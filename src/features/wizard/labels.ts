@@ -1,5 +1,5 @@
 import { content } from '@/content';
-import type { Ability, ArmorProficiency } from '@/content/schema';
+import type { Ability, ArmorProficiency, ClassDef } from '@/content/schema';
 
 export const ABILITY_LABEL: Record<Ability, { name: string; abbr: string }> = Object.fromEntries(
   content.abilities.map((a) => [a.id, { name: a.name, abbr: a.abbr }]),
@@ -80,4 +80,32 @@ export function capitalize(s: string): string {
 
 export function formatBonus(n: number): string {
   return n >= 0 ? `+${n}` : `−${Math.abs(n)}`;
+}
+
+/** O que a classe dá a quem entra nela por multiclasse, em uma frase. */
+export function multiclassGains(cls: ClassDef): string {
+  const mc = cls.multiclass;
+  const lower = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
+  const parts = [
+    mc?.armor.length && lower(armorList(mc.armor)),
+    mc?.weapons.length && lower(weaponList(mc.weapons)),
+    ...(mc?.tools ?? []).map((t) => lower(itemName(t))),
+    ...(mc?.choices ?? []).map((ch) => lower(ch.label)),
+  ].filter(Boolean) as string[];
+  return parts.length ? `proficiência em ${parts.join('; ')}` : 'nenhuma proficiência nova';
+}
+
+/** Dados de Vida em texto: "5d8" ou, com multiclasse, "2d10 + 3d8". */
+export function hitDiceLabel(hitDice: { pools: { die: number; total: number }[] }): string {
+  return hitDice.pools.map((p) => `${p.total}d${p.die}`).join(' + ');
+}
+
+/** Espaços de magia em texto: "4× 1º · 2× 2º" (ou "—"). */
+export function slotsLabel(slots: number[]): string {
+  return (
+    slots
+      .map((n, i) => (n ? `${n}× ${i + 1}º` : null))
+      .filter(Boolean)
+      .join(' · ') || '—'
+  );
 }

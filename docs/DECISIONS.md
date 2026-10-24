@@ -3,6 +3,41 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-10-24 · Multiclasse (SRD 5.2), liberada por padrão
+
+**Contexto:** a v1 deixou multiclasse de fora para simplificar a vida do iniciante.
+O grupo quer usar, e as regras estão no SRD 5.2.
+**Decisão:**
+
+- **Modelo:** `classId` continua sendo a classe principal (a do nível 1). As outras
+  ficam em `character.multiclass` (`{ classId, subclassId?, levels }`), e a principal
+  fica com o resto do nível (mínimo 1). Personagens antigos não mudam.
+- **Regras:**
+  - características, usos e colunas contam o nível da própria classe;
+  - salvaguardas e equipamento só da principal;
+  - da classe nova, só as proficiências de multiclasse (dados do SRD, em
+    `ClassDef.multiclass`);
+  - PV: primeiro nível com o dado máximo da principal, depois a média ou a
+    rolagem do dado de cada nível (ordem: níveis da principal, depois os das outras);
+  - Dados de Vida separados por tamanho.
+- **Magia:**
+  - com duas ou mais classes conjuradoras, o nível de conjurador soma os níveis das
+    de conjuração completa e metade das de meia conjuração (arredondada para cima),
+    na tabela de conjurador completo;
+  - Magia de Pacto fica à parte;
+  - cada classe prepara as próprias magias, pelo próprio nível
+    (`spells.byClass` para as extras);
+  - Defesa sem Armadura de uma segunda classe não vale.
+- **Requisito de 13:** vira **aviso** no checklist, e não erro, porque o Mestre decide.
+- **Escopos de escolha:**
+  - classes extras usam `classe@<id>`, `subclasse@<id>` e `multiclasse:<id>:<escolha>`;
+  - talentos de nível usam `nivel<N>@<id>`.
+- **Modo mesa:** a chave "Permitir multiclasse" vem ligada; ausente = permitida.
+
+**Consequências:** a v1 dizia "multiclasse fica de fora"; isso deixa de valer.
+A ordem dos níveis para PV rolados é fixa (principal primeiro). Isso é uma
+simplificação: o jogo real permite qualquer ordem, mas na média dá o mesmo resultado.
+
 ## 2026-10-16 · Pacote de conteúdo pode trazer classes
 
 **Contexto:** o grupo quer usar classes de outros livros. O pacote só aceitava

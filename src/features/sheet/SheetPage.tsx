@@ -49,8 +49,8 @@ export default function SheetPage() {
   const pending = issues.filter((i) => i.severity === 'erro').length;
   const identity = [
     sheet.species?.name,
-    sheet.classDef && `${sheet.classDef.name} ${sheet.level}`,
-    sheet.subclass?.name,
+    sheet.classDef && sheet.classLabel,
+    ...sheet.classes.map((x) => x.subclass?.name),
     sheet.background?.name,
   ]
     .filter(Boolean)

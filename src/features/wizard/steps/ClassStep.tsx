@@ -23,6 +23,8 @@ import { useScrollIntoViewOnChange } from '../useScrollIntoView';
 import type { StepProps } from '../WizardPage';
 import { allowed, homebrewBlocked } from '@/model/table';
 import { useTable } from '@/state/table';
+import { primaryLevels } from '@/rules/classes';
+import { Multiclass } from '../parts/Multiclass';
 
 export default function ClassStep({ wizard, goTo }: StepProps) {
   const tableRules = useTable((st) => st.rules);
@@ -36,9 +38,11 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
       mode,
     );
 
+  // Com multiclasse, a classe principal fica só com os níveis dela.
+  const level = primaryLevels(character);
   const current =
-    cls?.features.filter((f) => f.level <= character.level && !f.id.endsWith('-subclass')) ?? [];
-  const upcoming = cls?.features.filter((f) => f.level > character.level) ?? [];
+    cls?.features.filter((f) => f.level <= level && !f.id.endsWith('-subclass')) ?? [];
+  const upcoming = cls?.features.filter((f) => f.level > level) ?? [];
 
   return (
     <div className="space-y-8">
@@ -148,12 +152,10 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
 
           <Section
             title={
-              character.level > 1
-                ? `O que você ganha até o nível ${character.level}`
-                : 'O que você ganha no nível 1'
+              level > 1 ? `O que você ganha até o nível ${level}` : 'O que você ganha no nível 1'
             }
           >
-            <FeatureList features={current} level={character.level} />
+            <FeatureList features={current} level={level} />
           </Section>
 
           {upcoming.length > 0 && (
@@ -162,13 +164,13 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
                 <Dices aria-hidden className="size-5 text-gold" /> Mais adiante ({upcoming.length}{' '}
                 características)
               </summary>
-              <FeatureList features={upcoming} level={character.level} className="mt-3" />
+              <FeatureList features={upcoming} level={level} className="mt-3" />
             </details>
           )}
 
-          {character.level >= 3 && (
+          {level >= 3 && (
             <p>
-              No nível {character.level} você já tem uma subclasse.{' '}
+              No nível {level} você já tem uma subclasse.{' '}
               <button
                 type="button"
                 className="cursor-pointer font-semibold text-ink underline decoration-seal decoration-2"
@@ -178,6 +180,12 @@ export default function ClassStep({ wizard, goTo }: StepProps) {
               </button>
             </p>
           )}
+        </div>
+      )}
+
+      {cls && (
+        <div className="rounded-card border border-line bg-surface/60 p-5">
+          <Multiclass wizard={wizard} />
         </div>
       )}
     </div>

@@ -14,6 +14,7 @@ export const TableRulesSchema = z.object({
   abilityMethods: z.array(z.enum(ABILITY_METHODS)).min(1),
   hpMethod: z.enum(['media', 'rolagem', 'livre']),
   allowHomebrew: z.boolean(),
+  multiclass: z.boolean().optional(),
 });
 
 export function parseTable(data: unknown): TableRules | undefined {
