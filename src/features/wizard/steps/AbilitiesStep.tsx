@@ -213,15 +213,10 @@ function ScoreControl({
         <label htmlFor={id} className="sr-only">
           {label}
         </label>
-        <input
+        <ManualScore
           id={id}
-          type="number"
-          inputMode="numeric"
-          min={3}
-          max={18}
           value={value}
-          onChange={(e) => edit((c) => setManualScore(c, ability, e.target.valueAsNumber))}
-          className="num min-h-11 w-20 rounded-lg border border-line-strong bg-bg px-3 text-lg"
+          onCommit={(v) => edit((c) => setManualScore(c, ability, v))}
         />
       </div>
     );
@@ -400,5 +395,44 @@ function BackgroundBonus({
         </div>
       )}
     </Section>
+  );
+}
+
+/**
+ * Campo de valor digitado. Enquanto a pessoa digita, o texto fica como está (dá para
+ * apagar e escrever "12"); o valor só vai para a ficha quando está entre 3 e 18, e ao
+ * sair do campo números fora da faixa são corrigidos.
+ */
+function ManualScore({
+  id,
+  value,
+  onCommit,
+}: {
+  id: string;
+  value: number;
+  onCommit: (v: number) => void;
+}) {
+  const [draft, setDraft] = useState<string | null>(null);
+  return (
+    <input
+      id={id}
+      type="number"
+      inputMode="numeric"
+      min={3}
+      max={18}
+      value={draft ?? String(value)}
+      onChange={(e) => {
+        const text = e.target.value;
+        setDraft(text);
+        const n = Number(text);
+        if (text !== '' && Number.isInteger(n) && n >= 3 && n <= 18) onCommit(n);
+      }}
+      onBlur={() => {
+        if (draft !== null && draft !== '' && Number.isFinite(Number(draft)))
+          onCommit(Number(draft));
+        setDraft(null);
+      }}
+      className="num min-h-11 w-20 rounded-lg border border-line-strong bg-bg px-3 text-lg"
+    />
   );
 }

@@ -3,6 +3,15 @@
 Decisões de arquitetura e de produto, da mais recente para a mais antiga.
 Formato: contexto → decisão → consequências.
 
+## 2026-10-29 · Atributo digitado só vai para a ficha quando é válido
+
+**Contexto:** no método “Digitar”, cada tecla já ia para a ficha e era corrigida
+para 3–18 na hora. Apagar virava 3, e o “1” de “12” virava 18; não dava para digitar.
+**Decisão:** o campo guarda o texto enquanto a pessoa digita. O valor só vai para a
+ficha quando é um inteiro de 3 a 18. Ao sair do campo, número fora da faixa é
+corrigido e campo vazio volta ao valor anterior.
+**Consequências:** coberto por `e2e/atributos.spec.ts`.
+
 ## 2026-10-24 · Multiclasse (SRD 5.2), liberada por padrão
 
 **Contexto:** a v1 deixou multiclasse de fora para simplificar a vida do iniciante.
