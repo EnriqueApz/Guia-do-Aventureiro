@@ -11,7 +11,8 @@ concurrency:
 
 jobs:
   verificar:
-    runs-on: ubuntu-latest
+    # Fixo em 24.04: o Playwright 1.56 não instala o Chromium no ubuntu-latest (26.04).
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
