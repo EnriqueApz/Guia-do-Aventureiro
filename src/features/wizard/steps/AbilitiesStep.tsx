@@ -421,6 +421,8 @@ function ManualScore({
       min={3}
       max={18}
       value={draft ?? String(value)}
+      // Ao tocar, seleciona o número: o que a pessoa digitar substitui o valor antigo.
+      onFocus={(e) => e.target.select()}
       onChange={(e) => {
         const text = e.target.value;
         setDraft(text);

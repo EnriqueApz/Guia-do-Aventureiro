@@ -22,4 +22,9 @@ test('valor digitado: dá para apagar e escrever o número inteiro', async ({ pa
   await forca.fill('');
   await forca.blur();
   await expect(forca).toHaveValue('18'); // campo vazio volta ao valor anterior
+
+  // Tocar no campo seleciona o número: digitar substitui em vez de juntar ("1812").
+  await forca.click();
+  await page.keyboard.type('9');
+  await expect(forca).toHaveValue('9');
 });
